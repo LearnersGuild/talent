@@ -82,13 +82,6 @@ const fakeProjects = [ //Until Real DB is set up
     link: "https://www.google.com"
   }
 ]
-const blurbAbout = [
-  {
-    id: 1,
-    title: "About Learner's Guild",
-    body: "This is information about Learner's Guild"
-  }
-];
 
 ReactDOM.render(
   <div>
@@ -104,7 +97,3 @@ ReactDOM.render(
     </BrowserRouter>
   </div>
   , document.querySelector('.container'));
-
-
-
-
