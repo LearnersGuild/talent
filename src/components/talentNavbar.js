@@ -5,10 +5,11 @@ import { Navbar, Nav, NavItem, NavDropdown, MenuItem } from 'react-bootstrap';
 export default class TalentNavbar extends Component {
   render() {
     return (
-      <Navbar fixedTop>
+      <Navbar>
         <Navbar.Header>
           <Navbar.Brand>
             <a href="/">Home</a>
+            <a href="/users">Users</a>
           </Navbar.Brand>
         </Navbar.Header>
         <Nav>
