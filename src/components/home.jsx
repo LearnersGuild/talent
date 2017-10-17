@@ -8,7 +8,7 @@ export default class Home extends Component {
     return (
       <div>
         <TalentNavbar />
-        <Blurb data={this.props.data} />
+        <Blurb blurbAbout={this.props.blurbAbout} />
       </div>
     );
   }

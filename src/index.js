@@ -5,20 +5,18 @@ import {Navbar, NavItem, NavDropdown, MenuItem} from 'react-bootstrap';
 
 import Home from './components/home';
 
-const data = [
+const blurbAbout = [
   {
     id: 1,
     title: "About Learner's Guild",
-    information: "This is information about Learner's Guild"
+    body: "This is information about Learner's Guild"
   }
 ];
 
 ReactDOM.render(
   <BrowserRouter>
-    <div>
-      <Switch>
-        <Route exact path="/" render={() => <Home data={data} />} />
-      </Switch>
-    </div>
+    <Switch>
+      <Route exact path="/" render={() => <Home blurbAbout={blurbAbout} />} />
+    </Switch>
   </BrowserRouter>
   , document.querySelector('.container'));
