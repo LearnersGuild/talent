@@ -1,14 +1,24 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter, Route } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import {Navbar, NavItem, NavDropdown, MenuItem} from 'react-bootstrap';
 
-import App from './components/app';
 import Home from './components/home';
-import TalentNavbar from './components/talentNavbar';
+
+const data = [
+  {
+    id: 1,
+    title: "About Learner's Guild",
+    information: "This is information about Learner's Guild"
+  }
+];
 
 ReactDOM.render(
   <BrowserRouter>
-    <Route exact path="/" component={TalentNavbar} />
+    <div>
+      <Switch>
+        <Route exact path="/" render={() => <Home data={data} />} />
+      </Switch>
+    </div>
   </BrowserRouter>
   , document.querySelector('.container'));

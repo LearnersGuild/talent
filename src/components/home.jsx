@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+
+import TalentNavbar from './talentNavbar';
+import Blurb from './blurb';
 
 export default class Home extends Component {
   render() {
     return (
       <div>
-        <p> Welcome Home! </p>
-        <Link to="/">App Page</Link>
+        <TalentNavbar />
+        <Blurb data={this.props.data} />
       </div>
     );
   }
