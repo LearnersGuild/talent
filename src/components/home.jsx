@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import Learners from './learners'
+import UserBadge from './userBadge'
 import Blurb from './blurb'
 import Projects from './projects'
 
@@ -8,9 +8,8 @@ export default class Home extends Component {
   render() {
     return (
       <div>
-        <p> Welcome Home! </p>
-        <Blurb info={this.props.info}/>
-        <Learners data={this.props.data}/>
+        <Blurb className="col-lg-1" info={this.props.info}/>
+        <UserBadge data={this.props.data}/>
         <Projects projects={this.props.projects}/>
       </div>
     );
