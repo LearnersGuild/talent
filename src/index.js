@@ -5,9 +5,10 @@ import {Navbar, NavItem, NavDropdown, MenuItem} from 'react-bootstrap';
 
 import TalentNavbar from './components/talentNavbar';
 import Home from './components/home';
-import App from './components/app';
+import Contact from './components/contact';
 import NotFound from './components/notFound';
 import Projects from './components/projects';
+import Profile from './components/profile';
 
 const tempInfo = [ //Until Real DB is set up
   {
@@ -73,7 +74,7 @@ const fakeProjects = [ //Until Real DB is set up
     link: "https://www.google.com"
   },
   {
-    title: "",
+    title: "I ran out of fake titles for projects",
     link: "https://www.google.com"
   }
 ]
@@ -85,7 +86,9 @@ ReactDOM.render(
       <Switch>
         <Route exact path="/" render={() => 
           <Home data={fakeDB} info={tempInfo[0]} projects={fakeProjects}/>} />
-        <Route path="/users/:id" component={App} />
+        <Route path="/contact" component={Contact}/>
+        <Route path="/users/:id" render={() => 
+          <Profile info={userTempInfo} projects={fakeProjects}/>} />
         <Route component={NotFound} />
       </Switch>
     </BrowserRouter>
