@@ -1,14 +1,16 @@
 import React, { Component } from 'react';
 
-import TalentNavbar from './talentNavbar';
-import Blurb from './blurb';
+import UserBadge from './userBadge'
+import Blurb from './blurb'
+import Projects from './projects'
 
 export default class Home extends Component {
   render() {
     return (
       <div>
-        <TalentNavbar />
-        <Blurb blurbAbout={this.props.blurbAbout} />
+        <Blurb className="col-lg-1" info={this.props.info}/>
+        <UserBadge data={this.props.data}/>
+        <Projects projects={this.props.projects}/>
       </div>
     );
   }

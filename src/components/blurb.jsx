@@ -4,9 +4,9 @@ export default class Blurb extends Component {
   render() {
     return (
       <div>
-        <h1 className="titleHeader">{this.props.blurbAbout[0].title}</h1>
-        <p>{this.props.blurbAbout[0].body}</p>
+        <h1>{this.props.info.name}</h1>
+        <p>{this.props.info.about}</p>
       </div>
-    );
+      ) 
   }
 }
