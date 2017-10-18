@@ -5,10 +5,9 @@ export default class Projects extends Component {
     return this.props.projects.map(project => {
       return (
         <div key={project.id}>
-          <h2>{project.title}</h2>
-          <h2>{project.link}</h2>
+          <h4><a href={project.link}>{project.title}</a></h4>
         </div>
       );
-    })
+    });
   }
 }
