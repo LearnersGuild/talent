@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 
-import Blurb from './blurb'
-import Projects from './projects'
+import Blurb from '../../components/blurb'
+import Projects from '../../components/projects'
 
-export default class User extends Component {
+export default class ProfilePage extends Component {
   render() {
     return this.props.info.map(learner => {
       return (

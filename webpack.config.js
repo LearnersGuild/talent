@@ -1,27 +1,57 @@
+const path = require('path');
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+
 module.exports = {
-  entry: [
-    './src/index.js'
-  ],
+  entry: './src/index.js',
   output: {
-    path: __dirname,
+    path: path.join(__dirname, 'public'),
     publicPath: '/',
-    filename: 'bundle.js'
+    filename: 'bundle.js',
+    chunkFilename: 'bundle.js'
   },
   module: {
-    loaders: [{
-      exclude: /node_modules/,
-      loader: 'babel',
-      query: {
-        presets: ['react', 'es2015', 'stage-1']
+    rules: [
+      {
+        exclude: [
+          /node_modules/,
+          /\.html$/,
+          /\.(js|jsx)$/,
+          /\.scss$/,
+          /\.css$/,
+          /\.json$/
+        ],
+        loader: 'url',
+        query: {
+          presets: ['react', 'es2015', 'stage-1']
+        }
+      }, {
+        test: /\.(css|scss)?$/,
+        use: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: ['css-loader', 'sass-loader'],
+          publicPath: '/public'
+        })
+      }, {
+        test: /\.(js|jsx)?$/,
+        loader: 'babel-loader',
+        include: [/(src|test)/],
+        query: {
+          presets: ['es2015']
+        }
       }
-    }]
+    ]
   },
+  plugins: [
+    new ExtractTextPlugin('style.css'),
+    new HtmlWebpackPlugin({hash: false, template: './public/template.html'})
+  ],
   resolve: {
-    extensions: ['', '.js', '.jsx']
+    extensions: ['.js', '.jsx']
   },
   devServer: {
     historyApiFallback: true,
-    contentBase: './',
+    contentBase: './public',
     port: 8081
   }
 };
