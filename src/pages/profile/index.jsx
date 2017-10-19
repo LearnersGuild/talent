@@ -10,8 +10,9 @@ export default class ProfilePage extends Component {
         <div>
           <h2>{learner.name}</h2>
           <h3>{learner.about}</h3>
+          <Projects projects={this.props.projects}/>
         </div>
-        )
+      )
     })
   }
 }
