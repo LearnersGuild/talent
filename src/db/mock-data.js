@@ -1,7 +1,7 @@
 const tempInfo = [ //Until Real DB is set up
   {
-    name: "Learners Guild",
-    about: "About Learners Guild, it...is...AWESOME!!!!!!!!!!"
+    name: "About Learners Guild",
+    about: "It...is...AWESOME!!!!!!!!!!"
   }
 ]
 
