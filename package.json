@@ -2,8 +2,11 @@
   "name": "talent",
   "version": "0.0.1",
   "description": "Learners Guild Talent",
+  "main": "src/server/server.js",
   "scripts": {
-    "start": "webpack -d && webpack-dev-server",
+    "start": "NODE_ENV=production node src/server/server.js",
+    "start:dev": "nodemon src/server/server.js",
+    "start:react-dev": "webpack -d && webpack-dev-server",
     "test": "mocha --compilers js:babel-core/register --require ./test/test_helper.js --recursive ./test",
     "test:watch": "npm run test -- --watch"
   },
@@ -16,7 +19,6 @@
   "dependencies": {
     "express": "^4.16.2",
     "lodash": "^3.10.1",
-    "nodemon": "^1.12.1",
     "react": "^16.0.0",
     "react-bootstrap": "^0.31.3",
     "react-dom": "^16.0.0",
@@ -40,6 +42,7 @@
     "jsdom": "^8.1.0",
     "mocha": "^2.4.5",
     "node-sass": "^4.5.3",
+    "nodemon": "^1.12.1",
     "sass-loader": "^6.0.6",
     "style-loader": "^0.19.0"
   },
