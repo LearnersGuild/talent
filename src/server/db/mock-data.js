@@ -9,7 +9,27 @@ const userTempInfo = [ //Until Real DB is set up
   {
     id: 1,
     name: "Aaron Villanueva",
-    about: "Some awesome kid who is highly driven to solving problems"
+    about: "Some awesome kid who is highly driven to solving problems",
+    experience: [
+      {
+        id: 1,
+        projects: "Here is the experience I have"
+      },
+      {
+        id: 2,
+        projects: "Here is another experience I have"
+      }
+    ],
+    skills: [
+      {
+        id: 1,
+        skill: 'React'
+      },
+      {
+        id: 2,
+        skill: 'express'
+      }
+    ]
   }
 ]
 
@@ -79,25 +99,4 @@ const fakeProjects = [ //Until Real DB is set up
   }
 ]
 
-const experience = [
-  {
-    id: 1,
-    projects: "Here is the experience I have"
-  },
-  {
-    id: 2,
-    projects: "Here is another experience I have"
-  }
-] 
-
-const skills = [
-  {
-    id: 1,
-    skill: 'React'
-  },
-  {
-    id: 2,
-    skill: 'express'
-  }
-]
-export {tempInfo, userTempInfo, fakeDB, fakeProjects, skills, experience}
+export {tempInfo, userTempInfo, fakeDB, fakeProjects}
