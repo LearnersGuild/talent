@@ -1,7 +1,7 @@
 const tempInfo = [ //Until Real DB is set up
   {
-    name: "Learners Guild",
-    about: "About Learners Guild, it...is...AWESOME!!!!!!!!!!"
+    name: "About Learners Guild",
+    about: "It...is...AWESOME!!!!!!!!!!"
   }
 ]
 
@@ -16,27 +16,33 @@ const userTempInfo = [ //Until Real DB is set up
 const fakeDB = [ //Until Real DB is set up
   {
     id: 1,
-    name: "Aaron"
+    name: "Aaron",
+    githubHandle: "handle1"
   },
   {
     id: 2,
-    name: "Melissa"
+    name: "Melissa",
+    githubHandle: "handle2"
   },
   {
     id: 3,
-    name: "Christine"
+    name: "Christine",
+    githubHandle: "handle3"
   },
   {
     id: 4,
-    name: "Henry"
+    name: "Henry",
+    githubHandle: "handle4"
   },
   {
     id: 5,
-    name: "Joe"
+    name: "Joe",
+    githubHandle: "handle5"
   },
   {
     id: 6,
-    name: "Audrey"
+    name: "Audrey",
+    githubHandle: "handle6"
   }
 ]
 
