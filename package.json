@@ -16,6 +16,7 @@
   "dependencies": {
     "express": "^4.16.2",
     "lodash": "^3.10.1",
+    "nodemon": "^1.12.1",
     "react": "^16.0.0",
     "react-bootstrap": "^0.31.3",
     "react-dom": "^16.0.0",
