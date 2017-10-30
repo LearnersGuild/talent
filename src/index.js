@@ -19,7 +19,7 @@ ReactDOM.render(
         <Route exact path="/" render={() =>
           <CollectionPage data={fakeDB} info={tempInfo[0]} projects={fakeProjects}/>} />
         <Route path="/learners/:githubHandle" render={() =>
-          <ProfilePage info={userTempInfo[0]} experience={experience} skills={skills} projects={fakeProjects}/>} />
+          <ProfilePage info={userTempInfo[0]} projects={fakeProjects}/>} />
         <Route component={NotFound} />
       </Switch>
     </BrowserRouter>

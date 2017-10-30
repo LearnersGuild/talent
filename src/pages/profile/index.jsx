@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 
-import Blurb from '../../components/blurb';
 import Profile from './profile';
 import Projects from '../../components/projects';
+import ExperienceList from '../../components/experienceList';
+import SkillList from '../../components/skillList';
 
 export default class ProfilePage extends Component {
   render() {
@@ -11,14 +12,14 @@ export default class ProfilePage extends Component {
       <Profile info={this.props.info} />
       <div className="row">
         <div className="col-lg-6">
-          <Blurb info={this.props.experience}/>
+          <ExperienceList list={this.props.info.experience} />
         </div>
         <div className="col-lg-6">
-          <Blurb info={this.props.skills}/>
+          <SkillList list={this.props.info.skills} />
         </div>
       </div>
       <h2 className="text-center">Projects</h2>
-      <Projects projects={this.props.projects}/>
+      <Projects projects={this.props.projects} />
     </div>
   );
   }
