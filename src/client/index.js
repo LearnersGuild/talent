@@ -3,8 +3,8 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter, Route, Switch} from 'react-router-dom';
 import {Navbar, NavItem, NavDropdown, MenuItem} from 'react-bootstrap';
 
-import css from '../public/index.scss'
-import {tempInfo, userTempInfo, fakeDB, fakeProjects, experience, skills} from './db/mock-data'
+import css from '../../public/index.scss'
+import {tempInfo, userTempInfo, fakeDB, fakeProjects, experience, skills} from '../server/db/mock-data'
 
 import TalentNavbar from './components/talentNavbar';
 import CollectionPage from './pages/collection/index';
