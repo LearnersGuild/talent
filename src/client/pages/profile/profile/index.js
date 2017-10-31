@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import {ButtonToolbar, DropdownButton, MenuItem} from 'react-bootstrap';
-
 import Blurb from '../../../components/blurb';
 
 export default class Profile extends Component {
@@ -10,7 +9,7 @@ export default class Profile extends Component {
         <h2>{this.props.info.name}</h2>
         <div className="row">
           <img className="img-responsive col-sm-5" src="/LearnerImage.png" />
-          <Blurb className="col-sm-4" info={this.props.info} />
+          <Blurb info={this.props.info} />
         </div>
         <ButtonToolbar className="row">
           <DropdownButton bsSize="large" title="Personal Contact Information" id="dropdown-size-large">
@@ -22,6 +21,6 @@ export default class Profile extends Component {
           </DropdownButton>
         </ButtonToolbar>
       </div>
-    )
+    );
   }
 }
