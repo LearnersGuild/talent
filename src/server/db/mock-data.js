@@ -99,4 +99,25 @@ const fakeProjects = [ //Until Real DB is set up
   }
 ]
 
-export {tempInfo, userTempInfo, fakeDB, fakeProjects}
+const experience = [
+  {
+    id: 1,
+    projects: "Here is the experience I have"
+  },
+  {
+    id: 2,
+    projects: "Here is another experience I have"
+  }
+] 
+
+const skills = [
+  {
+    id: 1,
+    skill: 'React'
+  },
+  {
+    id: 2,
+    skill: 'express'
+  }
+]
+export {tempInfo, userTempInfo, fakeDB, fakeProjects, skills, experience}
