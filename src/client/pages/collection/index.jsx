@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import UserGallery from './userGallery'
-import Blurb from '../../components/blurb'
+import AboutLearnersGuild from '../../components/about-learners-guild'
 import Projects from '../../components/projects'
 
 export default class CollectionPage extends Component {
@@ -9,7 +9,7 @@ export default class CollectionPage extends Component {
     return (
       <div>
       <div className="flex-column-home-page">
-        <Blurb className="col-lg-1 pagination-center" info={this.props.info}/>
+        <AboutLearnersGuild className="col-lg-1 pagination-center"/>
         <UserGallery data={this.props.data}/>
       </div>
         <h2 className="text-center">Projects</h2>
