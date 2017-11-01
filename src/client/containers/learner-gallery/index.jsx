@@ -1,27 +1,31 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-
+import _ from 'lodash';
 import Profile from '../../pages/profile'
 import CollectionPage from '../../pages/collection'
 
 class LearnerGallery extends Component {
 
   getProjects(learners) {
-    return learners.map(learner => learner.projects)
+    const allProjects = learners.map(learner => learner.projects)
+    return _.flatMapDeep(allProjects)
   }
 
   render() {
-   // console.log('learn geallery', this.props.learner.payload.filter(getProjects => getProjects.projects))
+    console.log( '---===this.props.learners===---', this.props.learners )
     return (
       <div>
-        <CollectionPage data={this.props.learner} projects={this.getProjects(this.props.learner)}/>
+        <CollectionPage
+          data={this.props.learners}
+          projects={this.getProjects(this.props.learners)}
+        />
       </div>
     )
   }
 }
 
 function mapStateToProps({ learner }) {
-  return { learner: learner.payload }
+  return { learners: learner.payload }
 }
 
 export default connect(mapStateToProps)(LearnerGallery)
