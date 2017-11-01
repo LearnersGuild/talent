@@ -5,7 +5,7 @@ export default class ExperienceList extends Component {
     return list.map(listItem => {
       return (
         <li className="list-group-item" key={listItem.id}>
-          {listItem.skill}
+          {listItem.skills}
         </li>
       );
     });

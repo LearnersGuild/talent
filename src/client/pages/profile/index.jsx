@@ -20,7 +20,6 @@ class ProfilePage extends Component {
     }
     const githubHandle = window.location.pathname.replace(/\/learners\//, '')
     const selectedLearner = filterLearner(githubHandle)
-    console.log( '---===selectedLearner===---', selectedLearner )
 
     return (
     <div className="container">
