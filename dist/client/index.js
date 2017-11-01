@@ -47,6 +47,9 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
       _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/', render: function render() {
           return _react2.default.createElement(_index4.default, { data: _mockData.fakeDB, info: _mockData.tempInfo[0], projects: _mockData.fakeProjects });
         } }),
+      _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/learners', render: function render() {
+          return _react2.default.createElement(_reactRouterDom.Redirect, { to: '/' });
+        } }),
       _react2.default.createElement(_reactRouterDom.Route, { path: '/learners/:githubHandle', render: function render() {
           return _react2.default.createElement(_index6.default, { info: _mockData.userTempInfo[0], experience: _mockData.experience, skills: _mockData.skills, projects: _mockData.fakeProjects });
         } }),

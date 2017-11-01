@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from 'react-dom'
-import { BrowserRouter, Route, Switch} from 'react-router-dom';
+import { BrowserRouter, Route, Redirect, Switch} from 'react-router-dom';
 import {Navbar, NavItem, NavDropdown, MenuItem} from 'react-bootstrap';
 
 import css from '../../public/index.scss'
@@ -18,6 +18,7 @@ render(
       <Switch>
         <Route exact path="/" render={() =>
           <CollectionPage data={fakeDB} info={tempInfo[0]} projects={fakeProjects}/>} />
+        <Route exact path="/learners" render={() => <Redirect to="/" />} />
         <Route path="/learners/:githubHandle" render={() =>
           <ProfilePage info={userTempInfo[0]} experience={experience} skills={skills} projects={fakeProjects}/>} />
         <Route component={NotFound} />
