@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 
 export default class Projects extends Component {
- 
+
   render() {
-    console.log('in projects',this.props.projects)
     return this.props.projects.map((array) => {
       return array.map(project => {
          return (

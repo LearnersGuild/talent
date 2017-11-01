@@ -2,7 +2,7 @@ export const learners = [
   {
     id: "59f7a184ae692a8b4ce9f062",
     index: 0,
-    github_handle: "www.github.com/duis",
+    github_handle: "duis",
     linkedin_profile: "www.linkedin.com/qui",
     twitter: "www.twitter.com/aliqua",
     name: "Bernadine Serrano",
@@ -26,7 +26,7 @@ export const learners = [
   {
     id: "59f7a18468a88124cd83fa60",
     index: 1,
-    github_handle: "www.github.com/exercitation",
+    github_handle: "exercitation",
     linkedin_profile: "www.linkedin.com/fugiat",
     twitter: "www.twitter.com/deserunt",
     name: "Hattie Mcmillan",
@@ -44,7 +44,7 @@ export const learners = [
   {
     id: "59f7a184338909c17bdaf6c5",
     index: 2,
-    github_handle: "www.github.com/consectetur",
+    github_handle: "consectetur",
     linkedin_profile: "www.linkedin.com/incididunt",
     twitter: "www.twitter.com/minim",
     name: "Park Huber",
@@ -68,7 +68,7 @@ export const learners = [
   {
     id: "59f7a184a6664f385161a98d",
     index: 3,
-    github_handle: "www.github.com/magna",
+    github_handle: "magna",
     linkedin_profile: "www.linkedin.com/dolor",
     twitter: "www.twitter.com/sit",
     name: "Hutchinson Hess",
@@ -92,7 +92,7 @@ export const learners = [
   {
     id: "59f7a18461800384eaa0e060",
     index: 4,
-    github_handle: "www.github.com/quis",
+    github_handle: "quis",
     linkedin_profile: "www.linkedin.com/duis",
     twitter: "www.twitter.com/ipsum",
     name: "Hines Benton",
@@ -116,7 +116,7 @@ export const learners = [
   {
     id: "59f7a184c8d77cb75a5a2044",
     index: 5,
-    github_handle: "www.github.com/cillum",
+    github_handle: "cillum",
     linkedin_profile: "www.linkedin.com/laborum",
     twitter: "www.twitter.com/laboris",
     name: "Ellen Atkins",
@@ -140,7 +140,7 @@ export const learners = [
   {
     id: "59f7a184b0171090eca53748",
     index: 6,
-    github_handle: "www.github.com/minim",
+    github_handle: "minim",
     linkedin_profile: "www.linkedin.com/consectetur",
     twitter: "www.twitter.com/Lorem",
     name: "Louella Terry",
@@ -164,7 +164,7 @@ export const learners = [
   {
     id: "59f7a1847e2f232334a57cb6",
     index: 7,
-    github_handle: "www.github.com/qui",
+    github_handle: "qui",
     linkedin_profile: "www.linkedin.com/ad",
     twitter: "www.twitter.com/aute",
     name: "Luisa Collier",
@@ -188,7 +188,7 @@ export const learners = [
   {
     id: "59f7a184902847c212f69ab7",
     index: 8,
-    github_handle: "www.github.com/nulla",
+    github_handle: "nulla",
     linkedin_profile: "www.linkedin.com/ipsum",
     twitter: "www.twitter.com/pariatur",
     name: "Kimberley Stark",
@@ -212,7 +212,7 @@ export const learners = [
   {
     id: "59f7a184ff5c2f05750c4ea9",
     index: 9,
-    github_handle: "www.github.com/Lorem",
+    github_handle: "Lorem",
     linkedin_profile: "www.linkedin.com/dolore",
     twitter: "www.twitter.com/quis",
     name: "Sonya Sims",
