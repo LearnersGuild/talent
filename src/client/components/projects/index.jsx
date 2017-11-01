@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 export default class Projects extends Component {
 
   render() {
+    console.log( '---===this.props.projects===---', this.props.projects )
     return this.props.projects.map(project => {
          return (
           <div key={project.id}>
