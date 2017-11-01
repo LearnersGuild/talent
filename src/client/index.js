@@ -1,27 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter, Route, Switch} from 'react-router-dom';
-import {Navbar, NavItem, NavDropdown, MenuItem} from 'react-bootstrap';
+import { Provider } from 'react-redux';
+import { createStore, applyMiddleware} from 'redux';
+import ReduxPromise from 'redux-promise'
 
-import css from '../../public/index.scss'
-import {tempInfo, userTempInfo, fakeDB, fakeProjects, experience, skills} from '../server/db/mock-data'
+import App from './components/app'
+import reducers from './reducers'
 
-import TalentNavbar from './components/talentNavbar';
-import CollectionPage from './pages/collection/index';
-import ProfilePage from './pages/profile/index';
-import NotFound from './components/notFound';
+const createStoreWithMiddleware = applyMiddleware(ReduxPromise)(createStore)
 
 ReactDOM.render(
-  <div>
-    <TalentNavbar/>
-    <BrowserRouter>
-      <Switch>
-        <Route exact path="/" render={() =>
-          <CollectionPage data={fakeDB} info={tempInfo[0]} projects={fakeProjects}/>} />
-        <Route path="/learners/:githubHandle" render={() =>
-          <ProfilePage info={userTempInfo[0]} projects={fakeProjects}/>} />
-        <Route component={NotFound} />
-      </Switch>
-    </BrowserRouter>
-  </div>
+  <Provider store={createStoreWithMiddleware(reducers)}>
+    <App/>
+  </Provider>
   , document.querySelector('.container'));
