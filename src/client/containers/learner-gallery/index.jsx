@@ -5,12 +5,16 @@ import Profile from '../../pages/profile'
 import CollectionPage from '../../pages/collection'
 
 class LearnerGallery extends Component {
+  
+  getProjects(learners) {
+    return learners.map(learner => learner.projects)
+  }
 
   render() {
-    console.log('what is the props', this.props)
+   // console.log('learn geallery', this.props.learner.payload.filter(getProjects => getProjects.projects))
     return (
       <div>
-        <CollectionPage data={this.props.learner.payload} projects={this.props.learner.payload.filter(learner => learner.projects)}/>
+        <CollectionPage data={this.props.learner.payload} projects={this.getProjects(this.props.learner.payload)}/>
       </div>
     )
   }
