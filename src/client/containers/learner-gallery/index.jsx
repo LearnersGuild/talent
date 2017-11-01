@@ -12,7 +12,6 @@ class LearnerGallery extends Component {
   }
 
   render() {
-    console.log( '---===this.props.learners===---', this.props.learners )
     return (
       <div>
         <CollectionPage
