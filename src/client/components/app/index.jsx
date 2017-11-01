@@ -14,7 +14,6 @@ import LearnerGallery from '../../containers/learner-gallery'
 
 class App extends Component {
   render() {
-    console.log(this.props)
     return(
       <div>
         <TalentNavbar/>
