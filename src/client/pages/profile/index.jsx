@@ -1,25 +1,46 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux';
+import _ from 'lodash';
 
-import Blurb from '../../components/blurb';
+
 import Profile from './profile';
 import Projects from '../../components/projects';
+import ExperienceList from '../../components/experienceList';
+import SkillList from '../../components/skillList';
 
-export default class ProfilePage extends Component {
+class ProfilePage extends Component {
+
   render() {
+    const filterLearner = (githubHandle) => {
+      return this.props.learners.filter(learner => {
+        let currentLearner = learner.github_handle === githubHandle
+        return currentLearner
+      })
+    }
+    const githubHandle = window.location.pathname.replace(/\/learners\//, '')
+    const selectedLearner = filterLearner(githubHandle)
+
     return (
     <div className="container">
-      <Profile info={this.props.info} />
+      <Profile info={selectedLearner[0]} />
       <div className="row">
         <div className="col-lg-6">
-          <Blurb info={this.props.experience}/>
+          <ExperienceList list={selectedLearner[0].experience} />
         </div>
         <div className="col-lg-6">
-          <Blurb info={this.props.skills}/>
+          <SkillList list={selectedLearner[0].skills} />
         </div>
       </div>
       <h2 className="text-center">Projects</h2>
-      <Projects projects={this.props.projects}/>
+      <Projects projects={selectedLearner[0].projects} />
     </div>
   );
   }
 }
+
+function mapStateToProps({ learner }) {
+  return { learners: learner.payload }
+}
+
+export default connect(mapStateToProps)(ProfilePage);
