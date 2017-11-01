@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-import _ from 'lodash';
 
 export default class ExperienceList extends Component {
   renderExperienceList(list) {
-    return _.map(list, listItem => {
+    return list.map(listItem => {
       return (
         <li className="list-group-item" key={listItem.id}>
           {listItem.skill}

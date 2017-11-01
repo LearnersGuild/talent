@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux';
-
+import _ from 'lodash';
 
 
 import Profile from './profile';
@@ -11,33 +11,30 @@ import SkillList from '../../components/skillList';
 
 class ProfilePage extends Component {
 
-
-  filterLearner(githubHandle) {
-    learner.payload.filter(learner => {
-      learner.github_handle === githubHandle
-    })
-  }
-
   render() {
-    console.log('1',this.props)
+    const filterLearner = (githubHandle) => {
+      return this.props.learners.filter(learner => {
+        let currentLearner = learner.github_handle === githubHandle
+        return currentLearner
+      })
+    }
     const githubHandle = window.location.pathname.replace(/\/learners\//, '')
-    const selectedLearner = this.props.learner.filterLearner(githubHandle).bind(this)
-
-    console.log('2', selectedLearner )
+    const selectedLearner = filterLearner(githubHandle)
+    console.log( '---===selectedLearner===---', selectedLearner )
 
     return (
     <div className="container">
-      <Profile info={selectedLearner} />
+      <Profile info={selectedLearner[0]} />
       <div className="row">
         <div className="col-lg-6">
-          <ExperienceList list={selectedLearner.experience} />
+          <ExperienceList list={selectedLearner[0].experience} />
         </div>
         <div className="col-lg-6">
-          <SkillList list={selectedLearner.skills} />
+          <SkillList list={selectedLearner[0].skills} />
         </div>
       </div>
       <h2 className="text-center">Projects</h2>
-      <Projects projects={selectedLearner.projects} />
+      <Projects projects={selectedLearner[0].projects} />
     </div>
   );
   }

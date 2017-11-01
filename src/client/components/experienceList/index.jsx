@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import _ from 'lodash';
 
 export default class ExperienceList extends Component {
   renderExperienceList(list) {
-    return _.map(list, listItem => {
+    console.log( '---===list===---', list )
+    return list.map(listItem => {
       return (
         <li className="list-group-item" key={listItem.id}>
           {listItem.projects}
@@ -13,6 +13,7 @@ export default class ExperienceList extends Component {
   }
 
   render() {
+    console.log( '---===this.props.list===---', this.props.list )
     return (
       <div>
         <h3>Experience</h3>
