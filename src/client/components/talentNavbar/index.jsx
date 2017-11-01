@@ -5,7 +5,7 @@ import { Navbar, Nav, NavItem, NavDropdown, MenuItem } from 'react-bootstrap';
 export default class TalentNavbar extends Component {
   render() {
     return (
-      <div><nav>
+      <div>
         <Navbar fixedTop>
           <Navbar.Header>
             <Navbar.Brand>
@@ -22,7 +22,7 @@ export default class TalentNavbar extends Component {
             </NavDropdown>
           </Nav>
         </Navbar>
-      </nav></div>
+      </div>
     );
   }
 }
