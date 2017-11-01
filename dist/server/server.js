@@ -17,8 +17,8 @@ var app = express();
 
 var port = process.env.PORT || 3000;
 
-app.use(express.static(path.join(__dirname, '../../public')));
-
+var assets = express.static(path.join(__dirname, '../../public'));
+app.use(assets);
 app.use('*', _routes2.default);
 
 app.listen(port, function () {

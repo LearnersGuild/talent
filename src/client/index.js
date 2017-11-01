@@ -9,11 +9,12 @@ import {tempInfo, userTempInfo, fakeDB, fakeProjects, experience, skills} from '
 import App from './components/app'
 import TalentNavbar from './components/talentNavbar';
 
-render(
-  <div>
-    <TalentNavbar/>
+render((
     <BrowserRouter>
-      <App />
+      <div>
+        <TalentNavbar/>
+        <App />
+      </div>
     </BrowserRouter>
-  </div>
+)
   , document.querySelector('.container'));

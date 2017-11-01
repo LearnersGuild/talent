@@ -38,47 +38,51 @@ var TalentNavbar = function (_Component) {
         'div',
         null,
         _react2.default.createElement(
-          _reactBootstrap.Navbar,
-          { fixedTop: true },
+          'nav',
+          null,
           _react2.default.createElement(
-            _reactBootstrap.Navbar.Header,
-            null,
+            _reactBootstrap.Navbar,
+            { fixedTop: true },
             _react2.default.createElement(
-              _reactBootstrap.Navbar.Brand,
+              _reactBootstrap.Navbar.Header,
               null,
               _react2.default.createElement(
-                'a',
-                { href: '/' },
-                'Home'
+                _reactBootstrap.Navbar.Brand,
+                null,
+                _react2.default.createElement(
+                  _reactRouterDom.Link,
+                  { to: '/' },
+                  'Home'
+                )
               )
-            )
-          ),
-          _react2.default.createElement(
-            _reactBootstrap.Nav,
-            null,
+            ),
             _react2.default.createElement(
-              _reactBootstrap.NavDropdown,
-              { eventKey: 1, title: 'Dropdown', id: 'basic-nav-dropdown' },
+              _reactBootstrap.Nav,
+              null,
               _react2.default.createElement(
-                _reactBootstrap.MenuItem,
-                { eventKey: 1.1 },
-                'Action'
-              ),
-              _react2.default.createElement(
-                _reactBootstrap.MenuItem,
-                { eventKey: 1.2 },
-                'Another action'
-              ),
-              _react2.default.createElement(
-                _reactBootstrap.MenuItem,
-                { eventKey: 1.3 },
-                'Something else here'
-              ),
-              _react2.default.createElement(_reactBootstrap.MenuItem, { divider: true }),
-              _react2.default.createElement(
-                _reactBootstrap.MenuItem,
-                { eventKey: 1.4 },
-                'Separated link'
+                _reactBootstrap.NavDropdown,
+                { eventKey: 1, title: 'Dropdown', id: 'basic-nav-dropdown' },
+                _react2.default.createElement(
+                  _reactBootstrap.MenuItem,
+                  { eventKey: 1.1 },
+                  'Action'
+                ),
+                _react2.default.createElement(
+                  _reactBootstrap.MenuItem,
+                  { eventKey: 1.2 },
+                  'Another action'
+                ),
+                _react2.default.createElement(
+                  _reactBootstrap.MenuItem,
+                  { eventKey: 1.3 },
+                  'Something else here'
+                ),
+                _react2.default.createElement(_reactBootstrap.MenuItem, { divider: true }),
+                _react2.default.createElement(
+                  _reactBootstrap.MenuItem,
+                  { eventKey: 1.4 },
+                  'Separated link'
+                )
               )
             )
           )

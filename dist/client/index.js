@@ -27,12 +27,12 @@ var _talentNavbar2 = _interopRequireDefault(_talentNavbar);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 (0, _reactDom.render)(_react2.default.createElement(
-  'div',
+  _reactRouterDom.BrowserRouter,
   null,
-  _react2.default.createElement(_talentNavbar2.default, null),
   _react2.default.createElement(
-    _reactRouterDom.BrowserRouter,
+    'div',
     null,
+    _react2.default.createElement(_talentNavbar2.default, null),
     _react2.default.createElement(_app2.default, null)
   )
 ), document.querySelector('.container'));

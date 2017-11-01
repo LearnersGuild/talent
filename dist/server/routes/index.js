@@ -24,18 +24,15 @@ var _app2 = _interopRequireDefault(_app);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+var router = require('express').Router();
+
+
 var path = require('path');
 
-function router(req, res) {
-
+router.use('*', function (req, res) {
   var match = _routes2.default.reduce(function (acc, route) {
     return (0, _reactRouterDom.matchPath)(req.url, { path: route, exact: true }) || acc;
   }, null);
-
-  // if (!match) {
-  //   res.status(404).send('page not found')
-  //   return
-  // }
 
   var context = {};
 
@@ -44,11 +41,7 @@ function router(req, res) {
     { context: context, location: req.url },
     _react2.default.createElement(_app2.default, null)
   ));
-
   res.send((0, _renderFullPage2.default)(html));
-}
-// router.get('*', (req, res) => {
-//   res.sendFile(path.join(__dirname, '../../../public/index.html'))
-// })
+});
 
 module.exports = router;
