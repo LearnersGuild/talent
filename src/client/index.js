@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { render } from 'react-dom'
 import { BrowserRouter, Route, Switch} from 'react-router-dom';
 import {Navbar, NavItem, NavDropdown, MenuItem} from 'react-bootstrap';
 
@@ -11,7 +11,7 @@ import CollectionPage from './pages/collection/index';
 import ProfilePage from './pages/profile/index';
 import NotFound from './components/notFound';
 
-ReactDOM.render(
+render(
   <div>
     <TalentNavbar/>
     <BrowserRouter>
