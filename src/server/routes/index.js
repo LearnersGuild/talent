@@ -11,12 +11,12 @@ import { tempInfo, userTempInfo, fakeDB, fakeProjects, experience, skills } from
 import App from '../../client/components/app'
 
 router.use('*', (req, res) => {
-  const match = routes.reduce((acc, route) => matchPath(req.url, { path: route, exact: true}) || acc, null)
+  const match = routes.reduce((acc, route) => matchPath(req.originalUrl, { path: route, exact: true}) || acc, null)
 
   const context = {}
 
   const html = renderToString(
-    <StaticRouter context={context} location={req.url} >
+    <StaticRouter context={context} location={req.originalUrl} >
       <App />
     </StaticRouter>
   )
