@@ -9,7 +9,7 @@ export default class Profile extends Component {
       <div>
         <h2>{this.props.info.name}</h2>
         <div className="row">
-          <img className="img-responsive col-sm-5" src="/LearnerImage.png" />
+          <img className="img-responsive col-sm-5" src="../../LearnerImage.png" />
           <Blurb className="col-sm-4" info={this.props.info} />
         </div>
         <ButtonToolbar className="row">

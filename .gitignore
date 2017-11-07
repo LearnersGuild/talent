@@ -1,4 +1,6 @@
+dist
 /node_modules
+build
 bundle.js
 index.html
 style.css

@@ -1,27 +1,14 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import { BrowserRouter, Route, Switch} from 'react-router-dom';
-import {Navbar, NavItem, NavDropdown, MenuItem} from 'react-bootstrap';
+import { render } from 'react-dom'
+import { BrowserRouter } from 'react-router-dom';
 
-import css from '../../public/index.scss'
-import {tempInfo, userTempInfo, fakeDB, fakeProjects, experience, skills} from '../server/db/mock-data'
+import App from './components/app'
 
-import TalentNavbar from './components/talentNavbar';
-import CollectionPage from './pages/collection/index';
-import ProfilePage from './pages/profile/index';
-import NotFound from './components/notFound';
-
-ReactDOM.render(
-  <div>
-    <TalentNavbar/>
+render((
     <BrowserRouter>
-      <Switch>
-        <Route exact path="/" render={() =>
-          <CollectionPage data={fakeDB} info={tempInfo[0]} projects={fakeProjects}/>} />
-        <Route path="/learners/:githubHandle" render={() =>
-          <ProfilePage info={userTempInfo[0]} experience={experience} skills={skills} projects={fakeProjects}/>} />
-        <Route component={NotFound} />
-      </Switch>
+      <div>
+        <App />
+      </div>
     </BrowserRouter>
-  </div>
+)
   , document.querySelector('.container'));
