@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux'
+import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import _ from 'lodash';
-
 
 import Profile from './profile';
 import Projects from '../../components/projects';
@@ -11,25 +10,27 @@ import SkillList from '../../components/skillList';
 
 class ProfilePage extends Component {
 
+  filterLearner (githubHandle) {
+    return this.props.learners.filter(learner => {
+      let currentLearner = learner.github_handle === githubHandle;
+      return currentLearner;
+    });
+  }
+
   render() {
-    const filterLearner = (githubHandle) => {
-      return this.props.learners.filter(learner => {
-        let currentLearner = learner.github_handle === githubHandle
-        return currentLearner
-      })
-    }
-    const githubHandle = window.location.pathname.replace(/\/learners\//, '')
-    const selectedLearner = filterLearner(githubHandle)
+    // const githubHandle = window.location.pathname.replace(/\/learners\//, '');
+    const githubHandle = this.props.match.url.replace(/\/learners\//, '');
+    const selectedLearner = this.filterLearner(githubHandle);
 
     return (
     <div className="container">
       <Profile info={selectedLearner[0]} />
       <div className="row">
         <div className="col-lg-6">
-          <ExperienceList list={selectedLearner[0].experience} />
+          <ExperienceList experiences={selectedLearner[0].experience} />
         </div>
         <div className="col-lg-6">
-          <SkillList list={selectedLearner[0].skills} />
+          <SkillList skills={selectedLearner[0].skills} />
         </div>
       </div>
       <h2 className="text-center">Projects</h2>
@@ -40,7 +41,7 @@ class ProfilePage extends Component {
 }
 
 function mapStateToProps({ learner }) {
-  return { learners: learner.payload }
+  return { learners: learner.payload };
 }
 
 export default connect(mapStateToProps)(ProfilePage);

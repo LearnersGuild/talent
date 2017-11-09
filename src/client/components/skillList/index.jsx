@@ -16,7 +16,7 @@ export default class ExperienceList extends Component {
       <div>
         <h3>Skills</h3>
         <ul className="list-group">
-          {this.renderExperienceList(this.props.list)}
+          {this.renderExperienceList(this.props.skills)}
         </ul>
       </div>
     );
