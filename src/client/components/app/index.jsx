@@ -14,7 +14,7 @@ export default class App extends Component {
   render() {
     return(
       <div>
-          <TalentNavbar/>
+        <TalentNavbar/>
           <Switch>
             <Route exact path="/" component={LearnerGallery}/>
             <Route path="/learners/:githubHandle" component={ProfilePage} />
@@ -24,14 +24,3 @@ export default class App extends Component {
     )
   }
 }
-
-//   render() {
-//     return(
-//       <div>
-//         <BrowserRouter>
-//           <h1>Hello World!</h1>
-//         </BrowserRouter>
-//       </div>
-//     )
-//   }
-// }
