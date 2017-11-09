@@ -1,29 +1,26 @@
-import React from 'react'
-import {
-  Redirect,
-  Route,
-  Switch
-} from 'react-router-dom'
+import React, { Component } from 'react';
 
-import CollectionPage from '../../pages/collection/index';
-import ProfilePage from '../../pages/profile/index';
-import TalentNavbar from '../talentNavbar';
-import NotFound from '../notFound';
-import { tempInfo, userTempInfo, fakeDB, fakeProjects, experience, skills } from '../../../server/db/mock-data'
+import ReactDOM from 'react-dom';
+import { BrowserRouter, Route, Switch} from 'react-router-dom';
+import {Navbar, NavItem, NavDropdown, MenuItem} from 'react-bootstrap';
 
-export default function App(props) {
+import TalentNavbar from '../../components/talentNavbar';
+import CollectionPage from '../../pages/collection';
+import ProfilePage from '../../pages/profile';
+import NotFound from '../../components/notFound';
+import LearnerGallery from '../../containers/learner-gallery'
 
-  return (
-    <div>
-      <TalentNavbar/>
-      <Switch>
-        <Route exact path="/" render={() =>
-          <CollectionPage data={fakeDB} info={tempInfo[0]} projects={fakeProjects}/>} />
-        <Route path="/learners/:githubHandle" render={() =>
-          <ProfilePage info={userTempInfo[0]} experience={experience} skills={skills} projects={fakeProjects}/>} />
-        <Route exact path="/learners" render={() => <Redirect to="/" />} />
-        <Route component={NotFound} />
-      </Switch>
-    </div>
-  )
+export default class App extends Component {
+  render() {
+    return(
+      <div>
+        <TalentNavbar/>
+          <Switch>
+            <Route exact path="/" component={LearnerGallery}/>
+            <Route path="/learners/:githubHandle" component={ProfilePage} />
+            <Route component={NotFound} />
+          </Switch>
+      </div>
+    )
+  }
 }

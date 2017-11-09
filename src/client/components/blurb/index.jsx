@@ -5,8 +5,8 @@ export default class Blurb extends Component {
     return (
       <div className="text-center">
         <h1>{this.props.info.name}</h1>
-        <p>{this.props.info.about}</p>
+        <p>{this.props.info.story}</p>
       </div>
-      )
+    );
   }
 }
