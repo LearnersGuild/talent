@@ -1,41 +1,32 @@
 import React, { Component } from 'react';
-
-import ReactDOM from 'react-dom';
-import { ServerRouter, BrowserRouter, Route, Switch} from 'react-router-dom';
-import {Navbar, NavItem, NavDropdown, MenuItem} from 'react-bootstrap';
+import { Route, Switch} from 'react-router-dom';
 
 import TalentNavbar from '../../components/talentNavbar';
-import CollectionPage from '../../pages/collection';
-import ProfilePage from '../../pages/profile';
+import ProfilePage from '../../containers/profile';
 import NotFound from '../../components/notFound';
-import LearnerGallery from '../../containers/learner-gallery'
+import LearnerGallery from '../../components/learnerGallery'
+import SkillsSearch from '../../components/skillsSearch'
 
 export default class App extends Component {
-  // render() {
-  //   return(
-  //     <div>
-  //       <TalentNavbar/>
-  //       <ServerRouter>
-  //         <Switch>
-  //           <Route exact path="/" component={ProfilePage}/>
-  //           <Route path="/learners/:githubHandle" component={ProfilePage} />
-  //           <Route component={NotFound} />
-  //         </Switch>
-  //       </ServerRouter>
-  //     </div>
-  //   )
-  // }
-
   render() {
-    return(
+    return (
       <div>
         <TalentNavbar/>
-         <Switch>
-           <Route exact path="/" render={()=> <LearnerGallery />}/>
-           <Route path="/learners/:githubHandle" component={ProfilePage} />
-           <Route component={NotFound} />
-         </Switch>
+          <Switch>
+            <Route exact path="/" render={props => (
+              <LearnerGallery type="current" />
+            )} />
+            <Route exact path="/learners" render={props => (
+              <LearnerGallery type="all" />
+            )} />
+            <Route exact path="/skills" component={SkillsSearch} />
+            <Route exact path="/learners/:githubHandle" component={ProfilePage} />
+            <Route exact path="/alumni" render={props => (
+              <LearnerGallery type="alumni" />
+            )} />
+            <Route component={NotFound} />
+          </Switch>
       </div>
-    )
+    );
   }
 }

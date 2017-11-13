@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux'
-import LearnerReducer from './reducer-learner' 
+import LearnerReducer from './reducer-learner'
 
 const rootReducer = combineReducers({
-  learner : LearnerReducer
-})
+  learners: LearnerReducer,
+});
 
-export default rootReducer
+export default rootReducer;
