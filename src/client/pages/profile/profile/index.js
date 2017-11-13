@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import {ButtonToolbar, DropdownButton, MenuItem} from 'react-bootstrap';
-
 import Blurb from '../../../components/blurb';
 
 export default class Profile extends Component {
@@ -22,6 +21,6 @@ export default class Profile extends Component {
           </DropdownButton>
         </ButtonToolbar>
       </div>
-    )
+    );
   }
 }
