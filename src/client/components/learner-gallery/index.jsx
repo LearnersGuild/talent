@@ -15,6 +15,7 @@ class LearnerGallery extends Component {
       <div>
         <CollectionPage
           data={this.props.learners}
+          info={ {name: "About Learners Guild", story: "This is just a sentence."} }
           projects={this.getProjects(this.props.learners)}
         />
       </div>

@@ -3,8 +3,8 @@ export const learners = [
     id: "59f7a184ae692a8b4ce9f062",
     index: 0,
     github_handle: "hhhhhaaaa",
-    linkedin_profile: "www.linkedin.com/dougell",
-    twitter: "www.twitter.com/sqwrlboy",
+    linkedin_profile: "dougell",
+    twitter: "sqwrlboy",
     name: "Douglas Lubaway",
     email: "douglaslubaway@gmail.com",
     story: "Adipisicing elit aliquip nulla officia. Tempor sint cillum veniam dolore consectetur duis ut aliqua id laborum. Eiusmod ex ex ad ea amet sit occaecat do consequat amet.\r\n",
@@ -20,7 +20,8 @@ export const learners = [
     experience: [
         {id: 5, projects: "Pro1"},
         {id: 6, projects: "Pro2"}
-    ]
+    ],
+    hired: true
   },
   {
     id: "59f7a18468a88124cd83fa60",
@@ -38,7 +39,8 @@ export const learners = [
         {id: 56, title: "React/Redux", link: "http://google.com"}
     ],
     skills: [],
-    experience: []
+    experience: [],
+    hired: false
   },
   {
     id: "59f7a184338909c17bdaf6c5",

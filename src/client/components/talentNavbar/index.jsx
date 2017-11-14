@@ -13,8 +13,8 @@ export default class TalentNavbar extends Component {
             </Navbar.Brand>
           </Navbar.Header>
           <Nav>
-            <NavDropdown eventKey="1" title="Dropdown" id="basic-nav-dropdown">
-              <MenuItem eventKey="1.1">Action</MenuItem>
+            <NavDropdown eventKey="1" title="Sort By" id="basic-nav-dropdown">
+              <MenuItem href="/alumni" eventKey="1.1">Alumni</MenuItem>
               <MenuItem eventKey="1.2">Another action</MenuItem>
               <MenuItem eventKey="1.3">Something else here</MenuItem>
               <MenuItem divider />
