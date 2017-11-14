@@ -22,7 +22,7 @@ class ProfilePage extends Component {
 
     return (
     <div className="container">
-      <Profile info={selectedLearner[0]} />
+      <Profile github_handle={selectedLearner[0].github_handle} info={selectedLearner[0]} />
       <div className="row">
         <div className="col-lg-6">
           <ExperienceList experiences={selectedLearner[0].experience} />
