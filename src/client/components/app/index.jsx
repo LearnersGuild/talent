@@ -5,10 +5,10 @@ import { BrowserRouter, Route, Switch} from 'react-router-dom';
 import {Navbar, NavItem, NavDropdown, MenuItem} from 'react-bootstrap';
 
 import TalentNavbar from '../../components/talentNavbar';
-import CollectionPage from '../../pages/collection';
-import ProfilePage from '../../pages/profile';
+import CollectionPage from '../../containers/collection';
+import ProfilePage from '../../containers/profile';
 import NotFound from '../../components/notFound';
-import LearnerGallery from '../../containers/learner-gallery'
+import LearnerGallery from '../../components/learner-gallery'
 
 export default class App extends Component {
   render() {

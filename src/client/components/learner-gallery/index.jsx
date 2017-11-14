@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import _ from 'lodash';
-import Profile from '../../pages/profile'
-import CollectionPage from '../../pages/collection'
+import Profile from '../../containers/profile'
+import CollectionPage from '../../containers/collection'
 
 class LearnerGallery extends Component {
 
