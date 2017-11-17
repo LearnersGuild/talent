@@ -2,16 +2,15 @@ export const learners = [
   {
     id: "59f7a184ae692a8b4ce9f062",
     index: 0,
-    github_handle: "duis",
-    linkedin_profile: "www.linkedin.com/qui",
-    twitter: "www.twitter.com/aliqua",
-    name: "Bernadine Serrano",
-    email: "bernadineserrano@kraggle.com",
-    phone: "+1 (843) 433-3324",
+    github_handle: "hhhhhaaaa",
+    linkedin_profile: "dougell",
+    twitter: "sqwrlboy",
+    name: "Douglas Lubaway",
+    email: "douglaslubaway@gmail.com",
     story: "Adipisicing elit aliquip nulla officia. Tempor sint cillum veniam dolore consectetur duis ut aliqua id laborum. Eiusmod ex ex ad ea amet sit occaecat do consequat amet.\r\n",
     join_date: "2015-07-19T03:25:35 +07:00",
     projects: [
-        {id: 1, title: "ReactPro", link: "http://google.com"},
+        {id: 1, title: "ReactPro", link: "https://github.com/hhhhhaaaa/book-store"},
         {id: 2, title: "React/Redux", link: "http://google.com"}
     ],
     skills: [
@@ -21,7 +20,8 @@ export const learners = [
     experience: [
         {id: 5, projects: "Pro1"},
         {id: 6, projects: "Pro2"}
-    ]
+    ],
+    alumni: true
   },
   {
     id: "59f7a18468a88124cd83fa60",
@@ -39,7 +39,8 @@ export const learners = [
         {id: 56, title: "React/Redux", link: "http://google.com"}
     ],
     skills: [],
-    experience: []
+    experience: [],
+    alumni: false
   },
   {
     id: "59f7a184338909c17bdaf6c5",
@@ -63,7 +64,8 @@ export const learners = [
     experience: [
         {id: 11, projects: "Pro1"},
         {id: 12, projects: "Pro2"}
-    ]
+    ],
+    alumni: false
   },
   {
     id: "59f7a184a6664f385161a98d",
@@ -87,7 +89,8 @@ export const learners = [
     experience: [
         {id: 17, projects: "Pro1"},
         {id: 18, projects: "Pro2"}
-    ]
+    ],
+    alumni: false
   },
   {
     id: "59f7a18461800384eaa0e060",
@@ -111,7 +114,8 @@ export const learners = [
     experience: [
         {id: 23, projects: "Pro1"},
         {id: 24, projects: "Pro2"}
-    ]
+    ],
+    alumni: false
   },
   {
     id: "59f7a184c8d77cb75a5a2044",
@@ -135,7 +139,8 @@ export const learners = [
     experience: [
         {id: 29, projects: "Pro1"},
         {id: 30, projects: "Pro2"}
-    ]
+    ],
+    alumni: true
   },
   {
     id: "59f7a184b0171090eca53748",
@@ -159,7 +164,8 @@ export const learners = [
     experience: [
         {id: 35, projects: "Pro1"},
         {id: 36, projects: "Pro2"}
-    ]
+    ],
+    alumni: false
   },
   {
     id: "59f7a1847e2f232334a57cb6",
@@ -183,7 +189,8 @@ export const learners = [
     experience: [
         {id: 41, projects: "Pro1"},
         {id: 42, projects: "Pro2"}
-    ]
+    ],
+    alumni: false
   },
   {
     id: "59f7a184902847c212f69ab7",
@@ -207,7 +214,8 @@ export const learners = [
     experience: [
         {id: 47, projects: "Pro1"},
         {id: 48, projects: "Pro2"}
-    ]
+    ],
+    alumni: true
   },
   {
     id: "59f7a184ff5c2f05750c4ea9",
@@ -231,6 +239,7 @@ export const learners = [
     experience: [
         {id: 53, projects: "Pro1"},
         {id: 54, projects: "Pro2"}
-    ]
+    ],
+    alumni: false
   }
 ]
