@@ -6,19 +6,23 @@ export default class TalentNavbar extends Component {
   render() {
     return (
       <div>
-        <Navbar fixedTop>
+        <Navbar className="navbar" fixedTop>
           <Navbar.Header>
             <Navbar.Brand>
-              <Link to="/">Home</Link>
+              <ul className="navbar-nav list-group">
+                <li className="nav-item list-group-item">
+                  <Link to="/">Home</Link>
+                </li>
+                <li className="nav-item list-group-item">
+                  <Link to="/alumni">Alumni</Link>
+                </li>
+              </ul>
             </Navbar.Brand>
           </Navbar.Header>
           <Nav>
-            <NavDropdown eventKey="1" title="Sort By" id="basic-nav-dropdown">
-              <MenuItem href="/alumni" eventKey="1.1">Alumni</MenuItem>
-              <MenuItem eventKey="1.2">Another action</MenuItem>
-              <MenuItem eventKey="1.3">Something else here</MenuItem>
-              <MenuItem divider />
-              <MenuItem eventKey="1.4">Separated link</MenuItem>
+            <NavDropdown eventKey="1" title="Search By" id="basic-nav-dropdown">
+              <MenuItem eventKey="1.1">People</MenuItem>
+              <MenuItem eventKey="1.2">Skills</MenuItem>
             </NavDropdown>
           </Nav>
         </Navbar>

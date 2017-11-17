@@ -21,7 +21,7 @@ export const learners = [
         {id: 5, projects: "Pro1"},
         {id: 6, projects: "Pro2"}
     ],
-    hired: true
+    alumni: true
   },
   {
     id: "59f7a18468a88124cd83fa60",
@@ -40,7 +40,7 @@ export const learners = [
     ],
     skills: [],
     experience: [],
-    hired: false
+    alumni: false
   },
   {
     id: "59f7a184338909c17bdaf6c5",
@@ -64,7 +64,8 @@ export const learners = [
     experience: [
         {id: 11, projects: "Pro1"},
         {id: 12, projects: "Pro2"}
-    ]
+    ],
+    alumni: false
   },
   {
     id: "59f7a184a6664f385161a98d",
@@ -88,7 +89,8 @@ export const learners = [
     experience: [
         {id: 17, projects: "Pro1"},
         {id: 18, projects: "Pro2"}
-    ]
+    ],
+    alumni: false
   },
   {
     id: "59f7a18461800384eaa0e060",
@@ -112,7 +114,8 @@ export const learners = [
     experience: [
         {id: 23, projects: "Pro1"},
         {id: 24, projects: "Pro2"}
-    ]
+    ],
+    alumni: false
   },
   {
     id: "59f7a184c8d77cb75a5a2044",
@@ -136,7 +139,8 @@ export const learners = [
     experience: [
         {id: 29, projects: "Pro1"},
         {id: 30, projects: "Pro2"}
-    ]
+    ],
+    alumni: true
   },
   {
     id: "59f7a184b0171090eca53748",
@@ -160,7 +164,8 @@ export const learners = [
     experience: [
         {id: 35, projects: "Pro1"},
         {id: 36, projects: "Pro2"}
-    ]
+    ],
+    alumni: false
   },
   {
     id: "59f7a1847e2f232334a57cb6",
@@ -184,7 +189,8 @@ export const learners = [
     experience: [
         {id: 41, projects: "Pro1"},
         {id: 42, projects: "Pro2"}
-    ]
+    ],
+    alumni: false
   },
   {
     id: "59f7a184902847c212f69ab7",
@@ -208,7 +214,8 @@ export const learners = [
     experience: [
         {id: 47, projects: "Pro1"},
         {id: 48, projects: "Pro2"}
-    ]
+    ],
+    alumni: true
   },
   {
     id: "59f7a184ff5c2f05750c4ea9",
@@ -232,6 +239,7 @@ export const learners = [
     experience: [
         {id: 53, projects: "Pro1"},
         {id: 54, projects: "Pro2"}
-    ]
+    ],
+    alumni: false
   }
 ]

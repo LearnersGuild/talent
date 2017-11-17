@@ -16,7 +16,6 @@ class ProfilePage extends Component {
   }
 
   render() {
-    // const githubHandle = window.location.pathname.replace(/\/learners\//, '');
     const githubHandle = this.props.match.url.replace(/\/learners\//, '');
     const selectedLearner = this.filterLearner(githubHandle);
 

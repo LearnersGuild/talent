@@ -12,7 +12,7 @@ export default class App extends Component {
       <div>
         <TalentNavbar/>
           <Switch>
-            <Route exact path="/" component={LearnerGallery}/>
+            <Route exact path="/" component={LearnerGallery} />
             <Route path="/learners/:githubHandle" component={ProfilePage} />
             <Route path="/alumni" component={LearnerGallery} />
             <Route component={NotFound} />
