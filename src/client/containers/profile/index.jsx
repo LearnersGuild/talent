@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import _ from 'lodash';
 
 import Profile from './profile';
 import Projects from '../../components/projects';
@@ -18,13 +16,12 @@ class ProfilePage extends Component {
   }
 
   render() {
-    // const githubHandle = window.location.pathname.replace(/\/learners\//, '');
     const githubHandle = this.props.match.url.replace(/\/learners\//, '');
     const selectedLearner = this.filterLearner(githubHandle);
 
     return (
     <div className="container">
-      <Profile info={selectedLearner[0]} />
+      <Profile github_handle={selectedLearner[0].github_handle} linkedin_profile={selectedLearner[0].linkedin_profile} twitter={selectedLearner[0].twitter} info={selectedLearner[0]} />
       <div className="row">
         <div className="col-lg-6">
           <ExperienceList experiences={selectedLearner[0].experience} />
