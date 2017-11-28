@@ -1,11 +1,11 @@
-import { fetchLearners, FETCH_ALUMNI_LEARNERS, FETCH_CURRENT_LEARNERS } from '../actions/'
+import { FETCH_ALUMNI_LEARNERS, FETCH_CURRENT_LEARNERS } from '../actions/';
 
-export default function(state = fetchLearners(), action) {
-  switch(action.type) {
+export default function(state = [], action) {
+  switch (action.type) {
     case FETCH_CURRENT_LEARNERS:
-      return [action.payload, ...state]
+      return action.payload;
     case FETCH_ALUMNI_LEARNERS:
-      return [action.payload, ...state]
+      return action.payload;
   }
-  return state
+  return state;
 }

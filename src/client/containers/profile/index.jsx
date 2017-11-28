@@ -37,8 +37,8 @@ class ProfilePage extends Component {
   }
 }
 
-function mapStateToProps({ learner }) {
-  return { learners: learner.payload };
+function mapStateToProps({ learners }) {
+  return { learners: learners.payload };
 }
 
 export default connect(mapStateToProps)(ProfilePage);

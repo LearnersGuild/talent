@@ -43,7 +43,6 @@ module.exports = {
   },
   plugins: [
     new ExtractTextPlugin('style.css'),
-    // new HtmlWebpackPlugin({hash: false, template: './public/template.html'})
   ],
   resolve: {
     extensions: ['.js', '.jsx']
