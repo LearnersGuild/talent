@@ -8,16 +8,20 @@ import LearnerGallery from '../../components/learner-gallery'
 
 export default class App extends Component {
   render() {
-    return(
+    return (
       <div>
         <TalentNavbar/>
           <Switch>
-            <Route exact path="/" component={LearnerGallery} />
+            <Route exact path="/" render={props => (
+              <LearnerGallery type="current" />
+            )} />
             <Route path="/learners/:githubHandle" component={ProfilePage} />
-            <Route path="/alumni" component={LearnerGallery} />
+            <Route path="/alumni" render={props => (
+              <LearnerGallery type="alumni" />
+            )} />
             <Route component={NotFound} />
           </Switch>
       </div>
-    )
+    );
   }
 }

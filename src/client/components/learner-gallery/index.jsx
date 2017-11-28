@@ -7,22 +7,38 @@ import { createStore, bindActionCreators } from 'redux';
 import reducers from '../../reducers';
 
 class LearnerGallery extends Component {
+
+  filterLearner (type) {
+    return this.props.learners.filter(learner => {
+      if (type === 'alumni') {
+        if (learner.alumni === true) {
+          return learner;
+        }
+      } else if (type === 'current') {
+        if (learner.alumni === false) {
+          return learner;
+        }
+      }
+    });
+  }
+
   getProjects(learners) {
     const allProjects = learners.map(learner => learner.projects);
     return _.flatMapDeep(allProjects);
   }
 
-  componentWillMount() {
-    this.props.fetchLearners('alumni');
-  }
+  // componentWillMount() {
+  //   this.props.fetchLearners();
+  // }
 
   render() {
+    const learners = this.filterLearner(this.props.type);
     return (
       <div>
         <CollectionPage
-          data={this.props.learners}
+          data={learners}
           info={ { name: 'About Learners Guild', story: 'This is just a sentence.' } }
-          projects={this.getProjects(this.props.learners)}
+          projects={this.getProjects(learners)}
         />
       </div>
     );
