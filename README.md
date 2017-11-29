@@ -33,6 +33,7 @@ npm install
 Then run the server.
 
 ```
+npm run build
 npm start
 ```
 Globally install nvm, avn, and avn-nvm.
