@@ -7,6 +7,32 @@ import { createStore, bindActionCreators } from 'redux';
 import reducers from '../../reducers';
 
 class LearnerGallery extends Component {
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      currentView: this.filterLearner(this.props.type)
+    }
+    this.handleChange = this.handleChange.bind(this)
+  }
+
+  handleChange (event) {
+    event.preventDefault
+    this.setState({currentView: event.target.value})
+  }
+
+  filterByName () {
+    console.log("this.state.currentView:::", this.state.currentView)
+    const filteredLearner = this.filterLearner(this.props.type)
+    if (Array.isArray(this.state.currentView)) {
+      return this.filterLearner(this.props.type)
+    }
+    return filteredLearner.filter(learner => {
+      if (learner.name.toLowerCase().startsWith(this.state.currentView)) {
+        return learner
+      }
+    })
+  }
 
   filterLearner (type) {
     return this.props.learners.filter(learner => {
@@ -29,18 +55,16 @@ class LearnerGallery extends Component {
     return _.flatMapDeep(allProjects);
   }
 
-  // componentWillMount() {
-  //   this.props.fetchLearners();
-  // }
-
   render() {
-    const learners = this.filterLearner(this.props.type);
     return (
       <div>
+        <form>
+          <input type="text" placeholder="search" onChange={this.handleChange}></input>
+        </form>
         <CollectionPage
-          data={learners}
+          data={this.filterByName()}
           info={ { name: 'About Learners Guild', story: 'This is just a sentence.' } }
-          projects={this.getProjects(learners)}
+          projects={this.getProjects(this.filterByName())}
         />
       </div>
     );
