@@ -18,6 +18,8 @@ class LearnerGallery extends Component {
         if (learner.alumni === false) {
           return learner;
         }
+      } else {
+        return learner;
       }
     });
   }
