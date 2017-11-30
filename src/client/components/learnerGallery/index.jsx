@@ -14,12 +14,11 @@ class LearnerGallery extends Component {
   }
 
   handleChange (event) {
-    event.preventDefault
+    event.preventDefault()
     this.setState({currentView: event.target.value})
   }
 
   filterByName () {
-    console.log("this.state.currentView:::", this.state.currentView)
     const filteredLearner = this.filterLearner(this.props.type)
     if (Array.isArray(this.state.currentView)) {
       return this.filterLearner(this.props.type)
@@ -41,8 +40,24 @@ class LearnerGallery extends Component {
         if (learner.alumni === false) {
           return learner;
         }
-      } else {
-        return learner;
+      } else if (type === 'all') {
+        return learner
+      }
+      else if (type === undefined){
+        // console.log("this.props.match.params.searchSkill:::", this.props.match.params.searchSkill)
+        let searchSkill = window.location.search.replace(/\?search=/, '').split(',')
+        for(let i = 0; i < searchSkill.length; i++) {
+          const objectKeys = Object.values(learner.skills).map(object => object.skills);
+          if(objectKeys.includes(searchSkill[i])){
+            if(i + 1 === searchSkill.length) {
+              return learner;
+            } else {
+              continue;
+            }
+          } else {
+            break;
+          }
+        }
       }
     });
   }
