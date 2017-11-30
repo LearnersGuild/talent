@@ -1,10 +1,7 @@
-import React, { Component, componentWillMount } from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import CollectionPage from '../../containers/collection';
 import _ from 'lodash';
-import { fetchLearners, FETCH_ALUMNI_LEARNERS } from '../../actions/';
-import { createStore, bindActionCreators } from 'redux';
-import reducers from '../../reducers';
 
 class LearnerGallery extends Component {
   constructor(props) {
@@ -28,7 +25,7 @@ class LearnerGallery extends Component {
       return this.filterLearner(this.props.type)
     }
     return filteredLearner.filter(learner => {
-      if (learner.name.toLowerCase().startsWith(this.state.currentView)) {
+      if (learner.name.toLowerCase().startsWith(this.state.currentView.toLowerCase())) {
         return learner
       }
     })
@@ -75,8 +72,4 @@ function mapStateToProps({ learners }) {
   return { learners };
 }
 
-function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ fetchLearners }, dispatch);
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(LearnerGallery);
+export default connect(mapStateToProps)(LearnerGallery);

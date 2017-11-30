@@ -4,7 +4,8 @@ import { Route, Switch} from 'react-router-dom';
 import TalentNavbar from '../../components/talentNavbar';
 import ProfilePage from '../../containers/profile';
 import NotFound from '../../components/notFound';
-import LearnerGallery from '../../components/learner-gallery'
+import LearnerGallery from '../../components/learnerGallery'
+import SkillsSearch from '../../components/skillsSearch'
 
 export default class App extends Component {
   render() {
@@ -18,8 +19,9 @@ export default class App extends Component {
             <Route exact path="/learners" render={props => (
               <LearnerGallery type="all" />
             )} />
+            <Route exact path="/skills" component={SkillsSearch} />
             <Route exact path="/learners/:githubHandle" component={ProfilePage} />
-            <Route path="/alumni" render={props => (
+            <Route exact path="/alumni" render={props => (
               <LearnerGallery type="alumni" />
             )} />
             <Route component={NotFound} />
