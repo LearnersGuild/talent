@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { Link } from 'react-router-dom'
+import LearnerGallery from '../learnerGallery'
 
 class SkillsSearch extends Component {
   constructor(props) {
@@ -27,11 +29,8 @@ class SkillsSearch extends Component {
 
   handleChange(event) {
     const target = event.target;
-    console.log("target:::", target)
-    console.log("this.state:::", this.state)
     const value = target.value === "on" ? target.value = "off" : target.value = "on";
     const name = target.name;
-    console.log("name:::", name)
     this.setState({
       [name]: value
     })
@@ -67,17 +66,17 @@ class SkillsSearch extends Component {
     return listOfSkills;
   }
 
-  findLearners(event) {
-    event.preventDefault()
+  findLearners() {
+    // event.preventDefault()
     const listedState = this.state
     const checkedSkills = [];
     for(let key in listedState) {
       if(listedState[key] === "off") {
-        console.log("key:::", key)
         checkedSkills.push(key);
       }
     }
-    console.log("checkedSkills:;::", checkedSkills);
+    console.log("checkedSkills:::", checkedSkills.join(','))
+    return checkedSkills.join(',')
   }
 
   render() {
@@ -87,7 +86,9 @@ class SkillsSearch extends Component {
         <ul className="list-group">
           {this.renderExperienceList()}
         </ul>
-        <input type="submit" value="Submit" onClick={this.findLearners}></input>
+        <Link to={`/skillsresults?search=${this.findLearners()}`}>
+          <input ref="submitButton" type="submit" value="Submit"></input>
+        </Link>
       </form>
     </div>
   );
