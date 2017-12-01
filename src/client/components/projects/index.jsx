@@ -4,11 +4,11 @@ export default class Projects extends Component {
 
   render() {
     return this.props.projects.map(project => {
-         return (
+        return (
           <div key={project.id}>
             <h4><a href={project.link} target="__blank" >{project.title}</a></h4>
           </div>
         );
-    });
+      });
   }
 }
