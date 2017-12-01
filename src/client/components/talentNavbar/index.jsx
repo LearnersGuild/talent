@@ -3,14 +3,6 @@ import { Link } from 'react-router-dom';
 import { Navbar, Nav, NavDropdown, MenuItem, FormGroup, FormControl, Button } from 'react-bootstrap';
 
 export default class TalentNavbar extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      name: true,
-      skills: false,
-    };
-  }
-
   render() {
     return (
       <div>
