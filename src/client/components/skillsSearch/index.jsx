@@ -5,14 +5,14 @@ import LearnerGallery from '../learnerGallery'
 
 class SkillsSearch extends Component {
   constructor(props) {
-    super(props)
+    super(props);
 
-    this.state = this.establishNames()
-    this.handleChange = this.handleChange.bind(this)
-    this.grabSkills = this.grabSkills.bind(this)
-    this.filterDuplicates = this.filterDuplicates.bind(this)
-    this.establishNames = this.establishNames.bind(this)
-    this.findLearners = this.findLearners.bind(this)
+    this.state = this.establishNames();
+    this.handleChange = this.handleChange.bind(this);
+    this.grabSkills = this.grabSkills.bind(this);
+    this.filterDuplicates = this.filterDuplicates.bind(this);
+    this.establishNames = this.establishNames.bind(this);
+    this.findLearners = this.findLearners.bind(this);
   }
 
   renderExperienceList(list) {
@@ -23,36 +23,36 @@ class SkillsSearch extends Component {
             <input type="checkbox" name={skill} value={this.state.skill} onChange={this.handleChange}></input>
           </label>
         </li>
-      )
-    })
+      );
+    });
   }
 
   handleChange(event) {
     const target = event.target;
-    const value = target.value === "on" ? target.value = "off" : target.value = "on";
+    const value = target.value === 'on' ? target.value = 'off' : target.value = 'on';
     const name = target.name;
     this.setState({
-      [name]: value
-    })
+      [name]: value,
+    });
   }
 
   establishNames() {
-    const inputNames = {}
+    const inputNames = {};
     this.filterDuplicates().forEach(skill => {
       inputNames[skill] = false;
-    })
+    });
     return inputNames;
   }
 
   filterDuplicates() {
     const nonDuplicateSkills = [];
     this.grabSkills().forEach(skill => {
-      if(nonDuplicateSkills.includes(skill)) {
+      if (nonDuplicateSkills.includes(skill)) {
         return;
       } else {
         nonDuplicateSkills.push(skill);
       }
-    })
+    });
     return nonDuplicateSkills;
   }
 
@@ -60,37 +60,38 @@ class SkillsSearch extends Component {
     const listOfSkills = [];
     this.props.learners.map(learner => {
       return learner.skills.forEach(skill => {
-        listOfSkills.push(skill.skills)
-      })
-    })
+        listOfSkills.push(skill.skills);
+      });
+    });
     return listOfSkills;
   }
 
   findLearners() {
     // event.preventDefault()
-    const listedState = this.state
+    const listedState = this.state;
     const checkedSkills = [];
-    for(let key in listedState) {
-      if(listedState[key] === "off") {
+    for (let key in listedState) {
+      // html being weird here; if a box is checked, it's value is "off"
+      if (listedState[key] === "off") {
         checkedSkills.push(key);
       }
     }
     // console.log("checkedSkills:::", checkedSkills.join(','))
-    return checkedSkills.join(',')
+    return checkedSkills.join(',');
   }
 
   render() {
-   return (
-    <div>
-      <form>
-        <ul className="list-group">
-          {this.renderExperienceList()}
-        </ul>
-        <Link to={`/skillsresults/search=${this.findLearners()}`}>
-          <input ref="submitButton" type="submit" value="Submit"></input>
-        </Link>
-      </form>
-    </div>
+    return (
+      <div>
+        <form>
+          <ul className="list-group">
+            {this.renderExperienceList()}
+          </ul>
+          <Link to={`/skillsresults/search=${this.findLearners()}`}>
+            <input ref="submitButton" type="submit" value="Submit"></input>
+          </Link>
+        </form>
+      </div>
   );
   }
 }
