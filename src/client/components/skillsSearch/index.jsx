@@ -75,7 +75,7 @@ class SkillsSearch extends Component {
         checkedSkills.push(key);
       }
     }
-    console.log("checkedSkills:::", checkedSkills.join(','))
+    // console.log("checkedSkills:::", checkedSkills.join(','))
     return checkedSkills.join(',')
   }
 
@@ -86,7 +86,7 @@ class SkillsSearch extends Component {
         <ul className="list-group">
           {this.renderExperienceList()}
         </ul>
-        <Link to={`/skillsresults?search=${this.findLearners()}`}>
+        <Link to={`/skillsresults/search=${this.findLearners()}`}>
           <input ref="submitButton" type="submit" value="Submit"></input>
         </Link>
       </form>

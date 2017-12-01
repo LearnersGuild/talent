@@ -20,7 +20,7 @@ export default class App extends Component {
             <Route exact path="/learners" render={props => (
               <LearnerGallery type="all" />
             )} />
-            <Route exact path="/skillsresults" component={LearnerGallery} />
+            <Route exact path="/skillsresults/:searchSkill" component={LearnerGallery} />
             <Route exact path="/skills" component={SkillsSearch} />
             <Route exact path="/learners/:githubHandle" component={ProfilePage} />
             <Route exact path="/alumni" render={props => (
