@@ -12,7 +12,7 @@ Set your remote upstream to the original repo.
 
 ### Prerequisites
 
-You will need, and need to know, React.
+You will be using React, thus, being able to work with and understand React is a must.
 
 - [React](https://reactjs.org/tutorial/tutorial.html)
 - [React Router](https://reacttraining.com/react-router/web/api/Redirect)
@@ -21,6 +21,12 @@ You will need, and need to know, React.
 Knowing about Webpack and Babel would help as well.
 - [Webpack](https://www.youtube.com/watch?v=JdGnYNtuEtE&index=1&list=PLkEZWD8wbltnRp6nRR8kv97RbpcUdNawY)
 - [Babel](http://babeljs.io/docs/setup/)
+
+This app also uses Redux and knowledge of Redux is required.
+  [Redux](https://redux.js.org/)
+
+This app uses a technique known as isomorphic rendering. For a better understanding, read this article.
+  [Isomorphic Rendering](https://medium.com/@phoebe.greig/headache-free-isomorphic-app-tutorial-react-js-react-router-node-js-ssr-with-state-and-es6-797a8d8e493a)
 
 ### Installing
 
@@ -33,7 +39,9 @@ npm install
 Then run the server.
 
 ```
-npm start
+npm run build
+npm run webpack:server
+npm run start:dev
 ```
 Globally install nvm, avn, and avn-nvm.
 
@@ -49,6 +57,7 @@ avn setup
 
 * [React](https://reactjs.org/) - Library used to build the app.
 * [React Router](https://reacttraining.com/react-router/) - Library used to give React routing capabilities.
+* [Redux](https://redux.js.org/) - Library used to store entire app's state.
 * [Webpack](https://webpack.js.org/) - Library used to bundle js, css, and html.
 * [Babel](https://babeljs.io/) - Library used to compile js.
 * [Sass](http://sass-lang.com/) - Library used to improve css.
@@ -63,7 +72,10 @@ react - 16.0.0
 
 [Jared Grippe](https://github.com/deadlyicon)
 [Zubair Ahmed](https://github.com/zubairnahmed)
-[Douglas Lubaway](https://github.com/hhhhhaaaa)
+[Douglas Lubaway](https://github.com/hhhhhaaaa) - Project Lead
+[Patrick Kallas](https://github.com/pkallas)
+[Sally Maki](https://github.com/leikkisa)
+[Serafin Wesnidge](https://github.com/lumodon)
 [Aaron Villanueva](https://github.com/aaronev)
 [Ryan Greenberg](https://github.com/optomal7)
 [Judy Tuan](https://github.com/judytuna)
