@@ -45,8 +45,8 @@ class LearnerGallery extends Component {
       } else if (type === undefined) {
         // console.log("this.props.match.params.searchSkill:::", this.props.match.params.searchSkill)
         let searchSkill = this.props.match.params.searchSkill.replace(/search=/, '').split(',');
+        const objectKeys = Object.values(learner.skills).map(object => object.skills);
         for (let i = 0; i < searchSkill.length; i++) {
-          const objectKeys = Object.values(learner.skills).map(object => object.skills);
           if (objectKeys.includes(searchSkill[i])) {
             if (i + 1 === searchSkill.length) {
               return learner;
