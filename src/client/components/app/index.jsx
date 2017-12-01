@@ -6,12 +6,13 @@ import ProfilePage from '../../containers/profile';
 import NotFound from '../../components/notFound';
 import LearnerGallery from '../../components/learnerGallery'
 import SkillsSearch from '../../components/skillsSearch'
+import ScrollToTop from '../../components/scrollToTop';
 
 export default class App extends Component {
   render() {
     return (
       <div>
-        <TalentNavbar/>
+        <TalentNavbar />
           <Switch>
             <Route exact path="/" render={props => (
               <LearnerGallery type="current" />
@@ -27,6 +28,7 @@ export default class App extends Component {
             )} />
             <Route component={NotFound} />
           </Switch>
+          <ScrollToTop />
       </div>
     );
   }
