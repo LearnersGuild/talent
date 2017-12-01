@@ -5,29 +5,29 @@ import _ from 'lodash';
 
 class LearnerGallery extends Component {
   constructor(props) {
-    super(props)
+    super(props);
 
     this.state = {
-      currentView: this.filterLearner(this.props.type)
-    }
-    this.handleChange = this.handleChange.bind(this)
+      currentView: this.filterLearner(this.props.type),
+    };
+    this.handleChange = this.handleChange.bind(this);
   }
 
   handleChange (event) {
-    event.preventDefault()
-    this.setState({currentView: event.target.value})
+    event.preventDefault();
+    this.setState({ currentView: event.target.value });
   }
 
   filterByName () {
-    const filteredLearner = this.filterLearner(this.props.type)
+    const filteredLearner = this.filterLearner(this.props.type);
     if (Array.isArray(this.state.currentView)) {
-      return this.filterLearner(this.props.type)
+      return filteredLearner;
     }
     return filteredLearner.filter(learner => {
       if (learner.name.toLowerCase().startsWith(this.state.currentView.toLowerCase())) {
-        return learner
+        return learner;
       }
-    })
+    });
   }
 
   filterLearner (type) {
@@ -41,18 +41,15 @@ class LearnerGallery extends Component {
           return learner;
         }
       } else if (type === 'all') {
-        return learner
-      }
-      else if (type === undefined){
+        return learner;
+      } else if (type === undefined) {
         // console.log("this.props.match.params.searchSkill:::", this.props.match.params.searchSkill)
-        let searchSkill = window.location.search.replace(/\?search=/, '').split(',')
-        for(let i = 0; i < searchSkill.length; i++) {
+        let searchSkill = this.props.match.params.searchSkill.replace(/search=/, '').split(',');
+        for (let i = 0; i < searchSkill.length; i++) {
           const objectKeys = Object.values(learner.skills).map(object => object.skills);
-          if(objectKeys.includes(searchSkill[i])){
-            if(i + 1 === searchSkill.length) {
+          if (objectKeys.includes(searchSkill[i])) {
+            if (i + 1 === searchSkill.length) {
               return learner;
-            } else {
-              continue;
             }
           } else {
             break;
