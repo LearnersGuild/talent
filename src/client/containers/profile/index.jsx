@@ -38,7 +38,7 @@ class ProfilePage extends Component {
 }
 
 function mapStateToProps({ learners }) {
-  return { learners: learners };
+  return { learners };
 }
 
 export default connect(mapStateToProps)(ProfilePage);

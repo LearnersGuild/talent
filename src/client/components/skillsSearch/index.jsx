@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
-import LearnerGallery from '../learnerGallery'
+import LearnerGallery from '../../containers/learnerGallery'
 
 class SkillsSearch extends Component {
   constructor(props) {
@@ -58,7 +58,7 @@ class SkillsSearch extends Component {
 
   grabSkills() {
     const listOfSkills = [];
-    this.props.learners.map(learner => {
+    this.props.learners.forEach(learner => {
       return learner.skills.forEach(skill => {
         listOfSkills.push(skill.skills);
       });
