@@ -51,11 +51,10 @@ The BrowserRouter is responsible for deciding which components within App to ren
 BrowserRouter is wrapped within a Provider.
 The Provider creates a global store based on the reducers. We have also passed in a second parameter to allow for the Redux Dev Tools extension for Chrome to work.
 
-Further on, there are five directories:
+Further on, there are four directories:
 - Actions
 - Components
 - Containers
-- Data
 - Reducers
 
 The design for these files are such that they usually contain a single index file within the folder.
@@ -65,7 +64,7 @@ First, we will discuss the Redux-Store. This involves both the actions and the r
 When an action occurs, Redux receives the object sent by the action, that then runs the action against a switch statement. Our switch statement is located within reducers/reducer-learner.jsx. It returns the payload to the index.jsx file within reducers, which then sets a key, learners, to the returned payload. This is then passed into client/index.js, which is used to create the store, through the Provider and Redux's createStore function
 
 
-Next up, we will discus the components and the containers. App is our root component. App renders TalentNavbar at the top of every page.
+Next up, we will discuss the components and the containers. App is our root component. App renders TalentNavbar at the top of every page.
 
 TalentNavbar is a component that links to various collections of learners, based on its title. Currently, we have Home, which links to / (which renders current learners), Alumni, which links to /alumni, All Learners, which links to /learners, and Search By Skills, which links to /skills.
 
@@ -107,11 +106,36 @@ ExperienceList takes an array of the learner's experience, and renders a header 
 
 SkillsList does the same thing, but with the learner's skills.
 
-The second largest component is SkillsSearch. This component is rendered when the user navigates to the skills page. Similar to our two containers, SkillsSearch has the Redux-Store mapped as a prop. In the constructor, most of what occurs is binding the value of this to all the methods. Otherwise, the state is initialized with the value of calling the establishNames method.
+The second largest component is SkillsSearch. This component is rendered when the user navigates to the skills page. Similar to our two containers, SkillsSearch has the Redux-Store mapped as a prop. In the constructor, most of what occurs is binding the value of this to all the methods. Otherwise, the state is initialized with the value of calling the establishNames method. The establishNames method calls the filterDuplicates method, which calls the grabSkills method.
+
+GrabSkills takes all of the skills from the Redux-Store and returns an array of those skills.
+
+FilterDuplicates filters out all of the duplicates from that array, and returns a new one.
+
+EstablishNames creates an object, assigns each skill as a key in this object with a value of false, and then returns the object.
+
+The render function on Line 83 renders a form with a list that calls renderExperienceList, and a Link that contains a button, that links to the result of calling findLearners.
+
+RenderExperienceList calls filterDuplicates and returns a list of every skill as checkbox inputs that each have a value and an onChange event listener.
+
+The handleChange method looks at a checkbox's value, determines whether or not it is checked (which in this case is called off because html has declared that a checkbox that is off is actually checked), and toggles the value. Then, it sets the state at the checkbox's name to have the toggled value of the checkbox.
+
+FindLearners is a method that looks at the state, determines whether or not a checkbox is currently checked, and if it is, it returns a string of all the checked skills. This, in turn, is the link the users will go to when they click the submit button. This route will render LearnerGallery, which is passed no type, and thus renders a list of learners based on the skills in the URL.
+
+The last two components are ScrollToTop and NotFound.
+
+ScrollToTop uses the componentDidUpdate lifecycle hook that React provides to determine if the location of the window has changed whenever this component updates (which will occur every time the component is re-rendered). If the location of the window has changed, the page will scroll to the top of the window. Render is null here, because, in React, the render method must be called even if nothing is returned. We're exporting withRouter to ensure it has access to the router's location props.
+
+NotFound is component that renders when the URL does not match any existing routes. It renders a picture.
+
+Congratulations! You have made it through this long block of text. Thank you for reading this. We greatly appreciate you looking into this App. Feel free to talk to contact us through our GitHub accounts if you have further questions.
+
+- Doug (handle hhhhhaaaa) and Patrick (handle pkallas)
 
 NOTES - REMOVE ME AFTERWARD
-Package.json needs looking at.
-Webpack.config.js needs looking at.
+Package.json needs looking at - remove dependencies that aren't being used.
+Webpack.config.js needs looking at - explain webpack.config.js.
+Find out why DB is called three times.
 Email Captcha and Modal.
 Testing
 Lectures
