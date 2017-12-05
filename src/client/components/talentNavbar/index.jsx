@@ -1,8 +1,16 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import { Link } from 'react-router-dom';
-import { Navbar, Nav, NavDropdown, MenuItem } from 'react-bootstrap';
+import { Navbar, Nav, NavDropdown, MenuItem, FormGroup, FormControl, Button } from 'react-bootstrap';
+import { fetchLearners } from '../../actions';
 
-export default class TalentNavbar extends Component {
+class TalentNavbar extends Component {
+
+  componentWillMount() {
+    this.props.fetchLearners();
+  }
+
   render() {
     return (
       <div>
@@ -16,17 +24,27 @@ export default class TalentNavbar extends Component {
                 <li className="nav-item list-group-item">
                   <Link to="/alumni">Alumni</Link>
                 </li>
+                <li className="nav-item list-group-item">
+                  <Link to="/learners">All Learners</Link>
+                </li>
+                <li className="nav-item list-group-item">
+                  <Link to="/skills">Search By Skills</Link>
+                </li>
               </ul>
             </Navbar.Brand>
           </Navbar.Header>
-          <Nav>
-            <NavDropdown eventKey="1" title="Search By" id="basic-nav-dropdown">
-              <MenuItem eventKey="1.1">People</MenuItem>
-              <MenuItem eventKey="1.2">Skills</MenuItem>
-            </NavDropdown>
-          </Nav>
         </Navbar>
       </div>
     );
   }
 }
+
+function mapStateToProps({ learners }) {
+  return { learners };
+}
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({fetchLearners}, dispatch);
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(TalentNavbar);

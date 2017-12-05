@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 
-import UserGallery from './userGallery'
-import Projects from '../../components/projects'
-import Blurb from '../../components/blurb'
+import UserGallery from './userGallery';
+import Projects from '../../components/projects';
+import Blurb from '../../components/blurb';
 
 export default class CollectionPage extends Component {
   render() {
