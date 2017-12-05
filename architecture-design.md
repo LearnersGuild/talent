@@ -3,9 +3,12 @@ This file is used as a reference for future generations.
 This file will attempt to explain how this app works, and what is going into it.
 
 ##What Is Webpack?
-Webpack is a package used to bundle all of the files within the app.
+Webpack is a package used to bundle all of the client side files within the app.
 Here, it is bundling src/client.
-Webpack.config.js is the main file.
+
+Webpack.config.js is the main file for Webpack. The entry points to the start of the app on the client side, which is index.js. Output is configured to look for where to put the finished bundle. It points to the public directory here. Then, module/rules creates rules for Webpack to follow. Exclude tells Webpack what files not to compile into bundle.js. Loader includes modules that help compile the bundle.
+
+Next, we have test. Test looks for file types (in this case, css), and compiles them down and puts them into the public directory. There is also a test that does the same for js and jsx files. Plugins create the bundled files. ExtractTextPlugin extracts any inline styling and puts in a css file. Resolve - extensions allows users to leave off the extensions of certain files when importing them. Here, .jsx resolves to .js.
 
 ##File Structure For Talent
 There are two main directories, public and src, with one build directory.
@@ -134,10 +137,16 @@ Congratulations! You have made it through this long block of text. Thank you for
 - Doug (handle hhhhhaaaa) and Patrick (handle pkallas)
 
 NOTES - REMOVE ME AFTERWARD
-Package.json needs looking at - remove dependencies that aren't being used.
-Webpack.config.js needs looking at - explain webpack.config.js.
-Find out why DB is called three times.
 Email Captcha and Modal.
-Testing
-Lectures
 Google Form
+Lectures
+
+TODO WITH SEPS
+Testing
+Config/Environment files
+"Text Content Did Not Match" on individual profile refresh.
+
+UPDATED
+Loading for learner gallery container.
+Reducer change.
+ComponentWillMount on navbar.

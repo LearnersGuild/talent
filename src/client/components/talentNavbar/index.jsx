@@ -1,8 +1,16 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import { Link } from 'react-router-dom';
 import { Navbar, Nav, NavDropdown, MenuItem, FormGroup, FormControl, Button } from 'react-bootstrap';
+import { fetchLearners } from '../../actions';
 
-export default class TalentNavbar extends Component {
+class TalentNavbar extends Component {
+
+  componentWillMount() {
+    this.props.fetchLearners();
+  }
+
   render() {
     return (
       <div>
@@ -30,3 +38,13 @@ export default class TalentNavbar extends Component {
     );
   }
 }
+
+function mapStateToProps({ learners }) {
+  return { learners };
+}
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({fetchLearners}, dispatch);
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(TalentNavbar);

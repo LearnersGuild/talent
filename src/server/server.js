@@ -12,4 +12,5 @@ app.use('*', router)
 app.listen(port, () => {
   console.log(`http://localhost:${port}`)
 })
- export default app
+
+export default app
