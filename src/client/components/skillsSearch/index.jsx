@@ -67,16 +67,13 @@ class SkillsSearch extends Component {
   }
 
   findLearners() {
-    // event.preventDefault()
     const listedState = this.state;
     const checkedSkills = [];
     for (let key in listedState) {
-      // html being weird here; if a box is checked, it's value is "off"
       if (listedState[key] === "off") {
         checkedSkills.push(key);
       }
     }
-    // console.log("checkedSkills:::", checkedSkills.join(','))
     return checkedSkills.join(',');
   }
 

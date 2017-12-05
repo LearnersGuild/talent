@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import CollectionPage from '../collection';
 import _ from 'lodash';
-import { bindActionCreators } from 'redux'
-import { fetchLearners } from '../../actions'
 
 class LearnerGallery extends Component {
   constructor(props) {
@@ -19,14 +17,13 @@ class LearnerGallery extends Component {
   componentWillMount() {
     this.setState({
       loading: true,
-    })
-    this.props.fetchLearners()
+    });
   }
 
   componentDidMount() {
     this.setState({
       loading: false,
-    })
+    });
   }
 
   handleChange (event) {
@@ -59,7 +56,6 @@ class LearnerGallery extends Component {
       } else if (type === 'all') {
         return learner;
       } else if (type === undefined) {
-        // console.log("this.props.match.params.searchSkill:::", this.props.match.params.searchSkill)
         let searchSkill = this.props.match.params.searchSkill.replace(/search=/, '').split(',');
         const objectKeys = Object.values(learner.skills).map(object => object.skills);
         for (let i = 0; i < searchSkill.length; i++) {
@@ -102,8 +98,4 @@ function mapStateToProps({ learners }) {
   return { learners };
 }
 
-function mapDispatchToProps(dispatch) {
-  return bindActionCreators({fetchLearners}, dispatch)
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(LearnerGallery);
+export default connect(mapStateToProps)(LearnerGallery);

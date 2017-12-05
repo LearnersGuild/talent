@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
-import { Route, Switch} from 'react-router-dom';
-
+import { Route, Switch } from 'react-router-dom';
 import TalentNavbar from '../talentNavbar';
 import NotFound from '../notFound';
-import SkillsSearch from '../skillsSearch'
+import SkillsSearch from '../skillsSearch';
 import ScrollToTop from '../scrollToTop';
 import ProfilePage from '../../containers/profile';
-import LearnerGallery from '../../containers/learnerGallery'
+import LearnerGallery from '../../containers/learnerGallery';
 
 export default class App extends Component {
   render() {
