@@ -14,7 +14,8 @@ Public holds all of the public files within the app, such as images and styleshe
 It also contains the build within bundle.js, complimentary of Webpack.
 
 The build directory, dist/, is created by Babel.
-It's purpose is to compile ES6 syntax down to ES5 syntax.
+It's purpose is to compile ES6 and JSX syntax down to ES5 syntax.
+The .babelrc file tells it to do this.
 
 ###src
 Src contains the client and the server directories, which reflect the front end and the back end respectively.

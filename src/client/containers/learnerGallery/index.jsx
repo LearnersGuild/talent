@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import CollectionPage from '../collection';
 import _ from 'lodash';
+import { bindActionCreators } from 'redux'
+import { fetchLearners } from '../../actions'
 
 class LearnerGallery extends Component {
   constructor(props) {
@@ -9,8 +11,22 @@ class LearnerGallery extends Component {
 
     this.state = {
       currentView: this.filterLearner(this.props.type),
+      loading: false,
     };
     this.handleChange = this.handleChange.bind(this);
+  }
+
+  componentWillMount() {
+    this.setState({
+      loading: true,
+    })
+    this.props.fetchLearners()
+  }
+
+  componentDidMount() {
+    this.setState({
+      loading: false,
+    })
   }
 
   handleChange (event) {
@@ -70,11 +86,13 @@ class LearnerGallery extends Component {
         <form>
           <input type="text" placeholder="search" onChange={this.handleChange}></input>
         </form>
-        <CollectionPage
-          data={this.filterByName()}
-          info={ { name: 'About Learners Guild', story: 'This is just a sentence.' } }
-          projects={this.getProjects(this.filterByName())}
-        />
+        {
+          this.state.loading ? (<div>Loading...</div>) : (<CollectionPage
+                    data={this.filterByName()}
+                    info={ { name: 'About Learners Guild', story: 'This is just a sentence.' } }
+                    projects={this.getProjects(this.filterByName())}
+                  /> )
+        }
       </div>
     );
   }
@@ -84,4 +102,8 @@ function mapStateToProps({ learners }) {
   return { learners };
 }
 
-export default connect(mapStateToProps)(LearnerGallery);
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({fetchLearners}, dispatch)
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(LearnerGallery);
