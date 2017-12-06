@@ -19,6 +19,7 @@
   "dependencies": {
     "express": "^4.16.2",
     "lodash": "^4.17.4",
+    "nodemailer": "^4.4.0",
     "react": "^16.0.0",
     "react-bootstrap": "^0.31.3",
     "react-dom": "^16.0.0",

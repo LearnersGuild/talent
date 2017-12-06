@@ -137,16 +137,17 @@ Congratulations! You have made it through this long block of text. Thank you for
 - Doug (handle hhhhhaaaa) and Patrick (handle pkallas)
 
 NOTES - REMOVE ME AFTERWARD
-Email Captcha and Modal.
-Google Form
 Lectures
-
-TODO WITH SEPS
-Testing
-Config/Environment files
-"Text Content Did Not Match" on individual profile refresh.
+Google Form
 
 UPDATED
 Loading for learner gallery container.
 Reducer change.
 ComponentWillMount on navbar.
+ErrorBoundary.
+
+TODO WITH SEPS
+Testing
+Config/Environment files
+"Text Content Did Not Match" on individual profile refresh.
+Email Captcha and Modal
