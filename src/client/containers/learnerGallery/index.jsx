@@ -24,8 +24,6 @@ class LearnerGallery extends Component {
     this.setState({
       loading: false,
     });
-    // This is to show how errorBoundary behaves
-    // throw new Error('Testing that this error boundary works');
   }
 
   handleChange (event) {
