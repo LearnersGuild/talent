@@ -83,7 +83,7 @@ class LearnerGallery extends Component {
           <input type="text" placeholder="search" onChange={this.handleChange}></input>
         </form>
         {
-          this.state.loading ? (<div>Loading...</div>) : (<CollectionPage
+          this.state.loading ? (<div className="flex-center"><img className="lg-loading" src="/LearnerLogo.png" /></div>) : (<CollectionPage
                     data={this.filterByName()}
                     info={ { name: 'About Learners Guild', story: 'This is just a sentence.' } }
                     projects={this.getProjects(this.filterByName())}

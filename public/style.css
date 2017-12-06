@@ -15,3 +15,19 @@ body {
 .flex-column-home-page {
   display: flex;
   flex-direction: column; }
+
+.flex-center {
+  display: flex;
+  justify-content: center;
+}
+
+.lg-loading {
+  display: flex;
+  animation: App-logo-spin infinite 20s linear;
+  height: 200px;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}

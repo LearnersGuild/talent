@@ -1,6 +1,9 @@
 import React, {Component} from 'react';
 import { ButtonToolbar, DropdownButton, MenuItem } from 'react-bootstrap';
 import Blurb from '../../../components/blurb';
+import nodemailer from 'nodemailer';
+
+const transporter = nodemailer.createTransport([transport[, defaults]]);
 
 export default class Profile extends Component {
   render() {
