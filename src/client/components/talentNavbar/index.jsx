@@ -39,12 +39,8 @@ class TalentNavbar extends Component {
   }
 }
 
-function mapStateToProps({ learners }) {
-  return { learners };
-}
-
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({fetchLearners}, dispatch);
+  return bindActionCreators({ fetchLearners }, dispatch);
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(TalentNavbar);
+export default connect(null, mapDispatchToProps)(TalentNavbar);
