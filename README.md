@@ -90,4 +90,5 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 ## Acknowledgments
 
 * Stephen Grider for the framework React app.
+* Harold Soto for the spinner code.
 * Punit and Judy for PR Reviews!
