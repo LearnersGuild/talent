@@ -58,7 +58,7 @@ class SkillsSearch extends Component {
 
   grabSkills() {
     const listOfSkills = [];
-    this.props.learners.forEach(learner => {
+    this.props.guild.learners.forEach(learner => {
       return learner.skills.forEach(skill => {
         listOfSkills.push(skill.skills);
       });
@@ -93,8 +93,8 @@ class SkillsSearch extends Component {
   }
 }
 
-function mapStateToProps({ learners }) {
-  return { learners };
+function mapStateToProps({ guild }) {
+  return { guild };
 }
 
 export default connect(mapStateToProps)(SkillsSearch);
