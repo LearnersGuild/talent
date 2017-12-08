@@ -9,7 +9,7 @@ import SkillList from '../../components/skillList';
 class ProfilePage extends Component {
 
   filterLearner (githubHandle) {
-    return this.props.learners.filter(learner => {
+    return this.props.guild.learners.filter(learner => {
       let currentLearner = learner.github_handle === githubHandle;
       return currentLearner;
     });
@@ -37,8 +37,8 @@ class ProfilePage extends Component {
   }
 }
 
-function mapStateToProps({ learners }) {
-  return { learners };
+function mapStateToProps({ guild }) {
+  return { guild };
 }
 
 export default connect(mapStateToProps)(ProfilePage);

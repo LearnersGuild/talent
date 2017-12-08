@@ -16,7 +16,6 @@ export default class Profile extends Component {
             <MenuItem href={`https://github.com/${this.props.github_handle}`} target="_blank" eventKey="1">Github</MenuItem>
             <MenuItem href={`https://www.linkedin.com/in/${this.props.linkedin_profile}`} target="_blank" eventKey="2">Linkedin</MenuItem>
             <MenuItem href={`https://www.twitter.com/${this.props.twitter}`} target="_blank" eventKey="3">Twitter</MenuItem>
-            <MenuItem eventKey="4">Email</MenuItem>
           </DropdownButton>
         </ButtonToolbar>
       </div>

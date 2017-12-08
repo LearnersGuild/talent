@@ -2,7 +2,7 @@ import { combineReducers } from 'redux'
 import LearnerReducer from './reducer-learner'
 
 const rootReducer = combineReducers({
-  learners: LearnerReducer,
+  guild: LearnerReducer,
 });
 
 export default rootReducer;
