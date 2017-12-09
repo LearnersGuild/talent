@@ -60,13 +60,14 @@ avn setup
 * [Redux](https://redux.js.org/) - Library used to store entire app's state.
 * [Webpack](https://webpack.js.org/) - Library used to bundle js, css, and html.
 * [Babel](https://babeljs.io/) - Library used to compile js.
-* [Sass](http://sass-lang.com/) - Library used to improve css.
 
 ## Versioning
 
 express - 4.16.2
 node - 8.1.2
 react - 16.0.0
+redux - 3.7.2
+react-router-dom - 4.2.2
 
 ## Authors
 
@@ -90,5 +91,4 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 ## Acknowledgments
 
 * Stephen Grider for the framework React app.
-* Harold Soto for the spinner code.
 * Punit and Judy for PR Reviews!
