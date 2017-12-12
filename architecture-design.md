@@ -140,14 +140,17 @@ NOTES - REMOVE ME AFTERWARD
 Lectures
 Google Form
 
+TESTING
+End To End
+Profile Page
+
 UPDATED
 Loading for learner gallery container.
 Reducer change.
 ComponentWillMount on navbar.
 ErrorBoundary.
+Add testing section.
 
 TODO WITH SEPS
-Testing
 Config/Environment files
 "Text Content Did Not Match" on individual profile refresh.
-Email Captcha and Modal
