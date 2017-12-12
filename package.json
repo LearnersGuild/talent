@@ -1,9 +1,14 @@
 {
   "name": "talent",
   "jest": {
-    "setupFiles": ["./__tests__/preHelper.js", "./__tests__/testHelper.js"],
+    "setupFiles": [
+      "./__tests__/preHelper.js",
+      "./__tests__/testHelper.js"
+    ],
     "setupTestFrameworkScriptFile": "./node_modules/jest-enzyme/lib/index.js",
-    "testPathIgnorePatterns": ["Helper.js"]
+    "testPathIgnorePatterns": [
+      "Helper.js"
+    ]
   },
   "version": "0.0.1",
   "description": "Learners Guild Talent",
@@ -46,6 +51,7 @@
     "enzyme-adapter-react-16": "^1.1.0",
     "extract-text-webpack-plugin": "^3.0.1",
     "jest": "^21.2.1",
+    "jest-enzyme": "^4.0.1",
     "nodemon": "^1.12.1",
     "style-loader": "^0.19.0",
     "webpack": "^3.8.1",
