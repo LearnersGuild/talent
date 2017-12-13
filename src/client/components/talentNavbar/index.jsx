@@ -18,16 +18,16 @@ class TalentNavbar extends Component {
           <Navbar.Header>
             <Navbar.Brand>
               <ul className="navbar-nav list-group">
-                <li className="nav-item list-group-item home">
+                <li className="nav-item list-group-item">
                   <Link to="/">Home</Link>
                 </li>
-                <li className="nav-item list-group-item alumni">
-                  <Link onClick={() => console.log("clicked")} to="/alumni">Alumni</Link>
+                <li className="nav-item list-group-item">
+                  <Link to="/alumni">Alumni</Link>
                 </li>
-                <li className="nav-item list-group-item learners">
+                <li className="nav-item list-group-item">
                   <Link to="/learners">All Learners</Link>
                 </li>
-                <li className="nav-item list-group-item skills">
+                <li className="nav-item list-group-item">
                   <Link to="/skills">Search By Skills</Link>
                 </li>
               </ul>
