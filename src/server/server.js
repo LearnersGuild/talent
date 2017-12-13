@@ -3,7 +3,7 @@ const path = require('path')
 const app = express()
 import router from './routes'
 
-const port = process.env.PORT || 3000
+export const port = process.env.PORT || 3000
 
 const assets = express.static(path.join(__dirname, '../../public'))
 app.use(assets)
