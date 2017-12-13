@@ -58,10 +58,18 @@ describe("Route Testing", () => {
 
   it("Should render a user's profile page after clicking their image", () => {
     return chrome.goto(pageUrl)
-      .then(() => chrome.click('.img-responsive'))
+      .then(() => chrome.click('a[href="/learners/exercitation"]'))
       .then(() => chrome.html('body'))
       .then(res => res.match(/Hattie Mcmillan/))
       .then(match => expect(match[0]).toEqual('Hattie Mcmillan'));
+  });
+
+  it("Should render a user's profile page after clicking their image", () => {
+    return chrome.goto(pageUrl)
+      .then(() => chrome.click('a[href="/learners/magna"]'))
+      .then(() => chrome.html('body'))
+      .then(res => res.match(/Hutchinson Hess/))
+      .then(match => expect(match[0]).toEqual('Hutchinson Hess'));
   });
 
   it("Should render all learners with skills after checking boxes and clicking submit", () => {
@@ -72,6 +80,22 @@ describe("Route Testing", () => {
       .then(() => chrome.html('body'))
       .then(res => res.match(/img/g))
       .then(match => expect(match.length).toEqual(18));
+  });
+
+  it("Should return no learners if no checkboxes are checked and submit is clicked", () => {
+    return chrome.goto(pageUrl)
+      .then(() => chrome.click('a[href="/skills"]'))
+      .then(() => chrome.click('input[type="submit"]'))
+      .then(() => chrome.html('body'))
+      .then(res => res.match(/img/g))
+      .then(match => expect(match).toEqual(null));
+  });
+
+  it("Should list links to projects on a learners profile page", () => {
+    return chrome.goto(pageUrl)
+      .then(() => chrome.click('a[href="/learners/magna"]'))
+      .then(() => chrome.attr('h4 > a', 'href'))
+      .then(link => expect(link).toEqual('http://google.com'));
   });
 });
 
