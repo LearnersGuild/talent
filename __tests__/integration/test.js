@@ -2,12 +2,13 @@ import React from 'react';
 import { mount, configure } from 'enzyme';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
-import { MemoryRouter, Route, Switch } from 'react-router-dom';
-import Adapter from 'enzyme-adapter-react-16';
+import { MemoryRouter } from 'react-router-dom';
 import Blurb from '../../src/client/components/blurb';
 import TalentNavbar from '../../src/client/components/talentNavbar';
+import ExperienceList from '../../src/client/components/experienceList';
+import SkillList from '../../src/client/components/skillList';
 import LearnerGallery from '../../src/client/containers/learnerGallery';
-import CollectionPage from '../../src/client/containers/collection';
+import ProfilePage from '../../src/client/containers/profile';
 import reducers from '../testingEnvironment/reducers/indexHelper.js';
 import { resetLoading } from '../testingEnvironment/actions/indexHelper.js';
 
@@ -43,7 +44,7 @@ describe("LearnerGallery", () => {
   const mountedLearnerGallery = (type) => {
       return mount(
       <Provider store={createStore(reducers)}>
-        <MemoryRouter initialEntries={["skillsresultssearch=JS,CSS"]}>
+        <MemoryRouter>
           <div>
             <TalentNavbar />
               <LearnerGallery type={type} match={futureProps} />
@@ -73,7 +74,7 @@ describe("LearnerGallery", () => {
   const sortaMountedLearnerGallery = (type, mockStore) => {
       return mount(
       <Provider store={mockStore}>
-        <MemoryRouter initialEntries={["skillsresultssearch=JS,CSS"]}>
+        <MemoryRouter>
           <div>
             <TalentNavbar />
               <LearnerGallery type={type} match={futureProps} />
@@ -91,8 +92,54 @@ describe("LearnerGallery", () => {
       expect(currentLearnerGallery.find("img").length).toEqual(1);
     })
   })
+  describe("Searching", () => {
+      it("Always renders the learners who match the search term", () => {
+        const currentLearnerGallery = mountedLearnerGallery("current");
+        currentLearnerGallery.find("input").simulate("change", { target: { value: "h" } });
+        expect(currentLearnerGallery.find("img").length).toEqual(3);
+        currentLearnerGallery.find("input").simulate("change", { target: { value: "" } });
+        expect(currentLearnerGallery.find("img").length).toEqual(7);
+        currentLearnerGallery.find("input").simulate("change", { target: { value: "d" } });
+        expect(currentLearnerGallery.find("img").length).toEqual(0);
+        currentLearnerGallery.find("input").simulate("change", { target: { value: "P" } });
+        expect(currentLearnerGallery.find("img").length).toEqual(1);
+      })
+    })
 })
 
 describe("Profile Page", () => {
-  
+  const futureProps1 = { url: "/learners/hhhhhaaaa" };
+  const futureProps2 = { url: "/learners/exercitation" };
+  const futureProps3 = { url: "/learners/magna" };
+  const mountedProfilePage = (profile) => {
+      return mount(
+      <Provider store={createStore(reducers)}>
+        <MemoryRouter>
+          <div>
+            <TalentNavbar />
+              <ProfilePage match={profile} />
+          </div>
+        </MemoryRouter>
+      </Provider>,
+    )
+  }
+  it("Always matches the corresponding user", () => {
+    const currentProfilePage = mountedProfilePage(futureProps1);
+    expect(currentProfilePage.html()).toMatch(/hhhhhaaaa/g);
+  })
+  it("Always matches the corresponding user", () => {
+    const currentProfilePage = mountedProfilePage(futureProps2);
+    expect(currentProfilePage.html()).toMatch(/exercitation/g);
+  })
+  it("Always matches the corresponding user", () => {
+    const currentProfilePage = mountedProfilePage(futureProps3);
+    expect(currentProfilePage.html()).toMatch(/magna/g);
+  })
+  it("Always renders the ExperienceList and SkillList components", () => {
+    const currentProfilePage = mountedProfilePage(futureProps1);
+    expect(currentProfilePage.html()).toMatch(/Pro1/g);
+    expect(currentProfilePage.html()).toMatch(/Pro2/g);
+    expect(currentProfilePage.html()).toMatch(/JS/g);
+    expect(currentProfilePage.html()).toMatch(/CSS/g);
+  })
 })
