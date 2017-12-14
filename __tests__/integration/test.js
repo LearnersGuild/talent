@@ -96,7 +96,7 @@ describe("LearnerGallery", () => {
       it("Always renders the learners who match the search term", () => {
         const currentLearnerGallery = mountedLearnerGallery("current");
         currentLearnerGallery.find("input").simulate("change", { target: { value: "h" } });
-        expect(currentLearnerGallery.find("img").length).toEqual(3);
+        expect(currentLearnerGallery.find("img").length).toEqual(4);
         currentLearnerGallery.find("input").simulate("change", { target: { value: "" } });
         expect(currentLearnerGallery.find("img").length).toEqual(7);
         currentLearnerGallery.find("input").simulate("change", { target: { value: "d" } });

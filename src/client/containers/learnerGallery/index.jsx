@@ -42,7 +42,7 @@ class LearnerGallery extends Component {
       return filteredLearner;
     }
     return filteredLearner.filter(learner => {
-      if (learner.name.toLowerCase().startsWith(this.state.selectedLearners.toLowerCase())) {
+      if (learner.name.toLowerCase().includes(this.state.selectedLearners.toLowerCase())) {
         return learner;
       }
     });
