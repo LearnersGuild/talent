@@ -1,8 +1,8 @@
-#Talent - Architecture Design
+# Talent - Architecture Design
 This file is used as a reference for future generations.
 This file will attempt to explain how this app works, and what is going into it.
 
-##What Is Webpack?
+## What Is Webpack?
 Webpack is a package used to bundle all of the client side files within the app.
 Here, it is bundling src/client.
 
@@ -10,7 +10,7 @@ Webpack.config.js is the main file for Webpack. The entry points to the start of
 
 Next, we have test. Test looks for file types (in this case, css), and compiles them down and puts them into the public directory. There is also a test that does the same for js and jsx files. Plugins create the bundled files. ExtractTextPlugin extracts any inline styling and puts in a css file. Resolve - extensions allows users to leave off the extensions of certain files when importing them. Here, .jsx resolves to .js.
 
-##File Structure For Talent
+## File Structure For Talent
 There are two main directories, public and src, with one build directory.
 
 Public holds all of the public files within the app, such as images and stylesheets.
@@ -20,11 +20,11 @@ The build directory, dist/, is created by Babel.
 It's purpose is to compile ES6 and JSX syntax down to ES5 syntax.
 The .babelrc file tells it to do this.
 
-###src
+### src
 Src contains the client and the server directories, which reflect the front end and the back end respectively.
 We will be going over the server directory first.
 
-####server
+#### server
 Server.js is the main file within the server directory, as well as the entry point for the entire app.
 It sets up the express server for the app, points the server to the public directory, and uses the router as middleware.
 
@@ -41,7 +41,7 @@ The StaticRouter is wrapped within a Provider, which is a core component of Redu
 We will discuss the Provider within the front end.
 All of this is being turned into a string, which is being sent through to renderFullPage, and then sent to the browser.
 
-####client
+#### client
 *Everything beyond the index.js is both the bundle.js script and the body of the html that is sent.*
 Index.js is the entry point for the client directory.
 It contains a ReactDOM.hydrate function.
@@ -140,13 +140,9 @@ NOTES - REMOVE ME AFTERWARD
 Lectures
 Google Form
 
-TESTING
-End To End
-Profile Page
-Add to helper files the ability to start and end the server
-
 UPDATED
 Loading for learner gallery container.
+Searching for learner gallery container.
 Reducer change.
 ComponentWillMount on navbar.
 ErrorBoundary.

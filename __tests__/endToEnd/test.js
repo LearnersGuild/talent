@@ -9,7 +9,7 @@ const pageUrl = 'http://localhost:3000/';
 // })
 
 describe("Route Testing", () => {
-  let chrome = {};
+  let chrome;
 
   beforeEach(() => {
     chrome = new Chrome();
