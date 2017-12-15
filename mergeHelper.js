@@ -11,8 +11,14 @@ fs.readdir('./src/client/data/learners', 'utf8', (error, files) => {
       if(error) {
         throw error;
       }
-      allLearners.push(data);
-    })
+      data = JSON.parse(data);
+      for (let key in data) {
+        if (Array.isArray((data[key]))) {
+          data[key] = JSON.parse(data[key]);
+        }
+      }
+      allLearners.push((data));
+    });
   });
   setTimeout(() => {
     fs.writeFile('./src/client/data/index.js', `export const learners = [${allLearners}]`, (error) => {
