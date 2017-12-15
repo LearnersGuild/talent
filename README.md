@@ -54,6 +54,8 @@ avn setup
 
 ## FUTURE TESTING SUBSECTION
 
+npm test
+
 ## Built With
 
 * [React](https://reactjs.org/) - Library used to build the app.

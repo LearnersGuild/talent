@@ -63,28 +63,45 @@ Further on, there are four directories:
 
 The design for these files are such that they usually contain a single index file within the folder.
 
-First, we will discuss the Redux-Store. This involves both the actions and the reducers folders. The actions folder creates a set of actions that can update the store. Currently in this app, there is only one action that makes a call to the database and returns an object with the data set to a payload key. In Redux, actions must return an object with a type key.
+First, we will discuss the Redux-Store. This involves both the actions and the reducers folders. The actions folder creates a set of actions that can update the store. Currently in this app, there are only two actions that. One action fetches the data of all learners from a JSON file, and saves that data as a payload key. The other action just updates the state of the loading key from true to false.
 
-When an action occurs, Redux receives the object sent by the action, that then runs the action against a switch statement. Our switch statement is located within reducers/reducer-learner.jsx. It returns the payload to the index.jsx file within reducers, which then sets a key, learners, to the returned payload. This is then passed into client/index.js, which is used to create the store, through the Provider and Redux's createStore function
+When an action occurs, Redux receives the object sent by the action, that then runs the action against a switch statement. Our switch statement is located within reducers/reducer-learner.jsx. It returns the payload and loading to the index.jsx file within reducers, which then sets a key, guild, to the returned payload. This is then passed into client/index.js, which is used to create the store, through the Provider and Redux's createStore function. You may notice that in the case for DONE_LOADING, the value of learners is being set as state.learners; this is a cool feature of Redux. When an action is sent to a reducer, the reducer receives not only the object that the action sent, but also the previous state. Your reducers can then pass along all or parts of the previous state, by using the state key. In this app, when the DONE_LOADING action is fired, the value of learners is not changed; only the value of loading in the state gets updated.
 
+Next up, we will discuss the components and the containers. Before we start, we've included a diagram that will hopefully make it more clear what the data flow of this app is.
 
-Next up, we will discuss the components and the containers. App is our root component. App renders TalentNavbar at the top of every page.
+[Diagram for flow of Redux](https://docs.google.com/drawings/d/1j1Oc8fJSkAeQLeJ_LYULYGkEKk7xytEx4_S5AQNzgbI/edit)
 
-TalentNavbar is a component that links to various collections of learners, based on its title. Currently, we have Home, which links to / (which renders current learners), Alumni, which links to /alumni, All Learners, which links to /learners, and Search By Skills, which links to /skills.
+[Diagram for routes that render LearnerGallery](https://docs.google.com/drawings/d/15j-5MBjU5gQc6_1dAVNRga3mr6LfVFtrD2ZzY-UuNUA/edit)
+
+This second diagram is not as extensive, ProfilePage is not used as much as LearnerGallery.
+[Diagram for routes that render ProfilePage](https://docs.google.com/drawings/d/1e9H14wywcOTYROhN_BD8ZrRVBHRFmgWHtvSsx73c5So/edit)
+
+App is our root component. App renders TalentNavbar, ErrorBoundary, ScrollToTop, and the Switch Statement. Because TalentNavbar, ErrorBoundary, and ScrollToTop are outside of the switch statment, they will be rendered on every route.
+
+TalentNavbar is a component that links to various collections of learners, based on its title. Currently, we have Home, which links to / (which renders current learners), Alumni, which links to /alumni, All Learners, which links to /learners, and Search By Skills, which links to /skills. TalentNavbar is also responsible for updating the Redux store. On line 42, the fetchLearners function from action is being wrapped in a dispatch call. Dispatching is a feature of Redux. When a dispatch is fired, Redux will update the store based on the reducers you have created.
+In this case, the fetchLearners is being fired during the componentWillMount method. This is a method provided that React; any code in this method will run before the component is mounted into the virtualDOM. Before the NavBar is mounted, it fires a dispatch, updating the Redux store, creating a learners key and making all learner information
+the value of that key. Then, NavBar will mount and be rendered. By updating the store in this manner, the app will be able to fire a dispatch, then render the NavBar; while the store is being updated, the LearnerGallery container will render a loading spinner (we'll go into more detail later). This allows for any user's with a slower internet connection to have some indication that the app is loading while the images get rendered on the page. Without Navbar and LearnerGallery dispatching actions in this manner, the app would just render a blank screen until it is finished loading.
+
+ErrorBoundary is a component that uses a feature new to React version 16. It uses a react method called componentDidCatch. If any child component of ErrorBoundary throws an error, than ErrorBoundary will catch that error, and update its hasError state to be true. The component will then be re-rendered, and it will render the message "Something Went Wrong". Furthermore, because it is no longer rendering it's children, only the NavBar and this message will be rendered. In the near future, it will be a nice image instead of plain text that's rendered. Otherwise, when there are no errors, it will just allow the rest of the components beneath it to render as normal.
 
 Then there's the Switch statement which renders different components based on the URL. Then there are the Routes. Each Route contains a path. Based on the URL, only one Route will be displayed, as shown by the path. It contains either a component method or a render method. Component method renders a component. Render method is used to not only render a component but also pass in props. At the bottom, we have a ScrollToTop component, which automatically scrolls the page to the top on refresh/re-render.
 
-We're going to start with the LearnerGallery container, as it's responsible for most of the app. The first notable part of this page is the mapStateToProps function on Line 83. It uses ES6 de-structuring (feel free to look this up!) to take the value of an object and return a new object with that key value pair. On Line 87, it is exported with the connect method, from React-Redux, which creates a prop available to the component as this.props.value. In this case, it is learners. Connect is going to look at the Redux-Store, and then map that store as a prop.
+We're going to start with the LearnerGallery container, as it's responsible for most of the app. The first notable part of this page is the mapStateToProps function on Line 110. It uses ES6 de-structuring (feel free to look this up!) to take the value of an object and return a new object with that key value pair. On Line 114, it is exported with the connect method, from React-Redux, which creates a prop available to the component as this.props.value. In this case, it is guild. Connect is going to look at the Redux-Store, and then map that store as a prop.
 
-Now, as we return to the top, we import what we need, and create a component. It starts with a constructor, which is passed props. This then call super on props. It binds the value of this to handleChange. This is important, otherwise when handleChange refers to this, this would equal the window and not the class. The constructor also sets the state, which is a key-value pair. Specifically, it creates a currentView by calling the filterLearner method defined on Line 33, and passing it this.props.type.
+The connect method also connects the function on line 106 to LearnerGallery. mapDispatchToProps takes the action called doneLoading, from the actions folder, and wraps it in a dispatch call. Dispatch is a core feature of redux. When an action is dispatched, Redux will evaluate what was returned by that action through the reducers, and update the state accordingly. The doneLoading dispatch will return an action that will update the Redux store, setting the loading property to false. This property is used by the LearnerGallery container during the render method to determine what should be rendered on the screen. We will explain in more detail a little later exactly how it's being used.
 
-If you refer back to app/index.jsx, you can see based on the route a different type is passed to LearnerGallery. This passes the value to filterLearner, which changes the state. FilterLearner will return all the alumni, all the current, or all the learners based on the type passed. If it's not passed a type, this is because the component was called by skillsSearch. In this case, filterLearner will look at the URL, and then grab the skills from a property that React-Router assigns to props, thus this.props.match.params.searchSkill. Next, it takes all of the learners skills and puts them into an array. Then it compares the learners to the skills and returns the learners who have all those skills.
+Now, as we return to the top, we import what we need, and create a component. It starts with a constructor, which is passed props. This then calls super on props. It binds the value of this to handleChange. This is important, otherwise when handleChange refers to this, this would equal the window and not the class. The constructor also sets the state, which is a key-value pair. Specifically, it creates a currentView by calling the filterLearner method defined on Line 33, and passing it this.props.type.
 
-Now, we head to the render method on Line 67. This renders a search bar and the CollectionPage container. The search bar has an onChange handler, which points handleChange on Line 16.
+If you refer back to app/index.jsx, you can see based on the route a different type is passed to LearnerGallery. This passes the value to filterLearner, which changes the state. FilterLearner will return all the alumni, all the current, or all the learners based on the type passed.
+
+Now, we head to the render method on Line 67. The render method first checks to see if the loading prop is set to true or false. This prop is coming directly from the Redux store. Recall how the action doneLoading is being connected as a prop to LearnerGallery. The container is taking advantage of this, and dispatching this action on line 26, during its componentDidMount lifecycle hook. componentDidMount is a special method that React offers; whenever a component gets mounted to the virtualDom by React, whatever code is within the componentDidMount method will fire. In this app, when LearnerGallery first gets mounted (when the app first loads), it will fire a dispatch that updates the state of the redux store to no longer be loading. In plain english, this will translate to when the app first loads, a loading image will appear on the screen. Then, a dispatch will be fired, the redux store will no longer be set to loading, and it will be updated with the value of all learners' information being set to a learners key.
+After the initial loading process, the render method will render a search bar and the CollectionPage container. The search bar has an onChange handler, which points handleChange on Line 29.
 
 Whenever a user types in the search bar, the state is updated based on the value of the search bar. This, in turn, causes the page to re-render, which causes filterByName to re-evaluate with the value of the search bar.
 
-FilterByName, located on Line 21, starts by calling filterLearner with the current type. Then, it checks to see if the state of currentView is an array, which on page load, it is. As soon as the user types, however, currentView becomes a string, and now the method will return all of the learners whose name starts with the value of the search bar. This value is in turn passed onto the CollectionPage container as a data-prop.
+FilterByName, located on Line 34, starts by checking if it was passed a type. If yes, then it will call filterLearner with the current type. Then, it checks to see if the state of currentView is an array, which on page load, it is. As soon as the user types, however, currentView becomes a string, and now the method will return all of the learners whose name includes the value of the search bar. This value is in turn passed onto the CollectionPage container as a data-prop.
+
+If there is no type passed to FilterByName, this is because the LearnerGallery container was rendered as result of searching for a skill. If you look back to components/app/index, on line 24, this is the route that was fired. If LearnerGallery was rendered by this route, then FilterByName will set the state of filteredLearner to be the result of the filterBySkill method located on line 51. filterBySkill will look at the URL, and then grab the skills from a property that React-Router assigns to props, thus this.props.match.params.searchSkill. Next, it takes all of the learners skills and puts them into an array. Then it compares the learners to the skills and returns the learners who have all those skills.
 
 CollectionPage also receives an info prop, which is a static object that contains two keys, a name and a story. Finally, it also receives a projects-prop, which is determined by the getProjects method.
 
@@ -137,16 +154,17 @@ Congratulations! You have made it through this long block of text. Thank you for
 - Doug (handle hhhhhaaaa) and Patrick (handle pkallas)
 
 NOTES - REMOVE ME AFTERWARD
-Lectures
-Google Form
+Lecture - We're gonna work on it when we come back.
 
 UPDATED
-Loading for learner gallery container.
-Searching for learner gallery container.
-Reducer change.
-ComponentWillMount on navbar.
-ErrorBoundary.
 Add testing section.
 
-TODO WITH SEPS
+MUST BE DONE NEXT WEEK
+Google Form
 Config/Environment files
+Styling?
+  Search Bar
+  Carousel
+  Skill Search
+  Project Links
+Write-Up for about
