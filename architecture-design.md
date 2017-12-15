@@ -137,8 +137,7 @@ Congratulations! You have made it through this long block of text. Thank you for
 - Doug (handle hhhhhaaaa) and Patrick (handle pkallas)
 
 NOTES - REMOVE ME AFTERWARD
-Lectures
-Google Form
+Lecture - We're gonna work on it when we come back.
 
 UPDATED
 Loading for learner gallery container.
@@ -148,5 +147,16 @@ ComponentWillMount on navbar.
 ErrorBoundary.
 Add testing section.
 
-TODO WITH SEPS
+MUST BE DONE NEXT WEEK
+Google Form
 Config/Environment files
+Styling?
+  Search Bar
+  Carousel
+  Skill Search
+  Project Links
+Write-Up for about
+
+LECTURES
+Go over with Phil
+If we have time, once with the SEPs as well.
