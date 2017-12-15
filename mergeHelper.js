@@ -12,7 +12,6 @@ fs.readdir('./src/client/data/learners', 'utf8', (error, files) => {
         throw error;
       }
       allLearners.push(data);
-      console.log("allLearners:::", allLearners);
     })
   });
   setTimeout(() => {
