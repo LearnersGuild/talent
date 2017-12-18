@@ -104,8 +104,6 @@ The next block of components is contained within the Profile container. Similar 
 
 Profile is a component that takes an object and displays all of the information within that object. It renders a header with the learner's name, the learner's image, and the Blurb component (which is passed the whole learner, but only takes the name and story). It also renders a dropdown menu with links to their GitHub, their LinkedIn, and their Twitter.
 
-*****Finally, it renders a button, that when clicked, renders a modal.*****
-
 ExperienceList takes an array of the learner's experience, and renders a header and a list of the experiences.
 
 SkillsList does the same thing, but with the learner's skills.
