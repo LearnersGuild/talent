@@ -99,7 +99,7 @@ class LearnerGallery extends Component {
   render() {
     return (
       <div>
-        <img onClick={this.handleClick}>Click me!</img>
+        <button onClick={this.handleClick}>Click me!</button>
         { this.state.minSearch ? (
             null
           ) : (<form>

@@ -1,1 +1,0 @@
-export const learners = [[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]]

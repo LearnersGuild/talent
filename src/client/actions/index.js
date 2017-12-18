@@ -1,4 +1,4 @@
-import { learners } from '../data/index';
+import allLearners from '../../server/routes/index';
 
 export const FETCH_LEARNERS = 'fetch_learners';
 export const DONE_LOADING = 'done_loading';
@@ -6,7 +6,7 @@ export const DONE_LOADING = 'done_loading';
 export function fetchLearners() {
   return {
     type: FETCH_LEARNERS,
-    payload: learners,
+    payload: allLearners,
     loading: true,
   };
 }
