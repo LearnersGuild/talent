@@ -39,6 +39,7 @@
     "redux-promise": "^0.5.3"
   },
   "devDependencies": {
+    "ajv": "^5.5.2",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.2.1",
     "babel-loader": "^7.1.2",
