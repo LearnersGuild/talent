@@ -22,6 +22,9 @@ class TalentNavbar extends Component {
                   <Link to="/">Home</Link>
                 </li>
                 <li className="nav-item list-group-item">
+                  <Link to="/current">Current</Link>
+                </li>
+                <li className="nav-item list-group-item">
                   <Link to="/alumni">Alumni</Link>
                 </li>
                 <li className="nav-item list-group-item">

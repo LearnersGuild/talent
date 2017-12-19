@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import CollectionPage from '../collection';
 import { bindActionCreators } from 'redux';
 import _ from 'lodash';
-import { doneLoading } from '../../actions';
 
 class LearnerGallery extends Component {
   constructor(props) {
@@ -20,10 +19,6 @@ class LearnerGallery extends Component {
     }
 
     this.handleChange = this.handleChange.bind(this);
-  }
-
-  componentDidMount() {
-    this.props.doneLoading();
   }
 
   handleChange(event) {
@@ -106,12 +101,8 @@ class LearnerGallery extends Component {
   }
 }
 
-function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ doneLoading }, dispatch);
-}
-
 function mapStateToProps({ guild }) {
   return { guild };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(LearnerGallery);
+export default connect(mapStateToProps)(LearnerGallery);
