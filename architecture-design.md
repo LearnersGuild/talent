@@ -78,12 +78,15 @@ This second diagram is not as extensive, ProfilePage is not used as much as Lear
 
 App is our root component. App renders TalentNavbar, ErrorBoundary, ScrollToTop, Loading, and the Switch Statement. Because TalentNavbar, ErrorBoundary, ScrollToTop, and Loading are outside of the switch statement, they will be rendered on every route.
 
+##### App
 TalentNavbar is a component that links to various collections of learners, based on its title. Currently, we have Home, which links to / (which renders current learners), Alumni, which links to /alumni, All Learners, which links to /learners, and Search By Skills, which links to /skills. TalentNavbar is also responsible for updating the Redux store. On line 42, the fetchLearners function from action is being wrapped in a dispatch call. Dispatching is a feature of Redux. When a dispatch is fired, Redux will update the store based on the reducers you have created.
 In this case, the fetchLearners is being fired during the componentWillMount method. This is a method provided that React; any code in this method will run before the component is mounted into the virtualDOM. Before the NavBar is mounted, it fires a dispatch, updating the Redux store, creating a learners key and making all learner information
 the value of that key. Then, NavBar will mount and be rendered. By updating the store in this manner, the app will be able to fire a dispatch, then render the NavBar; while the store is being updated, the LearnerGallery container will render a loading spinner (we'll go into more detail later). This allows for any user's with a slower internet connection to have some indication that the app is loading while the images get rendered on the page. Without Navbar and LearnerGallery dispatching actions in this manner, the app would just render a blank screen until it is finished loading.
 
+##### ErrorBoundary
 ErrorBoundary is a component that uses a feature new to React version 16. It uses a react method called componentDidCatch. If any child component of ErrorBoundary throws an error, than ErrorBoundary will catch that error, and update its hasError state to be true. The component will then be re-rendered, and it will render the message "Something Went Wrong". Furthermore, because it is no longer rendering it's children, only the NavBar and this message will be rendered. In the near future, it will be a nice image instead of plain text that's rendered. Otherwise, when there are no errors, it will just allow the rest of the components beneath it to render as normal.
 
+##### Loading
 Loading is a component that is integrated with Redux. It wraps the rest of our components, and it tells Redux when the initial load is finished.
 
 On line 22, the redux store, specifically the guild key of the redux store, is mapped as a prop to Loading. Now, Loading will have access to the redux store as this.props.guild. On line 26, a similar mapping is occurring, but this time, the action doneLoading is being mapped as a prop. This will allow doneLoading to be called as a prop within the Loading component. Furthermore, it wraps doneLoading in a dispatch call, so that when doneLoading is called, the action is fired and the redux store is updated.
@@ -92,9 +95,11 @@ Now, we head to the render method on Line 11. The render method first checks to 
 After the doneLoading is finished, the Loading component will check the value of the loading key in the redux store once more. Now that loading has been set to false, the Loading component will now only render its children in the render method, which is the rest of the app.
 It's important to note that the Loading component is outside of the Switch statement. By not being included in the Switch, Loading will render regardless of the route the user is at. This means that no matter which page a user chooses to visit first on our app, a loading image will appear on the screen while the app is first being loaded.
 
+##### Switch
 Now, let's move on to the Switch statement.
 The Switch statement which renders different components based on the URL. Then there are the Routes. Each Route contains a path. Based on the URL, only one Route will be displayed, as shown by the path. It contains either a component method or a render method. Component method renders a component. Render method is used to not only render a component but also pass in props. At the bottom, we have a ScrollToTop component, which automatically scrolls the page to the top on refresh/re-render.
 
+##### LearnerGallery
 We're going to start with the LearnerGallery container, as it's responsible for most of the app. The first notable part of this page is the mapStateToProps function on Line 104. It uses ES6 de-structuring (feel free to look this up!) to take the value of an object and return a new object with that key value pair. On Line 108, it is exported with the connect method, from React-Redux, which creates a prop available to the component as this.props.value. In this case, it is guild. Connect is going to look at the Redux-Store, and then map that store as a prop.
 
 Now, as we return to the top, we import what we need, and create a component. It starts with a constructor, which is passed props. This then calls super on props. It binds the value of this to handleChange. This is important, otherwise when handleChange refers to this, this would equal the window and not the class. The constructor also sets the state, which is a key-value pair. Specifically, it creates a selectedLearners key by calling either the filterByType method if there is a type prop, or the filterBySkill if there is not.
@@ -109,6 +114,7 @@ FilterByName, located on Line 29, starts by checking if it was passed a type. If
 
 If there is no type passed to FilterByName, this is because the LearnerGallery container was rendered as result of searching for a skill. If you look back to components/app/index, on line 28, this is the route that was fired. If LearnerGallery was rendered by this route, then FilterByName will set the state of filteredLearner to be the result of the filterBySkill method located on line 51. filterBySkill will look at the URL, and then grab the skills from a property that React-Router assigns to props, thus this.props.match.params.searchSkill. Next, it takes all of the learners skills and puts them into an array. Then it compares the learners to the skills and returns the learners who have all those skills.
 
+##### CollectionPage
 CollectionPage also receives an info prop, which is a static object that contains two keys, a name and a story. Finally, it also receives a projects-prop, which is determined by the getProjects method.
 
 GetProjects, defined on Line 62, takes an array of objects and returns all of the projects keys from those objects.
@@ -123,6 +129,7 @@ UserBadge takes an array of learners and displays several images, each with a le
 
 Projects is a component that takes an array of projects and renders a link to the everyone of those projects. The text for the links is the project's name.
 
+##### ProfilePage
 The next block of components is contained within the Profile container. Similar to LearnerGallery, ProfilePage has the Redux-Store mapped as a prop. This container starts by getting the value of the URL through this.props.match.url. It removes /learners/ from this value (this is the learner's GitHub Handle). It then uses the GitHub Handle to filter through the Redux-Store and return all the information of the learner whose GitHub Handle this is (this is happening on Line 11, in the filterLearner method). Then, ProfilePage renders a Profile component, an ExperienceList component, a SkillList component, and the Projects component detailed earlier.
 
 Profile is a component that takes an object and displays all of the information within that object. It renders a header with the learner's name, the learner's image, and the Blurb component (which is passed the whole learner, but only takes the name and story). It also renders a dropdown menu with links to their GitHub, their LinkedIn, and their Twitter.
@@ -131,6 +138,8 @@ ExperienceList takes an array of the learner's experience, and renders a header 
 
 SkillsList does the same thing, but with the learner's skills.
 
+
+##### SkillsSearch
 The second largest component is SkillsSearch. This component is rendered when the user navigates to the skills page. Similar to our two containers, SkillsSearch has the Redux-Store mapped as a prop. In the constructor, most of what occurs is binding the value of this to all the methods. Otherwise, the state is initialized with the value of calling the establishNames method. The establishNames method calls the filterDuplicates method, which calls the grabSkills method.
 
 GrabSkills takes all of the skills from the Redux-Store and returns an array of those skills.
@@ -147,12 +156,14 @@ The handleChange method looks at a checkbox's value, determines whether or not i
 
 FindLearners is a method that looks at the state, determines whether or not a checkbox is currently checked, and if it is, it returns a string of all the checked skills. This, in turn, is the link the users will go to when they click the submit button. This route will render LearnerGallery, which is passed no type, and thus renders a list of learners based on the skills in the URL.
 
+##### ScrollToTop & NotFound
 The last two components are ScrollToTop and NotFound.
 
 ScrollToTop uses the componentDidUpdate lifecycle hook that React provides to determine if the location of the window has changed whenever this component updates (which will occur every time the component is re-rendered). If the location of the window has changed, the page will scroll to the top of the window. Render is null here, because, in React, the render method must be called even if nothing is returned. We're exporting withRouter to ensure it has access to the router's location props.
 
 NotFound is component that renders when the URL does not match any existing routes. It renders a picture.
 
+### Congratulations!
 Congratulations! You have made it through this long block of text. Thank you for reading this. We greatly appreciate you looking into this App. Feel free to talk to contact us through our GitHub accounts if you have further questions.
 
 - Doug (handle hhhhhaaaa) and Patrick (handle pkallas)
