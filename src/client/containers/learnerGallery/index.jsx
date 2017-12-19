@@ -83,19 +83,14 @@ class LearnerGallery extends Component {
   render() {
     return (
       <div>
-        {
-          this.props.guild.loading ? (<div className="flex-center"><img className="lg-loading" src="/LearnerLogo.png" /></div>) : (
-                  <div>
-                    <form>
-                      <input type="text" placeholder="search" onChange={this.handleChange}></input>
-                    </form>
-                    <CollectionPage
-                    data={this.filterByName()}
-                    info={ { name: 'About Learners Guild', story: 'This is just a sentence.' } }
-                    projects={this.getProjects(this.filterByName())}
-                    />
-                  </div>)
-        }
+          <form>
+            <input type="text" placeholder="search" onChange={this.handleChange}></input>
+          </form>
+          <CollectionPage
+          data={this.filterByName()}
+          info={ { name: 'About Learners Guild', story: 'This is just a sentence.' } }
+          projects={this.getProjects(this.filterByName())}
+          />
       </div>
     );
   }
