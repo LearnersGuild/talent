@@ -1,4 +1,4 @@
-import { learners } from '../data/index';
+import { learners } from '../data';
 
 export const FETCH_LEARNERS = 'fetch_learners';
 export const DONE_LOADING = 'done_loading';
