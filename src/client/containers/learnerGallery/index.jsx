@@ -26,7 +26,7 @@ class LearnerGallery extends Component {
     this.props.doneLoading();
   }
 
-  handleChange (event) {
+  handleChange(event) {
     event.preventDefault();
     this.setState({ selectedLearners: event.target.value });
   }
@@ -88,15 +88,18 @@ class LearnerGallery extends Component {
   render() {
     return (
       <div>
-        <form>
-          <input type="text" placeholder="search" onChange={this.handleChange}></input>
-        </form>
         {
-          this.props.guild.loading ? (<div className="flex-center"><img className="lg-loading" src="/LearnerLogo.png" /></div>) : (<CollectionPage
+          this.props.guild.loading ? (<div className="flex-center"><img className="lg-loading" src="/LearnerLogo.png" /></div>) : (
+                  <div>
+                    <form>
+                      <input type="text" placeholder="search" onChange={this.handleChange}></input>
+                    </form>
+                    <CollectionPage
                     data={this.filterByName()}
                     info={ { name: 'About Learners Guild', story: 'This is just a sentence.' } }
                     projects={this.getProjects(this.filterByName())}
-                  /> )
+                    />
+                  </div>)
         }
       </div>
     );

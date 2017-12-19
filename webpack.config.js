@@ -40,6 +40,9 @@ module.exports = {
   plugins: [
     new ExtractTextPlugin('style.css'),
   ],
+  node: {
+    fs: 'empty',
+  },
   resolve: {
     extensions: ['.js', '.jsx']
   }

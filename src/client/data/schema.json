@@ -1,0 +1,80 @@
+{
+  "title": "Learner",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "github_handle": {
+      "type": "string"
+    },
+    "linkedin_profile": {
+      "type": "string"
+    },
+    "twitter": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "story": {
+      "type": "string"
+    },
+    "projects": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "title": {
+            "type": "string"
+          },
+          "link": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": ["id", "title", "link"]
+      }
+    },
+    "skills": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "skills": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": ["id", "skills"]
+      }
+    },
+    "experience": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "projects": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": ["id", "projects"]
+      }
+    },
+    "alumni": {
+      "type": "boolean"
+    }
+  },
+  "required": ["github_handle", "name", "story", "alumni"],
+  "additionalProperties": false
+}
