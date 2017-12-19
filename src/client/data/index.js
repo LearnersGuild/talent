@@ -1,4 +1,42 @@
 export const learners = [{
+	"id": "59f7a184ae692a8b4ce9f062",
+	"github_handle": "hhhhhaaaa",
+	"linkedin_profile": "dougell",
+	"twitter": "sqwrlboy",
+	"name": "Douglas Lubaway",
+	"story": "Adipisicing elit aliquip nulla officia. Tempor sint cillum veniam dolore consectetur duis ut aliqua id laborum. Eiusmod ex ex ad ea amet sit occaecat do consequat amet.",
+	"projects": [{
+			"id": 1,
+			"title": "ReactPro",
+			"link": "https://github.com/hhhhhaaaa/book-store"
+		},
+		{
+			"id": 2,
+			"title": "React/Redux",
+			"link": "http://google.com"
+		}
+	],
+	"skills": [{
+			"id": 3,
+			"skills": "JS"
+		},
+		{
+			"id": 4,
+			"skills": "CSS"
+		}
+	],
+	"experience": [{
+			"id": 5,
+			"projects": "Pro1"
+		},
+		{
+			"id": 6,
+			"projects": "Pro2"
+		}
+	],
+	"alumni": true
+}
+,{
 	"id": "59f7a184c8d77cb75a5a2044",
 	"github_handle": "cillum",
 	"linkedin_profile": "www.linkedin.com/laborum",
@@ -37,42 +75,26 @@ export const learners = [{
 	"alumni": true
 }
 ,{
-	"id": "59f7a184ae692a8b4ce9f062",
-	"github_handle": "hhhhhaaaa",
-	"linkedin_profile": "dougell",
-	"twitter": "sqwrlboy",
-	"name": "Douglas Lubaway",
-	"story": "Adipisicing elit aliquip nulla officia. Tempor sint cillum veniam dolore consectetur duis ut aliqua id laborum. Eiusmod ex ex ad ea amet sit occaecat do consequat amet.",
+	"id": "59f7a18468a88124cd83fa60",
+	"github_handle": "exercitation",
+	"linkedin_profile": "www.linkedin.com/fugiat",
+	"twitter": "www.twitter.com/deserunt",
+	"name": "Hattie Mcmillan",
+	"story": "Amet labore voluptate magna quis nulla ad excepteur excepteur consequat. Amet voluptate proident et ipsum reprehenderit labore magna sunt deserunt minim ipsum aliqua officia tempor. Id tempor irure Lorem irure irure qui nulla et ipsum qui labore. Ut ut tempor ex Lorem ea.",
 	"projects": [{
-			"id": 1,
+			"id": 55,
 			"title": "ReactPro",
-			"link": "https://github.com/hhhhhaaaa/book-store"
+			"link": "http://google.com"
 		},
 		{
-			"id": 2,
+			"id": 56,
 			"title": "React/Redux",
 			"link": "http://google.com"
 		}
 	],
-	"skills": [{
-			"id": 3,
-			"skills": "JS"
-		},
-		{
-			"id": 4,
-			"skills": "CSS"
-		}
-	],
-	"experience": [{
-			"id": 5,
-			"projects": "Pro1"
-		},
-		{
-			"id": 6,
-			"projects": "Pro2"
-		}
-	],
-	"alumni": true
+	"skills": [],
+	"experience": [],
+	"alumni": false
 }
 ,{
 	"id": "59f7a18461800384eaa0e060",
@@ -148,28 +170,6 @@ export const learners = [{
 			"projects": "Pro2"
 		}
 	],
-	"alumni": false
-}
-,{
-	"id": "59f7a18468a88124cd83fa60",
-	"github_handle": "exercitation",
-	"linkedin_profile": "www.linkedin.com/fugiat",
-	"twitter": "www.twitter.com/deserunt",
-	"name": "Hattie Mcmillan",
-	"story": "Amet labore voluptate magna quis nulla ad excepteur excepteur consequat. Amet voluptate proident et ipsum reprehenderit labore magna sunt deserunt minim ipsum aliqua officia tempor. Id tempor irure Lorem irure irure qui nulla et ipsum qui labore. Ut ut tempor ex Lorem ea.",
-	"projects": [{
-			"id": 55,
-			"title": "ReactPro",
-			"link": "http://google.com"
-		},
-		{
-			"id": 56,
-			"title": "React/Redux",
-			"link": "http://google.com"
-		}
-	],
-	"skills": [],
-	"experience": [],
 	"alumni": false
 }
 ,{

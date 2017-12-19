@@ -5,14 +5,12 @@ import { StaticRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import reducers from '../../client/reducers';
-// import buildLearners from '../../client/data/mergeHelper.js';
-
+import apiRoutes from './apiRoutes';
 import App from '../../client/components/app';
 
-// const allLearners = buildLearners();
+router.use('/api', apiRoutes);
 
 router.use('*', (req, res) => {
-
 
   const context = {};
 
