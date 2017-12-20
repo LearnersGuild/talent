@@ -3,7 +3,8 @@ import { renderToNodeStream } from 'react-dom/server';
 const router = require('express').Router();
 import { StaticRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
+import ReduxPromise from 'redux-promise';
 import reducers from '../../client/reducers';
 import apiRoutes from './apiRoutes';
 import App from '../../client/components/app';
@@ -11,6 +12,8 @@ import App from '../../client/components/app';
 router.use('/api', apiRoutes);
 
 router.use('*', (req, res) => {
+
+  const createStoreWithMiddleware = applyMiddleware(ReduxPromise)(createStore);
 
   const context = {};
 
@@ -26,7 +29,7 @@ router.use('*', (req, res) => {
       <div class="container">`);
 
   const stream = renderToNodeStream(
-    <Provider store={createStore(reducers)}>
+    <Provider store={createStoreWithMiddleware(reducers)}>
     <StaticRouter context={context} location={req.originalUrl} >
     <App />
     </StaticRouter>

@@ -7,19 +7,14 @@ const buildLearners = () => {
     if (error) {
       throw error;
     }
-    files.forEach((file, index) => {
+    files.forEach(file => {
       let data = require(`./learners/${file}`);
-      allLearners.push((data));
-      if (index === files.length) {
-        console.log(allLearners);
-        return allLearners;
-      }
+      allLearners.push(data);
     });
+    return allLearners;
   });
 };
 
-// buildLearners();
+buildLearners();
 
-console.log(buildLearners());
-
-// module.exports = allLearners;
+module.exports = allLearners;

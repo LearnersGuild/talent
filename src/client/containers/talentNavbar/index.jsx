@@ -3,12 +3,17 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Link } from 'react-router-dom';
 import { Navbar, Nav, NavDropdown, MenuItem, FormGroup, FormControl, Button } from 'react-bootstrap';
-import { fetchLearners } from '../../actions';
+import { startLoading, fetchLearners, doneLoading } from '../../actions';
+import axios from 'axios';
 
 class TalentNavbar extends Component {
 
   componentWillMount() {
-    this.props.fetchLearners();
+    this.props.startLoading();
+    axios.get('/api/learners')
+    .then(response => response.data)
+    .then(data => this.props.fetchLearners(data))
+    .then(() => this.props.doneLoading());
   }
 
   render() {
@@ -43,7 +48,7 @@ class TalentNavbar extends Component {
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ fetchLearners }, dispatch);
+  return bindActionCreators({ startLoading, fetchLearners, doneLoading }, dispatch);
 }
 
 export default connect(null, mapDispatchToProps)(TalentNavbar);
