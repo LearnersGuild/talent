@@ -7,4 +7,6 @@ const valid = validate(data);
 
 if (!valid) {
   console.log(validate.errors);
+} else {
+  console.log('Format is correct');
 }
