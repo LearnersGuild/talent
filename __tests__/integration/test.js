@@ -4,13 +4,15 @@ import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import { MemoryRouter } from 'react-router-dom';
 import Blurb from '../../src/client/components/blurb';
-import TalentNavbar from '../../src/client/components/talentNavbar';
+import TalentNavbar from '../../src/client/containers/talentNavbar';
 import ExperienceList from '../../src/client/components/experienceList';
 import SkillList from '../../src/client/components/skillList';
 import LearnerGallery from '../../src/client/containers/learnerGallery';
 import ProfilePage from '../../src/client/containers/profile';
 import reducers from '../testingEnvironment/reducers/indexHelper.js';
 import { resetLoading } from '../testingEnvironment/actions/indexHelper.js';
+import Loading from '../../src/client/containers/loading';
+import ErrorBoundary from '../../src/client/components/errorBoundary';
 
 describe("Blurb", () => {
   let info = {
@@ -40,15 +42,16 @@ describe("Blurb", () => {
 })
 
 describe("LearnerGallery", () => {
-  const futureProps = { params: { searchSkill: "search=JS,CSS"} };
+  const futureProps = { params: { searchSkill: "search=JS,CSS" } };
   const mountedLearnerGallery = (type) => {
       return mount(
       <Provider store={createStore(reducers)}>
         <MemoryRouter>
-          <div>
-            <TalentNavbar />
+          <ErrorBoundary>
+            <Loading>
               <LearnerGallery type={type} match={futureProps} />
-          </div>
+            </Loading>
+          </ErrorBoundary>
         </MemoryRouter>
       </Provider>,
     )
@@ -75,10 +78,11 @@ describe("LearnerGallery", () => {
       return mount(
       <Provider store={mockStore}>
         <MemoryRouter>
-          <div>
-            <TalentNavbar />
+          <ErrorBoundary>
+            <Loading>
               <LearnerGallery type={type} match={futureProps} />
-          </div>
+            </Loading>
+          </ErrorBoundary>
         </MemoryRouter>
       </Provider>,
     )
@@ -115,10 +119,11 @@ describe("Profile Page", () => {
       return mount(
       <Provider store={createStore(reducers)}>
         <MemoryRouter>
-          <div>
-            <TalentNavbar />
+          <ErrorBoundary>
+            <Loading>
               <ProfilePage match={profile} />
-          </div>
+            </Loading>
+          </ErrorBoundary>
         </MemoryRouter>
       </Provider>,
     )
