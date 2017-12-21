@@ -10,10 +10,13 @@ class TalentNavbar extends Component {
 
   componentWillMount() {
     this.props.startLoading();
-    axios.get('/api/learners')
+    axios.get('http://localhost:3000/api/learners')
     .then(response => response.data)
     .then(data => this.props.fetchLearners(data))
-    .then(() => this.props.doneLoading());
+    .then(() => this.props.doneLoading())
+    .catch(error => {
+      console.log('Error fetching and parsing data', error);
+    });
   }
 
   render() {
