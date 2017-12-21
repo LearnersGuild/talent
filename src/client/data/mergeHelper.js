@@ -1,5 +1,4 @@
 const fs = require('fs');
-
 const allLearners = [];
 
 const buildLearners = () => {
