@@ -9,6 +9,7 @@ import LearnerGallery from '../../containers/learnerGallery';
 import ErrorBoundary from '../errorBoundary';
 import LandingPage from '../landingPage';
 import Loading from '../../containers/loading';
+import Footer from '../footer';
 
 export default class App extends Component {
   render() {
@@ -36,6 +37,7 @@ export default class App extends Component {
             </Loading>
           </ErrorBoundary>
           <ScrollToTop />
+        <Footer />
       </div>
     );
   }
