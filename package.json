@@ -17,7 +17,7 @@
     "start": "NODE_ENV=production node dist/server/server.js",
     "start:dev": "nodemon dist/server/server.js",
     "build": "rm -rf dist && babel ./src/server/server.js -d dist/ --watch src/",
-    "update:data": "node src/client/data/mergeHelper.js",
+    "update:data": "cp -a src/client/data/learners dist/client/data",
     "webpack:server": "webpack --debug --devtool=eval --watch",
     "test": "jest"
   },
@@ -29,7 +29,6 @@
   "license": "MIT",
   "dependencies": {
     "axios": "^0.17.1",
-    "body-parser": "^1.18.2",
     "express": "^4.16.2",
     "lodash": "^4.17.4",
     "react": "^16.0.0",
@@ -37,8 +36,7 @@
     "react-dom": "^16.0.0",
     "react-redux": "^5.0.6",
     "react-router-dom": "^4.2.2",
-    "redux": "^3.7.2",
-    "redux-promise": "^0.5.3"
+    "redux": "^3.7.2"
   },
   "devDependencies": {
     "ajv": "^5.5.2",
