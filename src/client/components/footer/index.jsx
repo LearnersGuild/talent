@@ -5,7 +5,7 @@ export default class Footer extends Component {
   render() {
     return (
       <div>
-        <Navbar className="navbar">
+        <Navbar className="navbar-fixed-bottom footer" >
           <p>Hi</p>
         </Navbar>
       </div>

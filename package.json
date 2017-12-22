@@ -19,7 +19,7 @@
     "build": "rm -rf dist && babel ./src/server/server.js -d dist/ --watch src/",
     "update:data": "cp -a src/client/data/learners dist/client/data",
     "webpack:server": "webpack --debug --devtool=eval --watch",
-    "test": "jest"
+    "test": "NODE_ENV=test jest"
   },
   "repository": {
     "type": "git",

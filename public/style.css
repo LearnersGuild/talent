@@ -1,24 +1,33 @@
 body {
-  padding-top: 80px; }
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
 
 .home-page-image-container {
   display: flex;
   flex-flow: row wrap;
-  justify-content: center; }
+  justify-content: center;
+}
 
 .home-page-image {
   display: flex;
   flex-direction: column;
   width: 25%;
-  height: auto; }
+  height: auto;
+}
 
 .flex-column-home-page {
   display: flex;
-  flex-direction: column; }
+  flex-direction: column;
+}
 
 .flex-center {
   display: flex;
   justify-content: center;
+}
+
+.footer {
+  text-align: center;
 }
 
 .lg-loading {

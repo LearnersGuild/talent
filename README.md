@@ -42,7 +42,7 @@ Then run the server.
 npm run build
 npm run webpack:server
 npm run start:dev
-
+npm run update:data
 ```
 Globally install nvm, avn, and avn-nvm.
 
