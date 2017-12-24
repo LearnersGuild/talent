@@ -16,11 +16,6 @@ module.exports = (function() {
     // Dotenv reads env file and puts in on the env.
 
     config = {
-      db: {
-        host: process.env.DB_HOST,
-        port: process.env.DB_PORT,
-        name: process.env.DB_NAME
-      },
       port: process.env.PORT
     };
     return config;
