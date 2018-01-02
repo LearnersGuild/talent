@@ -6,9 +6,9 @@ This file will attempt to explain how this app works, and what is going into it.
 Webpack is a package used to bundle all of the client side files within the app.
 Here, it is bundling src/client.
 
-Webpack.config.js is the main file for Webpack. The entry points to the start of the app on the client side, which is index.js. Output is configured to look for where to put the finished bundle. It points to the public directory here. Then, module/rules creates rules for Webpack to follow. Exclude tells Webpack what files not to compile into bundle.js. Loader includes modules that help compile the bundle.
+Webpack.config.js is the main file for Webpack. The entry key points to the start of the app on the client side, which is index.js. Output is configured to look for where to put the finished bundle. It points to the public directory here. Then, module/rules creates rules for Webpack to follow. Exclude tells Webpack what files not to compile into bundle.js. Loader includes modules that help compile the bundle.
 
-Next, we have test. Test looks for file types (in this case, css), and compiles them down and puts them into the public directory. There is also a test that does the same for js and jsx files. Plugins create the bundled files. ExtractTextPlugin extracts any inline styling and puts in a css file. Resolve - extensions allows users to leave off the extensions of certain files when importing them. Here, .jsx resolves to .js.
+Next, we have test. Test looks for file types (in the first case, css), and compiles them down into one bundle file, and then puts that file into the public directory. There is a second test that does the same for js and jsx files. Plugins create the bundled files. ExtractTextPlugin extracts any inline styling and puts in a css file. Resolve - extensions allows users to leave off the extensions of certain files when importing them. Here, any .jsx or .js files do not need to include the file extension when importing the file.
 
 ## File Structure For Talent
 There are two main directories, public and src, with one build directory.
@@ -16,9 +16,9 @@ There are two main directories, public and src, with one build directory.
 Public holds all of the public files within the app, such as images and stylesheets.
 It also contains the build within bundle.js, complimentary of Webpack.
 
-The build directory, dist/, is created by Babel.
+The build directory, dist, is created by Babel.
 It's purpose is to compile ES6 and JSX syntax down to ES5 syntax.
-The .babelrc file tells it to do this.
+The .babelrc file is what configures Babel to compile down into ES5 syntax.
 
 ### src
 Src contains the client and the server directories, which reflect the front end and the back end respectively.
@@ -26,36 +26,33 @@ We will be going over the server directory first.
 
 #### server
 Server.js is the main file within the server directory, as well as the entry point for the entire app.
-It sets up the express server for the app, points the server to the public directory, and uses the router as middleware.
+It sets up the express server for the app, points the server to the public directory (as middleware), and uses the router as middleware.
 
-Within the routes folder are index.js and renderFullPage.js.
+Within the routes folder are index.js and apiRoutes.js.
 
-RenderFullPage.js is a function that sets up the head of the html that will be used through the browser.
-It takes one argument, which will be used as the body of the page.
-(This includes, at the bottom of the code, the bundle.js file created by Webpack.)
+apiRoutes.js sets up one route for the app to make an ajax request to. The route, defined as /learners, sends a json file, which is being imported from client/data/mergehelper.js. If you go to the mergeHelper.js file, you'll see that this file goes through all files in the learners director, requires each file, and pushes all of the json files into a single array. That array is then exported and used in the api route /api/learners, and the json that is sent is the result of combining each individual learner's json file into one json file. This json file will be used by the app later on, and we will go into further detail once we get to client - loading section of this document.
 
-Index.js listens on all routes for a request and sends that request through the renderFullPage function detailed above.
-It takes the component App (which we will discuss later) and wraps it in a StaticRouter component provided by React-Router.
-StaticRouter itself establishes a router that never changes its location.
-The StaticRouter is wrapped within a Provider, which is a core component of Redux.
-We will discuss the Provider within the front end.
-All of this is being turned into a string, which is being sent through to renderFullPage, and then sent to the browser.
+Index.js starts off by using the apiRoutes.js file as middleware, under any request made through /api. This middleware needs to go before the following route, as the following route will capture any other request to the talent domain.
+Index.js listens on all routes (besides /api/Learners) for a request and sends that request through a node stream.
+It begins by writing a static html string that contains the head of the html page and the start of the body. It then uses a method provided by react-dom/server called renderToNodeStream. renderToNodeStream takes the react application, imported from client/components/app, wraps it in a StaticRouter. The app is wrapped in a StaticRouter because this is a single-page application; regardless of what route a user attempts to go to while making a request to the talent domain (other than /api/learners), the express server will always have the same response, so the app is sent in a StaticRouter, as the user will never be going to a different route. The app is also wrapped in a Provider; the Provider is a component provided by react-router, and it always your react application to make use of all the features that Redux provides. We will be going into more detail about what this entails later on. After writing the initial head and body of the html document, the express server will then send over the React app as a stream in chunks. Line 36 is necessary because it tells the browser that express is not yet done streaming after all of the chunks have been sent. This is necessary because on line 37, we send the final portion of the html document, which sends the bundle file created by webpack as a script to the browser, and closes off the html body and document. It then notifies the browser on line 39 that the server has finished its response.
 
 #### client
 *Everything beyond the index.js is both the bundle.js script and the body of the html that is sent.*
+
 Index.js is the entry point for the client directory.
 It contains a ReactDOM.hydrate function.
-ReactDOM.hydrate reads the body, then reads the bundle.js script and passes any eventListeners from the script to the body.
-It takes two parameters.
-The first is the App, the second is location within the html where the App is placed.
-For more information, here is the React docs for hydrate: [Hydrate](https://reactjs.org/docs/react-dom.html#hydrate)
+If you recall from the server/routes/index.js file, the html sent by our express server to the browser includes both the app sent in a StaticRouter as the body of the html, as well as the bundle file of our app created by webpack sent as a script tag.
+ReactDOM.hydrate reads the body of the html page, then reads the bundle.js script that is included at the bottom of the html document. The script and the html body are almost identical, the only difference being that the script is wrapped in a BrowserRouter as opposed to a StaticRouter. Because the difference between the body and the script is so minute, the React developers have created a major optimization. Rather than rendering React components in the html body, evaluating the differences, and then re-rendering the application when the bundle script is read, instead, the ReactDOM.hydrate method will determine what components that already exist in the html body need javascript event listeners, and then attach those event listeners to the components. This prevents the same components from being re-rendered, and instead 'hydrates' the page with event listeners.
+ReactDOM.hydrate takes two parameters.
+The first is the App (which is wrapped in a Provider and BrowserRouter), the second is the location within the html where the App is appended to.
+For more information, here are the React docs for hydrate: [Hydrate](https://reactjs.org/docs/react-dom.html#hydrate)
 
 Here, App is wrapped in BrowserRouter.
 The BrowserRouter is responsible for deciding which components within App to render based on the current URL.
 BrowserRouter is wrapped within a Provider.
-The Provider creates a global store based on the reducers. We have also passed in a second parameter to allow for the Redux Dev Tools extension for Chrome to work.
+The Provider creates a global store based on the reducers. We have also passed in a second parameter to the Provider to allow for the Redux Dev Tools extension for Chrome to work.
 
-Further on, there are four directories:
+Within client, there are four directories:
 - Actions
 - Components
 - Containers

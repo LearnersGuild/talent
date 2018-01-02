@@ -7,7 +7,6 @@ export const port = process.env.PORT || 3000;
 
 const assets = express.static(path.join(__dirname, '../../public'));
 app.use(assets);
-app.use('/test', (req, res) => res.send('holla'))
 app.use('/', router);
 
 app.listen(port, () => {
