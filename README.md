@@ -52,9 +52,16 @@ npm install -g avn avn-nvm
 avn setup
 ```
 
-## FUTURE TESTING SUBSECTION
+## TESTING SUBSECTION
 
+Testing for this app is being done using Jest, Enzyme, and Navalia.
+To run the tests, run this command.
+
+```
 npm test
+```
+
+The code for the tests is located in the __tests__ directory.
 
 ## Built With
 
@@ -81,6 +88,7 @@ react-router-dom - 4.2.2
 [Sally Maki](https://github.com/leikkisa)
 [Serafin Wesnidge](https://github.com/lumodon)
 [Aaron Villanueva](https://github.com/aaronev)
+[Michael Klein](https://github.com/mKleinCreative)
 [Ryan Greenberg](https://github.com/optomal7)
 [Judy Tuan](https://github.com/judytuna)
 [Punit Rathore](https://github.com/punitrathore)
