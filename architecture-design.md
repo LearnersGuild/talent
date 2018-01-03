@@ -165,6 +165,23 @@ ScrollToTop uses the componentDidUpdate lifecycle hook that React provides to de
 
 NotFound is component that renders when the URL does not match any existing routes. It renders a picture.
 
+### Testing
+Finally, we will be going over testing. Our tests are located in the __tests__ directory.
+
+For our tests, we use Jest, Enzyme, and Navalia.
+
+#### Testing Environment Configuration
+Starting at preHelper.js, we setup a global method called requestAnimationFrame, which sets a timeout on a callback function. This was done in accordance with the Jest documentation.
+
+In testHelper.js, we import configure and Adapter in order to configure enzyme to test for React version 16 components. This was also done in accordance with the Enzyme documentation.
+
+The testingEnvironment directory contains actions, reducers, and data. The reducers are copies of the reducers from src/client/reducers. The actions are slightly different. The fetchLearners action does not take a callback, it instead sets the value of payload to be the combined json file. In our integration tests, we avoid using a browser, and as such, cannot initiate a fetch request to get the json file that our server sends. Instead, we set the value of the redux store to be a json file directly through the fetchLearners action, avoiding a fetch call entirely. Thus, our integration tests simulate a successful fetch call to our server. Our end-to-end tests use the Chrome browser, and that is where we test that our fetch call is successful. The data directory is a mockup json file, similar to what our api in production serves when a fetch request is made.
+
+#### Integration Tests
+After importing all the necessary files, our first test begins on line 17. The first set of tests are for the Blurb component. Using Jest and Enzyme, you are able to simulate mounting React components, and then test what those components render when passed certain props. On line 18, we create a mock info object that will be passed as a prop to Blurb. On line 22, we create a const that uses Enzyme's mount method to mount the Blurb component, passing our info object as a prop. In the first three tests, we use Jest's find method to target specific html elements we expect to find on a page if Blurb was mounted on that page. We test that Blurb is wrapped in a div in the first test on line 25; we test that Blurb renders a h1 in the second test on line 29; and finally, we test that Blurb renders a p tag in the third test on line 33. On line 37, we test that any props passed to Blurb are being passed successfully. We test this through Enzyme's props method on line 38. This method will return an object with all of the props of a component. We then test that those props are equal to what we passed our Blurb component on line 23.
+
+Our next set of tests are testing that the LearnerGallery container is behaving as expected.
+
 ### Congratulations!
 Congratulations! You have made it through this long block of text. Thank you for reading this. We greatly appreciate you looking into this App. Feel free to talk to contact us through our GitHub accounts if you have further questions.
 
