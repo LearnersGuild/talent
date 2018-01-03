@@ -94,27 +94,29 @@ On line 10, Loading determines what to render based on the state of the Redux st
 
 ##### Switch
 Now, let's move on to the Switch statement.
-The Switch statement which renders different components based on the URL. Then there are the Routes. Each Route contains a path. Based on the URL, only one Route will be displayed, as shown by the path. It contains either a component method or a render method. Component method renders a component. Render method is used to not only render a component but also pass in props. At the bottom, we have a ScrollToTop component, which automatically scrolls the page to the top on refresh/re-render.
+The Switch statement renders different components based on the URL. This is done through the Routes. Each Route contains a path. Based on the URL, any matching Routes will be rendered. This means that a request to '/' would render '/' and all other routes, as all routes start with '/'. In order to avoid this functionality, our routes are passed the exact keyword, so that only routes that match the request exactly will be rendered. Each route also contains either a component method or a render method. The  component method renders a component. The render method is used to not only render a component but also pass in props. At the bottom, we have a ScrollToTop component, which automatically scrolls the page to the top on refresh/re-render. We also have a Footer component, which renders a footer on every page of our application.
+
+Next, we will go into detail about each Route.
 
 ##### LearnerGallery
-We're going to start with the LearnerGallery container, as it's responsible for most of the app. The first notable part of this page is the mapStateToProps function on Line 104. It uses ES6 de-structuring (feel free to look this up!) to take the value of an object and return a new object with that key value pair. On Line 108, it is exported with the connect method, from React-Redux, which creates a prop available to the component as this.props.value. In this case, it is guild. Connect is going to look at the Redux-Store, and then map that store as a prop.
+We're going to start with the LearnerGallery container, as it's responsible for most of the app. The first notable part of this page is the mapStateToProps function on Line 99. It uses ES6 de-structuring (feel free to look this up!) to take the value of an object and return a new object with that key value pair. On Line 103, it is exported with the connect method, from React-Redux, which creates a prop available to the component as this.props.value. In this case, it is guild. Connect is going to look at the Redux-Store, and then map that store as a prop.
 
-Now, as we return to the top, we import what we need, and create a component. It starts with a constructor, which is passed props. This then calls super on props. It binds the value of this to handleChange. This is important, otherwise when handleChange refers to this, this would equal the window and not the class. The constructor also sets the state, which is a key-value pair. Specifically, it creates a selectedLearners key by calling either the filterByType method if there is a type prop, or the filterBySkill if there is not.
+Now, as we return to the top, we import what we need, and create a component. It starts with a constructor, which is passed props. This then calls super on props. It binds the value of this to handleChange. This is important, otherwise when handleChange refers to this, the value of this would be the window object and not the class. The constructor also sets the state, which is a key-value pair. Specifically, it creates a selectedLearners key by calling either the filterByType method if there is a type prop, or the filterBySkill if there is not.
 
 If you refer back to app/index.jsx, you can see based on the route a different type is passed to LearnerGallery. This passes the value to filterLearner, which changes the state. FilterLearner will return all the alumni, all the current, or all the learners based on the type passed. In the skillsresults/:searchskill route, LearnerGallery is not passed a type. This will allow the learners who appear on the page to be based on their skills, rather than their current enrollment status at the Guild.
 
-After the initial loading process, the render method will render a search bar and the CollectionPage container. The search bar has an onChange handler, which points to handleChange on Line 29.
+After the initial loading process, the render method will render a search bar and the CollectionPage container. The search bar has an onChange handler, which points to handleChange on Line 24.
 
 Whenever a user types in the search bar, the state is updated based on the value of the search bar. This, in turn, causes the page to re-render, which causes filterByName to re-evaluate with the value of the search bar.
 
 FilterByName, located on Line 29, starts by checking if it was passed a type. If yes, then it will call filterByType with the current type. Then, it checks to see if the state of currentView is an array, which on page load, it is. As soon as the user types, however, currentView becomes a string, and now the method will return all of the learners whose name includes the value of the search bar. This value is in turn passed onto the CollectionPage container as a data-prop.
 
-If there is no type passed to FilterByName, this is because the LearnerGallery container was rendered as result of searching for a skill. If you look back to components/app/index, on line 28, this is the route that was fired. If LearnerGallery was rendered by this route, then FilterByName will set the state of filteredLearner to be the result of the filterBySkill method located on line 51. filterBySkill will look at the URL, and then grab the skills from a property that React-Router assigns to props, thus this.props.match.params.searchSkill. Next, it takes all of the learners skills and puts them into an array. Then it compares the learners to the skills and returns the learners who have all those skills.
+If there is no type passed to FilterByName, this is because the LearnerGallery container was rendered as result of searching for a skill. If you look back to components/app/index, on line 29, this is the route that was fired. If LearnerGallery was rendered by this route, then FilterByName will set the state of filteredLearner to be the result of the filterBySkill method located on line 46. filterBySkill will look at the URL, and then grab the skills from a property that React-Router assigns to props, thus this.props.match.params.searchSkill. Next, it takes all of the learners skills and puts them into an array. Then it compares the learners to the skills and returns the learners who have all those skills.
 
 ##### CollectionPage
-CollectionPage also receives an info prop, which is a static object that contains two keys, a name and a story. Finally, it also receives a projects-prop, which is determined by the getProjects method.
+CollectionPage, which is rendered by LearnerGallery, receives an info prop, which is a static object that contains two keys, a name and a story. It also receives a projects-prop, which is determined by the getProjects method.
 
-GetProjects, defined on Line 62, takes an array of objects and returns all of the projects keys from those objects.
+GetProjects, defined on Line 78, takes an array of objects and returns all of the projects keys from those objects.
 
 Next up is the CollectionPage container. It's less complicated, as it contains a Blurb component, a UserGallery component, and a Project component. All this container does is pass what it received onto other components. It exists to make LearnerGallery shorter.
 
@@ -124,7 +126,7 @@ UserGallery is a simple component that renders a header and passes the UserBadge
 
 UserBadge takes an array of learners and displays several images, each with a learner's face that links to the individual learner's profile page. Below each image, it renders the learner's name.
 
-Projects is a component that takes an array of projects and renders a link to the everyone of those projects. The text for the links is the project's name.
+Projects is a component that takes an array of projects and renders a link to every one of those projects. The text for the links is the project's name.
 
 ##### ProfilePage
 The next block of components is contained within the Profile container. Similar to LearnerGallery, ProfilePage has the Redux-Store mapped as a prop. This container starts by getting the value of the URL through this.props.match.url. It removes /learners/ from this value (this is the learner's GitHub Handle). It then uses the GitHub Handle to filter through the Redux-Store and return all the information of the learner whose GitHub Handle this is (this is happening on Line 11, in the filterLearner method). Then, ProfilePage renders a Profile component, an ExperienceList component, a SkillList component, and the Projects component detailed earlier.
@@ -145,13 +147,16 @@ FilterDuplicates filters out all of the duplicates from that array, and returns 
 
 EstablishNames creates an object, assigns each skill as a key in this object with a value of false, and then returns the object.
 
-The render function on Line 83 renders a form with a list that calls renderExperienceList, and a Link that contains a button, that links to the result of calling findLearners.
+The render function on Line 80 renders a form with a list that calls renderExperienceList, and a Link that contains a button, that links to the result of calling findLearners.
 
 RenderExperienceList calls filterDuplicates and returns a list of every skill as checkbox inputs that each have a value and an onChange event listener.
 
 The handleChange method looks at a checkbox's value, determines whether or not it is checked (which in this case is called off because html has declared that a checkbox that is off is actually checked), and toggles the value. Then, it sets the state at the checkbox's name to have the toggled value of the checkbox.
 
 FindLearners is a method that looks at the state, determines whether or not a checkbox is currently checked, and if it is, it returns a string of all the checked skills. This, in turn, is the link the users will go to when they click the submit button. This route will render LearnerGallery, which is passed no type, and thus renders a list of learners based on the skills in the URL.
+
+##### Footer
+Footer is a simple component that renders a sticky footer on the bottom of the page that contains copyright information and information about Learners Guild.
 
 ##### ScrollToTop & NotFound
 The last two components are ScrollToTop and NotFound.
@@ -170,13 +175,3 @@ Lecture - We're gonna work on it when we come back.
 
 UPDATED
 Add testing section.
-
-MUST BE DONE NEXT WEEK
-Google Form
-Config/Environment files
-Styling?
-  Search Bar
-  Carousel
-  Skill Search
-  Project Links
-Write-Up for about

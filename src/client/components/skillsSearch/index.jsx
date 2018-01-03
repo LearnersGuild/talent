@@ -1,7 +1,7 @@
-import React, { Component } from 'react'
-import { connect } from 'react-redux'
-import { Link } from 'react-router-dom'
-import LearnerGallery from '../../containers/learnerGallery'
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
+import LearnerGallery from '../../containers/learnerGallery';
 
 class SkillsSearch extends Component {
   constructor(props) {
