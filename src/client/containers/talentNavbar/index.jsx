@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Link } from 'react-router-dom';
-import { Navbar, Nav, NavDropdown, MenuItem, FormGroup, FormControl, Button } from 'react-bootstrap';
+import { Navbar } from 'react-bootstrap';
 import { startLoading, fetchLearners, doneLoading } from '../../actions';
 import axios from 'axios';
 
