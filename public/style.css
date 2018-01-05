@@ -26,6 +26,80 @@ body {
   justify-content: center;
 }
 
+.filler {
+  margin-top: 50%;
+}
+
+.firstAngle {
+  position: absolute;
+  top: -10%;
+  width: 51.8%;
+  height: 40%;
+  z-index: 1;
+  background-color: grey;
+  transform: rotate(15deg);
+  padding: 1px 1px;
+}
+
+.secondAngle {
+  position: absolute;
+  top: -10%;
+  right: 0;
+  width: 51.8%;
+  height: 40%;
+  z-index: 1;
+  background-color: grey;
+  transform: rotate(-15deg);
+  padding: 1px 1px;
+}
+
+.contact {
+  z-index: -1;
+  position: absolute;
+  left: 0%;
+  width: 100%;
+  height: 40%;
+  color: white;
+  background-color: rgb(212, 69, 65);
+  margin-bottom: 5%;
+  padding-top: 10%;
+}
+
+.contact-items {
+  display: flex;
+  justify-content: center;
+  margin-left: 10%;
+  margin-right: 10%;
+  width: 80%;
+  text-align: center;
+  flex-flow: row wrap;
+}
+
+.contact-items > div {
+   flex: 1 0 50%;
+   text-align: center;
+   padding: 10px;
+}
+
+.contact-items > div:first-child {
+    flex: 0 1 100%;
+}
+
+.contact-text {
+  flex: 0 1 100%;
+  margin: 0;
+  width: 30%;
+  word-wrap: keep-all;
+  background-color: red;
+}
+
+.contact-form {
+  flex: 1 0 50%;
+  margin: 0;
+  width: 30%;
+  background-color: red;
+}
+
 .footer {
   text-align: center;
 }
