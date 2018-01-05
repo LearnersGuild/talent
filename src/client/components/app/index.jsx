@@ -10,6 +10,7 @@ import ErrorBoundary from '../errorBoundary';
 import LandingPage from '../landingPage';
 import Loading from '../../containers/loading';
 import Footer from '../footer';
+import styles from './index';
 
 export default class App extends Component {
   render() {

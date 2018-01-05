@@ -4,19 +4,18 @@ import { bindActionCreators } from 'redux';
 import { Link } from 'react-router-dom';
 import { Navbar } from 'react-bootstrap';
 import { startLoading, fetchLearners, doneLoading } from '../../actions';
-import axios from 'axios';
+import allLearners from '../../data/mergeHelper.js';
 
 class TalentNavbar extends Component {
 
   componentWillMount() {
-    this.props.startLoading();
-    axios.get('http://localhost:3000/api/learners')
-    .then(response => response.data)
-    .then(data => this.props.fetchLearners(data))
-    .then(() => this.props.doneLoading())
-    .catch(error => {
-      console.log('Error fetching and parsing data', error);
-    });
+    // this.props.startLoading();
+    this.props.fetchLearners(allLearners);
+    this.props.doneLoading();
+  }
+
+  shouldComponentUpdate(nextProps, nextState) {
+    return false;
   }
 
   render() {
