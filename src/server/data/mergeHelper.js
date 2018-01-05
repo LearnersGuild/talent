@@ -2,7 +2,7 @@ const fs = require('fs');
 const allLearners = [];
 
 const buildLearners = () => {
-  fs.readdir('./src/client/data/learners', 'utf8', (error, files) => {
+  fs.readdir('./src/server/data/learners', 'utf8', (error, files) => {
     if (error) {
       throw error;
     }

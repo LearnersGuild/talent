@@ -5,9 +5,20 @@ export default class Footer extends Component {
   render() {
     return (
       <div>
-        <Navbar className="navbar-fixed-bottom footer" >
-          <p>Hi</p>
-        </Navbar>
+        <div className='filler'>
+          <div className='triangle'>
+          </div>
+          <br></br>
+        </div>
+        <span></span>
+        <div className='footer'>
+          <div className='firstAngle'></div>
+          <span></span>
+          <div className='secondAngle'></div>
+          <span></span>
+          <div className='red-box'>
+          </div>
+        </div>
       </div>
     );
   }

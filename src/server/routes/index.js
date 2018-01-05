@@ -3,10 +3,10 @@ import { renderToNodeStream } from 'react-dom/server';
 const router = require('express').Router();
 import { StaticRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
-import { createStore} from 'redux';
+import { createStore } from 'redux';
 import reducers from '../../client/reducers';
-import apiRoutes from './apiRoutes';
 import App from '../../client/components/app';
+import apiRoutes from './apiRoutes';
 
 router.use('/api', apiRoutes);
 

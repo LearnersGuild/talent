@@ -1,4 +1,4 @@
-import allLearners from '../../client/data/mergeHelper.js';
+import allLearners from '../data/mergeHelper';
 const router = require('express').Router();
 
 router.use('/learners', (req, res) => {
