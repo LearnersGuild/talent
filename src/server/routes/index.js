@@ -6,6 +6,9 @@ import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import reducers from '../../client/reducers';
 import App from '../../client/components/app';
+import apiRoutes from './apiRoutes';
+
+router.use('/api', apiRoutes);
 
 router.use('*', (req, res) => {
 

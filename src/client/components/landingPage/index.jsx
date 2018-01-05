@@ -14,11 +14,9 @@ export default class LandingPage extends Component {
       </div>
       <span></span>
       <div className='contact'>
-        <div className='firstAngle'>
-        </div>
+        <div className='firstAngle'></div>
         <span></span>
-        <div className='secondAngle'>
-        </div>
+        <div className='secondAngle'></div>
         <span></span>
         <div className='contact-items'>
           <div>
