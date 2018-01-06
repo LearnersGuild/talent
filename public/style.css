@@ -52,16 +52,6 @@ body {
   border-top: 100px solid white;
 }
 
-.red-box {
-  display: flex;
-  justify-content: center;
-  margin-left: 10%;
-  margin-right: 10%;
-  width: 80%;
-  text-align: center;
-  flex-flow: row wrap;
-}
-
 .lg-loading {
   display: flex;
   animation: App-logo-spin infinite 20s linear;
