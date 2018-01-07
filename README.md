@@ -12,7 +12,7 @@ Set your remote upstream to the original repo.
 
 ### Prerequisites
 
-You will need, and need to know, React.
+You will be using React, thus, being able to work with and understand React is a must.
 
 - [React](https://reactjs.org/tutorial/tutorial.html)
 - [React Router](https://reacttraining.com/react-router/web/api/Redirect)
@@ -21,6 +21,12 @@ You will need, and need to know, React.
 Knowing about Webpack and Babel would help as well.
 - [Webpack](https://www.youtube.com/watch?v=JdGnYNtuEtE&index=1&list=PLkEZWD8wbltnRp6nRR8kv97RbpcUdNawY)
 - [Babel](http://babeljs.io/docs/setup/)
+
+This app also uses Redux and knowledge of Redux is required.
+  [Redux](https://redux.js.org/)
+
+This app uses a technique known as isomorphic rendering. For a better understanding, read this article.
+  [Isomorphic Rendering](https://medium.com/@phoebe.greig/headache-free-isomorphic-app-tutorial-react-js-react-router-node-js-ssr-with-state-and-es6-797a8d8e493a)
 
 ### Installing
 
@@ -34,7 +40,9 @@ Then run the server.
 
 ```
 npm run build
-npm start
+npm run webpack:server
+npm run start:dev
+npm run update:data
 ```
 Globally install nvm, avn, and avn-nvm.
 
@@ -44,28 +52,43 @@ npm install -g avn avn-nvm
 avn setup
 ```
 
-## FUTURE TESTING SUBSECTION
+## TESTING SUBSECTION
+
+Testing for this app is being done using Jest, Enzyme, and Navalia.
+To run the tests, run this command.
+
+```
+npm test
+```
+
+The code for the tests is located in the __tests__ directory.
 
 ## Built With
 
 * [React](https://reactjs.org/) - Library used to build the app.
 * [React Router](https://reacttraining.com/react-router/) - Library used to give React routing capabilities.
+* [Redux](https://redux.js.org/) - Library used to store entire app's state.
 * [Webpack](https://webpack.js.org/) - Library used to bundle js, css, and html.
 * [Babel](https://babeljs.io/) - Library used to compile js.
-* [Sass](http://sass-lang.com/) - Library used to improve css.
 
 ## Versioning
 
 express - 4.16.2
 node - 8.1.2
 react - 16.0.0
+redux - 3.7.2
+react-router-dom - 4.2.2
 
 ## Authors
 
 [Jared Grippe](https://github.com/deadlyicon)
 [Zubair Ahmed](https://github.com/zubairnahmed)
-[Douglas Lubaway](https://github.com/hhhhhaaaa)
+[Douglas Lubaway](https://github.com/hhhhhaaaa) - Project Lead
+[Patrick Kallas](https://github.com/pkallas)
+[Sally Maki](https://github.com/leikkisa)
+[Serafin Wesnidge](https://github.com/lumodon)
 [Aaron Villanueva](https://github.com/aaronev)
+[Michael Klein](https://github.com/mKleinCreative)
 [Ryan Greenberg](https://github.com/optomal7)
 [Judy Tuan](https://github.com/judytuna)
 [Punit Rathore](https://github.com/punitrathore)

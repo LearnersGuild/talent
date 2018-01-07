@@ -16,19 +16,15 @@ module.exports = {
           /node_modules/,
           /\.html$/,
           /\.(js|jsx)$/,
-          /\.scss$/,
           /\.css$/,
           /\.json$/
         ],
         loader: 'url',
-        query: {
-          presets: ['react', 'es2015', 'stage-1']
-        }
       }, {
-        test: /\.(css|scss)?$/,
+        test: /\.(css)?$/,
         use: ExtractTextPlugin.extract({
           fallback: 'style-loader',
-          use: ['css-loader', 'sass-loader'],
+          use: ['css-loader'],
           publicPath: '/public'
         })
       }, {
@@ -43,14 +39,11 @@ module.exports = {
   },
   plugins: [
     new ExtractTextPlugin('style.css'),
-    // new HtmlWebpackPlugin({hash: false, template: './public/template.html'})
   ],
+  node: {
+    fs: 'empty',
+  },
   resolve: {
     extensions: ['.js', '.jsx']
-  },
-  devServer: {
-    historyApiFallback: true,
-    contentBase: './public',
-    port: 8081
   }
 };

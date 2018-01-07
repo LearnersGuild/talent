@@ -1,36 +1,44 @@
-import { renderToString } from 'react-dom/server'
-import React from 'react'
-const router = require('express').Router()
-import { matchPath, StaticRouter, ServerRouter } from 'react-router-dom'
+import React from 'react';
+import { renderToNodeStream } from 'react-dom/server';
+const router = require('express').Router();
+import { StaticRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
-import { createStore, applyMiddleware} from 'redux';
-import ReduxPromise from 'redux-promise'
-import reducers from '../../client/reducers'
+import { createStore } from 'redux';
+import reducers from '../../client/reducers';
+import App from '../../client/components/app';
+import apiRoutes from './apiRoutes';
 
-const path = require('path')
-
-import routes from '../../client/routes'
-import renderFullPage from './renderFullPage'
-import { tempInfo, userTempInfo, fakeDB, fakeProjects, experience, skills } from '../db/mock-data.js'
-import App from '../../client/components/app'
-
-const createStoreWithMiddleware = applyMiddleware(ReduxPromise)(createStore);
+router.use('/api', apiRoutes);
 
 router.use('*', (req, res) => {
 
-  const match = routes.reduce((acc, route) => matchPath(req.originalUrl, { path: route, exact: true}) || acc, null)
+  const context = {};
 
-  const context = {}
+  res.write(`<!DOCTYPE html>
+  <html>
+    <head>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="/style.css">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css">
+      <title>Talent</title>
+    </head>
+    <body>
+      <div class="container">`);
 
-  const html = renderToString(
-    <Provider store={createStoreWithMiddleware(reducers)}>
-      <StaticRouter context={context} location={req.originalUrl} >
-        <App />
-      </StaticRouter>
+  const stream = renderToNodeStream(
+    <Provider store={createStore(reducers)}>
+    <StaticRouter context={context} location={req.originalUrl} >
+    <App />
+    </StaticRouter>
     </Provider>
-  )
+  );
 
-  res.send(renderFullPage(html))
-})
+  stream.pipe(res, { end: false, });
+  stream.on('end', () => {
+    res.write('</div><script type="text/javascript" src="/bundle.js"></script></body></html>');
+    res.end();
+  });
 
-module.exports = router
+});
+
+module.exports = router;
