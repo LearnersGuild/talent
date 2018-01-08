@@ -2,6 +2,10 @@ body {
   padding-top: 80px;
 }
 
+navbar {
+  z-index: infinite;
+}
+
 .home-page-image-container {
   display: flex;
   flex-flow: row wrap;
@@ -23,6 +27,72 @@ body {
 .flex-center {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
+}
+
+.about {
+  position: absolute;
+  top: 0;
+  height: 600px;
+  width: 100%;
+  background-color: rgb(83, 140, 1);
+}
+
+.about-title {
+  position: relative;
+  z-index: 5;
+  font-size: 100px;
+  color: white;
+  top: 100px;
+}
+
+.about-image-container {
+  z-index: 10;
+  position: relative;
+  height: 300px;
+  width: 400px;
+  top: 230px;
+  left: -100px;
+  background-color: rgb(12, 81, 94);
+}
+
+.about-text {
+  position: relative;
+  height: 400px;
+  width: 400px;
+  top: 225px;
+  right: -250px;
+}
+
+.about-triangle {
+  position: relative;
+  bottom: -278px;
+  width: 0;
+  height: 0;
+  border-left: 1425px solid transparent;
+  border-bottom: 100px solid white;
+}
+
+.teal-triangle1 {
+  position: relative;
+  bottom: -75px;
+  width: 0;
+  height: 0;
+  left: -25%;
+  border-bottom: 200px solid transparent;
+  border-top: 100px solid transparent;
+  border-left: 900px solid rgb(11, 119, 122);
+}
+
+.teal-triangle2 {
+  position: relative;
+  bottom: -75px;
+  width: 0;
+  height: 0;
+  right: -25%;
+  border-bottom: 100px solid transparent;
+  border-top: 200px solid transparent;
+  border-right: 900px solid rgb(11, 119, 122);
 }
 
 .filler {
@@ -37,7 +107,6 @@ body {
   left: 0%;
   width: 100%;
   height: 40%;
-  color: white;
   background-color: rgb(212, 69, 65);
   padding-top: 10%;
 }
