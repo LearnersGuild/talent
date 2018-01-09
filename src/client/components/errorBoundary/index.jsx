@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+const fs = require('fs');
 
 export default class ErrorBoundary extends Component {
   constructor(props) {
@@ -15,6 +16,13 @@ export default class ErrorBoundary extends Component {
     });
 
     console.error(error, info);
+    // fs.writeFile('errorLogging.txt', error, (err) => {
+    //   if (err) {
+    //     throw error;
+    //   }
+    //
+    //   console.log('Error logged.');
+    // });
   }
 
   render() {

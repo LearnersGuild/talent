@@ -16,8 +16,8 @@ export default class App extends Component {
   render() {
     return (
       <div>
-        <TalentNavbar />
-          <ErrorBoundary>
+        <ErrorBoundary>
+          <TalentNavbar />
             <Loading>
               <Switch>
                 <Route exact path="/" component={LandingPage} />
@@ -36,9 +36,9 @@ export default class App extends Component {
                 <Route component={NotFound} />
               </Switch>
             </Loading>
-          </ErrorBoundary>
-        <ScrollToTop />
-        <Footer />
+          <ScrollToTop />
+          <Footer />
+        </ErrorBoundary>
       </div>
     );
   }
