@@ -2,13 +2,21 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Link } from 'react-router-dom';
-import { Navbar, Nav, NavDropdown, MenuItem, FormGroup, FormControl, Button } from 'react-bootstrap';
-import { fetchLearners } from '../../actions';
+import { Navbar } from 'react-bootstrap';
+import { startLoading, fetchLearners, doneLoading } from '../../actions';
+import axios from 'axios';
 
 class TalentNavbar extends Component {
 
   componentWillMount() {
-    this.props.fetchLearners();
+    this.props.startLoading();
+    axios.get('http://localhost:3000/api/learners')
+    .then(response => response.data)
+    .then(data => this.props.fetchLearners(data))
+    .then(() => this.props.doneLoading())
+    .catch(error => {
+      console.log('Error fetching and parsing data', error);
+    });
   }
 
   render() {
@@ -43,7 +51,7 @@ class TalentNavbar extends Component {
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ fetchLearners }, dispatch);
+  return bindActionCreators({ startLoading, fetchLearners, doneLoading }, dispatch);
 }
 
 export default connect(null, mapDispatchToProps)(TalentNavbar);

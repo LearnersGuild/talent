@@ -1,15 +1,21 @@
-import { learners } from '../data';
-
 export const FETCH_LEARNERS = 'fetch_learners';
 export const DONE_LOADING = 'done_loading';
+export const START_LOADING = 'start_loading';
 
-export function fetchLearners() {
+export function startLoading() {
   return {
-    type: FETCH_LEARNERS,
-    payload: learners,
+    type: START_LOADING,
     loading: true,
   };
 }
+
+export function fetchLearners(allLearners) {
+  return {
+    type: FETCH_LEARNERS,
+    payload: allLearners,
+    loading: true,
+  };
+};
 
 export function doneLoading() {
   return {
