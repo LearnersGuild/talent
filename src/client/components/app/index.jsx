@@ -7,7 +7,7 @@ import ScrollToTop from '../scrollToTop';
 import ProfilePage from '../../containers/profile';
 import LearnerGallery from '../../containers/learnerGallery';
 import ErrorBoundary from '../errorBoundary';
-import LandingPage from '../landingPage';
+import SplashRNG from '../../containers/splashRNG';
 import Loading from '../../containers/loading';
 import Footer from '../footer';
 import styles from './index';
@@ -16,11 +16,11 @@ export default class App extends Component {
   render() {
     return (
       <div>
-        <TalentNavbar />
-          <ErrorBoundary>
+        <ErrorBoundary>
+          <TalentNavbar />
             <Loading>
               <Switch>
-                <Route exact path="/" component={LandingPage} />
+                <Route exact path="/" component={SplashRNG} />
                 <Route exact path="/current" render={props => (
                   <LearnerGallery type="current" />
                 )} />
@@ -36,9 +36,9 @@ export default class App extends Component {
                 <Route component={NotFound} />
               </Switch>
             </Loading>
-          </ErrorBoundary>
-        <ScrollToTop />
-        <Footer />
+          <ScrollToTop />
+          <Footer />
+        </ErrorBoundary>
       </div>
     );
   }
