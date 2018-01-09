@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-const fs = require('fs');
+// const fs = require('fs');
 
 export default class ErrorBoundary extends Component {
   constructor(props) {

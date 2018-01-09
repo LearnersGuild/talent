@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Projects from '../projects';
 
 export default class LandingPage extends Component {
   render() {
@@ -15,6 +16,7 @@ export default class LandingPage extends Component {
         <div className="project-image-container"></div>
         <div className="engineers"></div>
         <div className="teal-triangle2"></div>
+        <Projects projects={this.props.projectsArray} />
       </div>
     );
   }
