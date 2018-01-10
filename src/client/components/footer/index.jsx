@@ -6,8 +6,6 @@ export default class Footer extends Component {
     return (
       <div>
         <div className='filler'>
-          <div className='triangle'>
-          </div>
           <br></br>
         </div>
         <span></span>

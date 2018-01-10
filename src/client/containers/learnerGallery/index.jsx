@@ -19,8 +19,6 @@ class LearnerGallery extends Component {
     }
 
     this.handleChange = this.handleChange.bind(this);
-
-    console.log('This is the constructor', this.props.guild);
   }
 
   handleChange(event) {
@@ -83,7 +81,6 @@ class LearnerGallery extends Component {
   }
 
   render() {
-    console.log(this.props.guild);
     return (
       <div>
           <form>
