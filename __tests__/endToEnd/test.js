@@ -3,12 +3,6 @@ import App from '../../src/client/components/app';
 const homePage = 'http://localhost:3000/';
 const currentLearnersPage = 'http://localhost:3000/current';
 
-// beforeAll(() => {
-//   app.listen(port, () => {
-//     console.log(`http://localhost:${port}`)
-//   })
-// })
-
 describe("Route Testing", () => {
   let chrome;
 

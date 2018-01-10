@@ -7,23 +7,34 @@ class SplashRNG extends Component {
   constructor(props) {
     super(props);
     this.rngProjects = this.rngProjects.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
   rngProjects() {
-    let maxNumber = this.props.guild.learners.length - 1;
     let chosenProjects = [];
+    let maxNumber = this.props.guild.learners.length;
     for (let i = 0; i < 6; i++) {
       let rng = Math.floor(Math.random() * maxNumber);
+      if(chosenProjects.includes(this.props.guild.learners[rng].projects[0])) {
+        i--;
+        continue;
+      }
       chosenProjects.push(this.props.guild.learners[rng].projects[0]);
     }
-
     return chosenProjects;
+  }
+
+  handleClick() {
+    this.rngProjects();
   }
 
   render() {
     return (
       <div>
         <LandingPage projectsArray={this.rngProjects()} />
+        <div className="more-projects">
+          <button onClick={this.handleClick}> Needs more button </button>
+        </div>
       </div>
     );
   }
