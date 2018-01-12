@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
 import Projects from '../projects';
+import UserBadge from '../../containers/collection/userBadge';
+import Blurb from '../blurb';
+
+const blurbInfo = { name: 'OUR LEARNERS', story: 'These are just a few of the many learners we have had here.' };
 
 export default class LandingPage extends Component {
   render() {
@@ -17,7 +21,7 @@ export default class LandingPage extends Component {
           </div>
         </div>
         <div className="teal-triangle1">
-          <h2 className="projects-title">RECENT PROJECTS</h2>
+          <h2 className="projects-title">PROJECTS</h2>
         </div>
         <div className="project-image-container">
           <div className="project-images">
@@ -28,6 +32,10 @@ export default class LandingPage extends Component {
           </div>
         </div>
         <div className="teal-triangle2"></div>
+        <div className="landing-page-learners">
+          <Blurb info={blurbInfo}></Blurb>
+          <UserBadge data={this.props.learnersArray}></UserBadge>
+        </div>
       </div>
     );
   }
