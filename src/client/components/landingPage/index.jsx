@@ -20,10 +20,11 @@ export default class LandingPage extends Component {
           <h2 className="projects-title">RECENT PROJECTS</h2>
         </div>
         <div className="project-image-container">
-          <div className="project-image-flex">
-            <span className="project-images">
-              <Projects projects={this.props.projectsArray} />
-            </span>
+          <div className="project-images">
+            <Projects projects={this.props.projectsArray.slice(3)} />
+          </div>
+          <div className="project-images">
+            <Projects projects={this.props.projectsArray.slice(3, 6)} />
           </div>
         </div>
         <div className="teal-triangle2"></div>
