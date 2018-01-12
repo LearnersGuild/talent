@@ -7,7 +7,7 @@ export default class Footer extends Component {
       <div className='footer'>
         <ul>
           <li>CONTACT US</li>
-          <li>_________________</li>
+          <hr />
           <li>general inquiries: info@learnersguild.org</li>
           <li>applicants: enrollment@learnersguild.org</li>
           <li>partnerships: info@learnersguild.org</li>

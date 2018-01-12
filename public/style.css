@@ -79,9 +79,9 @@ html {
   font-family: 'Fugaz One';
 }
 
-.more-projects {
+/* .more-projects {
   z-index: 0;
-}
+} */
 
 .teal-triangle1 {
   position: relative;
@@ -158,6 +158,7 @@ html {
   clip-path: polygon(49% 31%, 100% 0, 100% 100%, 0 100%, 0 0);
   height: 100rem;
   width: 100vw;
+  margin-top: -50rem;
 }
 
 .footer > ul {
