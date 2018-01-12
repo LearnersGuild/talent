@@ -21,7 +21,7 @@ export default class LandingPage extends Component {
         </div>
         <div className="project-image-container">
           <div className="project-images">
-            <Projects projects={this.props.projectsArray.slice(3)} />
+            <Projects projects={this.props.projectsArray.slice(0, 3)} />
           </div>
           <div className="project-images">
             <Projects projects={this.props.projectsArray.slice(3, 6)} />
