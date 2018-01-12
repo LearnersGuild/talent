@@ -1,18 +1,22 @@
 body {
-  padding-top: 80px;
+  overflow-x: hidden;
 }
 
 html {
   font-size: 62.5%;
-  /* 1rem = 10px, 10px/16 = 62.5% */
+  /* 1rem = 1rem, 1rem/16 = 62.5% */
 }
 
-navbar {
+.navbar {
   z-index: infinite;
 }
 
-.about h2 {
-  font-family: 'Fugaz One';
+.container {
+  margin-left: 0;
+  margin-right: 0;
+  padding-left: 0;
+  padding-right: 0;
+  width: 100vw;
 }
 
 .home-page-image-container {
@@ -32,51 +36,55 @@ navbar {
   flex-wrap: wrap;
 }
 
+.about h2 {
+  font-family: 'Fugaz One';
+}
+
 .about {
   display: flex;
   justify-content: center;
   position: relative;
-  top: 0;
-  height: 95vh;
-  width: 100%;
+  height: 95rem;
+  width: 150rem;
   background-image: linear-gradient(rgba(212, 69, 65, 0.65), rgba(212, 69, 65, 0.65)), url('./Desktop.jpeg');
-  clip-path: polygon(0 1%, 100% 0%, 100% 64%, 0 100%);
+  clip-path: polygon(0 0, 100% 0, 100% 48%, 0 78%);
 }
 
 .about-title {
   position: relative;
+  top: 10rem;
   z-index: 5;
   font-size: 10rem;
   color: white;
-  top: 100px;
+}
+
+.about-container {
+  z-index: 1;
+  max-width: inherit;
+  top: -25rem;
+  display: flex;
+  flex-flow: row;
+  position: relative;
+  justify-content: space-around;
+  font-family: 'Open Sans';
+  font-size: 1.75rem;
+}
+
+.about-filler {
+  /* width: 100rem; */
 }
 
 .about-image-container {
-  z-index: 10;
-  position: absolute;
-  height: 300px;
-  width: 400px;
-  top: 580px;
-  left: 50px;
-  background-color: rgb(12, 81, 94);
-  background-image: url('./Page-Not-Found.jpg');
+  position: relative;
 }
 
 .about-text {
-  position: relative;
-  height: 400px;
-  width: 400px;
-  top: 480px;
-  right: -250px;
+  width: 50rem;
 }
 
-.about-triangle {
-  position: relative;
-  bottom: -278px;
-  width: 0;
-  height: 0;
-  border-left: 1425px solid transparent;
-  border-bottom: 100px solid white;
+.about-text h2 {
+  font-size: 5rem;
+  font-family: 'Fugaz One';
 }
 
 .more-projects {
@@ -84,57 +92,79 @@ navbar {
 }
 
 .teal-triangle1 {
-  position: absolute;
-  left: 0vw;
-  top: 840px;
-  width: 90%;
-  height: 70%;
-  -webkit-clip-path: polygon(100% 67%, 0 0, 0 100%);
+  position: relative;
+  top: -55rem;
+  width: 200rem;
+  height: 60rem;
+  clip-path: polygon(0 29%, 0 100%, 100% 72%);
   background-color: rgb(11, 119, 122);
 }
 
-.teal-triangle2 {
-  position: absolute;
-  right: 0vw;
-  top: 1540px;
-  width: 90%;
-  height: 70%;
-  -webkit-clip-path: polygon(100% 0, 0 35%, 100% 100%);
-  background-color: rgb(11, 119, 122);
+.projects-title {
+  color: rgb(223, 146, 8);
+  font-family: 'Fugaz One';
+  position: relative;
+  z-index: infinite;
+  font-size: 5rem;
+  top: 35rem;
+  left: 10rem;
 }
 
 .project-image-container {
-  position: absolute;
+  top: -70rem;
+  position: relative;
+  min-height: 100rem;
+  max-height: 100rem;
+  min-width: 100%;
+  max-width: 100%;
   z-index: 1;
-  top: 1100px;
-  height: 665px;
-  width: 100%;
-  -webkit-clip-path: polygon(0 36%, 100% 7%, 100% 66%, 0 100%);
-  background-color: red;
 }
 
-/* .filler {
+.project-image-flex {
   display: flex;
-  justify-content: center;
-  margin-top: 100%;
-} */
+  flex-wrap: wrap;
+  max-height: inherit;
+  max-width: inherit;
+}
+
+.project-images {
+  transform: skew(0deg, -10deg);
+  background-color: white;
+}
+
+.project-images > span > a > img {
+  position: relative;
+  height: 47.5rem;
+  width: 47.5rem;
+}
+
+.teal-triangle2 {
+  position: relative;
+  top: -90rem;
+  right: 57.5rem;
+  width: 200rem;
+  height: 60rem;
+  clip-path: polygon(100% 0, 100% 71%, 0 28%);
+  background-color: rgb(11, 119, 122);
+}
+
+.more-projects-button {
+  position: relative;
+  right: 0rem;
+  top: 50rem;
+}
 
 .footer {
-  z-index: -1;
-  position: absolute;
-  left: 0%;
-  width: 100%;
-  height: 40%;
-  top: 2200px;
+  position: relative;
   background-color: rgb(212, 69, 65);
   padding-top: 10%;
-  -webkit-clip-path: polygon(0px 0px, 50% 50%, 100% 0%, 100% 100%, 0 100%)
+  -webkit-clip-path: polygon(rem rem, 50% 50%, 100% 0%, 100% 100%, 0 100%);
 }
 
 .lg-loading {
   display: flex;
   animation: App-logo-spin infinite 20s linear;
-  height: 200px;
+  height: 20rem;
 }
 
 @keyframes App-logo-spin {

@@ -7,12 +7,12 @@
 	"story": "Elit est nulla laborum aute aliquip. Laboris aute elit sunt anim consequat amet qui proident. Anim occaecat laborum ullamco magna ut ut tempor. Tempor enim anim elit veniam ad culpa sint aliqua ea commodo irure exercitation amet qui.",
 	"projects": [{
 			"id": 13,
-			"title": "ReactPro",
+			"title": "/Bulbasaur.jpg",
 			"link": "http://google.com"
 		},
 		{
 			"id": 14,
-			"title": "React/Redux",
+			"title": "/Umbreon.png",
 			"link": "http://google.com"
 		}
 	],
