@@ -7,13 +7,18 @@ html {
   /* 1rem = 1rem, 1rem/16 = 62.5% */
 }
 
-/* .container {
-  margin-left: 0;
-  margin-right: 0;
-  padding-left: 0;
-  padding-right: 0;
-  width: 100vw;
-} */
+button:focus {
+  outline: 0;
+}
+
+.text-center > h1 {
+  font-family: 'Fugaz One';
+}
+
+.text-center {
+  font-family: 'Open Sans';
+  font-size: 2rem;
+}
 
 .home-page-image-container {
   display: flex;
@@ -78,10 +83,6 @@ html {
   font-size: 5rem;
   font-family: 'Fugaz One';
 }
-
-/* .more-projects {
-  z-index: 0;
-} */
 
 .teal-triangle1 {
   position: relative;
@@ -148,6 +149,36 @@ html {
   font-size: 2rem;
   height: 9.5rem;
   width: 32.5rem;
+  font-family: 'Open Sans';
+}
+
+.more-projects-button:hover {
+  background-color: rgb(223, 146, 8);
+  border-color: rgb(11, 119, 122);
+  color: rgb(11, 119, 122);
+}
+
+.landing-page-learners {
+  margin-top: -107rem;
+}
+
+.more-learners-button {
+  position: relative;
+  background-color: white;
+  border: solid;
+  border-color: rgb(83, 140, 1);
+  color: rgb(83, 140, 1);
+  height: 5rem;
+  width: 35rem;
+  font-family: 'Open Sans';
+  left: -25rem;
+  top: 1rem;
+}
+
+.more-learners-button:hover {
+  background-color: rgb(83, 140, 1);
+  border-color: white;
+  color: white;
 }
 
 .footer {
@@ -159,7 +190,6 @@ html {
   clip-path: polygon(49% 31%, 100% 0, 100% 100%, 0 100%, 0 0);
   height: 100rem;
   width: 100vw;
-  margin-top: -85rem;
 }
 
 .footer > ul {
@@ -167,6 +197,11 @@ html {
   font-weight: bold;
   list-style: none;
   font-size: 2rem;
+  font-family: 'Fugaz One';
+}
+
+.footer > ul > li {
+  font-family: 'Open Sans';
 }
 
 .footer-filler {
