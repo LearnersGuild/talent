@@ -25,7 +25,7 @@ router.use('*', (req, res) => {
       <title>Talent</title>
     </head>
     <body>
-      <div class="container">`);
+      <div class="root">`);
 
   const stream = renderToNodeStream(
     <Provider store={createStore(reducers)}>

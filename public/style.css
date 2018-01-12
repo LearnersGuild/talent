@@ -1,6 +1,5 @@
 body {
-  overflow-x: hidden;
-  padding-top: 8rem;
+  padding-top: 7rem;
 }
 
 html {
@@ -8,17 +7,13 @@ html {
   /* 1rem = 1rem, 1rem/16 = 62.5% */
 }
 
-.navbar {
-  z-index: infinite;
-}
-
-.container {
+/* .container {
   margin-left: 0;
   margin-right: 0;
   padding-left: 0;
   padding-right: 0;
   width: 100vw;
-}
+} */
 
 .home-page-image-container {
   display: flex;
@@ -71,10 +66,6 @@ html {
   font-size: 1.75rem;
 }
 
-.about-filler {
-  /* width: 100rem; */
-}
-
 .about-image-container {
   position: relative;
 }
@@ -95,7 +86,7 @@ html {
 .teal-triangle1 {
   position: relative;
   top: -55rem;
-  width: 200rem;
+  width: 100rem;
   height: 60rem;
   clip-path: polygon(0 29%, 0 100%, 100% 72%);
   background-color: rgb(11, 119, 122);
@@ -107,7 +98,7 @@ html {
   position: relative;
   z-index: infinite;
   font-size: 5rem;
-  top: 35rem;
+  top: 37.5rem;
   left: 10rem;
 }
 
@@ -136,8 +127,8 @@ html {
 .teal-triangle2 {
   position: relative;
   top: -90rem;
-  right: 57.5rem;
-  width: 200rem;
+  left: 45rem;
+  width: 100rem;
   height: 60rem;
   clip-path: polygon(100% 0, 100% 71%, 0 28%);
   background-color: rgb(11, 119, 122);
@@ -145,15 +136,35 @@ html {
 
 .more-projects-button {
   position: relative;
-  right: 0rem;
-  top: 50rem;
+  left: 72.5vw;
+  bottom: 132.5rem;
+  z-index: 1;
+  background-color: rgb(11, 119, 122);
+  border: solid;
+  border-color: rgb(223, 146, 8);
+  color: rgb(223, 146, 8);
+  font-weight: bold;
+  font-size: 2rem;
+  height: 9.5rem;
+  width: 32.5rem;
 }
 
 .footer {
-  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   background-color: rgb(212, 69, 65);
-  padding-top: 10%;
-  -webkit-clip-path: polygon(rem rem, 50% 50%, 100% 0%, 100% 100%, 0 100%);
+  clip-path: polygon(49% 31%, 100% 0, 100% 100%, 0 100%, 0 0);
+  height: 100rem;
+  width: 100vw;
+}
+
+.footer > ul {
+  color: white;
+  font-weight: bold;
+  list-style: none;
+  font-size: 2rem;
 }
 
 .lg-loading {
