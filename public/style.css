@@ -41,7 +41,7 @@ html {
   justify-content: center;
   position: relative;
   height: 95rem;
-  width: 150rem;
+  width: 100vw;
   background-image: linear-gradient(rgba(212, 69, 65, 0.65), rgba(212, 69, 65, 0.65)), url('./Desktop.jpeg');
   clip-path: polygon(0 0, 100% 0, 100% 48%, 0 78%);
 }
@@ -89,6 +89,7 @@ html {
   top: -55rem;
   width: 100rem;
   height: 60rem;
+  right: 1rem;
   clip-path: polygon(0 29%, 0 100%, 100% 72%);
   background-color: rgb(11, 119, 122);
 }
@@ -128,7 +129,7 @@ html {
 .teal-triangle2 {
   position: relative;
   top: -90rem;
-  left: 45rem;
+  left: 44rem;
   width: 100rem;
   height: 60rem;
   clip-path: polygon(100% 0, 100% 71%, 0 28%);
