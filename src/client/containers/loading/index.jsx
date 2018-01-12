@@ -7,7 +7,7 @@ class Loading extends Component {
     return (
       <div>
         {
-          this.props.guild.loading ? (<div className="flex-center"><img className="lg-loading" src="/LearnerLogo.png" /></div>) : this.props.children
+          this.props.guild.loading ? (<div><div className="flex-center"><img className="lg-loading" src="/LearnerLogo.png" /></div><div className="footer-filler"></div></div>) : this.props.children
         }
       </div>
     );

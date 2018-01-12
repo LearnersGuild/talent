@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import TalentNavbar from '../../containers/talentNavbar';
 import NotFound from '../notFound';
-import SkillsSearch from '../skillsSearch';
+import SkillsSearch from '../../containers/skillsSearch';
 import ScrollToTop from '../scrollToTop';
 import ProfilePage from '../../containers/profile';
 import LearnerGallery from '../../containers/learnerGallery';

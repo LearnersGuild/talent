@@ -5,9 +5,9 @@ export default class Projects extends Component {
   render() {
     return this.props.projects.map(project => {
         return (
-          <div key={project.id}>
-            <h4><a href={project.link} target="__blank" >{project.title}</a></h4>
-          </div>
+          <span key={project.id}>
+            <a href={project.link} target="__blank" ><img src={project.title}></img></a>
+          </span>
         );
       });
   }

@@ -32,6 +32,7 @@ class ProfilePage extends Component {
       </div>
       <h2 className="text-center">Projects</h2>
       <Projects projects={selectedLearner[0].projects} />
+      <div className="footer-filler"></div>
     </div>
   );
   }

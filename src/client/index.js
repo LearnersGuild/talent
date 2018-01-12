@@ -12,4 +12,4 @@ ReactDOM.hydrate(
       <App/>
     </BrowserRouter>
   </Provider>,
-  document.querySelector('.container'));
+  document.querySelector('.root'));

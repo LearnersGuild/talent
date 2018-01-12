@@ -14,6 +14,7 @@ export default class CollectionPage extends Component {
       </div>
         <h2 className="text-center">Projects</h2>
         <Projects projects={this.props.projects}/>
+        <div className="footer-filler"></div>
       </div>
     );
   }

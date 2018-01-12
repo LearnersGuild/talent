@@ -21,7 +21,7 @@ class TalentNavbar extends Component {
 
   render() {
     return (
-      <div>
+      <div className="navbar-container">
         <Navbar className="navbar" fixedTop>
           <Navbar.Header>
             <Navbar.Brand>
