@@ -117,8 +117,8 @@ html {
   height: 100rem;
   width: 100%;
   z-index: 1;
-  /* display: flex;
-  flex-direction: column; */
+  display: flex;
+  flex-direction: column;
 }
 
 .project-images {
