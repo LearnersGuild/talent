@@ -7,7 +7,7 @@ html {
   /* 1rem = 10px, 10px/16 = 62.5% */
 }
 
-navbar {
+.navbar {
   z-index: infinite;
 }
 
@@ -35,9 +35,9 @@ navbar {
 .about {
   display: flex;
   justify-content: center;
-  position: relative;
+  position: absolute;
   top: 0;
-  height: 95vh;
+  height: 95rem;
   width: 100%;
   background-image: linear-gradient(rgba(212, 69, 65, 0.65), rgba(212, 69, 65, 0.65)), url('./Desktop.jpeg');
   clip-path: polygon(0 1%, 100% 0%, 100% 64%, 0 100%);
@@ -128,7 +128,7 @@ navbar {
   top: 2200px;
   background-color: rgb(212, 69, 65);
   padding-top: 10%;
-  -webkit-clip-path: polygon(0px 0px, 50% 50%, 100% 0%, 100% 100%, 0 100%)
+  -webkit-clip-path: polygon(0px 0px, 50% 50%, 100% 0%, 100% 100%, 0 100%);
 }
 
 .lg-loading {
