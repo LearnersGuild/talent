@@ -20,7 +20,7 @@ button:focus {
   font-size: 2rem;
 }
 
-.home-page-image-container {
+.learner-image-container {
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
@@ -46,7 +46,7 @@ button:focus {
   justify-content: center;
   position: relative;
   height: 95rem;
-  width: 100vw;
+  width: 100%;
   background-image: linear-gradient(rgba(212, 69, 65, 0.65), rgba(212, 69, 65, 0.65)), url('./Desktop.jpeg');
   clip-path: polygon(0 0, 100% 0, 100% 48%, 0 78%);
 }
@@ -108,7 +108,7 @@ button:focus {
   top: -70rem;
   position: relative;
   height: 100rem;
-  width: 100vw;
+  width: 100%;
   z-index: 1;
   display: flex;
   flex-direction: column;
@@ -217,4 +217,10 @@ button:focus {
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+}
+
+@media only screen and (width: 1920px) {
+  html {
+    font-size: 83.33%;
+  }
 }
