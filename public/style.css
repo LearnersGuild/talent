@@ -68,6 +68,7 @@ html {
 
 .about-image-container {
   position: relative;
+  width: 30rem;
 }
 
 .about-text {
@@ -158,7 +159,7 @@ html {
   clip-path: polygon(49% 31%, 100% 0, 100% 100%, 0 100%, 0 0);
   height: 100rem;
   width: 100vw;
-  margin-top: -50rem;
+  margin-top: -85rem;
 }
 
 .footer > ul {
@@ -166,6 +167,10 @@ html {
   font-weight: bold;
   list-style: none;
   font-size: 2rem;
+}
+
+.footer-filler {
+  height: 100rem;
 }
 
 .lg-loading {
