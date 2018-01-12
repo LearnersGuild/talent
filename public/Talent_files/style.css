@@ -7,10 +7,6 @@ html {
   /* 1rem = 1rem, 1rem/16 = 62.5% */
 }
 
-h1 {
-  font-size: 5rem;
-}
-
 button:focus {
   outline: 0;
 }
@@ -24,14 +20,10 @@ button:focus {
   font-size: 2rem;
 }
 
-.learner-image-container {
+.home-page-image-container {
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
-}
-
-.learner-span {
-  width: 33%;
 }
 
 .flex-column-home-page {
@@ -54,7 +46,7 @@ button:focus {
   justify-content: center;
   position: relative;
   height: 95rem;
-  width: 100%;
+  width: 100vw;
   background-image: linear-gradient(rgba(212, 69, 65, 0.65), rgba(212, 69, 65, 0.65)), url('./Desktop.jpeg');
   clip-path: polygon(0 0, 100% 0, 100% 48%, 0 78%);
 }
@@ -116,7 +108,7 @@ button:focus {
   top: -70rem;
   position: relative;
   height: 100rem;
-;
+  width: 100%;
   z-index: 1;
   display: flex;
   flex-direction: column;
@@ -146,8 +138,8 @@ button:focus {
 
 .more-projects-button {
   position: relative;
-  left: 70%;
-  top: -140rem;
+  left: 72.5vw;
+  bottom: 132.5rem;
   z-index: 1;
   background-color: rgb(11, 119, 122);
   border: solid;
@@ -177,10 +169,10 @@ button:focus {
   border-color: rgb(83, 140, 1);
   color: rgb(83, 140, 1);
   height: 5rem;
-  width: 50rem;
-  font-size: 2rem;
+  width: 35rem;
   font-family: 'Open Sans';
-  left: -13.5%;
+  left: -25rem;
+  top: 1rem;
 }
 
 .more-learners-button:hover {
@@ -197,7 +189,7 @@ button:focus {
   background-color: rgb(212, 69, 65);
   clip-path: polygon(49% 31%, 100% 0, 100% 100%, 0 100%, 0 0);
   height: 100rem;
-  width: 100%;
+  width: 100vw;
 }
 
 .footer > ul {
@@ -225,57 +217,4 @@ button:focus {
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
-}
-
-@media only screen and (width: 320px) {
-      html {
-      font-size: 13.88%;
-    }
-
-    .more-projects-button {
-      top: -120rem;
-    }
-}
-
-@media only screen and (width: 1920px) {
-    html {
-      font-size: 83.33%;
-    }
-
-    .more-projects-button {
-      top: -120rem;
-    }
-
-    .learner-span {
-      width: auto;
-    }
-}
-
-@media only screen and (width: 2560px) {
-  html {
-    font-size: 111.11%
-  }
-
-  .more-projects-button {
-    top: -100rem;
-  }
-
-  .learner-span {
-    width: auto;
-  }
-}
-
-@media only screen and (width: 3840px) {
-  html {
-    font-size: 166.66%;
-    
-  }
-
-  .more-projects-button {
-    top: -60rem;
-  }
-
-  .learner-span {
-    width: auto;
-  }
 }

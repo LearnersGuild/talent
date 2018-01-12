@@ -34,7 +34,9 @@ export default class LandingPage extends Component {
         <div className="teal-triangle2"></div>
         <div className="landing-page-learners">
           <Blurb info={blurbInfo}></Blurb>
-          <UserBadge data={this.props.learnersArray}></UserBadge>
+          <div className="learner-image-container">
+            <UserBadge data={this.props.learnersArray}></UserBadge>
+          </div>
         </div>
       </div>
     );
