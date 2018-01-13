@@ -81,6 +81,7 @@ button:focus {
 
 .about-image-container {
   width: 30rem;
+  background-color: white;
 }
 
 .about-text {
@@ -116,7 +117,6 @@ button:focus {
   top: -70rem;
   position: relative;
   height: 100rem;
-;
   z-index: 1;
   display: flex;
   flex-direction: column;
@@ -268,7 +268,7 @@ button:focus {
 @media only screen and (width: 3840px) {
   html {
     font-size: 166.66%;
-    
+
   }
 
   .more-projects-button {
