@@ -88,7 +88,7 @@ class LearnerGallery extends Component {
           </form>
           <CollectionPage
           data={this.filterByName()}
-          info={ { name: 'About Learners Guild', story: 'This is just a sentence.' } }
+          info={ { name: 'ABOUT LEARNERS GUILD', story: 'This is just a sentence.' } }
           projects={this.getProjects(this.filterByName())}
           />
       </div>
