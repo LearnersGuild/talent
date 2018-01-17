@@ -160,6 +160,7 @@ button:focus {
   position: relative;
   height: 100rem;
   z-index: 1;
+  max-width: 100%;
 }
 
 .project-images {
@@ -172,6 +173,7 @@ button:focus {
   position: relative;
   width: 36rem;
   height: 36rem;
+  max-width: 25%;
 }
 
 .teal-triangle2 {
@@ -366,6 +368,110 @@ button:focus {
       height: 40rem;
     }
 
+}
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+  html {
+    font-size: 33.33%;
+  }
+
+  .about-container {
+    top: -23rem;
+  }
+
+  .about-image-container {
+    height: 40rem;
+    width: 20rem;
+  }
+
+  .about-text {
+    max-width: 30%;
+  }
+
+  .project-image {
+    max-width: 25%;
+    height: 22rem;
+  }
+
+  .projects-title {
+    left: 5rem;
+    top: 14rem;
+  }
+
+  .project-image-container {
+    top: -44rem;
+    max-width: 100%;
+  }
+
+  .teal-triangle1 {
+    width: 50rem;
+    height: 30rem;
+    top: -37rem;
+  }
+
+  .projects-title {
+    top: 20rem;
+  }
+
+  .teal-triangle2 {
+    height: 192px;
+    width: 50rem;
+    left: 35rem;
+    top: -105rem;
+  }
+
+  .more-projects-button {
+    top: -88.5rem;
+    width: 15rem;
+    height: 4rem;
+    left: 72%;
+  }
+
+  .more-learners-button {
+    width: 20rem;
+    height: 6rem;
+    top: 2rem;
+    z-index: 1;
+    left: 2rem;
+  }
+
+  .landing-page-learners {
+    margin-top: -105rem;
+  }
+
+  .learner-image-container > span {
+    z-index: 2;
+  }
+}
+
+@media only screen and (width: 1024px) {
+  html {
+    font-size: 44.44%;
+  }
+
+  .about-container {
+    top: -24rem;
+  }
+
+  .projects-title {
+    top: 16rem;
+  }
+
+  .teal-triangle1 {
+    width: 48rem;
+    height: 25rem;
+  }
+
+  .teal-triangle2 {
+    left: 64rem;
+  }
+
+  .more-projects-button {
+    width: 21rem;
+    height: 4rem;
+    top: -110rem;
+    left: 77%;
+  }
 }
 
 @media only screen and (width: 1920px) {
