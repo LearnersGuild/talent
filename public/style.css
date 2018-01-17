@@ -310,7 +310,7 @@ button:focus {
 
     .project-image {
       max-width: 25%;
-      height: auto;
+      height: 10.5rem;
     }
 
     .projects-title {
