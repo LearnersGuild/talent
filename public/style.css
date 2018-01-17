@@ -112,7 +112,7 @@ button:focus {
 .about-container {
   z-index: 1;
   max-width: inherit;
-  top: -25rem;
+  top: -28rem;
   display: flex;
   flex-flow: row;
   position: relative;
@@ -292,7 +292,11 @@ button:focus {
     }
 
     .about {
-      height: 80rem;
+      height: 50rem;
+    }
+
+    .about-container {
+      top: -23rem;
     }
 
     .about-image-container {
@@ -315,7 +319,7 @@ button:focus {
 
     .projects-title {
       left: 5rem;
-      top: 13rem;
+      top: 14rem;
     }
 
     .project-image-container {
@@ -346,10 +350,16 @@ button:focus {
     .more-learners-button {
       width: 10rem;
       height: 2rem;
+      top: 2rem;
+      z-index: 1;
     }
 
     .landing-page-learners {
       margin-top: -125rem;
+    }
+
+    .learner-image-container > span {
+      z-index: 2;
     }
 
     .footer {
