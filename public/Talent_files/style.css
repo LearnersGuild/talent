@@ -15,10 +15,6 @@ button:focus {
   outline: 0;
 }
 
-.navbar-icon {
-  display: none;
-}
-
 .text-center > h1 {
   font-family: 'Fugaz One';
 }
@@ -51,15 +47,14 @@ button:focus {
 
 .talent-nav {
   position: absolute;
-  list-style-type: none;
   top: 0;
-  right: 10rem;
 }
 
 .talent-nav ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
+  overflow: hidden;
 }
 
 .talent-nav li {
@@ -67,7 +62,7 @@ button:focus {
 }
 
 .talent-nav li a {
-  display: -webkit-box;
+  display: block;
   text-align: center;
   padding: 16px;
   text-decoration: none;
@@ -84,7 +79,6 @@ button:focus {
   position: absolute;
   left: 10rem;
   top: -0.5rem;
-  z-index: 5000;
 }
 
 .about h2 {
@@ -270,109 +264,76 @@ button:focus {
 }
 
 @media only screen and (width: 320px) {
-  html {
-    font-size: 13.88%;
-  }
+      html {
+      font-size: 13.88%;
+    }
 
-  .more-projects-button {
-    top: -120rem;
-  }
+    .more-projects-button {
+      top: -120rem;
+    }
 }
 
 @media only screen and (width: 375px) {
-  html {
-    font-size: 16.28%;
-  }
+      html {
+      font-size: 16.28%;
+    }
 
-  .more-projects-button {
-    top: -120rem;
-  }
+    .more-projects-button {
+      top: -120rem;
+    }
 }
 
 @media only screen and (width: 425px) {
-  html {
-    font-size: 18.44%;
-  }
+      html {
+      font-size: 18.44%;
+    }
 
-  .more-projects-button {
-    top: -120rem;
-  }
-
-  .talent-nav {
-    position: absolute;
-    top: 8.4rem;
-    left: -7rem;
-    width: fit-content;
-    border-bottom: 1px lightgrey solid;
-  }
-
-  .talent-nav li {
-    position: relative;
-    float: none;
-    background-color: rgb(248, 248, 248);
-    left: 0;
-    border-top: 1px lightgrey solid;
-    border-right: 1px lightgrey solid;
-  }
-
-  .navbar-icon {
-    display: block;
-  }
-
-  .navbar-title {
-    left: 25rem;
-  }
+    .more-projects-button {
+      top: -120rem;
+    }
 }
 
 @media only screen and (width: 768px) {
-  html {
-    font-size: 33.33%;
-  }
+      html {
+      font-size: 33.33%;
+    }
 
-  .more-projects-button {
-    top: -120rem;
-  }
-
-  .talent-nav-list {
-    position: absolute;
-    top: 0;
-    right: 5rem;
-  }
+    .more-projects-button {
+      top: -120rem;
+    }
 }
 
 @media only screen and (width: 1024px) {
-  html {
-    font-size: 44.44%;
-  }
+      html {
+      font-size: 44.44%;
+    }
 
-  .more-projects-button {
-    top: -120rem;
-  }
+    .more-projects-button {
+      top: -120rem;
+    }
 
-  .talent-nav-list {
-    position: absolute;
-    top: 0;
-    right: 10rem;
-  }
+    .talent-nav-list {
+      right: 0;
+    }
 }
 
 @media only screen and (width: 1920px) {
-  html {
-    font-size: 83.33%;
-  }
+    html {
+      font-size: 83.33%;
+    }
 
-  .more-projects-button {
-    top: -120rem;
-  }
+    .more-projects-button {
+      top: -120rem;
+    }
 
-  .learner-span {
-    width: auto;
-  }
+    .learner-span {
+      width: auto;
+    }
 }
 
 @media only screen and (width: 2560px) {
   html {
-    font-size: 111.11%;
+    font-size: 111.11%
   }
 
   .more-projects-button {

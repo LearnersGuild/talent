@@ -1,4 +1,4 @@
-import { FETCH_LEARNERS, DONE_LOADING, START_LOADING } from '../actions/';
+import { FETCH_LEARNERS, DONE_LOADING, START_LOADING, NO_NAVBAR, YES_NAVBAR } from '../actions/';
 
 export default function(state = [], action) {
   switch (action.type) {
@@ -15,6 +15,21 @@ export default function(state = [], action) {
       return {
         learners: state.learners,
         loading: action.loading,
+        exists: true,
+      };
+    case NO_NAVBAR:
+      console.log('Testing No Navbar');
+      return {
+        learners: state.learners,
+        loading: state.loading,
+        exists: action.exists,
+      };
+    case YES_NAVBAR:
+      console.log('Testing Yes Navbar');
+      return {
+        learners: state.learners,
+        loading: state.loading,
+        exists: action.exists,
       };
   }
   return state;

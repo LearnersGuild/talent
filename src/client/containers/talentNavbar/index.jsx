@@ -3,10 +3,15 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Link } from 'react-router-dom';
 import { Navbar } from 'react-bootstrap';
-import { startLoading, fetchLearners, doneLoading } from '../../actions';
+import { startLoading, fetchLearners, doneLoading, hideNavbar, showNavbar } from '../../actions';
 import axios from 'axios';
 
 class TalentNavbar extends Component {
+
+  constructor(props) {
+    super(props);
+    this.handleClick = this.handleClick.bind(this);
+  }
 
   componentWillMount() {
     this.props.startLoading();
@@ -19,29 +24,45 @@ class TalentNavbar extends Component {
     });
   }
 
+  handleClick() {
+    if (this.props.guild.exists === false) {
+      this.props.showNavbar();
+    } else {
+      this.props.hideNavbar();
+    }
+  }
+
   render() {
     return (
-      <div className="navbar-container">
-        <Navbar className="navbar" fixedTop>
+      <div className="talent-container">
+        <Navbar className="talent-navbar" fixedTop>
           <Navbar.Header>
             <Navbar.Brand>
-              <ul className="navbar-nav list-group">
-                <li className="nav-item list-group-item">
-                  <Link to="/">Home</Link>
-                </li>
-                <li className="nav-item list-group-item">
-                  <Link to="/current">Current</Link>
-                </li>
-                <li className="nav-item list-group-item">
-                  <Link to="/alumni">Alumni</Link>
-                </li>
-                <li className="nav-item list-group-item">
-                  <Link to="/learners">All Learners</Link>
-                </li>
-                <li className="nav-item list-group-item">
-                  <Link to="/skills">Search By Skills</Link>
-                </li>
-              </ul>
+              <button className="navbar-icon glyphicon glyphicon-menu-hamburger" onClick={this.handleClick}></button>
+              <h2 className="navbar-title">TALENT</h2>
+              <div>{
+                  this.props.guild.exists ? (
+                    <ul className="talent-nav">
+                      <li className="talent-item">
+                        <Link to="/">Home</Link>
+                      </li>
+                      <li className="talent-item">
+                        <Link to="/current">Current</Link>
+                      </li>
+                      <li className="talent-item">
+                        <Link to="/alumni">Alumni</Link>
+                      </li>
+                      <li className="talent-item">
+                        <Link to="/learners">All Learners</Link>
+                      </li>
+                      <li className="talent-item">
+                        <Link to="/skills">Search By Skills</Link>
+                      </li>
+                    </ul>
+                  ) : null
+
+                }
+              </div>
             </Navbar.Brand>
           </Navbar.Header>
         </Navbar>
@@ -50,8 +71,12 @@ class TalentNavbar extends Component {
   }
 }
 
-function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ startLoading, fetchLearners, doneLoading }, dispatch);
+function mapStateToProps({ guild }) {
+  return { guild };
 }
 
-export default connect(null, mapDispatchToProps)(TalentNavbar);
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({ startLoading, fetchLearners, doneLoading, hideNavbar, showNavbar }, dispatch);
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(TalentNavbar);
