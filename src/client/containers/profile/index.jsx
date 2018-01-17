@@ -15,6 +15,10 @@ class ProfilePage extends Component {
     });
   }
 
+  handleClickLearners() {
+    // TODO: handle 'hire' button click with mailto
+  }
+
   render() {
     const githubHandle = this.props.match.url.replace(/\/learners\//, '');
     const selectedLearner = this.filterLearner(githubHandle);
@@ -29,6 +33,9 @@ class ProfilePage extends Component {
         <div className="col-lg-6">
           <SkillList skills={selectedLearner[0].skills} />
         </div>
+      </div>
+      <div className="row flex-center">
+        <button className="hire-learner-button" onClick={this.handleClickHire}>HIRE {selectedLearner[0].name.split(' ')[0]} TODAY</button>
       </div>
       <h2 className="text-center">Projects</h2>
       <Projects projects={selectedLearner[0].projects} />
