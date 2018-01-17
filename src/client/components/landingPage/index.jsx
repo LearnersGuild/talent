@@ -25,16 +25,18 @@ export default class LandingPage extends Component {
         </div>
         <div className="project-image-container">
           <div className="project-images">
-            <Projects projects={this.props.projectsArray.slice(0, 3)} />
+            <Projects projects={this.props.projectsArray.slice(0, 4)} />
           </div>
           <div className="project-images">
-            <Projects projects={this.props.projectsArray.slice(3, 6)} />
+            <Projects projects={this.props.projectsArray.slice(4, 8)} />
           </div>
         </div>
         <div className="teal-triangle2"></div>
         <div className="landing-page-learners">
           <Blurb info={blurbInfo}></Blurb>
-          <UserBadge data={this.props.learnersArray}></UserBadge>
+          <div className="learner-image-container">
+            <UserBadge data={this.props.learnersArray}></UserBadge>
+          </div>
         </div>
       </div>
     );
