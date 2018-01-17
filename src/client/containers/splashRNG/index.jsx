@@ -11,21 +11,23 @@ class SplashRNG extends Component {
     this.handleClickLearners = this.handleClickLearners.bind(this);
     this.state = {
       selectedProjects: [],
-      selectedLearners: []
+      selectedLearners: [],
     };
   }
 
   rngProjects() {
     let chosenProjects = [];
     let maxNumber = this.props.guild.learners.length;
-    for (let i = 0; i < 6; i++) {
+    for (let i = 0; i < 8; i++) {
       let rng = Math.floor(Math.random() * maxNumber);
       if (chosenProjects.includes(this.props.guild.learners[rng].projects[0])) {
         i--;
         continue;
       }
+
       chosenProjects.push(this.props.guild.learners[rng].projects[0]);
     }
+
     this.setState({ selectedProjects: chosenProjects });
   }
 
