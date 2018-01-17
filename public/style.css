@@ -15,6 +15,10 @@ button:focus {
   outline: 0;
 }
 
+.navbar-icon {
+  display: none;
+}
+
 .text-center > h1 {
   font-family: 'Fugaz One';
 }
@@ -43,6 +47,44 @@ button:focus {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+}
+
+.talent-nav {
+  position: absolute;
+  list-style-type: none;
+  top: 0;
+  right: 10rem;
+}
+
+.talent-nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.talent-nav li {
+  float: left;
+}
+
+.talent-nav li a {
+  display: -webkit-box;
+  text-align: center;
+  padding: 16px;
+  text-decoration: none;
+  color: #777;
+}
+
+.talent-nav li a:hover {
+  background-color: lightgray;
+  color: #777;
+}
+
+.navbar-title {
+  font-family: 'Fugaz One';
+  position: absolute;
+  left: 10rem;
+  top: -0.5rem;
+  z-index: 5000;
 }
 
 .about h2 {
@@ -81,6 +123,7 @@ button:focus {
 
 .about-image-container {
   width: 30rem;
+  background-color: white;
 }
 
 .about-text {
@@ -297,22 +340,22 @@ button:focus {
 }
 
 @media only screen and (width: 1920px) {
-    html {
-      font-size: 83.33%;
-    }
+  html {
+    font-size: 83.33%;
+  }
 
     .more-projects-button {
       top: -132rem;
     }
 
-    .learner-span {
-      width: auto;
-    }
+  .learner-span {
+    width: auto;
+  }
 }
 
 @media only screen and (width: 2560px) {
   html {
-    font-size: 111.11%
+    font-size: 111.11%;
   }
 
   .more-projects-button {
