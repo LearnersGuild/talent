@@ -288,7 +288,7 @@ button:focus {
   to { transform: rotate(360deg); }
 }
 
-@media only screen and (width: 320px) {
+@media only screen and (width: 375px) {
     html {
       font-size: 13.88%;
     }
@@ -338,12 +338,12 @@ button:focus {
     .teal-triangle2 {
       height: 192px;
       width: 230px;
-      left: 10rem;
+      left: 16rem;
       top: -125rem;
     }
 
     .more-projects-button {
-      top: -49rem;
+      top: -53.5rem;
       width: 10rem;
       height: 3rem;
       left: 62%;
