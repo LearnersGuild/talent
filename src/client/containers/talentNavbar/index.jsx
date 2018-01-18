@@ -19,6 +19,11 @@ class TalentNavbar extends Component {
     .then(response => response.data)
     .then(data => this.props.fetchLearners(data))
     .then(() => this.props.doneLoading())
+    .then(() => {
+      if (window.innerWidth <= 736) {
+        this.props.hideNavbar();
+      }
+    })
     .catch(error => {
       console.log('Error fetching and parsing data', error);
     });
@@ -38,7 +43,7 @@ class TalentNavbar extends Component {
         <Navbar className="talent-navbar" fixedTop>
           <Navbar.Header>
             <Navbar.Brand>
-              <button className="navbar-icon glyphicon glyphicon-menu-hamburger" onClick={this.handleClick}></button>
+              <button ref="hamburger" className="navbar-icon glyphicon glyphicon-menu-hamburger" onClick={this.handleClick}></button>
               <h2 className="navbar-title">TALENT</h2>
               <div>{
                   this.props.guild.exists ? (
