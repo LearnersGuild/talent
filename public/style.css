@@ -95,6 +95,7 @@ button:focus {
   display: flex;
   justify-content: center;
   position: relative;
+  top: -5rem;
   height: 95rem;
   width: 100%;
   background-image: linear-gradient(rgba(212, 69, 65, 0.65), rgba(212, 69, 65, 0.65)), url('./Desktop.jpeg');
@@ -112,7 +113,7 @@ button:focus {
 .about-container {
   z-index: 1;
   max-width: inherit;
-  top: -25rem;
+  top: -30rem;
   display: flex;
   flex-flow: row;
   position: relative;
@@ -160,6 +161,7 @@ button:focus {
   position: relative;
   height: 100rem;
   z-index: 1;
+  max-width: 100%;
 }
 
 .project-images {
@@ -172,6 +174,7 @@ button:focus {
   position: relative;
   width: 36rem;
   height: 36rem;
+  max-width: 25%;
 }
 
 .teal-triangle2 {
@@ -286,13 +289,47 @@ button:focus {
   to { transform: rotate(360deg); }
 }
 
-@media only screen and (width: 320px) {
+@media only screen and (width: 375px) {
     html {
       font-size: 13.88%;
     }
 
+    .navbar-icon {
+      display: block;
+      z-index: 2;
+    }
+
+    .talent-nav {
+    position: absolute;
+    top: 5.4rem;
+    left: -5rem;
+    width: fit-content;
+    border-bottom: 1px lightgrey solid;
+  }
+
+  .talent-nav li {
+    position: relative;
+    float: none;
+    background-color: rgb(248, 248, 248);
+    left: 0;
+    border-top: 1px lightgrey solid;
+    border-right: 1px lightgrey solid;
+  }
+
+  .navbar-icon {
+    display: block;
+  }
+
+  .navbar-title {
+    left: 15rem;
+  }
+
     .about {
-      height: 80rem;
+      height: 50rem;
+    }
+
+    .about-container {
+      top: -23rem;
     }
 
     .about-image-container {
@@ -304,18 +341,14 @@ button:focus {
       max-width: 30%;
     }
 
-    .more-projects-button {
-      top: -120rem;
-    }
-
     .project-image {
       max-width: 25%;
-      height: auto;
+      height: 10.5rem;
     }
 
     .projects-title {
       left: 5rem;
-      top: 13rem;
+      top: 14rem;
     }
 
     .project-image-container {
@@ -332,12 +365,12 @@ button:focus {
     .teal-triangle2 {
       height: 192px;
       width: 230px;
-      left: 10rem;
+      left: 16rem;
       top: -125rem;
     }
 
     .more-projects-button {
-      top: -49rem;
+      top: -53.5rem;
       width: 10rem;
       height: 3rem;
       left: 62%;
@@ -346,16 +379,126 @@ button:focus {
     .more-learners-button {
       width: 10rem;
       height: 2rem;
+      top: 2rem;
+      z-index: 1;
     }
 
     .landing-page-learners {
       margin-top: -125rem;
     }
 
+    .learner-image-container > span {
+      z-index: 2;
+    }
+
     .footer {
       height: 40rem;
     }
 
+}
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+  html {
+    font-size: 33.33%;
+  }
+
+  .about-container {
+    top: -23rem;
+  }
+
+  .about-image-container {
+    height: 40rem;
+    width: 20rem;
+  }
+
+  .about-text {
+    max-width: 30%;
+  }
+
+  .project-image {
+    max-width: 25%;
+    height: 22rem;
+  }
+
+  .projects-title {
+    left: 5rem;
+    top: 14rem;
+  }
+
+  .project-image-container {
+    top: -44rem;
+    max-width: 100%;
+  }
+
+  .teal-triangle1 {
+    width: 50rem;
+    height: 30rem;
+    top: -37rem;
+  }
+
+  .projects-title {
+    top: 20rem;
+  }
+
+  .teal-triangle2 {
+    height: 192px;
+    width: 50rem;
+    left: 35rem;
+    top: -105rem;
+  }
+
+  .more-projects-button {
+    top: -88.5rem;
+    width: 15rem;
+    height: 4rem;
+    left: 72%;
+  }
+
+  .more-learners-button {
+    width: 20rem;
+    height: 6rem;
+    top: 2rem;
+    z-index: 1;
+    left: 2rem;
+  }
+
+  .landing-page-learners {
+    margin-top: -105rem;
+  }
+
+  .learner-image-container > span {
+    z-index: 2;
+  }
+}
+
+@media only screen and (width: 1024px) {
+  html {
+    font-size: 44.44%;
+  }
+
+  .about-container {
+    top: -24rem;
+  }
+
+  .projects-title {
+    top: 16rem;
+  }
+
+  .teal-triangle1 {
+    width: 48rem;
+    height: 25rem;
+  }
+
+  .teal-triangle2 {
+    left: 64rem;
+  }
+
+  .more-projects-button {
+    width: 21rem;
+    height: 4rem;
+    top: -110rem;
+    left: 77%;
+  }
 }
 
 @media only screen and (width: 1920px) {
