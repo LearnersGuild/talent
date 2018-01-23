@@ -506,7 +506,7 @@ input[type=checkbox]:checked + label ~ .talent-list {
 
   .projects-title {
     left: 5rem;
-    top: 14rem;
+    top: 18rem;
   }
 
   .project-image-container {
@@ -565,7 +565,7 @@ input[type=checkbox]:checked + label ~ .talent-list {
   }
 
   .projects-title {
-    top: 16rem;
+    top: 15rem;
   }
 
   .teal-triangle1 {
