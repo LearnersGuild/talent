@@ -3,15 +3,10 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Link } from 'react-router-dom';
 import { Navbar } from 'react-bootstrap';
-import { startLoading, fetchLearners, doneLoading, hideNavbar, showNavbar } from '../../actions';
+import { startLoading, fetchLearners, doneLoading } from '../../actions';
 import axios from 'axios';
 
 class TalentNavbar extends Component {
-
-  constructor(props) {
-    super(props);
-    this.handleClick = this.handleClick.bind(this);
-  }
 
   componentWillMount() {
     this.props.startLoading();
@@ -24,43 +19,33 @@ class TalentNavbar extends Component {
     });
   }
 
-  handleClick() {
-    if (this.props.guild.exists === false) {
-      this.props.showNavbar();
-    } else {
-      this.props.hideNavbar();
-    }
-  }
-
   render() {
     return (
       <div className="talent-container">
         <Navbar className="talent-navbar" fixedTop>
           <Navbar.Header>
             <Navbar.Brand>
-              <button className="navbar-icon glyphicon glyphicon-menu-hamburger" onClick={this.handleClick}></button>
+              <input type="checkbox" name="hamburger" id="hamburger"></input>
+              <label htmlFor="hamburger" className="navbar-icon glyphicon glyphicon-menu-hamburger"></label>
               <h2 className="navbar-title">TALENT</h2>
-              <div>{
-                  this.props.guild.exists ? (
-                    <ul className="talent-nav">
-                      <li className="talent-item">
-                        <Link to="/">Home</Link>
-                      </li>
-                      <li className="talent-item">
-                        <Link to="/current">Current</Link>
-                      </li>
-                      <li className="talent-item">
-                        <Link to="/alumni">Alumni</Link>
-                      </li>
-                      <li className="talent-item">
-                        <Link to="/learners">All Learners</Link>
-                      </li>
-                      <li className="talent-item">
-                        <Link to="/skills">Search By Skills</Link>
-                      </li>
-                    </ul>
-                  ) : null
-
+              <div className="talent-list">{
+                  <ul className="talent-nav">
+                    <li className="talent-item">
+                      <Link to="/">Home</Link>
+                    </li>
+                    <li className="talent-item">
+                      <Link to="/current">Current</Link>
+                    </li>
+                    <li className="talent-item">
+                      <Link to="/alumni">Alumni</Link>
+                    </li>
+                    <li className="talent-item">
+                      <Link to="/learners">All Learners</Link>
+                    </li>
+                    <li className="talent-item">
+                      <Link to="/skills">Search By Skills</Link>
+                    </li>
+                  </ul>
                 }
               </div>
             </Navbar.Brand>
@@ -76,7 +61,7 @@ function mapStateToProps({ guild }) {
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ startLoading, fetchLearners, doneLoading, hideNavbar, showNavbar }, dispatch);
+  return bindActionCreators({ startLoading, fetchLearners, doneLoading, }, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(TalentNavbar);
