@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Link } from 'react-router-dom';
 import { Navbar } from 'react-bootstrap';
-import { startLoading, fetchLearners, doneLoading } from '../../actions';
+import { startLoading, fetchLearners, doneLoading, hideNavbar, showNavbar } from '../../actions';
 import axios from 'axios';
 
 class TalentNavbar extends Component {
@@ -81,7 +81,7 @@ function mapStateToProps({ guild }) {
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ startLoading, fetchLearners, doneLoading }, dispatch);
+  return bindActionCreators({ startLoading, fetchLearners, doneLoading, hideNavbar, showNavbar }, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(TalentNavbar);
