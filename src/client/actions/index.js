@@ -1,6 +1,6 @@
+export const START_LOADING = 'start_loading';
 export const FETCH_LEARNERS = 'fetch_learners';
 export const DONE_LOADING = 'done_loading';
-export const START_LOADING = 'start_loading';
 
 export function startLoading() {
   return {
@@ -15,7 +15,7 @@ export function fetchLearners(allLearners) {
     payload: allLearners,
     loading: true,
   };
-};
+}
 
 export function doneLoading() {
   return {
