@@ -64,8 +64,8 @@ button:focus {
   position: absolute;
   clear: both;
   max-height: 0;
-  top: 8.5rem;
-  left: -5rem;
+  top: 5.5rem;
+  left: -2.7rem;
   width: fit-content;
 }
 
@@ -356,7 +356,7 @@ input[type=checkbox]:checked + label ~ .talent-list {
 
 }
 
-@media only screen and (width: 375px) {
+@media only screen and (min-device-width: 375px) and (max-device-width: 667px) {
   html {
     font-size: 13.88%;
   }
@@ -402,7 +402,7 @@ input[type=checkbox]:checked + label ~ .talent-list {
   .teal-triangle2 {
     height: 192px;
     width: 230px;
-    left: 16rem;
+    left: 16.2rem;
     top: -125rem;
   }
 
@@ -410,14 +410,15 @@ input[type=checkbox]:checked + label ~ .talent-list {
     top: -53.5rem;
     width: 10rem;
     height: 3rem;
-    left: 62%;
+    left: 67%;
   }
 
   .more-learners-button {
     width: 10rem;
-    height: 2rem;
-    top: 2rem;
+    height: 4rem;
+    top: 1rem;
     z-index: 1;
+    left: -7.5rem;
   }
 
   .landing-page-learners {
@@ -433,9 +434,56 @@ input[type=checkbox]:checked + label ~ .talent-list {
   }
 }
 
+@media only screen and (width: 667px) {
+  html {
+    font-size: 28.95%
+  }
+
+  .about-image-container {
+    position: relative;
+    top: 4.5rem;
+  }
+
+  .projects-title {
+    top: 16rem;
+  }
+
+  .teal-triangle1 {
+    width: 35rem;
+    height: 26rem;
+  }
+
+  .teal-triangle2 {
+    width: 35rem;
+    height: 26rem;
+    left: 39.15rem;
+  }
+
+  .more-projects-button {
+    width: 10rem;
+    height: 4rem;
+    top: -82rem;
+    left: 60rem;
+  }
+
+  .more-learners-button {
+    width: 10rem;
+    height: 4rem;
+    left: -2.5rem;
+  }
+}
+
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
   html {
     font-size: 33.33%;
+  }
+
+  .navbar-title {
+    left: 2rem;
+  }
+
+  .talent-nav {
+    left: 25rem;
   }
 
   .about-container {
@@ -506,6 +554,10 @@ input[type=checkbox]:checked + label ~ .talent-list {
 @media only screen and (width: 1024px) {
   html {
     font-size: 44.44%;
+  }
+
+  .talent-nav {
+    left: 54rem;
   }
 
   .about-container {
