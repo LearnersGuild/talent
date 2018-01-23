@@ -7,16 +7,27 @@ html {
   /* 1rem = 1rem, 1rem/16 = 62.5% */
 }
 
+#hamburger {
+  display: none;
+}
+
+input[type=checkbox] + label {
+  height: 3rem;
+  width: 3rem;
+  padding: 0 0 0 0;
+}
+
+input[type=checkbox]:checked + label {
+  height: 3rem;
+  width: 3rem;
+}
+
 h1 {
   font-size: 5rem;
 }
 
 button:focus {
   outline: 0;
-}
-
-.navbar-icon {
-  display: none;
 }
 
 .text-center > h1 {
@@ -51,40 +62,53 @@ button:focus {
 
 .talent-nav {
   position: absolute;
-  list-style-type: none;
-  top: 0;
-  right: 10rem;
+  clear: both;
+  max-height: 0;
+  top: 8.5rem;
+  left: -5rem;
+  width: fit-content;
 }
 
 .talent-nav ul {
-  list-style-type: none;
   margin: 0;
   padding: 0;
+  list-style: none;
+  overflow: hidden;
 }
 
 .talent-nav li {
-  float: left;
+  position: relative;
+  display: block;
+  background-color: rgb(248, 248, 248);
+  left: -1.75rem;
 }
 
 .talent-nav li a {
   display: -webkit-box;
   text-align: center;
-  padding: 16px;
+  padding: 10px;
   text-decoration: none;
   color: #777;
 }
 
-.talent-nav li a:hover {
-  background-color: lightgray;
-  color: #777;
+.navbar-icon {
+  display: block;
 }
 
 .navbar-title {
   font-family: 'Fugaz One';
   position: absolute;
-  left: 10rem;
+  left: 21.75rem;
   top: -0.5rem;
   z-index: 5000;
+}
+
+.talent-list {
+  display: none;
+}
+
+input[type=checkbox]:checked + label ~ .talent-list {
+  display: block;
 }
 
 .about h2 {
@@ -289,112 +313,124 @@ button:focus {
   to { transform: rotate(360deg); }
 }
 
-@media only screen and (width: 375px) {
-    html {
-      font-size: 13.88%;
-    }
-
-    .navbar-icon {
-      display: block;
-      z-index: 2;
-    }
-
-    .talent-nav {
-    position: absolute;
-    top: 5.4rem;
-    left: -5rem;
-    width: fit-content;
-    border-bottom: 1px lightgrey solid;
-  }
-
-  .talent-nav li {
-    position: relative;
-    float: none;
-    background-color: rgb(248, 248, 248);
-    left: 0;
-    border-top: 1px lightgrey solid;
-    border-right: 1px lightgrey solid;
-  }
-
+@media only screen and (min-width: 768px) {
   .navbar-icon {
-    display: block;
+    display: none;
   }
 
   .navbar-title {
-    left: 15rem;
+    left: 30rem;
+    top: -1rem;
   }
 
-    .about {
-      height: 50rem;
-    }
+  .talent-list {
+    display: block;
+  }
 
-    .about-container {
-      top: -23rem;
-    }
+  .talent-nav {
+    position: absolute;
+    list-style-type: none;
+    top: 0;
+    left: 80rem;
+  }
 
-    .about-image-container {
-      width: 15rem;
-      height: 20rem;
-    }
+  .talent-nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
 
-    .about-text {
-      max-width: 30%;
-    }
+  .talent-nav li {
+    float: left;
+  }
 
-    .project-image {
-      max-width: 25%;
-      height: 10.5rem;
-    }
+  .talent-nav li a {
+    padding: 10px;
+    height: 4.9rem;
+  }
 
-    .projects-title {
-      left: 5rem;
-      top: 14rem;
-    }
+  .talent-nav li a:hover {
+    background-color: lightgray;
+    color: #777;
+  }
 
-    .project-image-container {
-      top: -42rem;
-      max-width: 100%;
-    }
+}
 
-    .teal-triangle1 {
-      width: 230px;
-      height: 192px;
-      top: -37rem;
-    }
+@media only screen and (width: 375px) {
+  html {
+    font-size: 13.88%;
+  }
 
-    .teal-triangle2 {
-      height: 192px;
-      width: 230px;
-      left: 16rem;
-      top: -125rem;
-    }
+  .about {
+    height: 50rem;
+  }
 
-    .more-projects-button {
-      top: -53.5rem;
-      width: 10rem;
-      height: 3rem;
-      left: 62%;
-    }
+  .about-container {
+    top: -23rem;
+  }
 
-    .more-learners-button {
-      width: 10rem;
-      height: 2rem;
-      top: 2rem;
-      z-index: 1;
-    }
+  .about-image-container {
+    width: 15rem;
+    height: 20rem;
+  }
 
-    .landing-page-learners {
-      margin-top: -125rem;
-    }
+  .about-text {
+    max-width: 30%;
+  }
 
-    .learner-image-container > span {
-      z-index: 2;
-    }
+  .project-image {
+    max-width: 25%;
+    height: 10.5rem;
+  }
 
-    .footer {
-      height: 40rem;
-    }
+  .projects-title {
+    left: 5rem;
+    top: 14rem;
+  }
 
+  .project-image-container {
+    top: -42rem;
+    max-width: 100%;
+  }
+
+  .teal-triangle1 {
+    width: 230px;
+    height: 192px;
+    top: -37rem;
+  }
+
+  .teal-triangle2 {
+    height: 192px;
+    width: 230px;
+    left: 16rem;
+    top: -125rem;
+  }
+
+  .more-projects-button {
+    top: -53.5rem;
+    width: 10rem;
+    height: 3rem;
+    left: 62%;
+  }
+
+  .more-learners-button {
+    width: 10rem;
+    height: 2rem;
+    top: 2rem;
+    z-index: 1;
+  }
+
+  .landing-page-learners {
+    margin-top: -125rem;
+  }
+
+  .learner-image-container > span {
+    z-index: 2;
+  }
+
+  .footer {
+    height: 40rem;
+  }
 }
 
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
@@ -434,10 +470,6 @@ button:focus {
     width: 50rem;
     height: 30rem;
     top: -37rem;
-  }
-
-  .projects-title {
-    top: 20rem;
   }
 
   .teal-triangle2 {
@@ -506,9 +538,9 @@ button:focus {
     font-size: 83.33%;
   }
 
-    .more-projects-button {
-      top: -132rem;
-    }
+  .more-projects-button {
+    top: -132rem;
+  }
 
   .learner-span {
     width: auto;
