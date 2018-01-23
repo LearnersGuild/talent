@@ -88,6 +88,7 @@ class SkillsSearch extends Component {
             <input ref="submitButton" type="submit" value="Submit"></input>
           </Link>
         </form>
+        <div className="footer-filler"></div>
       </div>
   );
   }

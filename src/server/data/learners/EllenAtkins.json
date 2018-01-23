@@ -7,12 +7,12 @@
 	"story": "Magna excepteur consequat ut proident eu nostrud do anim excepteur cupidatat tempor. Esse aute sit ad in consequat aliquip deserunt ad ullamco Lorem et id aliqua. Do fugiat cillum ad eu ea incididunt esse laboris laborum Lorem eu ut laboris. Aute incididunt nostrud pariatur eu et mollit magna officia ullamco incididunt duis. Sint id laboris Lorem aliqua.",
 	"projects": [{
 			"id": 25,
-			"title": "ReactPro",
+			"title": "/Bulbasaur.jpg",
 			"link": "http://google.com"
 		},
 		{
 			"id": 26,
-			"title": "React/Redux",
+			"title": "/Lucario.png",
 			"link": "http://google.com"
 		}
 	],

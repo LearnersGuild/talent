@@ -21,27 +21,33 @@ class TalentNavbar extends Component {
 
   render() {
     return (
-      <div>
-        <Navbar className="navbar" fixedTop>
+      <div className="talent-container">
+        <Navbar className="talent-navbar" fixedTop>
           <Navbar.Header>
             <Navbar.Brand>
-              <ul className="navbar-nav list-group">
-                <li className="nav-item list-group-item">
-                  <Link to="/">Home</Link>
-                </li>
-                <li className="nav-item list-group-item">
-                  <Link to="/current">Current</Link>
-                </li>
-                <li className="nav-item list-group-item">
-                  <Link to="/alumni">Alumni</Link>
-                </li>
-                <li className="nav-item list-group-item">
-                  <Link to="/learners">All Learners</Link>
-                </li>
-                <li className="nav-item list-group-item">
-                  <Link to="/skills">Search By Skills</Link>
-                </li>
-              </ul>
+              <input type="checkbox" name="hamburger" id="hamburger"></input>
+              <label htmlFor="hamburger" className="navbar-icon glyphicon glyphicon-menu-hamburger"></label>
+              <h2 className="navbar-title">TALENT</h2>
+              <div className="talent-list">{
+                  <ul className="talent-nav">
+                    <li className="talent-item">
+                      <Link to="/">Home</Link>
+                    </li>
+                    <li className="talent-item">
+                      <Link to="/current">Current</Link>
+                    </li>
+                    <li className="talent-item">
+                      <Link to="/alumni">Alumni</Link>
+                    </li>
+                    <li className="talent-item">
+                      <Link to="/learners">All Learners</Link>
+                    </li>
+                    <li className="talent-item">
+                      <Link to="/skills">Search By Skills</Link>
+                    </li>
+                  </ul>
+                }
+              </div>
             </Navbar.Brand>
           </Navbar.Header>
         </Navbar>
@@ -50,8 +56,12 @@ class TalentNavbar extends Component {
   }
 }
 
-function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ startLoading, fetchLearners, doneLoading }, dispatch);
+function mapStateToProps({ guild }) {
+  return { guild };
 }
 
-export default connect(null, mapDispatchToProps)(TalentNavbar);
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({ startLoading, fetchLearners, doneLoading, }, dispatch);
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(TalentNavbar);

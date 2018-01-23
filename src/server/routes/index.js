@@ -17,13 +17,23 @@ router.use('*', (req, res) => {
   res.write(`<!DOCTYPE html>
   <html>
     <head>
+      <noscript>
+        <div class="flex-center">
+          <b>This page will not load correctly with JavaScript disabled at the moment.
+          Please enable JavaScript to view this page.</b>
+        </div>
+      </noscript>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.css">
       <meta name="viewport" content="width=device-width, initial-scale=1">
-      <link rel="stylesheet" href="/style.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css">
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css">
+      <link rel="stylesheet" href="/style.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fugaz+One">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700">
       <title>Talent</title>
     </head>
     <body>
-      <div class="container">`);
+      <div class="root">`);
 
   const stream = renderToNodeStream(
     <Provider store={createStore(reducers)}>

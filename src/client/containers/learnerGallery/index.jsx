@@ -13,14 +13,13 @@ class LearnerGallery extends Component {
         selectedLearners: this.filterByType(this.props.type),
       };
     } else {
+      let searchSkill = this.props.match.params.searchSkill.replace(/search=/, '').split(',');
       this.state = {
-        selectedLearners: this.filterBySkill(),
+        selectedLearners: this.filterBySkill(searchSkill),
       };
     }
 
     this.handleChange = this.handleChange.bind(this);
-
-    console.log('This is the constructor', this.props.guild);
   }
 
   handleChange(event) {
@@ -33,25 +32,33 @@ class LearnerGallery extends Component {
     if (this.props.type) {
       filteredLearner = this.filterByType(this.props.type);
     } else {
-      filteredLearner = this.filterBySkill();
+      let searchSkill = this.props.match.params.searchSkill.replace(/search=/, '').split(',')
+      filteredLearner = this.filterBySkill(searchSkill);
     }
     if (Array.isArray(this.state.selectedLearners)) {
       return filteredLearner;
     }
     return filteredLearner.filter(learner => {
+      let searchSkill = this.state.selectedLearners.toLowerCase().split();
+      let learnersBySkill = this.filterBySkill(searchSkill);
+      if (learnersBySkill.length > 0) {
+        return learnersBySkill;
+      }
       if (learner.name.toLowerCase().includes(this.state.selectedLearners.toLowerCase())) {
         return learner;
       }
     });
   }
 
-  filterBySkill () {
-    let searchSkill = this.props.match.params.searchSkill.replace(/search=/, '').split(',');
+  filterBySkill (searchArray) {
+    // let searchSkill = this.props.match.params.searchSkill.replace(/search=/, '').split(',');
     return this.props.guild.learners.filter(learner => {
       const objectKeys = Object.values(learner.skills).map(object => object.skills);
-      for (let i = 0; i < searchSkill.length; i++) {
-        if (objectKeys.includes(searchSkill[i])) {
-          if (i + 1 === searchSkill.length) {
+      let lowerCaseObjectKeys = objectKeys.map(key => key.toLowerCase());
+      // console.log(lowerCaseObjectKeys);
+      for (let i = 0; i < searchArray.length; i++) {
+        if (lowerCaseObjectKeys.includes(searchArray[i].toLowerCase())) {
+          if (i + 1 === searchArray.length) {
             return learner;
           }
         } else {
@@ -83,7 +90,6 @@ class LearnerGallery extends Component {
   }
 
   render() {
-    console.log(this.props.guild);
     return (
       <div>
           <form>
@@ -91,7 +97,7 @@ class LearnerGallery extends Component {
           </form>
           <CollectionPage
           data={this.filterByName()}
-          info={ { name: 'About Learners Guild', story: 'This is just a sentence.' } }
+          info={ { name: 'ABOUT LEARNERS GUILD', story: 'This is just a sentence.' } }
           projects={this.getProjects(this.filterByName())}
           />
       </div>
