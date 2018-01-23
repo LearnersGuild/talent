@@ -22,14 +22,6 @@ class LearnerGallery extends Component {
     this.handleChange = this.handleChange.bind(this);
   }
 
-  // componentDidMount() {
-  //   console.log('In did mount');
-  // }
-  //
-  // componentWillMount() {
-  //   console.log('In will mount');
-  // }
-
   handleChange(event) {
     event.preventDefault();
     this.setState({ selectedLearners: event.target.value });
@@ -65,7 +57,7 @@ class LearnerGallery extends Component {
       let lowerCaseObjectKeys = objectKeys.map(key => key.toLowerCase());
       // console.log(lowerCaseObjectKeys);
       for (let i = 0; i < searchArray.length; i++) {
-        if (lowerCaseObjectKeys.includes(searchArray[i])) {
+        if (lowerCaseObjectKeys.includes(searchArray[i].toLowerCase())) {
           if (i + 1 === searchArray.length) {
             return learner;
           }
