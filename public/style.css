@@ -14,12 +14,10 @@ input[type=checkbox] {
 input[type=checkbox] + label {
   height: 3rem;
   width: 3rem;
-  background-color: white;
   padding: 0 0 0 0;
 }
 
 input[type=checkbox]:checked + label {
-  background: lightgray;
   height: 3rem;
   width: 3rem;
 }
