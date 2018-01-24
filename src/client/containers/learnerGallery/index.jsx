@@ -32,37 +32,30 @@ class LearnerGallery extends Component {
     if (this.props.type) {
       filteredLearner = this.filterByType(this.props.type);
     } else {
-      let searchSkill = this.props.match.params.searchSkill.replace(/search=/, '').split(',')
+      let searchSkill = this.props.match.params.searchSkill.replace(/search=/, '').split(',');
       filteredLearner = this.filterBySkill(searchSkill);
     }
     if (Array.isArray(this.state.selectedLearners)) {
       return filteredLearner;
     }
-    console.log(filteredLearner);
-    return filteredLearner.filter(learner => {
-      let searchSkill = this.state.selectedLearners.toLowerCase().split();
-      console.log('This is the searchSkill ----> ', searchSkill);
-      let learnersBySkill = this.filterBySkill(searchSkill);
-      console.log('This learnersBySkill outside the if ----> ', learnersBySkill);
-      if (learnersBySkill.length > 0) {
-        console.log('learnersBySkill inside the if ----> ', learnersBySkill);
-        // console.log('This is learnersBySkill returned');
-        return learnersBySkill;
-        // return undefined;
-      } else if (learner.name.toLowerCase().includes(this.state.selectedLearners.toLowerCase())) {
-        // console.log('This is returned as well');
-        console.log('This should not be executing');
+    let searchTerm = this.state.selectedLearners.toLowerCase().split();
+    let learnersBySkill = this.filterBySkill(searchTerm);
+    const foundLearners = filteredLearner.filter(learner => {
+      if (learner.name.toLowerCase().includes(this.state.selectedLearners.toLowerCase())) {
         return learner;
       }
     });
+    if (foundLearners.length === 0) {
+      return learnersBySkill;
+    }
+
+    return foundLearners;
   }
 
   filterBySkill (searchArray) {
-    // let searchSkill = this.props.match.params.searchSkill.replace(/search=/, '').split(',');
     return this.props.guild.learners.filter(learner => {
       const objectKeys = Object.values(learner.skills).map(object => object.skills);
       let lowerCaseObjectKeys = objectKeys.map(key => key.toLowerCase());
-      // console.log(lowerCaseObjectKeys);
       for (let i = 0; i < searchArray.length; i++) {
         if (lowerCaseObjectKeys.includes(searchArray[i].toLowerCase())) {
           if (i + 1 === searchArray.length) {
@@ -98,7 +91,6 @@ class LearnerGallery extends Component {
 
   render() {
     let names = this.filterByName();
-    console.log('names inside the render ----> ', names);
     return (
       <div>
           <form>

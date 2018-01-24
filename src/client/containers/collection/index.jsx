@@ -6,7 +6,6 @@ import Blurb from '../../components/blurb';
 
 export default class CollectionPage extends Component {
   render() {
-    console.log('this.props.data ----> ', this.props.data);
     return (
       <div>
       <div className="flex-column-home-page">
