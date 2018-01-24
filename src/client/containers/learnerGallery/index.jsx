@@ -41,9 +41,7 @@ class LearnerGallery extends Component {
     let searchTerm = this.state.selectedLearners.toLowerCase().split();
     let learnersBySkill = this.filterBySkill(searchTerm);
     const foundLearners = filteredLearner.filter(learner => {
-      if (learner.name.toLowerCase().includes(this.state.selectedLearners.toLowerCase())) {
-        return learner;
-      }
+      return learner.name.toLowerCase().includes(this.state.selectedLearners.toLowerCase());
     });
     if (foundLearners.length === 0) {
       return learnersBySkill;
