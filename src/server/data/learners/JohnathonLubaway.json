@@ -1,40 +1,44 @@
 {
-	"id": "59f7a184ae692a8b4ce9f362",
 	"github_handle": "neojax",
 	"linkedin_profile": "jacklub",
 	"twitter": "neojax",
 	"name": "Johnathon Lubaway",
 	"story": "Adipisicing elit aliquip nulla officia. Tempor sint cillum veniam dolore consectetur duis ut aliqua id laborum. Eiusmod ex ex ad ea amet sit occaecat do consequat amet.",
 	"projects": [{
-			"id": 156,
 			"title": "/JohnathonLubawayImages/Bookstore.png",
 			"link": "https://bookstore-neojax.herokuapp.com/"
 		},
     {
-      "id": 157,
       "title": "/JohnathonLubawayImages/Talent.png",
       "link": "https://github.com/LearnersGuild/talent"
     }
 	],
 	"skills": [{
-			"id": 157,
-			"skills": "JS"
+			"skills": "JavaScript"
 		},
 		{
-			"id": 158,
 			"skills": "CSS"
 		},
     {
-      "id": 159,
       "skills": "React"
-    }
+    },
+		{
+			"skills": "Redux"
+		},
+		{
+			"skills": "HTML"
+		},
+		{
+			"skills": "node.js"
+		},
+		{
+			"skills": "SQL"
+		}
 	],
 	"experience": [{
-			"id": 160,
 			"projects": "Computer Science Student at Michigan Tech (No Degree)"
 		},
 		{
-			"id": 161,
 			"projects": "Learner's Guild"
 		}
 	],
