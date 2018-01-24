@@ -38,13 +38,20 @@ class LearnerGallery extends Component {
     if (Array.isArray(this.state.selectedLearners)) {
       return filteredLearner;
     }
+    console.log(filteredLearner);
     return filteredLearner.filter(learner => {
       let searchSkill = this.state.selectedLearners.toLowerCase().split();
+      console.log('This is the searchSkill ----> ', searchSkill);
       let learnersBySkill = this.filterBySkill(searchSkill);
+      console.log('This learnersBySkill outside the if ----> ', learnersBySkill);
       if (learnersBySkill.length > 0) {
+        console.log('learnersBySkill inside the if ----> ', learnersBySkill);
+        // console.log('This is learnersBySkill returned');
         return learnersBySkill;
-      }
-      if (learner.name.toLowerCase().includes(this.state.selectedLearners.toLowerCase())) {
+        // return undefined;
+      } else if (learner.name.toLowerCase().includes(this.state.selectedLearners.toLowerCase())) {
+        // console.log('This is returned as well');
+        console.log('This should not be executing');
         return learner;
       }
     });
@@ -90,15 +97,17 @@ class LearnerGallery extends Component {
   }
 
   render() {
+    let names = this.filterByName();
+    console.log('names inside the render ----> ', names);
     return (
       <div>
           <form>
             <input type="text" placeholder="search" onChange={this.handleChange}></input>
           </form>
           <CollectionPage
-          data={this.filterByName()}
+          data={names}
           info={ { name: 'ABOUT LEARNERS GUILD', story: 'This is just a sentence.' } }
-          projects={this.getProjects(this.filterByName())}
+          projects={this.getProjects(names)}
           />
       </div>
     );
