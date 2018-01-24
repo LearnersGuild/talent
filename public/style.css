@@ -204,7 +204,7 @@ input[type=checkbox]:checked + label ~ .talent-list {
 .teal-triangle2 {
   position: relative;
   top: -115rem;
-  left: 44rem;
+  left: 43.6rem;
   width: 100rem;
   height: 60rem;
   clip-path: polygon(100% 0, 100% 71%, 0 28%);
@@ -390,7 +390,7 @@ input[type=checkbox]:checked + label ~ .talent-list {
 
   .project-image-container {
     top: -42rem;
-    max-width: 100%;
+    width: 100%;
   }
 
   .teal-triangle1 {
