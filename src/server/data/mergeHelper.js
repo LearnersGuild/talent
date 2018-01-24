@@ -6,8 +6,12 @@ const buildLearners = () => {
     if (error) {
       throw error;
     }
-    files.forEach(file => {
+
+    // let count = 0;
+    files.forEach((file) => {
       let data = require(`./learners/${file}`);
+      // data.learners.id = count;
+      // count++;
       allLearners.push(data);
     });
     return allLearners;

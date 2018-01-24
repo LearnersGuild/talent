@@ -38,21 +38,25 @@ class LearnerGallery extends Component {
     if (Array.isArray(this.state.selectedLearners)) {
       return filteredLearner;
     }
-    return filteredLearner.filter(learner => {
+    let filteredLearnerAfter = filteredLearner.filter(learner => {
+      console.log(learner);
       let searchSkill = this.state.selectedLearners.toLowerCase().split();
       let learnersBySkill = this.filterBySkill(searchSkill);
       if (learnersBySkill.length > 0) {
+        console.log(learnersBySkill);
         return learnersBySkill;
-      }
-      if (learner.name.toLowerCase().includes(this.state.selectedLearners.toLowerCase())) {
+      } else if (learner.name.toLowerCase().includes(this.state.selectedLearners.toLowerCase())) {
         return learner;
       }
     });
+    console.log(filteredLearnerAfter);
+    return filteredLearnerAfter;
   }
 
   filterBySkill (searchArray) {
     // let searchSkill = this.props.match.params.searchSkill.replace(/search=/, '').split(',');
     return this.props.guild.learners.filter(learner => {
+      debugger;
       const objectKeys = Object.values(learner.skills).map(object => object.skills);
       let lowerCaseObjectKeys = objectKeys.map(key => key.toLowerCase());
       // console.log(lowerCaseObjectKeys);
@@ -90,15 +94,16 @@ class LearnerGallery extends Component {
   }
 
   render() {
+    let names = this.filterByName();
     return (
       <div>
           <form>
             <input type="text" placeholder="search" onChange={this.handleChange}></input>
           </form>
           <CollectionPage
-          data={this.filterByName()}
+          data={names}
           info={ { name: 'ABOUT LEARNERS GUILD', story: 'This is just a sentence.' } }
-          projects={this.getProjects(this.filterByName())}
+          projects={this.getProjects(names)}
           />
       </div>
     );
