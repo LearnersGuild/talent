@@ -1,17 +1,14 @@
 const fs = require('fs');
 const learner = {};
 
-const makeLearner = () => {
-  learner.github_handle = 'blah';
-  learner.linkedin_profile = 'more blah';
-  learner.twitter = 'most blah';
-  learner.name = 'name blah';
-  learner.story = 'story blah';
-  learner.projects = [{
-    'title': 'title blah',
-    "link": "blah"
-  }];
-  learner.skills = [];
-  learner.experience = [];
-  learner.alumni = false;
+const makeLearner = (github, linkedin, twitter, name, story, projects, skills, experience, alumni) => {
+  learner.github_handle = github;
+  learner.linkedin_profile = linkedin;
+  learner.twitter = twitter;
+  learner.name = name;
+  learner.story = story;
+  learner.projects = projects;
+  learner.skills = skills;
+  learner.experience = experience;
+  learner.alumni = alumni;
 };
