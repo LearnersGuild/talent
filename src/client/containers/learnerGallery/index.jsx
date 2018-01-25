@@ -53,7 +53,6 @@ class LearnerGallery extends Component {
   filterBySkill (searchArray) {
     // let searchSkill = this.props.match.params.searchSkill.replace(/search=/, '').split(',');
     return this.props.guild.learners.filter(learner => {
-      debugger;
       const objectKeys = Object.values(learner.skills).map(object => object.skills);
       let lowerCaseObjectKeys = objectKeys.map(key => key.toLowerCase());
       for (let i = 0; i < searchArray.length; i++) {
