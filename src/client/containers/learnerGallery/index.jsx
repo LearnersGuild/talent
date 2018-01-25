@@ -40,7 +40,6 @@ class LearnerGallery extends Component {
     }
     let searchTerm = this.state.selectedLearners.toLowerCase().split();
     let learnersBySkill = this.filterByOneSkill(searchTerm);
-    console.log(learnersBySkill);
     const foundLearners = filteredLearner.filter(learner => {
       return learner.name.toLowerCase().includes(this.state.selectedLearners.toLowerCase());
     });
@@ -68,7 +67,7 @@ class LearnerGallery extends Component {
       const skillKeys = Object.values(learner.skills).map(object => object.skills);
       let lowerCaseSkillKeys = skillKeys.map(key => key.toLowerCase());
       for (let i = 0; i < searchArray.length; i++) {
-        if (lowerCaseObjectKeys.includes(searchArray[i].toLowerCase())) {
+        if (lowerCaseSkillKeys.includes(searchArray[i].toLowerCase())) {
           if (i + 1 === searchArray.length) {
             return learner;
           }
