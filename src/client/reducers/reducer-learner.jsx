@@ -1,11 +1,7 @@
 import { FETCH_LEARNERS, DONE_LOADING, START_LOADING } from '../actions/';
 
-export default function(state = [], action) {
+export default function(state = { loading: true }, action) {
   switch (action.type) {
-    case START_LOADING:
-      return {
-        loading: action.loading,
-      };
     case FETCH_LEARNERS:
       return {
         learners: action.payload,
