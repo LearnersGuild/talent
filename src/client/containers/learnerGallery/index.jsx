@@ -15,7 +15,7 @@ class LearnerGallery extends Component {
     } else {
       let searchSkill = this.props.match.params.searchSkill.replace(/search=/, '').split(',');
       this.state = {
-        selectedLearners: this.filterBySkill(searchSkill),
+        selectedLearners: this.filterByMultipleSkills(searchSkill),
       };
     }
 
@@ -33,13 +33,14 @@ class LearnerGallery extends Component {
       filteredLearner = this.filterByType(this.props.type);
     } else {
       let searchSkill = this.props.match.params.searchSkill.replace(/search=/, '').split(',');
-      filteredLearner = this.filterBySkill(searchSkill);
+      filteredLearner = this.filterByMultipleSkills(searchSkill);
     }
     if (Array.isArray(this.state.selectedLearners)) {
       return filteredLearner;
     }
     let searchTerm = this.state.selectedLearners.toLowerCase().split();
-    let learnersBySkill = this.filterBySkill(searchTerm);
+    let learnersBySkill = this.filterByOneSkill(searchTerm);
+    console.log(learnersBySkill);
     const foundLearners = filteredLearner.filter(learner => {
       return learner.name.toLowerCase().includes(this.state.selectedLearners.toLowerCase());
     });
@@ -50,10 +51,22 @@ class LearnerGallery extends Component {
     return foundLearners;
   }
 
-  filterBySkill (searchArray) {
+  filterByOneSkill (skillToSearchBy) {
     return this.props.guild.learners.filter(learner => {
-      const objectKeys = Object.values(learner.skills).map(object => object.skills);
-      let lowerCaseObjectKeys = objectKeys.map(key => key.toLowerCase());
+      const skillKeys = Object.values(learner.skills).map(object => object.skills);
+      let lowerCaseSkillKeys = skillKeys.map(key => key.toLowerCase());
+      for (let i = 0; i < lowerCaseSkillKeys.length; i++) {
+        if (lowerCaseSkillKeys[i].includes(skillToSearchBy)) {
+          return learner;
+        }
+      }
+    });
+  }
+
+  filterByMultipleSkills (searchArray) {
+    return this.props.guild.learners.filter(learner => {
+      const skillKeys = Object.values(learner.skills).map(object => object.skills);
+      let lowerCaseSkillKeys = skillKeys.map(key => key.toLowerCase());
       for (let i = 0; i < searchArray.length; i++) {
         if (lowerCaseObjectKeys.includes(searchArray[i].toLowerCase())) {
           if (i + 1 === searchArray.length) {
