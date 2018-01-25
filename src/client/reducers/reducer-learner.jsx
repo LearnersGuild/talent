@@ -15,7 +15,6 @@ export default function(state = [], action) {
       return {
         learners: state.learners,
         loading: action.loading,
-        exists: true,
       };
   }
   return state;
