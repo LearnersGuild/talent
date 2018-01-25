@@ -39,17 +39,14 @@ class LearnerGallery extends Component {
       return filteredLearner;
     }
     let filteredLearnerAfter = filteredLearner.filter(learner => {
-      console.log(learner);
       let searchSkill = this.state.selectedLearners.toLowerCase().split();
       let learnersBySkill = this.filterBySkill(searchSkill);
       if (learnersBySkill.length > 0) {
-        console.log(learnersBySkill);
         return learnersBySkill;
       } else if (learner.name.toLowerCase().includes(this.state.selectedLearners.toLowerCase())) {
         return learner;
       }
     });
-    console.log(filteredLearnerAfter);
     return filteredLearnerAfter;
   }
 
@@ -59,7 +56,6 @@ class LearnerGallery extends Component {
       debugger;
       const objectKeys = Object.values(learner.skills).map(object => object.skills);
       let lowerCaseObjectKeys = objectKeys.map(key => key.toLowerCase());
-      // console.log(lowerCaseObjectKeys);
       for (let i = 0; i < searchArray.length; i++) {
         if (lowerCaseObjectKeys.includes(searchArray[i].toLowerCase())) {
           if (i + 1 === searchArray.length) {
