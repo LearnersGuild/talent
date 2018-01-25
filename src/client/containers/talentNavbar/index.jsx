@@ -58,12 +58,8 @@ class TalentNavbar extends Component {
   }
 }
 
-function mapStateToProps({ guild }) {
-  return { guild };
-}
-
 function mapDispatchToProps(dispatch) {
   return bindActionCreators({ startLoading, fetchLearners, doneLoading, }, dispatch);
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(TalentNavbar);
+export default connect(null, mapDispatchToProps)(TalentNavbar);
