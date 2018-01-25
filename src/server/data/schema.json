@@ -2,9 +2,6 @@
   "title": "Learner",
   "type": "object",
   "properties": {
-    "id": {
-      "type": "string"
-    },
     "github_handle": {
       "type": "string"
     },
@@ -25,9 +22,6 @@
       "items": {
         "type": "object",
         "properties": {
-          "id": {
-            "type": "integer"
-          },
           "title": {
             "type": "string"
           },
@@ -36,7 +30,7 @@
           }
         },
         "additionalProperties": false,
-        "required": ["id", "title", "link"]
+        "required": ["title", "link"]
       }
     },
     "skills": {
@@ -44,15 +38,12 @@
       "items": {
         "type": "object",
         "properties": {
-          "id": {
-            "type": "integer"
-          },
           "skills": {
             "type": "string"
           }
         },
         "additionalProperties": false,
-        "required": ["id", "skills"]
+        "required": ["skills"]
       }
     },
     "experience": {
@@ -60,15 +51,12 @@
       "items": {
         "type": "object",
         "properties": {
-          "id": {
-            "type": "integer"
-          },
           "projects": {
             "type": "string"
           }
         },
         "additionalProperties": false,
-        "required": ["id", "projects"]
+        "required": ["projects"]
       }
     },
     "alumni": {
