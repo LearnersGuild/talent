@@ -347,7 +347,7 @@ input[type=checkbox]:checked + label ~ .talent-list {
 
   .talent-nav li a {
     padding: 10px;
-    height: 4.9rem;
+    height: fit-content;
   }
 
   .talent-nav li a:hover {
