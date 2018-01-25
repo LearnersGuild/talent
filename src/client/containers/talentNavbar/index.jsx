@@ -15,7 +15,9 @@ class TalentNavbar extends Component {
     .then(data => this.props.fetchLearners(data))
     .then(() => this.props.doneLoading())
     .catch(error => {
-      console.log('Error fetching and parsing data', error);
+      this.props.doneLoading();
+      console.log('Error fetching and parsing data: ', error);
+      throw error;
     });
   }
 
