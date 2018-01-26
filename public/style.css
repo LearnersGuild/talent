@@ -475,7 +475,7 @@ input[type=checkbox]:checked + label ~ .talent-list {
   }
 }
 
-@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+@media only screen and (min-device-width: 768px) and (max-device-width: 1023px) {
   html {
     font-size: 33.33%;
   }
@@ -553,7 +553,7 @@ input[type=checkbox]:checked + label ~ .talent-list {
   }
 }
 
-@media only screen and (width: 1024px) {
+@media only screen and (min-device-width: 1024px) {
   html {
     font-size: 44.44%;
   }
