@@ -1,4 +1,4 @@
-import { FETCH_LEARNERS, DONE_LOADING, START_LOADING } from '../actions/';
+import { FETCH_LEARNERS, DONE_LOADING } from '../actions/';
 
 export default function(state = { loading: true }, action) {
   switch (action.type) {

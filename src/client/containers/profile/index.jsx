@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-
 import Profile from './profile';
 import Projects from '../../components/projects';
 import List from '../../components/list';
