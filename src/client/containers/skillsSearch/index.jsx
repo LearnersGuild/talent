@@ -15,12 +15,12 @@ class SkillsSearch extends Component {
     this.findLearners = this.findLearners.bind(this);
   }
 
-  renderExperienceList(list) {
-    return this.filterDuplicates().map((skill, index) => {
+  renderExperienceList() {
+    return Object.keys(this.state).map((skill, index) => {
       return (
         <li className="list-group-item" key={index}>
           <label> {skill}:
-            <input type="checkbox" name={skill} value={this.state.skill} onChange={this.handleChange}></input>
+            <input type="checkbox" name={skill} value={this.state[skill]} onChange={this.handleChange}></input>
           </label>
         </li>
       );
@@ -29,7 +29,7 @@ class SkillsSearch extends Component {
 
   handleChange(event) {
     const target = event.target;
-    const value = target.value === 'on' ? target.value = 'off' : target.value = 'on';
+    const value = target.value === 'on' ? 'off' : 'on';
     const name = target.name;
     this.setState({
       [name]: value,
@@ -39,7 +39,7 @@ class SkillsSearch extends Component {
   establishNames() {
     const inputNames = {};
     this.filterDuplicates().forEach(skill => {
-      inputNames[skill] = false;
+      inputNames[skill] = 'off';
     });
     return inputNames;
   }
@@ -70,7 +70,7 @@ class SkillsSearch extends Component {
     const listedState = this.state;
     const checkedSkills = [];
     for (let key in listedState) {
-      if (listedState[key] === "off") {
+      if (listedState[key] === 'on') {
         checkedSkills.push(key);
       }
     }
