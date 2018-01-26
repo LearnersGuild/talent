@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-// const fs = require('fs');
 
 export default class ErrorBoundary extends Component {
   constructor(props) {
@@ -16,18 +15,13 @@ export default class ErrorBoundary extends Component {
     });
 
     console.error(error, info);
-    // fs.writeFile('errorLogging.txt', error, (err) => {
-    //   if (err) {
-    //     throw error;
-    //   }
-    //
-    //   console.log('Error logged.');
-    // });
   }
 
   render() {
     if (this.state.hasError) {
-      return <h1>Something went wrong.</h1>;
+      return (
+        <img src="https://c1.staticflickr.com/8/7001/6509400855_aaaf915871_b.jpg" />
+      );
     }
 
     return this.props.children;

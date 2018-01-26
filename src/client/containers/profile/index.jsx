@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-
 import Profile from './profile';
 import Projects from '../../components/projects';
-import ExperienceList from '../../components/experienceList';
-import SkillList from '../../components/skillList';
+import List from '../../components/list';
 
 class ProfilePage extends Component {
 
@@ -28,10 +26,10 @@ class ProfilePage extends Component {
       <Profile github_handle={selectedLearner.github_handle} linkedin_profile={selectedLearner.linkedin_profile} twitter={selectedLearner.twitter} info={selectedLearner} />
       <div className="row">
         <div className="col-lg-6">
-          <ExperienceList experiences={selectedLearner.experience} />
+          <List type='projects' elements={selectedLearner.experience} />
         </div>
         <div className="col-lg-6">
-          <SkillList skills={selectedLearner.skills} />
+          <List type='skills' elements={selectedLearner.skills} />
         </div>
       </div>
       <div className="row flex-center">

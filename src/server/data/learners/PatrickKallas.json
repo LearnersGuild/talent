@@ -1,0 +1,47 @@
+{
+	"id": "59f7a184ae692aidfyu284ce9f062",
+	"github_handle": "pkallas",
+	"linkedin_profile": "patrick-kallas-463452156",
+	"twitter": "pkallas",
+	"name": "Patrick Kallas",
+	"story": "Adipisicing elit aliquip nulla officia. Tempor sint cillum veniam dolore consectetur duis ut aliqua id laborum. Eiusmod ex ex ad ea amet sit occaecat do consequat amet.",
+	"projects": [{
+			"id": 100,
+			"title": "/PatrickKallasImages/PokemonCRUD.png",
+			"link": "https://pokemon-crud-mutably.herokuapp.com/"
+		},
+		{
+			"id": 101,
+			"title": "/PatrickKallasImages/BookStore.png",
+			"link": "https://learners-guild-book-store.herokuapp.com/"
+		},
+    {
+      "id": 106,
+      "title": "/PatrickKallasImages/TalentApp.png",
+      "link": "https://github.com/LearnersGuild/talent"
+    }
+	],
+	"skills": [{
+			"id": 102,
+			"skills": "JS"
+		},
+    {
+      "id": 107,
+      "skills": "React"
+    },
+    {
+      "id": 108,
+      "skills": "Redux"
+    }
+	],
+	"experience": [{
+			"id": 104,
+			"projects": "Learners Guild Hackathon"
+		},
+		{
+			"id": 105,
+			"projects": "Talent App"
+		}
+	],
+	"alumni": false
+}
