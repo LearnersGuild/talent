@@ -353,6 +353,7 @@ input[type=checkbox]:checked + label ~ .talent-list {
   .talent-nav li a:hover {
     background-color: lightgray;
     color: #777;
+    height: 50px;
   }
 
 }
@@ -403,12 +404,12 @@ input[type=checkbox]:checked + label ~ .talent-list {
   .teal-triangle2 {
     height: 192px;
     width: 230px;
-    left: 16.2rem;
+    left: 16.1rem;
     top: -125rem;
   }
 
   .more-projects-button {
-    top: -53.5rem;
+    top: -54.5rem;
     width: 10rem;
     height: 3rem;
     left: 67%;
@@ -437,7 +438,7 @@ input[type=checkbox]:checked + label ~ .talent-list {
 
 @media only screen and (width: 667px) {
   html {
-    font-size: 28.95%
+    font-size: 28.95%;
   }
 
   .about-image-container {
