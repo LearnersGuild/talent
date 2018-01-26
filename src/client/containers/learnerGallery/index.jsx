@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import CollectionPage from '../collection';
-import { bindActionCreators } from 'redux';
 import _ from 'lodash';
 
 class LearnerGallery extends Component {
