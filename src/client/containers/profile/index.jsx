@@ -7,7 +7,7 @@ import List from '../../components/list';
 class ProfilePage extends Component {
 
   filterLearner (githubHandle) {
-    return this.props.guild.learners.filter(learner => {
+    return this.props.guild.allLearners.filter(learner => {
       let currentLearner = learner.github_handle === githubHandle;
       return currentLearner;
     });

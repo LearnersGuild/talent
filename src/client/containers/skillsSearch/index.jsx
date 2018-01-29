@@ -58,7 +58,7 @@ class SkillsSearch extends Component {
 
   grabSkills() {
     const listOfSkills = [];
-    this.props.guild.learners.forEach(learner => {
+    this.props.guild.allLearners.forEach(learner => {
       return learner.skills.forEach(skill => {
         listOfSkills.push(skill.skills);
       });

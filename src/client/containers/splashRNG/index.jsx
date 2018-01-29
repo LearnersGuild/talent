@@ -15,17 +15,22 @@ class SplashRNG extends Component {
     };
   }
 
+  componentDidMount() {
+    this.rngProjects();
+    this.rngLearners();
+  }
+
   rngProjects() {
     let chosenProjects = [];
-    let maxNumber = this.props.guild.learners.length;
+    let maxNumber = this.props.guild.allLearners.length;
     for (let i = 0; i < 8; i++) {
       let rng = Math.floor(Math.random() * maxNumber);
-      if (chosenProjects.includes(this.props.guild.learners[rng].projects[0])) {
+      if (chosenProjects.includes(this.props.guild.allLearners[rng].projects[0])) {
         i--;
         continue;
       }
 
-      chosenProjects.push(this.props.guild.learners[rng].projects[0]);
+      chosenProjects.push(this.props.guild.allLearners[rng].projects[0]);
     }
 
     this.setState({ selectedProjects: chosenProjects });
@@ -33,14 +38,14 @@ class SplashRNG extends Component {
 
   rngLearners() {
     let chosenLearners = [];
-    let maxNumber = this.props.guild.learners.length;
+    let maxNumber = this.props.guild.allLearners.length;
     for (let i = 0; i < 6; i++) {
       let rng = Math.floor(Math.random() * maxNumber);
-      if (chosenLearners.includes(this.props.guild.learners[rng])) {
+      if (chosenLearners.includes(this.props.guild.allLearners[rng])) {
         i--;
         continue;
       }
-      chosenLearners.push(this.props.guild.learners[rng]);
+      chosenLearners.push(this.props.guild.allLearners[rng]);
     }
     this.setState({ selectedLearners: chosenLearners });
   }
@@ -50,11 +55,6 @@ class SplashRNG extends Component {
   }
 
   handleClickLearners() {
-    this.rngLearners();
-  }
-
-  componentDidMount() {
-    this.rngProjects();
     this.rngLearners();
   }
 
