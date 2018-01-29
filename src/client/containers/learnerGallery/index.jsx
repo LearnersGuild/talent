@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import CollectionPage from '../collection';
-import { bindActionCreators } from 'redux';
 import _ from 'lodash';
 
 class LearnerGallery extends Component {
@@ -15,7 +14,7 @@ class LearnerGallery extends Component {
     } else {
       let searchSkill = this.props.match.params.searchSkill.replace(/search=/, '').split(',');
       this.state = {
-        selectedLearners: this.filterBySkill(searchSkill),
+        selectedLearners: this.filterByMultipleSkills(searchSkill),
       };
     }
 
@@ -32,12 +31,13 @@ class LearnerGallery extends Component {
     if (this.props.type) {
       filteredLearner = this.filterByType(this.props.type);
     } else {
-      let searchSkill = this.props.match.params.searchSkill.replace(/search=/, '').split(',')
-      filteredLearner = this.filterBySkill(searchSkill);
+      let searchSkill = this.props.match.params.searchSkill.replace(/search=/, '').split(',');
+      filteredLearner = this.filterByMultipleSkills(searchSkill);
     }
     if (Array.isArray(this.state.selectedLearners)) {
       return filteredLearner;
     }
+<<<<<<< HEAD
     let filteredLearnerAfter = filteredLearner.filter(learner => {
       let searchSkill = this.state.selectedLearners.toLowerCase().split();
       let learnersBySkill = this.filterBySkill(searchSkill);
@@ -48,15 +48,43 @@ class LearnerGallery extends Component {
       }
     });
     return filteredLearnerAfter;
+=======
+    let searchTerm = this.state.selectedLearners.toLowerCase().split();
+    let learnersBySkill = this.filterByOneSkill(searchTerm);
+    const foundLearners = filteredLearner.filter(learner => {
+      return learner.name.toLowerCase().includes(this.state.selectedLearners.toLowerCase());
+    });
+    if (foundLearners.length === 0) {
+      return learnersBySkill;
+    }
+
+    return foundLearners;
   }
 
-  filterBySkill (searchArray) {
-    // let searchSkill = this.props.match.params.searchSkill.replace(/search=/, '').split(',');
+  filterByOneSkill (skillToSearchBy) {
     return this.props.guild.learners.filter(learner => {
+      const skillKeys = Object.values(learner.skills).map(object => object.skills);
+      let lowerCaseSkillKeys = skillKeys.map(key => key.toLowerCase());
+      for (let i = 0; i < lowerCaseSkillKeys.length; i++) {
+        if (lowerCaseSkillKeys[i].includes(skillToSearchBy)) {
+          return learner;
+        }
+      }
+    });
+>>>>>>> 9262ac070257cf96ace9fd54d79bce3569da2709
+  }
+
+  filterByMultipleSkills (searchArray) {
+    return this.props.guild.learners.filter(learner => {
+<<<<<<< HEAD
       const objectKeys = Object.values(learner.skills).map(object => object.skills);
       let lowerCaseObjectKeys = objectKeys.map(key => key.toLowerCase());
+=======
+      const skillKeys = Object.values(learner.skills).map(object => object.skills);
+      let lowerCaseSkillKeys = skillKeys.map(key => key.toLowerCase());
+>>>>>>> 9262ac070257cf96ace9fd54d79bce3569da2709
       for (let i = 0; i < searchArray.length; i++) {
-        if (lowerCaseObjectKeys.includes(searchArray[i].toLowerCase())) {
+        if (lowerCaseSkillKeys.includes(searchArray[i].toLowerCase())) {
           if (i + 1 === searchArray.length) {
             return learner;
           }
