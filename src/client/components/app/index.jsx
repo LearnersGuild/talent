@@ -22,10 +22,10 @@ export default class App extends Component {
             <Switch>
               <Route exact path="/" component={SplashRNG} />
               <Route exact path="/current" render={props => (
-                <LearnerGallery type="current" />
+                <LearnerGallery type="currentLearners" />
               )} />
               <Route exact path="/learners" render={props => (
-                <LearnerGallery type="all" />
+                <LearnerGallery type="allLearners" />
               )} />
               <Route exact path="/skillsresults/:searchSkill" component={LearnerGallery} />
               <Route exact path="/skills" component={SkillsSearch} />

@@ -18,14 +18,7 @@ class LearnerGallery extends Component {
   }
 
   filterByName () {
-    let learnersToFilterThrough;
-    if (this.props.type) {
-      learnersToFilterThrough = this.determineSubsetOfLearners(this.props.type);
-    } else {
-      let searchSkills = this.props.match.params.searchSkill.replace(/search=/, '').split(',');
-      learnersToFilterThrough = this.filterByMultipleSkills(searchSkills);
-    }
-
+    const learnersToFilterThrough = this.determineSubsetOfLearners();
     if (!this.state.searchBar) {
       return learnersToFilterThrough;
     }
@@ -69,13 +62,12 @@ class LearnerGallery extends Component {
     });
   }
 
-  determineSubsetOfLearners (type) {
-    if (type === 'alumni') {
-      return this.props.guild.alumni;
-    } else if (type === 'current') {
-      return this.props.guild.currentLearners;
-    } else if (type === 'all') {
-      return this.props.guild.allLearners;
+  determineSubsetOfLearners () {
+    if (this.props.type) {
+      return this.props.guild[this.props.type];
+    } else {
+      const searchSkills = this.props.match.params.searchSkill.replace(/search=/, '').split(',');
+      return this.filterByMultipleSkills(searchSkills);
     }
   }
 
