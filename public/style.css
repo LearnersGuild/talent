@@ -475,21 +475,9 @@ input[type=checkbox]:checked + label ~ .talent-list {
   }
 }
 
-@media only screen and (min-device-width: 768px) and (max-device-width: 1023px) {
-  html {
-    font-size: 33.33%;
-  }
-
+@media only screen and (min-device-width: 768px) {
   .navbar-title {
     left: 2rem;
-  }
-
-  .talent-nav {
-    left: 25rem;
-  }
-
-  .about-container {
-    top: -23rem;
   }
 
   .about-image-container {
@@ -508,7 +496,6 @@ input[type=checkbox]:checked + label ~ .talent-list {
 
   .projects-title {
     left: 5rem;
-    top: 18rem;
   }
 
   .project-image-container {
@@ -517,31 +504,20 @@ input[type=checkbox]:checked + label ~ .talent-list {
   }
 
   .teal-triangle1 {
-    width: 50rem;
-    height: 30rem;
     top: -37rem;
   }
 
   .teal-triangle2 {
     height: 192px;
     width: 50rem;
-    left: 35rem;
     top: -105rem;
   }
 
   .more-projects-button {
-    top: -88.5rem;
     width: 15rem;
     height: 4rem;
+    top: -88.5rem;
     left: 72%;
-  }
-
-  .more-learners-button {
-    width: 20rem;
-    height: 6rem;
-    top: 2rem;
-    z-index: 1;
-    left: 2rem;
   }
 
   .landing-page-learners {
@@ -550,6 +526,41 @@ input[type=checkbox]:checked + label ~ .talent-list {
 
   .learner-image-container > span {
     z-index: 2;
+  }
+}
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1023px) {
+  html {
+    font-size: 33.33%;
+  }
+
+  .talent-nav {
+    left: 25rem;
+  }
+
+  .about-container {
+    top: -23rem;
+  }
+
+  .projects-title {
+    top: 18rem;
+  }
+
+  .teal-triangle1 {
+    width: 50rem;
+    height: 30rem;
+  }
+
+  .teal-triangle2 {
+    left: 35rem;
+  }
+
+  .more-learners-button {
+    width: 20rem;
+    height: 6rem;
+    top: 2rem;
+    z-index: 1;
+    left: 2rem;
   }
 }
 
