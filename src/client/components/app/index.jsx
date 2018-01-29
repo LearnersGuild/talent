@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
-import TalentNavbar from '../../containers/talentNavbar';
+import TalentNavbar from '../talentNavbar';
 import NotFound from '../notFound';
 import SkillsSearch from '../../containers/skillsSearch';
 import ScrollToTop from '../scrollToTop';
@@ -18,24 +18,24 @@ export default class App extends Component {
       <div>
         <ErrorBoundary>
           <TalentNavbar />
-            <Loading>
-              <Switch>
-                <Route exact path="/" component={SplashRNG} />
-                <Route exact path="/current" render={props => (
-                  <LearnerGallery type="current" />
-                )} />
-                <Route exact path="/learners" render={props => (
-                  <LearnerGallery type="all" />
-                )} />
-                <Route exact path="/skillsresults/:searchSkill" component={LearnerGallery} />
-                <Route exact path="/skills" component={SkillsSearch} />
-                <Route exact path="/learners/:githubHandle" component={ProfilePage} />
-                <Route exact path="/alumni" render={props => (
-                  <LearnerGallery type="alumni" />
-                )} />
-                <Route component={NotFound} />
-              </Switch>
-            </Loading>
+          <Loading>
+            <Switch>
+              <Route exact path="/" component={SplashRNG} />
+              <Route exact path="/current" render={props => (
+                <LearnerGallery type="current" />
+              )} />
+              <Route exact path="/learners" render={props => (
+                <LearnerGallery type="all" />
+              )} />
+              <Route exact path="/skillsresults/:searchSkill" component={LearnerGallery} />
+              <Route exact path="/skills" component={SkillsSearch} />
+              <Route exact path="/learners/:githubHandle" component={ProfilePage} />
+              <Route exact path="/alumni" render={props => (
+                <LearnerGallery type="alumni" />
+              )} />
+              <Route component={NotFound} />
+            </Switch>
+          </Loading>
           <ScrollToTop />
           <Footer />
         </ErrorBoundary>
