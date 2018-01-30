@@ -37,18 +37,6 @@ class LearnerGallery extends Component {
     if (Array.isArray(this.state.selectedLearners)) {
       return filteredLearner;
     }
-<<<<<<< HEAD
-    let filteredLearnerAfter = filteredLearner.filter(learner => {
-      let searchSkill = this.state.selectedLearners.toLowerCase().split();
-      let learnersBySkill = this.filterBySkill(searchSkill);
-      if (learnersBySkill.length > 0) {
-        return learnersBySkill;
-      } else if (learner.name.toLowerCase().includes(this.state.selectedLearners.toLowerCase())) {
-        return learner;
-      }
-    });
-    return filteredLearnerAfter;
-=======
     let searchTerm = this.state.selectedLearners.toLowerCase().split();
     let learnersBySkill = this.filterByOneSkill(searchTerm);
     const foundLearners = filteredLearner.filter(learner => {
@@ -71,18 +59,12 @@ class LearnerGallery extends Component {
         }
       }
     });
->>>>>>> 9262ac070257cf96ace9fd54d79bce3569da2709
   }
 
   filterByMultipleSkills (searchArray) {
     return this.props.guild.learners.filter(learner => {
-<<<<<<< HEAD
-      const objectKeys = Object.values(learner.skills).map(object => object.skills);
-      let lowerCaseObjectKeys = objectKeys.map(key => key.toLowerCase());
-=======
       const skillKeys = Object.values(learner.skills).map(object => object.skills);
       let lowerCaseSkillKeys = skillKeys.map(key => key.toLowerCase());
->>>>>>> 9262ac070257cf96ace9fd54d79bce3569da2709
       for (let i = 0; i < searchArray.length; i++) {
         if (lowerCaseSkillKeys.includes(searchArray[i].toLowerCase())) {
           if (i + 1 === searchArray.length) {

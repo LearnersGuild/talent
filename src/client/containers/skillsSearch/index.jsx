@@ -7,16 +7,12 @@ class SkillsSearch extends Component {
   constructor(props) {
     super(props);
 
-    this.state = this.establishNames();
+    this.state = this.establishSkills();
     this.handleChange = this.handleChange.bind(this);
-    this.grabSkills = this.grabSkills.bind(this);
-    this.filterDuplicates = this.filterDuplicates.bind(this);
-    this.establishNames = this.establishNames.bind(this);
-    this.findLearners = this.findLearners.bind(this);
   }
 
   renderExperienceList() {
-    return Object.keys(this.state).map((skill, index) => {
+    return this.props.guild.skills.map((skill, index) => {
       return (
         <li className="list-group-item" key={index}>
           <label> {skill}:
@@ -36,34 +32,12 @@ class SkillsSearch extends Component {
     });
   }
 
-  establishNames() {
-    const inputNames = {};
-    this.filterDuplicates().forEach(skill => {
-      inputNames[skill] = 'off';
+  establishSkills() {
+    const skillNames = {};
+    this.props.guild.skills.map(skill => {
+      skillNames[skill] = 'off';
     });
-    return inputNames;
-  }
-
-  filterDuplicates() {
-    const nonDuplicateSkills = [];
-    this.grabSkills().forEach(skill => {
-      if (nonDuplicateSkills.includes(skill)) {
-        return;
-      } else {
-        nonDuplicateSkills.push(skill);
-      }
-    });
-    return nonDuplicateSkills;
-  }
-
-  grabSkills() {
-    const listOfSkills = [];
-    this.props.guild.learners.forEach(learner => {
-      return learner.skills.forEach(skill => {
-        listOfSkills.push(skill.skills);
-      });
-    });
-    return listOfSkills;
+    return skillNames;
   }
 
   findLearners() {

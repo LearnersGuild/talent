@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { fetchLearners, doneLoading } from '../../actions';
+import { fetchLearners, setSkills, doneLoading } from '../../actions';
 import axios from 'axios';
 
 class Loading extends Component {
@@ -10,12 +10,41 @@ class Loading extends Component {
     axios.get('http://localhost:3000/api/learners')
     .then(response => response.data)
     .then(data => this.props.fetchLearners(data))
+    .then(() => this.establishNames())
+    .then(skills => this.props.setSkills(skills))
     .then(() => this.props.doneLoading())
     .catch(error => {
       this.props.doneLoading();
       console.log('Error fetching and parsing data: ', error);
       throw error;
     });
+  }
+
+  establishNames() {
+    const inputNames = this.filterDuplicates().map(skill => skill);
+    return inputNames;
+  }
+
+  filterDuplicates() {
+    const nonDuplicateSkills = [];
+    this.grabSkills().forEach(skill => {
+      if (nonDuplicateSkills.includes(skill)) {
+        return;
+      } else {
+        nonDuplicateSkills.push(skill);
+      }
+    });
+    return nonDuplicateSkills;
+  }
+
+  grabSkills() {
+    const listOfSkills = [];
+    this.props.guild.learners.forEach(learner => {
+      return learner.skills.forEach(skill => {
+        listOfSkills.push(skill.skills);
+      });
+    });
+    return listOfSkills;
   }
 
   render() {
@@ -34,7 +63,7 @@ function mapStateToProps({ guild }) {
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ fetchLearners, doneLoading, }, dispatch);
+  return bindActionCreators({ fetchLearners, setSkills, doneLoading, }, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Loading);
