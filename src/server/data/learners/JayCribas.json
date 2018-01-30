@@ -1,0 +1,59 @@
+{
+	"github_handle": "jaycribas",
+	"linkedin_profile": "jaycribas",
+	"twitter": "jaycribas",
+	"name": "Jay Cribas",
+	"story": "Software and web developer, JavaScript programmer, graphic designer, production manager.",
+	"projects": [
+		{
+			"title": "/JayCribasImages/roam.jpg",
+			"link": "https://github.com/jaycribas/roam"
+		},
+		{
+      "title": "/JayCribasImages/vinyl.jpg",
+      "link": "https://github.com/jaycribas/vinyl"
+    },
+		{
+      "title": "/JayCribasImages/goodmusic.jpg",
+      "link": "https://good--music.herokuapp.com/"
+    },
+		{
+      "title": "/JayCribasImages/retweeter.jpg",
+      "link": "https://github.com/jaycribas/Tweet-reGenerator-with-Node.js"
+    }
+	],
+	"skills": [{
+			"skills": "JavaScript"
+		},
+		{
+			"skills": "CSS"
+		},
+    {
+      "skills": "React"
+    },
+		{
+			"skills": "HTML"
+		},
+		{
+			"skills": "node.js"
+		},
+		{
+			"skills": "SQL"
+		}
+	],
+	"experience": [
+		{
+			"projects": "Open-source contributor to The AMP Project"
+		},
+		{
+			"projects": "Art Direction at Bay Area Reporter"
+		},
+		{
+			"projects": "Production Management and Digital Art Imaging for Out, The Advocate"
+		},
+		{
+			"projects": "Graphic Design and Production Management at Southland Publishing"
+		}
+	],
+	"alumni": false
+}
