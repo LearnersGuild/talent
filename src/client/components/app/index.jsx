@@ -10,7 +10,7 @@ import ErrorBoundary from '../errorBoundary';
 import SplashRNG from '../../containers/splashRNG';
 import Loading from '../../containers/loading';
 import Footer from '../footer';
-// import styles from './index.css';
+import './index.css';
 
 export default class App extends Component {
   render() {

@@ -7,7 +7,7 @@ module.exports = {
     path: path.join(__dirname, 'public'),
     publicPath: '/',
     filename: 'bundle.js',
-    chunkFilename: 'bundle.js'
+    chunkFilename: 'bundle.js',
   },
   module: {
     rules: [
@@ -17,7 +17,7 @@ module.exports = {
           /\.html$/,
           /\.(js|jsx)$/,
           /\.css$/,
-          /\.json$/
+          /\.json$/,
         ],
         loader: 'url',
       }, {
@@ -27,12 +27,12 @@ module.exports = {
       }, {
         test: /\.(js|jsx)?$/,
         loader: 'babel-loader',
-        include: [/(src|test)/],
+        include: [/(src)/],
         query: {
-          presets: ['es2015']
-        }
-      }
-    ]
+          presets: ['es2015'],
+        },
+      },
+    ],
   },
   plugins: [
     new ExtractTextPlugin('style.css'),
@@ -41,6 +41,6 @@ module.exports = {
     fs: 'empty',
   },
   resolve: {
-    extensions: ['.js', '.jsx']
-  }
+    extensions: ['.js', '.jsx'],
+  },
 };
