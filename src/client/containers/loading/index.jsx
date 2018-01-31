@@ -22,19 +22,24 @@ class Loading extends Component {
 
   establishNames() {
     const inputNames = this.filterDuplicates().map(skill => skill);
-    return inputNames;
+    let tempObj = {};
+    let objectNames = inputNames.map((skill, index) => {
+      tempObj[`${skill}`] = 'off';
+      return tempObj;
+    });
+    return tempObj;
   }
 
   filterDuplicates() {
-    const nonDuplicateSkills = [];
+    const uniqueSkills = [];
     this.grabSkills().forEach(skill => {
-      if (nonDuplicateSkills.includes(skill)) {
+      if (uniqueSkills.includes(skill)) {
         return;
       } else {
-        nonDuplicateSkills.push(skill);
+        uniqueSkills.push(skill);
       }
     });
-    return nonDuplicateSkills;
+    return uniqueSkills;
   }
 
   grabSkills() {

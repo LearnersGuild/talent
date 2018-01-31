@@ -19,6 +19,6 @@ export default function(state = { loading: true }, action) {
         loading: action.loading,
         skills: state.skills,
       };
-  }
+    }
   return state;
 }
