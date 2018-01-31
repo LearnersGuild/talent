@@ -10,6 +10,7 @@ class SkillsSearch extends Component {
     super(props);
 
     this.handleChange = this.handleChange.bind(this);
+    this.resetSkills();
   }
 
   renderExperienceList() {
@@ -41,6 +42,15 @@ class SkillsSearch extends Component {
       } else {
         newSkills[`${skill}`] = skills[skill];
       }
+    });
+    this.props.setSkills(newSkills);
+  }
+
+  resetSkills() {
+    const skills = this.props.guild.skills;
+    let newSkills = {};
+    Object.keys(skills).map((skill, index) => {
+      newSkills[`${skill}`] = 'off';
     });
     this.props.setSkills(newSkills);
   }
