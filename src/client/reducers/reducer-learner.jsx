@@ -41,6 +41,6 @@ export default function(state = { loading: true }, action) {
         skillSearch: !action.payload,
         nameSearch: action.payload,
       };
-  }
+    }
   return state;
 }
