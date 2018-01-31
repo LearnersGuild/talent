@@ -1,8 +1,14 @@
 # Talent - Architecture Design
 This file is used as a reference for future generations.
 This file will attempt to explain how this app works, and what is going into it.
+Before diving into how the project works, here are some slides on how the project came to be, and the planning that took place at the project's beginning.
+[Slides](https://docs.google.com/presentation/d/1lBsVQJuStLi7TL7taZzptE7CWdLCZ1NSTz6Z9_B5tvY/edit)
+[Notes](https://docs.google.com/document/d/10LeqSeaDLKBVAXFn7o9y5hjU6HqrUsD0cWZRXQvA6xY/edit)
 
 ## What Is Webpack?
+
+### Out of date, needs to be updated once css bundling is complete!
+### Don't read me!
 Webpack is a package used to bundle all of the client side files within the app.
 Here, it is bundling src/client.
 
@@ -34,7 +40,15 @@ apiRoutes.js sets up one route for the app to make an ajax request to. The route
 
 Index.js starts off by using the apiRoutes.js file as middleware, under any request made through /api. This middleware needs to go before the following route, as the following route will capture any other request to the talent domain.
 Index.js listens on all routes (besides /api/Learners) for a request and sends that request through a node stream.
-It begins by writing a static html string that contains the head of the html page and the start of the body. It then uses a method provided by react-dom/server called renderToNodeStream. renderToNodeStream takes the react application, imported from client/components/app, wraps it in a StaticRouter. The app is wrapped in a StaticRouter because this is a single-page application; regardless of what route a user attempts to go to while making a request to the talent domain (other than /api/learners), the express server will always have the same response, so the app is sent in a StaticRouter, as the user will never be going to a different route. The app is also wrapped in a Provider; the Provider is a component provided by react-router, and it allows your react application to make use of all the features that Redux provides. We will be going into more detail about what this entails later on. After writing the initial head and body of the html document, the express server will then send over the React app as a stream in chunks. Line 44 is necessary because it tells the browser that express is not yet done streaming after all of the chunks have been sent. This is necessary because on line 46, we send the final portion of the html document, which sends the bundle file created by webpack as a script to the browser, and closes off the html body and document. It then notifies the browser on line 47 that the server has finished its response.
+It begins by writing a static html string that contains the head of the html page and the start of the body. It then uses a method provided by react-dom/server called renderToNodeStream. renderToNodeStream takes the react application, imported from client/components/app, wraps it in a StaticRouter. The app is wrapped in a StaticRouter because this is a single-page application; regardless of what route a user attempts to go to while making a request to the talent domain (other than /api/learners), the express server will always have the same response, so the app is sent in a StaticRouter, as the user will never be going to a different route. The app is also wrapped in a Provider; the Provider is a component provided by react-router, and it allows your react application to make use of all the features that Redux provides. We will be going into more detail about what this entails later on. After writing the initial head and body of the html document, the express server will then send over the React app as a stream in chunks. Line 46 is necessary because it tells the browser that express is not yet done streaming after all of the chunks have been sent. This is necessary because on line 48, we send the final portion of the html document, which sends the bundle file created by webpack as a script to the browser, and closes off the html body and document. It then notifies the browser on line 47 that the server has finished its response.
+
+#### Isomorphic rendering
+The above section is using a technique known as isomorphic rendering.
+Below is a link to some slides and notes for the slide on a presentation that was given about Isomorphic Rendering and the Talent app.
+[Slides](https://docs.google.com/presentation/d/1nMelRLwpLOmpxXBQ6H7TxFrAheaDGuWDC7sreQeBKQA/edit)
+[Notes](https://docs.google.com/document/d/1lfhRGC82_yDXQjUOuq3yQVQ97Ccba4V-K9WknYPnjmQ/edit)
+In isomorphic rendering, the code that is being rendered by the server is nearly identical to the code that is being run by the web browser on the client side. The difference in the code comes in at the client/index.js file. Both the server and client/index are requiring the App component, but the server is wrapping App in a Static Router, whereas the client is wrapping the App in a Browser Router. This has the effect of keeping the location constant on the server-side, but allowing the location to change on the client-side as a user clicks on links. However, as the location on the server-side never changes, a request is never sent to the server to re-render the App.
+It's also important to remember that through the renderToNodeStream method, the server is only responding with a stream of code chunks, that ultimately get compiled down to one html string that is the body of the application. At the end of the stream, a script tag is sent, and that script tag is the compiled bundle.js file that Webpack created. It is this bundle file that gives the application JavaScript functionality. This is important to note because, even if the client has decided that they want to disable JavaScript, the application can still be rendered on the page as an html string, it just won't have any event listeners or be able to perform any AJAX requests. 
 
 #### client
 *Everything beyond the index.js is both the bundle.js script and the body of the html that is sent.*
