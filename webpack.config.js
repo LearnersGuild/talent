@@ -35,7 +35,10 @@ module.exports = {
     ],
   },
   plugins: [
-    new ExtractTextPlugin('style.css'),
+    new ExtractTextPlugin({
+      filename: 'style.css',
+      allChunks: true,
+    }),
   ],
   node: {
     fs: 'empty',
