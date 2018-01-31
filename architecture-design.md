@@ -2,6 +2,7 @@
 This file is used as a reference for future generations.
 This file will attempt to explain how this app works, and what is going into it.
 Before diving into how the project works, here are some slides on how the project came to be, and the planning that took place at the project's beginning.
+
 [Slides](https://docs.google.com/presentation/d/1lBsVQJuStLi7TL7taZzptE7CWdLCZ1NSTz6Z9_B5tvY/edit)
 [Notes](https://docs.google.com/document/d/10LeqSeaDLKBVAXFn7o9y5hjU6HqrUsD0cWZRXQvA6xY/edit)
 
@@ -45,10 +46,12 @@ It begins by writing a static html string that contains the head of the html pag
 #### Isomorphic rendering
 The above section is using a technique known as isomorphic rendering.
 Below is a link to some slides and notes for the slide on a presentation that was given about Isomorphic Rendering and the Talent app.
+
 [Slides](https://docs.google.com/presentation/d/1nMelRLwpLOmpxXBQ6H7TxFrAheaDGuWDC7sreQeBKQA/edit)
 [Notes](https://docs.google.com/document/d/1lfhRGC82_yDXQjUOuq3yQVQ97Ccba4V-K9WknYPnjmQ/edit)
+
 In isomorphic rendering, the code that is being rendered by the server is nearly identical to the code that is being run by the web browser on the client side. The difference in the code comes in at the client/index.js file. Both the server and client/index are requiring the App component, but the server is wrapping App in a Static Router, whereas the client is wrapping the App in a Browser Router. This has the effect of keeping the location constant on the server-side, but allowing the location to change on the client-side as a user clicks on links. However, as the location on the server-side never changes, a request is never sent to the server to re-render the App.
-It's also important to remember that through the renderToNodeStream method, the server is only responding with a stream of code chunks, that ultimately get compiled down to one html string that is the body of the application. At the end of the stream, a script tag is sent, and that script tag is the compiled bundle.js file that Webpack created. It is this bundle file that gives the application JavaScript functionality. This is important to note because, even if the client has decided that they want to disable JavaScript, the application can still be rendered on the page as an html string, it just won't have any event listeners or be able to perform any AJAX requests. 
+It's also important to remember that through the renderToNodeStream method, the server is only responding with a stream of code chunks, that ultimately get compiled down to one html string that is the body of the application. At the end of the stream, a script tag is sent, and that script tag is the compiled bundle.js file that Webpack created. It is this bundle file that gives the application JavaScript functionality. This is important to note because, even if the client has decided that they want to disable JavaScript, the application can still be rendered on the page as an html string, it just won't have any event listeners or be able to perform any AJAX requests.
 
 #### client
 *Everything beyond the index.js is both the bundle.js script and the body of the html that is sent.*
