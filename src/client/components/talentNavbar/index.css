@@ -1,0 +1,111 @@
+.talent-nav {
+  position: absolute;
+  clear: both;
+  max-height: 0;
+  top: 5.5rem;
+  left: -2.7rem;
+  width: fit-content;
+}
+
+.talent-nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  overflow: hidden;
+}
+
+.talent-nav li {
+  position: relative;
+  display: block;
+  background-color: rgb(248, 248, 248);
+  left: -1.75rem;
+}
+
+.talent-nav li a {
+  display: -webkit-box;
+  text-align: center;
+  padding: 1rem;
+  text-decoration: none;
+  color: #777;
+}
+
+.navbar-icon {
+  display: block;
+}
+
+.navbar-title {
+  font-family: 'Fugaz One';
+  position: absolute;
+  left: 21.75rem;
+  top: -0.5rem;
+  z-index: 5000;
+}
+
+.talent-list {
+  display: none;
+}
+
+input[type=checkbox]:checked + label ~ .talent-list {
+  display: block;
+}
+
+@media only screen and (min-width: 768px) {
+  .navbar-icon {
+    display: none;
+  }
+
+  .navbar-title {
+    left: 30rem;
+    top: -1rem;
+  }
+
+  .talent-list {
+    display: block;
+  }
+
+  .talent-nav {
+    position: absolute;
+    list-style-type: none;
+    top: 0;
+    left: 80rem;
+  }
+
+  .talent-nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .talent-nav li {
+    float: left;
+  }
+
+  .talent-nav li a {
+    padding: 10px;
+    height: fit-content;
+  }
+
+  .talent-nav li a:hover {
+    background-color: lightgray;
+    color: #777;
+    height: 50px;
+  }
+}
+
+@media only screen and (min-device-width: 768px) {
+  .navbar-title {
+    left: 2rem;
+  }
+}
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1023px) {
+  .talent-nav {
+    left: 25rem;
+  }
+}
+
+@media only screen and (width: 1024px) {
+  .talent-nav {
+    left: 54rem;
+  }
+}

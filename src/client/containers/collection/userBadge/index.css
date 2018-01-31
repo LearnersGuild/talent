@@ -1,0 +1,21 @@
+.learner-span {
+  width: 33%;
+}
+
+@media only screen and (width: 1920px) {
+  .learner-span {
+    width: auto;
+  }
+}
+
+@media only screen and (width: 2560px) {
+  .learner-span {
+    width: auto;
+  }
+}
+
+@media only screen and (width: 3840px) {
+  .learner-span {
+    width: auto;
+  }
+}
