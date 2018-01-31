@@ -6,83 +6,58 @@ import _ from 'lodash';
 class LearnerGallery extends Component {
   constructor(props) {
     super(props);
-
-    if (this.props.type) {
-      this.state = {
-        selectedLearners: this.filterByType(this.props.type),
-      };
-    } else {
-      let searchSkill = this.props.match.params.searchSkill.replace(/search=/, '').split(',');
-      this.state = {
-        selectedLearners: this.filterByMultipleSkills(searchSkill),
-      };
-    }
-
+    this.state = {
+      searchBar: '',
+    };
     this.handleChange = this.handleChange.bind(this);
   }
 
   handleChange(event) {
     event.preventDefault();
-    this.setState({ selectedLearners: event.target.value });
+    this.setState({ searchBar: event.target.value });
   }
 
   filterByName () {
-    let filteredLearner;
-    if (this.props.type) {
-      filteredLearner = this.filterByType(this.props.type);
-    } else {
-      let searchSkill = this.props.match.params.searchSkill.replace(/search=/, '').split(',');
-      filteredLearner = this.filterByMultipleSkills(searchSkill);
-    }
-    if (Array.isArray(this.state.selectedLearners)) {
+    const filteredLearner = this.determineSubsetOfLearners(this.props.type);
+
+    if (!this.state.searchBar) {
       return filteredLearner;
     }
-<<<<<<< HEAD
-    let filteredLearnerAfter = filteredLearner.filter(learner => {
-      let searchSkill = this.state.selectedLearners.toLowerCase().split();
-      let learnersBySkill = this.filterBySkill(searchSkill);
-      if (learnersBySkill.length > 0) {
-        return learnersBySkill;
-      } else if (learner.name.toLowerCase().includes(this.state.selectedLearners.toLowerCase())) {
-        return learner;
-      }
-    });
-    return filteredLearnerAfter;
-=======
     let searchTerm = this.state.selectedLearners.toLowerCase().split();
     let learnersBySkill = this.filterByOneSkill(searchTerm);
+
+    const searchTerm = this.state.searchBar.toLowerCase().split(' ')[0];
     const foundLearners = filteredLearner.filter(learner => {
-      return learner.name.toLowerCase().includes(this.state.selectedLearners.toLowerCase());
+      return learner.name.toLowerCase().includes(searchTerm.toLowerCase());
     });
     if (foundLearners.length === 0) {
-      return learnersBySkill;
+      return this.filterByOneSkill(searchTerm);
     }
 
     return foundLearners;
   }
 
+  determineSubsetOfLearners(type) {
+    if (type) {
+      return this.filterByType(type);
+    } else {
+      const searchSkills = this.props.match.params.searchSkill.replace(/search=/, '').split(',');
+      return this.filterByMultipleSkills(searchSkills);
+    }
+  }
+
   filterByOneSkill (skillToSearchBy) {
     return this.props.guild.learners.filter(learner => {
       const skillKeys = Object.values(learner.skills).map(object => object.skills);
-      let lowerCaseSkillKeys = skillKeys.map(key => key.toLowerCase());
-      for (let i = 0; i < lowerCaseSkillKeys.length; i++) {
-        if (lowerCaseSkillKeys[i].includes(skillToSearchBy)) {
-          return learner;
-        }
-      }
+      const lowerCaseSkillKeys = skillKeys.map(key => key.toLowerCase());
+      return lowerCaseSkillKeys.includes(skillToSearchBy);
     });
->>>>>>> 9262ac070257cf96ace9fd54d79bce3569da2709
   }
 
   filterByMultipleSkills (searchArray) {
     return this.props.guild.learners.filter(learner => {
-<<<<<<< HEAD
-      const objectKeys = Object.values(learner.skills).map(object => object.skills);
-      let lowerCaseObjectKeys = objectKeys.map(key => key.toLowerCase());
-=======
       const skillKeys = Object.values(learner.skills).map(object => object.skills);
       let lowerCaseSkillKeys = skillKeys.map(key => key.toLowerCase());
->>>>>>> 9262ac070257cf96ace9fd54d79bce3569da2709
       for (let i = 0; i < searchArray.length; i++) {
         if (lowerCaseSkillKeys.includes(searchArray[i].toLowerCase())) {
           if (i + 1 === searchArray.length) {
@@ -96,17 +71,15 @@ class LearnerGallery extends Component {
   }
 
   filterByType (type) {
+    if (type === 'all') {
+      return this.props.guild.learners;
+    }
+
     return this.props.guild.learners.filter(learner => {
       if (type === 'alumni') {
-        if (learner.alumni === true) {
-          return learner;
-        }
+        return learner.alumni === true;
       } else if (type === 'current') {
-        if (learner.alumni === false) {
-          return learner;
-        }
-      } else if (type === 'all') {
-        return learner;
+        return learner.alumni === false;
       }
     });
   }
@@ -117,7 +90,7 @@ class LearnerGallery extends Component {
   }
 
   render() {
-    let names = this.filterByName();
+    const names = this.filterByName();
     return (
       <div>
           <form>

@@ -65,8 +65,8 @@ button:focus {
   position: absolute;
   clear: both;
   max-height: 0;
-  top: 8.5rem;
-  left: -5rem;
+  top: 5.5rem;
+  left: -2.7rem;
   width: fit-content;
 }
 
@@ -205,7 +205,7 @@ input[type=checkbox]:checked + label ~ .talent-list {
 .teal-triangle2 {
   position: relative;
   top: -115rem;
-  left: 44rem;
+  left: 43.6rem;
   width: 100rem;
   height: 60rem;
   clip-path: polygon(100% 0, 100% 71%, 0 28%);
@@ -226,11 +226,11 @@ input[type=checkbox]:checked + label ~ .talent-list {
   height: 9.5rem;
   width: 32.5rem;
   font-family: 'Open Sans';
+  transition: all 0.3s ease 0s;
 }
 
 .more-projects-button:hover {
   background-color: rgb(223, 146, 8);
-  border-color: rgb(11, 119, 122);
   color: rgb(11, 119, 122);
 }
 
@@ -249,11 +249,11 @@ input[type=checkbox]:checked + label ~ .talent-list {
   font-size: 2rem;
   font-family: 'Open Sans';
   left: -13.5%;
+  transition: all 0.3s ease 0s;
 }
 
 .more-learners-button:hover {
   background-color: rgb(83, 140, 1);
-  border-color: white;
   color: white;
 }
 
@@ -269,6 +269,7 @@ input[type=checkbox]:checked + label ~ .talent-list {
   width: 32.5rem;
   font-family: 'Open Sans';
   font-weight: 700;
+  transition: all 0.3s ease 0s;
 }
 
 .hire-learner-button:hover {
@@ -346,18 +347,19 @@ input[type=checkbox]:checked + label ~ .talent-list {
   }
 
   .talent-nav li a {
-    padding: 1rem;
-    height: 4.9rem;
+    padding: 10px;
+    height: fit-content;
   }
 
   .talent-nav li a:hover {
     background-color: lightgray;
     color: #777;
+    height: 50px;
   }
 
 }
 
-@media only screen and (width: 375px) {
+@media only screen and (min-device-width: 375px) and (max-device-width: 667px) {
   html {
     font-size: 13.88%;
   }
@@ -391,7 +393,7 @@ input[type=checkbox]:checked + label ~ .talent-list {
 
   .project-image-container {
     top: -42rem;
-    max-width: 100%;
+    width: 100%;
   }
 
   .teal-triangle1 {
@@ -403,22 +405,23 @@ input[type=checkbox]:checked + label ~ .talent-list {
   .teal-triangle2 {
     height: 192px;
     width: 230px;
-    left: 16rem;
+    left: 16.1rem;
     top: -125rem;
   }
 
   .more-projects-button {
-    top: -53.5rem;
+    top: -54.5rem;
     width: 10rem;
     height: 3rem;
-    left: 62%;
+    left: 67%;
   }
 
   .more-learners-button {
     width: 10rem;
-    height: 2rem;
-    top: 2rem;
+    height: 4rem;
+    top: 1rem;
     z-index: 1;
+    left: -7.5rem;
   }
 
   .landing-page-learners {
@@ -434,13 +437,48 @@ input[type=checkbox]:checked + label ~ .talent-list {
   }
 }
 
-@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+@media only screen and (width: 667px) {
   html {
-    font-size: 33.33%;
+    font-size: 28.95%;
   }
 
-  .about-container {
-    top: -23rem;
+  .about-image-container {
+    position: relative;
+    top: 4.5rem;
+  }
+
+  .projects-title {
+    top: 16rem;
+  }
+
+  .teal-triangle1 {
+    width: 35rem;
+    height: 26rem;
+  }
+
+  .teal-triangle2 {
+    width: 35rem;
+    height: 26rem;
+    left: 39.15rem;
+  }
+
+  .more-projects-button {
+    width: 10rem;
+    height: 4rem;
+    top: -82rem;
+    left: 60rem;
+  }
+
+  .more-learners-button {
+    width: 10rem;
+    height: 4rem;
+    left: -2.5rem;
+  }
+}
+
+@media only screen and (min-device-width: 768px) {
+  .navbar-title {
+    left: 2rem;
   }
 
   .about-image-container {
@@ -459,7 +497,6 @@ input[type=checkbox]:checked + label ~ .talent-list {
 
   .projects-title {
     left: 5rem;
-    top: 14rem;
   }
 
   .project-image-container {
@@ -468,31 +505,20 @@ input[type=checkbox]:checked + label ~ .talent-list {
   }
 
   .teal-triangle1 {
-    width: 50rem;
-    height: 30rem;
     top: -37rem;
   }
 
   .teal-triangle2 {
     height: 192px;
     width: 50rem;
-    left: 35rem;
     top: -105rem;
   }
 
   .more-projects-button {
-    top: -88.5rem;
     width: 15rem;
     height: 4rem;
+    top: -88.5rem;
     left: 72%;
-  }
-
-  .more-learners-button {
-    width: 20rem;
-    height: 6rem;
-    top: 2rem;
-    z-index: 1;
-    left: 2rem;
   }
 
   .landing-page-learners {
@@ -504,9 +530,48 @@ input[type=checkbox]:checked + label ~ .talent-list {
   }
 }
 
-@media only screen and (width: 1024px) {
+@media only screen and (min-device-width: 768px) and (max-device-width: 1023px) {
+  html {
+    font-size: 33.33%;
+  }
+
+  .talent-nav {
+    left: 25rem;
+  }
+
+  .about-container {
+    top: -23rem;
+  }
+
+  .projects-title {
+    top: 18rem;
+  }
+
+  .teal-triangle1 {
+    width: 50rem;
+    height: 30rem;
+  }
+
+  .teal-triangle2 {
+    left: 35rem;
+  }
+
+  .more-learners-button {
+    width: 20rem;
+    height: 6rem;
+    top: 2rem;
+    z-index: 1;
+    left: 2rem;
+  }
+}
+
+@media only screen and (min-device-width: 1024px) {
   html {
     font-size: 44.44%;
+  }
+
+  .talent-nav {
+    left: 54rem;
   }
 
   .about-container {
@@ -514,7 +579,7 @@ input[type=checkbox]:checked + label ~ .talent-list {
   }
 
   .projects-title {
-    top: 16rem;
+    top: 15rem;
   }
 
   .teal-triangle1 {

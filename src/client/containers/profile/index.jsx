@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Redirect } from 'react-router-dom';
 import Profile from './profile';
 import Projects from '../../components/projects';
 import List from '../../components/list';
@@ -7,10 +8,7 @@ import List from '../../components/list';
 class ProfilePage extends Component {
 
   filterLearner (githubHandle) {
-    return this.props.guild.learners.filter(learner => {
-      let currentLearner = learner.github_handle === githubHandle;
-      return currentLearner;
-    });
+    return this.props.guild.learners.filter(learner => learner.github_handle === githubHandle);
   }
 
   handleClickLearners() {
@@ -22,6 +20,7 @@ class ProfilePage extends Component {
     const selectedLearner = this.filterLearner(githubHandle)[0];
 
     return (
+    selectedLearner ? (
     <div className="container">
       <Profile github_handle={selectedLearner.github_handle} linkedin_profile={selectedLearner.linkedin_profile} twitter={selectedLearner.twitter} info={selectedLearner} />
       <div className="row">
@@ -38,7 +37,7 @@ class ProfilePage extends Component {
       <h2 className="text-center">Projects</h2>
       <Projects projects={selectedLearner.projects} />
       <div className="footer-filler"></div>
-    </div>
+    </div>) : (<Redirect to="/PageNotFound" />)
   );
   }
 }
