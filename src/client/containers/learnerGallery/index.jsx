@@ -2,14 +2,26 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import CollectionPage from '../collection';
 import _ from 'lodash';
+import { bindActionCreators } from 'redux';
+import { searchBySkill, searchByName } from '../../actions';
 
 class LearnerGallery extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      learnersByType: this.determineSubsetOfLearners(this.props.type),
       searchBar: '',
     };
     this.handleChange = this.handleChange.bind(this);
+    this.toggleSearch = this.toggleSearch.bind(this);
+  }
+
+  toggleSearch(event) {
+    if (this.props.guild.nameSearch) {
+      this.props.searchBySkill();
+    } else {
+      this.props.searchByName();
+    }
   }
 
   handleChange(event) {
@@ -24,13 +36,10 @@ class LearnerGallery extends Component {
       return filteredLearner;
     }
 
-    const searchTerm = this.state.searchBar.toLowerCase().split(' ')[0];
+    const searchBar = this.state.searchBar.toLowerCase().split(' ')[0];
     const foundLearners = filteredLearner.filter(learner => {
-      return learner.name.toLowerCase().includes(searchTerm.toLowerCase());
+      return learner.name.toLowerCase().includes(searchBar);
     });
-    if (foundLearners.length === 0) {
-      return this.filterByOneSkill(searchTerm);
-    }
 
     return foundLearners;
   }
@@ -44,11 +53,15 @@ class LearnerGallery extends Component {
     }
   }
 
-  filterByOneSkill (skillToSearchBy) {
-    return this.props.guild.learners.filter(learner => {
+  filterByOneSkill(skillToSearchBy) {
+    return this.state.learnersByType.filter(learner => {
       const skillKeys = Object.values(learner.skills).map(object => object.skills);
-      const lowerCaseSkillKeys = skillKeys.map(key => key.toLowerCase());
-      return lowerCaseSkillKeys.includes(skillToSearchBy);
+      let lowerCaseSkillKeys = skillKeys.map(key => key.toLowerCase());
+      for (let i = 0; i < lowerCaseSkillKeys.length; i++) {
+        if (lowerCaseSkillKeys[i].includes(skillToSearchBy)) {
+          return learner;
+        }
+      }
     });
   }
 
@@ -68,7 +81,7 @@ class LearnerGallery extends Component {
     });
   }
 
-  filterByType (type) {
+  filterByType(type) {
     if (type === 'all') {
       return this.props.guild.learners;
     }
@@ -88,17 +101,45 @@ class LearnerGallery extends Component {
   }
 
   render() {
-    const names = this.filterByName();
+    let names = this.state.learnersByType;
+    if (this.props.guild.nameSearch) {
+      names = this.filterByName(this.state.searchBar);
+    } else {
+      names = this.filterByOneSkill(this.state.searchBar);
+    }
+
     return (
       <div>
-          <form>
-            <input type="text" placeholder="search" onChange={this.handleChange}></input>
-          </form>
-          <CollectionPage
+        <div>
+          <input
+            type="text"
+            placeholder="search..."
+            results="0"
+            onChange={this.handleChange}
+          /><br/>
+          <label>
+            <input
+              type='radio'
+              name='searchBy'
+              onChange={this.toggleSearch}
+              checked={this.props.guild.nameSearch}
+            /> Name
+          </label>
+          <label>
+            <input
+              type='radio'
+              name='searchBy'
+              onChange={this.toggleSearch}
+              checked={this.props.guild.skillSearch}
+            /> Skill
+          </label>
+        </div>
+
+        <CollectionPage
           data={names}
           info={ { name: 'ABOUT LEARNERS GUILD', story: 'This is just a sentence.' } }
           projects={this.getProjects(names)}
-          />
+        />
       </div>
     );
   }
@@ -108,4 +149,8 @@ function mapStateToProps({ guild }) {
   return { guild };
 }
 
-export default connect(mapStateToProps)(LearnerGallery);
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({ searchBySkill, searchByName }, dispatch);
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(LearnerGallery);
