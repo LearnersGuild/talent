@@ -314,50 +314,6 @@ input[type=checkbox]:checked + label ~ .talent-list {
   to { transform: rotate(360deg); }
 }
 
-@media only screen and (min-width: 768px) {
-  .navbar-icon {
-    display: none;
-  }
-
-  .navbar-title {
-    left: 30rem;
-    top: -1rem;
-  }
-
-  .talent-list {
-    display: block;
-  }
-
-  .talent-nav {
-    position: absolute;
-    list-style-type: none;
-    top: 0;
-    left: 80rem;
-  }
-
-  .talent-nav ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-  }
-
-  .talent-nav li {
-    float: left;
-  }
-
-  .talent-nav li a {
-    padding: 10px;
-    height: fit-content;
-  }
-
-  .talent-nav li a:hover {
-    background-color: lightgray;
-    color: #777;
-    height: 50px;
-  }
-
-}
-
 @media only screen and (min-device-width: 375px) and (max-device-width: 667px) {
   html {
     font-size: 13.88%;
@@ -476,6 +432,49 @@ input[type=checkbox]:checked + label ~ .talent-list {
 }
 
 @media only screen and (min-device-width: 768px) {
+  .navbar-icon {
+    display: none;
+  }
+
+  .navbar-title {
+    left: 30rem;
+    top: -1rem;
+  }
+
+  .talent-list {
+    display: block;
+  }
+
+  .talent-nav {
+    position: absolute;
+    list-style-type: none;
+    top: 0;
+    left: 80rem;
+  }
+
+  .talent-nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .talent-nav li {
+    float: left;
+  }
+
+  .talent-nav li a {
+    padding: 10px;
+    height: fit-content;
+  }
+
+  .talent-nav li a:hover {
+    background-color: lightgray;
+    color: #777;
+    height: 50px;
+  }
+}
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
   .navbar-title {
     left: 2rem;
   }
@@ -564,7 +563,7 @@ input[type=checkbox]:checked + label ~ .talent-list {
   }
 }
 
-@media only screen and (min-device-width: 1024px) {
+@media only screen and (width: 1024px) {
   html {
     font-size: 44.44%;
   }
