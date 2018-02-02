@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { fetchLearners, doneLoading, searchByName } from '../../actions';
 import axios from 'axios';
+import './index.css';
 
 class Loading extends Component {
 

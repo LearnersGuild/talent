@@ -1,0 +1,13 @@
+.project-image {
+  position: relative;
+  width: 36rem;
+  height: 36rem;
+  max-width: 25%;
+}
+
+@media only screen and (min-device-width: 375px) and (max-device-width: 667px) {
+  .project-image {
+    max-width: 25%;
+    height: 10.5rem;
+  }
+}

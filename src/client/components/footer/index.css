@@ -1,0 +1,32 @@
+.footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(212, 69, 65);
+  clip-path: polygon(49% 31%, 100% 0, 100% 100%, 0 100%, 0 0);
+  height: 100rem;
+  width: 100%;
+}
+
+.footer > ul {
+  color: white;
+  font-weight: bold;
+  list-style: none;
+  font-size: 2rem;
+  font-family: 'Fugaz One';
+}
+
+.footer > ul > li {
+  font-family: 'Open Sans';
+}
+
+.footer-filler {
+  height: 100rem;
+}
+
+@media only screen and (min-device-width: 375px) and (max-device-width: 667px) {
+  .footer {
+    height: 40rem;
+  }
+}
