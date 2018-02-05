@@ -1,117 +1,3 @@
-body {
-  padding-top: 7rem;
-  font-size-adjust: none;
-}
-
-html {
-  font-size: 62.5%;
-  /* 1rem = 1rem, 1rem/16 = 62.5% */
-}
-
-#hamburger {
-  display: none;
-}
-
-input[type=checkbox] + label {
-  height: 3rem;
-  width: 3rem;
-  padding: 0 0 0 0;
-}
-
-input[type=checkbox]:checked + label {
-  height: 3rem;
-  width: 3rem;
-}
-
-h1 {
-  font-size: 5rem;
-}
-
-button:focus {
-  outline: 0;
-}
-
-.text-center > h1 {
-  font-family: 'Fugaz One';
-}
-
-.text-center {
-  font-family: 'Open Sans';
-  font-size: 2rem;
-}
-
-.learner-image-container {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: center;
-}
-
-.learner-span {
-  width: 33%;
-}
-
-.flex-column-home-page {
-  display: flex;
-  flex-direction: column;
-}
-
-.flex-center {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-.talent-nav {
-  position: absolute;
-  clear: both;
-  max-height: 0;
-  top: 5.5rem;
-  left: -2.7rem;
-  width: fit-content;
-}
-
-.talent-nav ul {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  overflow: hidden;
-}
-
-.talent-nav li {
-  position: relative;
-  display: block;
-  background-color: rgb(248, 248, 248);
-  left: -1.75rem;
-}
-
-.talent-nav li a {
-  display: -webkit-box;
-  text-align: center;
-  padding: 1rem;
-  text-decoration: none;
-  color: #777;
-}
-
-.navbar-icon {
-  display: block;
-}
-
-.navbar-title {
-  font-family: 'Fugaz One';
-  position: absolute;
-  left: 21.75rem;
-  top: -0.5rem;
-  z-index: 5000;
-}
-
-.talent-list {
-  display: none;
-}
-
-input[type=checkbox]:checked + label ~ .talent-list {
-  display: block;
-}
-
 .about h2 {
   font-family: 'Fugaz One';
 }
@@ -123,7 +9,7 @@ input[type=checkbox]:checked + label ~ .talent-list {
   top: -5rem;
   height: 95rem;
   width: 100%;
-  background-image: linear-gradient(rgba(212, 69, 65, 0.65), rgba(212, 69, 65, 0.65)), url('./Desktop.jpeg');
+  background-image: linear-gradient(rgba(212, 69, 65, 0.65), rgba(212, 69, 65, 0.65)), url('/Desktop.jpeg');
   clip-path: polygon(0 0, 100% 0, 100% 48%, 0 78%);
 }
 
@@ -195,13 +81,6 @@ input[type=checkbox]:checked + label ~ .talent-list {
   white-space: nowrap;
 }
 
-.project-image {
-  position: relative;
-  width: 36rem;
-  height: 36rem;
-  max-width: 25%;
-}
-
 .teal-triangle2 {
   position: relative;
   top: -115rem;
@@ -257,113 +136,7 @@ input[type=checkbox]:checked + label ~ .talent-list {
   color: white;
 }
 
-.hire-learner-button {
-  text-transform: uppercase;
-  border: solid;
-  border-color: rgb(223, 146, 8);
-  color: rgb(223, 146, 8);
-  font-size: 2.5rem;
-  letter-spacing: .05em;
-  line-height: 100%;
-  height: 9.5rem;
-  width: 32.5rem;
-  font-family: 'Open Sans';
-  font-weight: 700;
-  transition: all 0.3s ease 0s;
-}
-
-.hire-learner-button:hover {
-  background-color: rgb(223, 146, 8);
-  color: white;
-}
-
-.footer {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background-color: rgb(212, 69, 65);
-  clip-path: polygon(49% 31%, 100% 0, 100% 100%, 0 100%, 0 0);
-  height: 100rem;
-  width: 100%;
-}
-
-.footer > ul {
-  color: white;
-  font-weight: bold;
-  list-style: none;
-  font-size: 2rem;
-  font-family: 'Fugaz One';
-}
-
-.footer > ul > li {
-  font-family: 'Open Sans';
-}
-
-.footer-filler {
-  height: 100rem;
-}
-
-.lg-loading {
-  display: flex;
-  animation: App-logo-spin infinite 20s linear;
-  height: 20rem;
-}
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
-@media only screen and (min-width: 768px) {
-  .navbar-icon {
-    display: none;
-  }
-
-  .navbar-title {
-    left: 30rem;
-    top: -1rem;
-  }
-
-  .talent-list {
-    display: block;
-  }
-
-  .talent-nav {
-    position: absolute;
-    list-style-type: none;
-    top: 0;
-    left: 80rem;
-  }
-
-  .talent-nav ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-  }
-
-  .talent-nav li {
-    float: left;
-  }
-
-  .talent-nav li a {
-    padding: 10px;
-    height: fit-content;
-  }
-
-  .talent-nav li a:hover {
-    background-color: lightgray;
-    color: #777;
-    height: 50px;
-  }
-
-}
-
 @media only screen and (min-device-width: 375px) and (max-device-width: 667px) {
-  html {
-    font-size: 13.88%;
-  }
-
   .about {
     height: 50rem;
   }
@@ -379,11 +152,6 @@ input[type=checkbox]:checked + label ~ .talent-list {
 
   .about-text {
     max-width: 30%;
-  }
-
-  .project-image {
-    max-width: 25%;
-    height: 10.5rem;
   }
 
   .projects-title {
@@ -431,56 +199,44 @@ input[type=checkbox]:checked + label ~ .talent-list {
   .learner-image-container > span {
     z-index: 2;
   }
-
-  .footer {
-    height: 40rem;
-  }
 }
 
 @media only screen and (width: 667px) {
-  html {
-    font-size: 28.95%;
-  }
+    .about-image-container {
+      position: relative;
+      top: 4.5rem;
+    }
 
-  .about-image-container {
-    position: relative;
-    top: 4.5rem;
-  }
+    .projects-title {
+      top: 16rem;
+    }
 
-  .projects-title {
-    top: 16rem;
-  }
+    .teal-triangle1 {
+      width: 35rem;
+      height: 26rem;
+    }
 
-  .teal-triangle1 {
-    width: 35rem;
-    height: 26rem;
-  }
+    .teal-triangle2 {
+      width: 35rem;
+      height: 26rem;
+      left: 39.15rem;
+    }
 
-  .teal-triangle2 {
-    width: 35rem;
-    height: 26rem;
-    left: 39.15rem;
-  }
+    .more-projects-button {
+      width: 10rem;
+      height: 4rem;
+      top: -82rem;
+      left: 60rem;
+    }
 
-  .more-projects-button {
-    width: 10rem;
-    height: 4rem;
-    top: -82rem;
-    left: 60rem;
-  }
-
-  .more-learners-button {
-    width: 10rem;
-    height: 4rem;
-    left: -2.5rem;
-  }
+    .more-learners-button {
+      width: 10rem;
+      height: 4rem;
+      left: -2.5rem;
+    }
 }
 
-@media only screen and (min-device-width: 768px) {
-  .navbar-title {
-    left: 2rem;
-  }
-
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
   .about-image-container {
     height: 40rem;
     width: 20rem;
@@ -531,14 +287,6 @@ input[type=checkbox]:checked + label ~ .talent-list {
 }
 
 @media only screen and (min-device-width: 768px) and (max-device-width: 1023px) {
-  html {
-    font-size: 33.33%;
-  }
-
-  .talent-nav {
-    left: 25rem;
-  }
-
   .about-container {
     top: -23rem;
   }
@@ -565,15 +313,7 @@ input[type=checkbox]:checked + label ~ .talent-list {
   }
 }
 
-@media only screen and (min-device-width: 1024px) {
-  html {
-    font-size: 44.44%;
-  }
-
-  .talent-nav {
-    left: 54rem;
-  }
-
+@media only screen and (width: 1024px) {
   .about-container {
     top: -24rem;
   }
@@ -600,43 +340,19 @@ input[type=checkbox]:checked + label ~ .talent-list {
 }
 
 @media only screen and (width: 1920px) {
-  html {
-    font-size: 83.33%;
-  }
-
   .more-projects-button {
     top: -132rem;
-  }
-
-  .learner-span {
-    width: auto;
   }
 }
 
 @media only screen and (width: 2560px) {
-  html {
-    font-size: 111.11%;
-  }
-
   .more-projects-button {
     top: -112rem;
-  }
-
-  .learner-span {
-    width: auto;
   }
 }
 
 @media only screen and (width: 3840px) {
-  html {
-    font-size: 166.66%;
-  }
-
   .more-projects-button {
     top: -70rem;
-  }
-
-  .learner-span {
-    width: auto;
   }
 }

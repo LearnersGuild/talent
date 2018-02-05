@@ -1,0 +1,87 @@
+body {
+  padding-top: 7rem;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+#hamburger {
+  display: none;
+}
+
+input[type=checkbox] + label {
+  height: 3rem;
+  width: 3rem;
+  padding: 0 0 0 0;
+}
+
+input[type=checkbox]:checked + label {
+  height: 3rem;
+  width: 3rem;
+}
+
+h1 {
+  font-size: 5rem;
+}
+
+button:focus {
+  outline: 0;
+}
+
+.text-center > h1 {
+  font-family: 'Fugaz One';
+}
+
+.text-center {
+  font-family: 'Open Sans';
+  font-size: 2rem;
+}
+
+.flex-center {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+@media only screen and (min-device-width: 375px) and (max-device-width: 667px) {
+  html {
+    font-size: 13.88%;
+  }
+}
+
+@media only screen and (width: 667px) {
+  html {
+    font-size: 28.95%;
+  }
+}
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1023px) {
+  html {
+    font-size: 33.33%;
+  }
+}
+
+@media only screen and (width: 1024px) {
+  html {
+    font-size: 44.44%;
+  }
+}
+
+@media only screen and (width: 1920px) {
+  html {
+    font-size: 83.33%;
+  }
+}
+
+@media only screen and (width: 2560px) {
+  html {
+    font-size: 111.11%;
+  }
+}
+
+@media only screen and (width: 3840px) {
+  html {
+    font-size: 166.66%;
+  }
+}

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import './index.css';
 import UserBadge from '../userBadge';
 
 export default class UserGallery extends Component {

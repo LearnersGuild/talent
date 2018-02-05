@@ -1,5 +1,5 @@
 const path = require('path');
-const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
   entry: './src/client/index.js',
@@ -7,7 +7,7 @@ module.exports = {
     path: path.join(__dirname, 'public'),
     publicPath: '/',
     filename: 'bundle.js',
-    chunkFilename: 'bundle.js'
+    chunkFilename: 'bundle.js',
   },
   module: {
     rules: [
@@ -17,33 +17,33 @@ module.exports = {
           /\.html$/,
           /\.(js|jsx)$/,
           /\.css$/,
-          /\.json$/
+          /\.json$/,
         ],
         loader: 'url',
       }, {
         test: /\.(css)?$/,
-        use: ExtractTextPlugin.extract({
-          fallback: 'style-loader',
-          use: ['css-loader'],
-          publicPath: '/public'
-        })
+        include: __dirname + '/src',
+        loaders: ExtractTextPlugin.extract('css-loader'),
       }, {
         test: /\.(js|jsx)?$/,
         loader: 'babel-loader',
-        include: [/(src|test)/],
+        include: [/(src)/],
         query: {
-          presets: ['es2015']
-        }
-      }
-    ]
+          presets: ['es2015'],
+        },
+      },
+    ],
   },
   plugins: [
-    new ExtractTextPlugin('style.css'),
+    new ExtractTextPlugin({
+      filename: 'style.css',
+      allChunks: true,
+    }),
   ],
   node: {
     fs: 'empty',
   },
   resolve: {
-    extensions: ['.js', '.jsx']
-  }
+    extensions: ['.js', '.jsx'],
+  },
 };

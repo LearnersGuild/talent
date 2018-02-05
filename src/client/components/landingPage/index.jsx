@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Projects from '../projects';
 import UserBadge from '../../containers/collection/userBadge';
 import Blurb from '../blurb';
+import './index.css';
 
 const blurbInfo = { name: 'OUR LEARNERS', story: 'These are just a few of the many learners we have had here.' };
 

@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { fetchLearners, doneLoading } from '../../actions';
+import { fetchLearners, doneLoading, searchByName } from '../../actions';
 import axios from 'axios';
+import './index.css';
 
 class Loading extends Component {
 
@@ -10,6 +11,7 @@ class Loading extends Component {
     axios.get('http://localhost:3000/api/learners')
     .then(response => response.data)
     .then(data => this.props.fetchLearners(data))
+    .then(() => this.props.searchByName())
     .then(() => this.props.doneLoading())
     .catch(error => {
       this.props.doneLoading();
@@ -34,7 +36,7 @@ function mapStateToProps({ guild }) {
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ fetchLearners, doneLoading, }, dispatch);
+  return bindActionCreators({ fetchLearners, doneLoading, searchByName }, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Loading);

@@ -4,6 +4,7 @@ import { Redirect } from 'react-router-dom';
 import Profile from './profile';
 import Projects from '../../components/projects';
 import List from '../../components/list';
+import './index.css';
 
 class ProfilePage extends Component {
 
