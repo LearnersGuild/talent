@@ -61,18 +61,11 @@
     "jest": "^21.2.1",
     "jest-enzyme": "^4.1.1",
     "navalia": "^1.2.0",
-<<<<<<< HEAD
-    "nodemon": "^1.14.11",
-    "style-loader": "^0.19.1",
-    "webpack": "^3.10.0",
-    "webpack-dev-server": "^2.11.1"
-=======
     "nodemon": "^1.12.1",
     "postcss": "^6.0.16",
     "style-loader": "^0.19.0",
     "webpack": "^3.8.1",
     "webpack-dev-server": "^2.9.3"
->>>>>>> 83de46b0a9cb3440eab0d2e0691dd8e341ec64d7
   },
   "engines": {
     "node": "8.1.2",
