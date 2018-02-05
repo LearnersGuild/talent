@@ -3,7 +3,7 @@ import {
   DONE_LOADING,
   SEARCH_BY_SKILL,
   SEARCH_BY_NAME
-} from '../actions/';
+} from '../actions/types';
 
 export default function(state = { loading: true }, action) {
   switch (action.type) {
