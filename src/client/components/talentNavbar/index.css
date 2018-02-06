@@ -1,10 +1,17 @@
 .talent-nav {
+  background-color: rgb(248, 248, 248);
+  width: 10%;
   position: absolute;
-  clear: both;
-  max-height: 0;
-  top: 5.5rem;
-  left: -2.7rem;
-  width: fit-content;
+  top: 4rem;
+}
+
+.talent-navbar {
+  width: 100%;
+  background-color: rgb(248, 248, 248);
+  position: absolute;
+  height: 5rem;
+  top: 0;
+  z-index: 9999;
 }
 
 .talent-nav ul {
@@ -18,7 +25,9 @@
   position: relative;
   display: block;
   background-color: rgb(248, 248, 248);
-  left: -1.75rem;
+  left: -5rem;
+  width: 20rem;
+  text-align: center;
 }
 
 .talent-nav li a {
@@ -27,18 +36,41 @@
   padding: 1rem;
   text-decoration: none;
   color: #777;
+  font-size: 6rem;
+  font-family: 'Open Sans';
 }
 
-.navbar-icon {
-  display: block;
+#hamburger {
+  display: none;
+}
+
+input[type=checkbox] + label {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  font-size: 9rem;
+  padding: 0 0 0 0;
+}
+
+input[type=checkbox]:checked + label {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  font-size: 9rem;
+}
+
+.navbar-icon label {
+  font-size: 9rem;
 }
 
 .navbar-title {
-  font-family: 'Fugaz One';
   position: absolute;
-  left: 21.75rem;
-  top: -0.5rem;
+  font-family: 'Fugaz One';
   z-index: 5000;
+  color: #777;
+  font-size: 8rem;
+  top: -1.5rem;
+  left: 25.5rem;
 }
 
 .talent-list {
@@ -54,24 +86,17 @@ input[type=checkbox]:checked + label ~ .talent-list {
     display: none;
   }
 
-  .navbar-title {
-    left: 30rem;
-    top: -1rem;
-  }
-
   .talent-list {
     display: block;
   }
 
   .talent-nav {
     position: absolute;
-    list-style-type: none;
-    top: 0;
+    top: -1rem;
     left: 80rem;
   }
 
   .talent-nav ul {
-    list-style-type: none;
     margin: 0;
     padding: 0;
   }
@@ -82,30 +107,47 @@ input[type=checkbox]:checked + label ~ .talent-list {
 
   .talent-nav li a {
     padding: 10px;
-    height: fit-content;
   }
 
   .talent-nav li a:hover {
     background-color: lightgray;
     color: #777;
-    height: 50px;
   }
 }
 
 @media only screen and (min-device-width: 768px) {
+  .talent-nav {
+    width: 40%;
+  }
+
+  .talent-nav ul {
+    margin: 0;
+    padding: 0;
+    left: 5rem;
+    width: 0;
+  }
+
+  .talent-nav li a {
+    font-size: 2rem;
+    height: 3rem;
+  }
+
+  .talent-nav li {
+    width: auto;
+    height: 3rem;
+  }
+
   .navbar-title {
-    left: 2rem;
+    font-size: 4rem;
+    top: -3rem;
+    left: 10rem;
   }
 }
 
 @media only screen and (min-device-width: 768px) and (max-device-width: 1023px) {
-  .talent-nav {
-    left: 25rem;
-  }
+
 }
 
 @media only screen and (width: 1024px) {
-  .talent-nav {
-    left: 54rem;
-  }
+
 }
