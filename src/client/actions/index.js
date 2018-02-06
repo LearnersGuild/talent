@@ -6,13 +6,9 @@ import {
   SEARCH_BY_NAME
 } from './types'
 
-export function fetchLearners(allLearners) {
-  return {
-    type: FETCH_LEARNERS,
-    payload: allLearners,
-    loading: true,
-  };
-}
+import {
+  FETCH_LEARNERS_REQUEST
+} from './types'
 
 export function setSkills(allSkills) {
   return {
@@ -21,23 +17,16 @@ export function setSkills(allSkills) {
   };
 }
 
-export function doneLoading() {
+export function fetchLearnersRequest(url) {
   return {
-    type: DONE_LOADING,
-    loading: false,
+    type: FETCH_LEARNERS_REQUEST,
+    payload: url,
   };
 }
 
 export function searchBySkill() {
   return {
     type: SEARCH_BY_SKILL,
-    payload: true,
-  };
-}
-
-export function searchByName() {
-  return {
-    type: SEARCH_BY_NAME,
     payload: true,
   };
 }
