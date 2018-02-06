@@ -7,12 +7,12 @@
 	"story": "Enim proident non exercitation Lorem. Aute cillum ullamco excepteur nulla in labore enim proident ad proident excepteur. Sint nulla nulla id sint duis est reprehenderit. Cillum laborum commodo sunt irure id pariatur aliqua eiusmod. Occaecat sint magna amet exercitation cupidatat velit esse amet nostrud dolore excepteur dolor proident. Exercitation fugiat laborum commodo quis incididunt aliquip ea veniam. Deserunt nisi id in proident elit duis deserunt cillum sunt culpa sit fugiat.",
 	"projects": [{
 			"id": 19,
-			"title": "/Blastoise.jpg",
+			"title": "Blastoise.jpg",
 			"link": "http://google.com"
 		},
 		{
 			"id": 20,
-			"title": "/Umbreon.png",
+			"title": "Umbreon.png",
 			"link": "http://google.com"
 		}
 	],

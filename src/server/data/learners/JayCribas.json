@@ -6,19 +6,19 @@
 	"story": "Software and web developer, JavaScript programmer, graphic designer, production manager.",
 	"projects": [
 		{
-			"title": "/JayCribasImages/roam.jpg",
+			"title": "JayCribasImages/roam.jpg",
 			"link": "https://github.com/jaycribas/roam"
 		},
 		{
-      "title": "/JayCribasImages/vinyl.jpg",
+      "title": "JayCribasImages/vinyl.jpg",
       "link": "https://github.com/jaycribas/vinyl"
     },
 		{
-      "title": "/JayCribasImages/goodmusic.jpg",
+      "title": "JayCribasImages/goodmusic.jpg",
       "link": "https://good--music.herokuapp.com/"
     },
 		{
-      "title": "/JayCribasImages/retweeter.jpg",
+      "title": "JayCribasImages/retweeter.jpg",
       "link": "https://github.com/jaycribas/Tweet-reGenerator-with-Node.js"
     }
 	],
