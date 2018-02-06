@@ -19,7 +19,9 @@
     "build": "rm -rf dist && BABEL_ENV=server babel ./src/server/server.js -d dist/ --watch src/",
     "update:data": "cp -a src/server/data/learners dist/server/data",
     "webpack:server": "webpack --debug --devtool=eval --watch",
-    "test": "NODE_ENV=test jest"
+    "test": "NODE_ENV=test jest",
+    "heroku-prebuild": "echo This runs before Heroku installs your dependencies.",
+    "heroku-postbuild": "echo This runs afterwards."
   },
   "repository": {
     "type": "git",
