@@ -1,5 +1,10 @@
 .learner-span {
-  width: 33%;
+  max-width: 33%;
+}
+
+.learner-span > a > img {
+  width: 100%;
+  height: auto;
 }
 
 @media only screen and (width: 1920px) {
