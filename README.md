@@ -40,9 +40,9 @@ Then run the server.
 
 ```
 npm run build
+npm run update:data
 npm run webpack:server
 npm run start:dev
-npm run update:data
 ```
 Globally install nvm, avn, and avn-nvm.
 
@@ -92,6 +92,8 @@ react-router-dom - 4.2.2
 [Ryan Greenberg](https://github.com/optomal7)
 [Judy Tuan](https://github.com/judytuna)
 [Punit Rathore](https://github.com/punitrathore)
+[Zubair Ahmed](https://github.com/zubairnahmed)
+[Breyana Scales](https://github.com/breyana)
 
 See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
 
