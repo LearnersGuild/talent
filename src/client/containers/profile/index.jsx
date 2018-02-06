@@ -24,11 +24,11 @@ class ProfilePage extends Component {
     selectedLearner ? (
     <div className="container">
       <Profile github_handle={selectedLearner.github_handle} linkedin_profile={selectedLearner.linkedin_profile} twitter={selectedLearner.twitter} info={selectedLearner} />
-      <div className="row">
-        <div className="col-lg-6">
+      <div className="">
+        <div className="">
           <List type='projects' elements={selectedLearner.experience} />
         </div>
-        <div className="col-lg-6">
+        <div className="">
           <List type='skills' elements={selectedLearner.skills} />
         </div>
       </div>

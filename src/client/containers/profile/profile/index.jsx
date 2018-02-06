@@ -7,7 +7,7 @@ export default class Profile extends Component {
     return (
       <div>
         <h2>{this.props.info.name}</h2>
-        <div className="row">
+        <div className="">
           <img className="" src="/LearnerImage.png" />
           <Blurb className="" info={this.props.info} />
         </div>
