@@ -113,6 +113,7 @@ input[type=checkbox]:checked + label ~ .talent-list {
     background-color: lightgray;
     color: #777;
   }
+
 }
 
 @media only screen and (min-device-width: 768px) {
@@ -144,10 +145,36 @@ input[type=checkbox]:checked + label ~ .talent-list {
   }
 }
 
-@media only screen and (min-device-width: 768px) and (max-device-width: 1023px) {
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+  .talent-nav {
+    width: 50%;
+  }
 
+  .talent-nav {
+    left: 37rem;
+  }
+
+  .navbar-title {
+    top: -1rem;
+  }
 }
 
 @media only screen and (width: 1024px) {
+  .talent-nav {
+    width: 50%;
+  }
 
+  .talent-nav {
+    left: 60rem;
+  }
+
+  .navbar-title {
+    top: -1.75rem;
+  }
+}
+
+@media only screen and (min-device-width: 375px) and (max-device-width: 667px) {
+  .navbar-title {
+    display: none;
+  }
 }

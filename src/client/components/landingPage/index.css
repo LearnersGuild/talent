@@ -94,7 +94,7 @@
 .more-projects-button {
   position: relative;
   left: 70%;
-  top: -153rem;
+  top: -161rem;
   z-index: 1;
   background-color: rgb(11, 119, 122);
   border: solid;
@@ -178,7 +178,7 @@
   }
 
   .more-projects-button {
-    top: -54.5rem;
+    top: -55.5rem;
     width: 10rem;
     height: 3rem;
     left: 67%;
@@ -273,7 +273,7 @@
   .more-projects-button {
     width: 15rem;
     height: 4rem;
-    top: -88.5rem;
+    top: -90.75rem;
     left: 72%;
   }
 
@@ -332,10 +332,16 @@
   }
 
   .more-projects-button {
-    width: 21rem;
+    width: 18rem;
     height: 4rem;
-    top: -110rem;
+    top: -115rem;
     left: 77%;
+  }
+
+  .more-learners-button {
+    width: 20rem;
+    left: 1%;
+    top: 2rem;
   }
 }
 
