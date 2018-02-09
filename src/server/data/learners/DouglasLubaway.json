@@ -1,36 +1,29 @@
 {
-	"id": "59f7a184ae692a8b4ce9f062",
 	"github_handle": "hhhhhaaaa",
 	"linkedin_profile": "dougell",
 	"twitter": "sqwrlboy",
 	"name": "Douglas Lubaway",
 	"story": "Adipisicing elit aliquip nulla officia. Tempor sint cillum veniam dolore consectetur duis ut aliqua id laborum. Eiusmod ex ex ad ea amet sit occaecat do consequat amet.",
 	"projects": [{
-			"id": 1,
 			"title": "/DouglasLubawayImages/PokeCrudMutably.png",
 			"link": "https://github.com/hhhhhaaaa/mutably-starter"
 		},
 		{
-			"id": 2,
 			"title": "/DouglasLubawayImages/TalentApp.png",
 			"link": "https://github.com/LearnersGuild/talent"
 		}
 	],
 	"skills": [{
-			"id": 3,
 			"skills": "JS"
 		},
 		{
-			"id": 4,
 			"skills": "CSS"
 		}
 	],
 	"experience": [{
-			"id": 5,
 			"projects": "Pro1"
 		},
 		{
-			"id": 6,
 			"projects": "Pro2"
 		}
 	],

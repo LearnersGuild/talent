@@ -1,13 +1,23 @@
-export const FETCH_LEARNERS = 'fetch_learners';
-export const DONE_LOADING = 'done_loading';
-export const SEARCH_BY_SKILL = 'search_by_skill';
-export const SEARCH_BY_NAME = 'search_by_name';
+import {
+  FETCH_LEARNERS,
+  SET_SKILLS,
+  DONE_LOADING,
+  SEARCH_BY_SKILL,
+  SEARCH_BY_NAME
+} from './types'
 
 export function fetchLearners(allLearners) {
   return {
     type: FETCH_LEARNERS,
     payload: allLearners,
     loading: true,
+  };
+}
+
+export function setSkills(allSkills) {
+  return {
+    type: SET_SKILLS,
+    skills: allSkills,
   };
 }
 
