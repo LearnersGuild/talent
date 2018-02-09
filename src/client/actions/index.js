@@ -1,5 +1,6 @@
 import {
   FETCH_LEARNERS,
+  SET_SKILLS,
   DONE_LOADING,
   SEARCH_BY_SKILL,
   SEARCH_BY_NAME
@@ -10,6 +11,13 @@ export function fetchLearners(allLearners) {
     type: FETCH_LEARNERS,
     payload: allLearners,
     loading: true,
+  };
+}
+
+export function setSkills(allSkills) {
+  return {
+    type: SET_SKILLS,
+    skills: allSkills,
   };
 }
 
