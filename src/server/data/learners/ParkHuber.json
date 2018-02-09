@@ -5,11 +5,11 @@
 	"name": "Park Huber",
 	"story": "Magna ea aliqua sit nisi minim ad veniam qui sit eiusmod non velit. Aliquip anim aute dolore qui consequat enim aliqua cupidatat incididunt esse culpa et cupidatat. Cupidatat consectetur voluptate dolor voluptate sunt est amet enim adipisicing mollit est. Occaecat incididunt commodo cupidatat quis.",
 	"projects": [{
-			"title": "/Page-Not-Found.jpg",
+			"title": "Page-Not-Found.jpg",
 			"link": "http://google.com"
 		},
 		{
-			"title": "/Mudkip.jpg",
+			"title": "Mudkip.jpg",
 			"link": "http://google.com"
 		}
 	],

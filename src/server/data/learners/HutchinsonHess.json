@@ -5,11 +5,11 @@
 	"name": "Hutchinson Hess",
 	"story": "Elit est nulla laborum aute aliquip. Laboris aute elit sunt anim consequat amet qui proident. Anim occaecat laborum ullamco magna ut ut tempor. Tempor enim anim elit veniam ad culpa sint aliqua ea commodo irure exercitation amet qui.",
 	"projects": [{
-			"title": "/Bulbasaur.jpg",
+			"title": "Bulbasaur.jpg",
 			"link": "http://google.com"
 		},
 		{
-			"title": "/Umbreon.png",
+			"title": "Umbreon.png",
 			"link": "http://google.com"
 		}
 	],

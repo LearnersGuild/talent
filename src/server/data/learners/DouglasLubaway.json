@@ -5,11 +5,11 @@
 	"name": "Douglas Lubaway",
 	"story": "Adipisicing elit aliquip nulla officia. Tempor sint cillum veniam dolore consectetur duis ut aliqua id laborum. Eiusmod ex ex ad ea amet sit occaecat do consequat amet.",
 	"projects": [{
-			"title": "/DouglasLubawayImages/PokeCrudMutably.png",
+			"title": "DouglasLubawayImages/PokeCrudMutably.png",
 			"link": "https://github.com/hhhhhaaaa/mutably-starter"
 		},
 		{
-			"title": "/DouglasLubawayImages/TalentApp.png",
+			"title": "DouglasLubawayImages/TalentApp.png",
 			"link": "https://github.com/LearnersGuild/talent"
 		}
 	],
