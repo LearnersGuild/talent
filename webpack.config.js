@@ -29,7 +29,7 @@ module.exports = {
         loader: 'babel-loader',
         include: [/(src)/],
         query: {
-          presets: ['es2015'],
+          presets: ['env'],
         },
       },
     ],
