@@ -7,17 +7,17 @@
 	"story": "Adipisicing elit aliquip nulla officia. Tempor sint cillum veniam dolore consectetur duis ut aliqua id laborum. Eiusmod ex ex ad ea amet sit occaecat do consequat amet.",
 	"projects": [{
 			"id": 100,
-			"title": "/PatrickKallasImages/PokemonCRUD.png",
+			"title": "PatrickKallasImages/PokemonCRUD.png",
 			"link": "https://pokemon-crud-mutably.herokuapp.com/"
 		},
 		{
 			"id": 101,
-			"title": "/PatrickKallasImages/BookStore.png",
+			"title": "PatrickKallasImages/BookStore.png",
 			"link": "https://learners-guild-book-store.herokuapp.com/"
 		},
     {
       "id": 106,
-      "title": "/PatrickKallasImages/TalentApp.png",
+      "title": "PatrickKallasImages/TalentApp.png",
       "link": "https://github.com/LearnersGuild/talent"
     }
 	],

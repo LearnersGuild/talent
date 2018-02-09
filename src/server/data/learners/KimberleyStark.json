@@ -1,36 +1,29 @@
 {
-	"id": "59f7a184902847c212f69ab7",
 	"github_handle": "nulla",
 	"linkedin_profile": "www.linkedin.com/ipsum",
 	"twitter": "www.twitter.com/pariatur",
 	"name": "Kimberley Stark",
 	"story": "Ex culpa sunt aliqua cupidatat quis adipisicing cupidatat. Occaecat aute anim sint dolore excepteur qui commodo enim tempor consequat irure magna. Ullamco non pariatur dolor cupidatat ut et mollit excepteur et elit laborum nisi. Lorem exercitation voluptate eu deserunt sunt eu reprehenderit ut ullamco mollit irure.",
 	"projects": [{
-			"id": 43,
-			"title": "/Mudkip.jpg",
+			"title": "Mudkip.jpg",
 			"link": "http://google.com"
 		},
 		{
-			"id": 44,
-			"title": "/Umbreon.png",
+			"title": "Umbreon.png",
 			"link": "http://google.com"
 		}
 	],
 	"skills": [{
-			"id": 45,
 			"skills": "JS"
 		},
 		{
-			"id": 46,
 			"skills": "CSS"
 		}
 	],
 	"experience": [{
-			"id": 47,
 			"projects": "Pro1"
 		},
 		{
-			"id": 48,
 			"projects": "Pro2"
 		}
 	],
