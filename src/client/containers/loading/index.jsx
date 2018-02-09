@@ -10,38 +10,6 @@ class Loading extends Component {
     this.props.fetchLearnersRequest('http://localhost:3000/api/learners');
   }
 
-  establishNames() {
-    const inputNames = this.filterDuplicates().map(skill => skill);
-    let tempObj = {};
-    let objectNames = inputNames.map((skill, index) => {
-      tempObj[`${skill}`] = 'off';
-      return tempObj;
-    });
-    return tempObj;
-  }
-
-  filterDuplicates() {
-    const uniqueSkills = [];
-    this.grabSkills().forEach(skill => {
-      if (uniqueSkills.includes(skill)) {
-        return;
-      } else {
-        uniqueSkills.push(skill);
-      }
-    });
-    return uniqueSkills;
-  }
-
-  grabSkills() {
-    const listOfSkills = [];
-    this.props.guild.learners.forEach(learner => {
-      return learner.skills.forEach(skill => {
-        listOfSkills.push(skill.skills);
-      });
-    });
-    return listOfSkills;
-  }
-
   render() {
     return (
       <div>

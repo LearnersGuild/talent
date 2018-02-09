@@ -1,9 +1,8 @@
 import axios from 'axios';
 
 export function fetchLearners(url) {
-  return axios.get('http://localhost:3000/api/learners')
+  return axios.get(url)
   .then(response => {
-    console.log('it came in here AND response is:::', response)
     return response.data
   })
   .catch(error => {

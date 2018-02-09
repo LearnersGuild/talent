@@ -2,32 +2,27 @@ import {
   DONE_LOADING,
   SET_SKILLS,
   SEARCH_BY_SKILL,
-  SEARCH_BY_NAME
-} from '../actions/types';
-
-import {
+  SEARCH_BY_NAME,
   FETCH_LEARNERS_SUCCESS,
   FETCH_LEARNERS_FAILURE
-} from '../actions/types'
+} from '../actions/types';
 
-export default function(state = { loading: true }, action) {
+export default function(state = { loading: true, learners: [] }, action) {
   switch (action.type) {
     case FETCH_LEARNERS_SUCCESS:
       return {
         learners: action.payload,
         loading: action.loading,
       };
-<<<<<<< HEAD
     case SET_SKILLS:
       return {
         learners: state.learners,
         loading: state.loading,
         skills: action.skills,
-=======
+      };
     case FETCH_LEARNERS_FAILURE:
       return {
         error: action.error
->>>>>>> add request success and failure states to reducer
       };
     case DONE_LOADING:
       return {

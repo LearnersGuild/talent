@@ -10,13 +10,6 @@ import {
   FETCH_LEARNERS_REQUEST
 } from './types'
 
-export function setSkills(allSkills) {
-  return {
-    type: SET_SKILLS,
-    skills: allSkills,
-  };
-}
-
 export function fetchLearnersRequest(url) {
   return {
     type: FETCH_LEARNERS_REQUEST,
