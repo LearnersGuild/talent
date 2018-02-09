@@ -1,36 +1,29 @@
 {
-	"id": "59f7a184b0171090eca53748",
 	"github_handle": "minim",
 	"linkedin_profile": "www.linkedin.com/consectetur",
 	"twitter": "www.twitter.com/Lorem",
 	"name": "Louella Terry",
 	"story": "Elit Lorem officia sunt commodo enim in adipisicing incididunt Lorem ea tempor exercitation. Voluptate officia deserunt velit elit. Ea ex dolore anim tempor. Cupidatat enim dolor elit dolor sit enim tempor anim. Mollit minim occaecat voluptate proident deserunt.",
 	"projects": [{
-			"id": 31,
 			"title": "/Lucario.png",
 			"link": "http://google.com"
 		},
 		{
-			"id": 32,
 			"title": "/Clefairy.jpeg",
 			"link": "http://google.com"
 		}
 	],
 	"skills": [{
-			"id": 33,
 			"skills": "JS"
 		},
 		{
-			"id": 34,
 			"skills": "CSS"
 		}
 	],
 	"experience": [{
-			"id": 35,
 			"projects": "Pro1"
 		},
 		{
-			"id": 36,
 			"projects": "Pro2"
 		}
 	],

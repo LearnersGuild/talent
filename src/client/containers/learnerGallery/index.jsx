@@ -35,6 +35,8 @@ class LearnerGallery extends Component {
     if (!this.state.searchBar) {
       return filteredLearner;
     }
+    let searchTerm = this.state.selectedLearners.toLowerCase().split();
+    let learnersBySkill = this.filterByOneSkill(searchTerm);
 
     const searchBar = this.state.searchBar.toLowerCase().split(' ')[0];
     const foundLearners = filteredLearner.filter(learner => {
@@ -68,7 +70,7 @@ class LearnerGallery extends Component {
   filterByMultipleSkills (searchArray) {
     return this.props.guild.learners.filter(learner => {
       const skillKeys = Object.values(learner.skills).map(object => object.skills);
-      const lowerCaseSkillKeys = skillKeys.map(key => key.toLowerCase());
+      let lowerCaseSkillKeys = skillKeys.map(key => key.toLowerCase());
       for (let i = 0; i < searchArray.length; i++) {
         if (lowerCaseSkillKeys.includes(searchArray[i].toLowerCase())) {
           if (i + 1 === searchArray.length) {
