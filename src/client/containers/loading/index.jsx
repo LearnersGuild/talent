@@ -11,7 +11,7 @@ class Loading extends Component {
     axios.get('http://localhost:3000/api/learners')
     .then(response => response.data)
     .then(data => this.props.fetchLearners(data))
-      .then(() => this.props.searchByName())
+    .then(() => this.props.searchByName())
     .then(() => this.establishNames())
     .then(skills => this.props.setSkills(skills))
     .then(() => this.props.doneLoading())
