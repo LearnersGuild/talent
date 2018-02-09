@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { setSkills } from '../../actions';
 import { Link } from 'react-router-dom';
 import LearnerGallery from '../../containers/learnerGallery';
 
@@ -7,20 +9,16 @@ class SkillsSearch extends Component {
   constructor(props) {
     super(props);
 
-    this.state = this.establishNames();
     this.handleChange = this.handleChange.bind(this);
-    this.grabSkills = this.grabSkills.bind(this);
-    this.filterDuplicates = this.filterDuplicates.bind(this);
-    this.establishNames = this.establishNames.bind(this);
-    this.findLearners = this.findLearners.bind(this);
+    this.resetSkills();
   }
 
   renderExperienceList() {
-    return Object.keys(this.state).map((skill, index) => {
+    return Object.keys(this.props.guild.skills).map((skill, index) => {
       return (
         <li className="list-group-item" key={index}>
           <label> {skill}:
-            <input type="checkbox" name={skill} value={this.state[skill]} onChange={this.handleChange}></input>
+            <input type="checkbox" name={skill} value={this.props.guild.skills[skill]} onChange={this.handleChange}></input>
           </label>
         </li>
       );
@@ -31,49 +29,41 @@ class SkillsSearch extends Component {
     const target = event.target;
     const value = target.value === 'on' ? 'off' : 'on';
     const name = target.name;
-    this.setState({
-      [name]: value,
-    });
-  }
-
-  establishNames() {
-    const inputNames = {};
-    this.filterDuplicates().forEach(skill => {
-      inputNames[skill] = 'off';
-    });
-    return inputNames;
-  }
-
-  filterDuplicates() {
-    const nonDuplicateSkills = [];
-    this.grabSkills().forEach(skill => {
-      if (nonDuplicateSkills.includes(skill)) {
-        return;
+    const skills = this.props.guild.skills;
+    let newSkills = {};
+    Object.keys(skills).map((skill, index) => {
+      if (skill === name) {
+        console.log(event.target.name, event.target.value);
+        if (skills[skill] === 'off') {
+          newSkills[`${skill}`] = 'on';
+        } else {
+          newSkills[`${skill}`] = 'off';
+        }
       } else {
-        nonDuplicateSkills.push(skill);
+        newSkills[`${skill}`] = skills[skill];
       }
     });
-    return nonDuplicateSkills;
+    this.props.setSkills(newSkills);
   }
 
-  grabSkills() {
-    const listOfSkills = [];
-    this.props.guild.learners.forEach(learner => {
-      return learner.skills.forEach(skill => {
-        listOfSkills.push(skill.skills);
-      });
+  resetSkills() {
+    const skills = this.props.guild.skills;
+    let newSkills = {};
+    Object.keys(skills).map((skill, index) => {
+      newSkills[`${skill}`] = 'off';
     });
-    return listOfSkills;
+    this.props.setSkills(newSkills);
   }
 
   findLearners() {
-    const listedState = this.state;
+    const listedState = this.props.guild.skills;
     const checkedSkills = [];
     for (let key in listedState) {
       if (listedState[key] === 'on') {
         checkedSkills.push(key);
       }
     }
+
     return checkedSkills.join(',');
   }
 
@@ -98,4 +88,8 @@ function mapStateToProps({ guild }) {
   return { guild };
 }
 
-export default connect(mapStateToProps)(SkillsSearch);
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({ setSkills }, dispatch);
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(SkillsSearch);
