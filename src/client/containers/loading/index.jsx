@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 
 import { fetchLearnersRequest } from '../../actions';
 import './index.css';
@@ -7,7 +8,7 @@ import './index.css';
 class Loading extends Component {
 
   componentDidMount() {
-    this.props.fetchLearnersRequest('http://localhost:3000/api/learners');
+    this.props.fetchLearnersRequest(`${this.props.match.path}api/learners`);
   }
 
   render() {
@@ -27,4 +28,4 @@ function mapStateToProps({ guild }) {
   return { guild };
 }
 
-export default connect(mapStateToProps, { fetchLearnersRequest })(Loading);
+export default withRouter(connect(mapStateToProps, { fetchLearnersRequest })(Loading));
