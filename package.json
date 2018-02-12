@@ -29,6 +29,7 @@
   "keywords": [],
   "license": "MIT",
   "dependencies": {
+    "autoprefixer": "^7.2.5",
     "axios": "^0.17.1",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.2.1",
@@ -43,6 +44,7 @@
     "lodash": "^4.17.4",
     "normalize.css": "^7.0.0",
     "postcss": "^6.0.16",
+    "postcss-loader": "^2.1.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-redux": "^5.0.6",
