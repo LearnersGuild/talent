@@ -3,3 +3,9 @@
   flex-flow: row wrap;
   justify-content: center;
 }
+
+.learner-image-container > span > p {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+}

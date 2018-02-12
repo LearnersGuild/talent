@@ -6,21 +6,6 @@ html {
   font-size: 62.5%;
 }
 
-#hamburger {
-  display: none;
-}
-
-input[type=checkbox] + label {
-  height: 3rem;
-  width: 3rem;
-  padding: 0 0 0 0;
-}
-
-input[type=checkbox]:checked + label {
-  height: 3rem;
-  width: 3rem;
-}
-
 h1 {
   font-size: 5rem;
 }
@@ -36,6 +21,7 @@ button:focus {
 .text-center {
   font-family: 'Open Sans';
   font-size: 2rem;
+  text-align: center;
 }
 
 .flex-center {

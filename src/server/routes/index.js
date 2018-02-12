@@ -26,7 +26,6 @@ router.use('*', (req, res) => {
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.css">
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css">
-      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css">
       <link rel="stylesheet" href="/style.css">
       <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fugaz+One">
       <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700">

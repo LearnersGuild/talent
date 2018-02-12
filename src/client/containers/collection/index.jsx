@@ -9,7 +9,7 @@ export default class CollectionPage extends Component {
     return (
       <div>
       <div className="flex-column-search-page">
-        <Blurb className="col-lg-1 pagination-center" info={this.props.info} />
+        <Blurb className="" info={this.props.info} />
         <UserGallery data={this.props.data}/>
       </div>
         <h2 className="text-center">Projects</h2>
