@@ -12,7 +12,7 @@ export default function(state = { loading: true, learners: [] }, action) {
     case FETCH_LEARNERS_SUCCESS:
       return {
         learners: action.payload,
-        loading: action.loading,
+        loading: state.loading,
       };
     case SET_SKILLS:
       return {
