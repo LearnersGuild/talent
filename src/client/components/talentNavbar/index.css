@@ -145,7 +145,6 @@ input[type=checkbox]:checked + label ~ .talent-list {
   }
 }
 
-<<<<<<< HEAD
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
   .talent-nav {
     width: 50%;
@@ -178,12 +177,4 @@ input[type=checkbox]:checked + label ~ .talent-list {
   .navbar-title {
     display: none;
   }
-=======
-@media only screen and (min-device-width: 768px) and (max-device-width: 1023px) {
-
-}
-
-@media only screen and (width: 1024px) {
-
->>>>>>> Fixed the navbar for 375 px mobile viewing and normal laptop viewing
 }

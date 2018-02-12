@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import CollectionPage from '../collection';
-import Blurb from '../../components/Blurb';
+import Blurb from '../../components/blurb';
 import _ from 'lodash';
 import { bindActionCreators } from 'redux';
 import { searchBySkill, searchByName } from '../../actions';
