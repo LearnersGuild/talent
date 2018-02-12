@@ -85,7 +85,7 @@ function makeLearner() {
       let learnerName = learnerProfile[3].replace(' ', '') + '.json';
       learner['alumni'] = alumni;
       learner = JSON.stringify(learner);
-      fs.writeFile(learnerName, learner, function (err) {
+      fs.writeFile(`./src/server/data/learners/${learnerName}`, learner, function (err) {
         if (err) throw err;
       });
       count++;
