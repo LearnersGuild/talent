@@ -1,7 +1,7 @@
 const fs = require('fs');
 
 function makeLearner() {
-  fs.readFile(`../../../public/Example Learner's Form.csv`, 'utf-8', (error, data) => {
+  fs.readFile(`./public/Example Learner's Form.csv`, 'utf-8', (error, data) => {
     let learnerData = data.replace(/\"/g, '');
     learnerData = learnerData.split('\n');
     learnerData = learnerData.splice(1);
@@ -11,6 +11,7 @@ function makeLearner() {
     let learnerProject = [];
     let learnerSkills = [];
     let learnerExperience = [];
+    let alumni = '';
     let learner = {};
     while (learnerData.length > 0) {
       let currentData = learnerData[0].split(',');
@@ -26,7 +27,7 @@ function makeLearner() {
       }
       let projectsNum = currentData[0];
       currentData.shift();
-      for (let i = 0; i < 3 * (projectsNum); i++) {
+      for (let i = 0; i < 2 * (projectsNum); i++) {
         if (currentData[0] === undefined) {
           learnerData.shift();
           currentData = learnerData[0].split(',');
@@ -34,9 +35,8 @@ function makeLearner() {
         if (currentData[0].includes(';')) {
           let tempData = currentData[0].split(';');
           learnerProject.push(tempData);
-          i += projectsNum;
+          i++;
           currentData.shift();
-          break;
         } else {
           learnerProject.push(currentData.shift());
         }
@@ -52,6 +52,12 @@ function makeLearner() {
         }
         learnerExperience.push(currentData.shift());
       }
+      alumni = currentData.shift();
+      if (alumni === 'No') {
+        alumni = false;
+      } else {
+        alumni = true;
+      }
       learner['github_handle'] = learnerProfile[0];
       learner['linkedin_profile'] = learnerProfile[1];
       learner['twitter'] = learnerProfile[2];
@@ -60,8 +66,8 @@ function makeLearner() {
       let projects = [];
       for (let i = 0; i < projectsNum; i++) {
         projects.push({});
-        projects[i]['title'] = learnerProject[i];
-        projects[i]['link'] = learnerProject[projectsNum][i];
+        projects[i]['title'] = learnerProject[0][i];
+        projects[i]['link'] = learnerProject[i + 1];
       }
       learner['projects'] = projects;
       let skills = [];
@@ -76,15 +82,13 @@ function makeLearner() {
         experiences[i]['projects'] = learnerExperience[i];
       }
       learner['experience'] = experiences;
-      learner['alumni'] = false;
       let learnerName = learnerProfile[3].replace(' ', '') + '.json';
+      learner['alumni'] = alumni;
       learner = JSON.stringify(learner);
       fs.writeFile(learnerName, learner, function (err) {
         if (err) throw err;
-        console.log(learner);
       });
       count++;
-      console.log(learnerProfile, learnerProject, learnerSkills, learnerExperience);
       learnerProfile = [];
       learnerProject = [];
       learnerSkills = [];
