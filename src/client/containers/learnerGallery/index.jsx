@@ -101,7 +101,7 @@ class LearnerGallery extends Component {
   }
 
   render() {
-    let names = this.determineSubsetOfLearners(this.props.type);
+    let names;
     if (this.props.guild.nameSearch) {
       names = this.filterByName(this.state.searchBar);
     } else {
@@ -118,6 +118,7 @@ class LearnerGallery extends Component {
             results="0"
             onChange={this.handleChange}
             className="searchbar"
+            value={this.state.searchBar}
           />
           <div>
             <label className="search-by-container">
