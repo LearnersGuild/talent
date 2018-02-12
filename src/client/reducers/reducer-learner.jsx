@@ -18,11 +18,13 @@ export default function(state = { loading: true, learners: [] }, action) {
       return {
         learners: state.learners,
         loading: state.loading,
-        skills: action.skills,
+        skills: action.payload,
+        skillSearch: state.skillSearch,
+        nameSearch: state.nameSearch,
       };
     case FETCH_LEARNERS_FAILURE:
       return {
-        error: action.error
+        error: action.error,
       };
     case DONE_LOADING:
       return {
@@ -36,6 +38,7 @@ export default function(state = { loading: true, learners: [] }, action) {
       return {
         learners: state.learners,
         loading: state.loading,
+        skills: state.skills,
         skillSearch: action.payload,
         nameSearch: !action.payload,
       };
@@ -43,9 +46,10 @@ export default function(state = { loading: true, learners: [] }, action) {
       return {
         learners: state.learners,
         loading: state.loading,
+        skills: state.skills,
         skillSearch: !action.payload,
         nameSearch: action.payload,
       };
-    }
+  }
   return state;
 }
