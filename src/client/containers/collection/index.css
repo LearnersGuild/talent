@@ -2,3 +2,16 @@
   display: flex;
   flex-direction: column;
 }
+
+.gallery-page-container {
+  height: 110rem;
+  max-width: 100%;
+  padding-top: 7rem;
+  z-index: 1;
+}
+
+.gallery-project-images {
+  transform: skew(0deg, 10deg);
+  background-color: white;
+  white-space: nowrap;
+}
