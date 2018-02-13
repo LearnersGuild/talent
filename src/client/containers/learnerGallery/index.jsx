@@ -4,6 +4,7 @@ import CollectionPage from '../collection';
 import _ from 'lodash';
 import { bindActionCreators } from 'redux';
 import { searchBySkill, searchByName } from '../../actions';
+import { withRouter } from 'react-router-dom';
 
 class LearnerGallery extends Component {
   constructor(props) {
@@ -162,4 +163,4 @@ function mapDispatchToProps(dispatch) {
   return bindActionCreators({ searchBySkill, searchByName }, dispatch);
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(LearnerGallery);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(LearnerGallery));
