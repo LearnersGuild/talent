@@ -7,7 +7,7 @@ import './index.css';
 class Loading extends Component {
 
   componentDidMount() {
-    this.props.fetchLearnersRequest('http://localhost:3000/api/learners');
+    this.props.fetchLearnersRequest('/api/learners');
   }
 
   render() {

@@ -23,7 +23,7 @@ module.exports = {
       }, {
         test: /\.(css)?$/,
         include: __dirname + '/src',
-        loaders: ExtractTextPlugin.extract('css-loader'),
+        loaders: ExtractTextPlugin.extract({ fallback: 'style-loader', use: ['css-loader', 'postcss-loader'] }),
       }, {
         test: /\.(js|jsx)?$/,
         loader: 'babel-loader',

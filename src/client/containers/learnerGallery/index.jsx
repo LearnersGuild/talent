@@ -5,6 +5,7 @@ import Blurb from '../../components/blurb';
 import _ from 'lodash';
 import { bindActionCreators } from 'redux';
 import { searchBySkill, searchByName } from '../../actions';
+import { withRouter } from 'react-router-dom';
 import './index.css';
 
 class LearnerGallery extends Component {
@@ -15,6 +16,12 @@ class LearnerGallery extends Component {
     };
     this.handleChange = this.handleChange.bind(this);
     this.toggleSearch = this.toggleSearch.bind(this);
+  }
+
+  componentDidUpdate(prevProps) {
+    if (this.props.location !== prevProps.location) {
+      this.setState({ searchBar: '' });
+    }
   }
 
   toggleSearch(event) {
@@ -169,4 +176,4 @@ function mapDispatchToProps(dispatch) {
   return bindActionCreators({ searchBySkill, searchByName }, dispatch);
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(LearnerGallery);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(LearnerGallery));
