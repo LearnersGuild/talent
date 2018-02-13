@@ -16,6 +16,12 @@ class LearnerGallery extends Component {
     this.toggleSearch = this.toggleSearch.bind(this);
   }
 
+  componentDidUpdate(prevProps) {
+    if (this.props.location !== prevProps.location) {
+      this.setState({ searchBar: '' });
+    }
+  }
+
   toggleSearch(event) {
     if (this.props.guild.nameSearch) {
       this.props.searchBySkill();
@@ -118,6 +124,7 @@ class LearnerGallery extends Component {
             placeholder="search..."
             results="0"
             onChange={this.handleChange}
+            value={this.state.searchBar}
           /><br/>
           <label>
             <input
