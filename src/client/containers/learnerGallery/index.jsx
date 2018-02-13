@@ -1,16 +1,17 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import CollectionPage from '../collection';
+import Blurb from '../../components/blurb';
 import _ from 'lodash';
 import { bindActionCreators } from 'redux';
 import { searchBySkill, searchByName } from '../../actions';
 import { withRouter } from 'react-router-dom';
+import './index.css';
 
 class LearnerGallery extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      learnersByType: this.determineSubsetOfLearners(this.props.type),
       searchBar: '',
     };
     this.handleChange = this.handleChange.bind(this);
@@ -37,16 +38,13 @@ class LearnerGallery extends Component {
   }
 
   filterByName () {
-    const filteredLearner = this.determineSubsetOfLearners(this.props.type);
-
+    const learnersToFilterThrough = this.determineSubsetOfLearners(this.props.type);
     if (!this.state.searchBar) {
-      return filteredLearner;
+      return learnersToFilterThrough;
     }
-    let searchTerm = this.state.selectedLearners.toLowerCase().split();
-    let learnersBySkill = this.filterByOneSkill(searchTerm);
 
     const searchBar = this.state.searchBar.toLowerCase().split(' ')[0];
-    const foundLearners = filteredLearner.filter(learner => {
+    const foundLearners = learnersToFilterThrough.filter(learner => {
       return learner.name.toLowerCase().includes(searchBar);
     });
 
@@ -63,7 +61,7 @@ class LearnerGallery extends Component {
   }
 
   filterByOneSkill(skillToSearchBy) {
-    return this.state.learnersByType.filter(learner => {
+    return this.determineSubsetOfLearners(this.props.type).filter(learner => {
       const skillKeys = Object.values(learner.skills).map(object => object.skills);
       let lowerCaseSkillKeys = skillKeys.map(key => key.toLowerCase());
       for (let i = 0; i < lowerCaseSkillKeys.length; i++) {
@@ -110,7 +108,7 @@ class LearnerGallery extends Component {
   }
 
   render() {
-    let names = this.state.learnersByType;
+    let names;
     if (this.props.guild.nameSearch) {
       names = this.filterByName(this.state.searchBar);
     } else {
@@ -118,36 +116,51 @@ class LearnerGallery extends Component {
     }
 
     return (
-      <div>
-        <div>
+      <div className="learner-gallery-container" >
+        <Blurb info={ { name: 'FIND YOUR TALENT', story: '' } } />
+        <div className="search-form">
           <input
             type="text"
             placeholder="search..."
             results="0"
             onChange={this.handleChange}
+            className="searchbar"
             value={this.state.searchBar}
-          /><br/>
-          <label>
-            <input
-              type='radio'
-              name='searchBy'
-              onChange={this.toggleSearch}
-              checked={this.props.guild.nameSearch}
-            /> Name
-          </label>
-          <label>
-            <input
-              type='radio'
-              name='searchBy'
-              onChange={this.toggleSearch}
-              checked={this.props.guild.skillSearch}
-            /> Skill
-          </label>
+          />
+          <div>
+            <label className="search-by-container">
+              <input
+                type='radio'
+                name='searchBy'
+                onChange={this.toggleSearch}
+                checked={this.props.guild.nameSearch}
+                className="search-form-radio"
+              />
+              { this.props.guild.nameSearch ? (
+                <span className="checkbox-checked">Name</span>
+              ) : (
+                <span className="checkbox">Name</span>
+              ) }
+            </label>
+            <label className="search-by-container">
+              <input
+                type='radio'
+                name='searchBy'
+                onChange={this.toggleSearch}
+                checked={this.props.guild.skillSearch}
+                className="search-form-radio"
+              />
+              { this.props.guild.skillSearch ? (
+                <span className="checkbox-checked">Skill</span>
+              ) : (
+                <span className="checkbox">Skill</span>
+              ) }
+            </label>
+          </div>
         </div>
 
         <CollectionPage
           data={names}
-          info={ { name: 'ABOUT LEARNERS GUILD', story: 'This is just a sentence.' } }
           projects={this.getProjects(names)}
         />
       </div>

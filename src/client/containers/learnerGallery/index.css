@@ -1,0 +1,51 @@
+.learner-gallery-container h1 {
+  color: #538C01;
+}
+
+.search-form {
+  display: flex;
+  justify-content: center;
+  border-style: solid;
+  border-color: #ffd800;
+  border-radius: 1px;
+  background-color: #ffd800;
+}
+
+.searchbar {
+  flex: 0.35;
+  font-size: 2rem;
+  outline: none;
+}
+
+.search-by-container input {
+  position: relative;
+  opacity: 0;
+  transform: scale(3);
+  left: 3rem;
+}
+
+.checkbox {
+  background-color: #ffd800;
+  border-style: solid;
+  border-color: #ffd800;
+  border-radius: 1px;
+  color: #538C01;
+  cursor: pointer;
+  font-size: 2rem;
+  padding: 0.3rem;
+  position: relative;
+  top: 0.3rem;
+}
+
+.checkbox-checked {
+  background-color: #ffc700;
+  border-style: solid;
+  border-color: #ffc700;
+  border-radius: 1px;
+  color: #538C01;
+  cursor: pointer;
+  font-size: 2rem;
+  padding: 0.3rem;
+  position: relative;
+  top: 0.3rem;
+}
