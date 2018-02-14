@@ -17,13 +17,17 @@ export default class CollectionPage extends Component {
       <div className="flex-column-search-page">
         <UserGallery data={this.props.data}/>
       </div>
-        <h2 className="text-center">Projects</h2>
-        <div className="gallery-page-container">
-          <div className="gallery-project-images">
-            <Projects projects={this.props.projects.slice(slicePosition1, slicePosition2)} />
+        <div className="gallery-page-bottom-half-container">
+          <div className="top-triangle-container">
+            <div className="gallery-page-top-triangle" />
           </div>
+          <div className="gallery-page-project-container">
+            <div className="gallery-project-images">
+              <Projects projects={this.props.projects.slice(slicePosition1, slicePosition2)} />
+            </div>
+          </div>
+          <div className="gallery-page-bottom-triangle" />
         </div>
-        <div className="footer-filler"></div>
       </div>
     );
   }

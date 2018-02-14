@@ -3,15 +3,44 @@
   flex-direction: column;
 }
 
-.gallery-page-container {
-  height: 110rem;
+.gallery-page-bottom-half-container {
+  margin-top: -40rem;
+  margin-bottom: -59rem;
+}
+
+.gallery-page-project-container {
   max-width: 100%;
-  padding-top: 7rem;
   z-index: 1;
 }
 
 .gallery-project-images {
-  transform: skew(0deg, 10deg);
   background-color: white;
+  border: 1px solid red;
+  transform: skew(0deg, 10deg);
   white-space: nowrap;
+  z-index: 1;
+}
+
+.top-triangle-container {
+  display: flex;
+  justify-content: flex-end;
+  position: relative;
+  top: 43rem;
+}
+
+.gallery-page-top-triangle {
+  background-color: rgb(11, 119, 122);
+  clip-path: polygon(10% 35%, 100% 50%, 100% 18%);
+  height: 60rem;
+  width: 60rem;
+}
+
+.gallery-page-bottom-triangle {
+  background-color: rgb(11, 119, 122);
+  bottom: 43rem;
+  clip-path: polygon(0 38%, 0 77%, 100% 63%);
+  height: 70rem;
+  position: relative;
+  width: 80rem;
+  z-index: -1;
 }
