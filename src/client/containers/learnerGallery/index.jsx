@@ -10,19 +10,11 @@ import './index.css';
 class LearnerGallery extends Component {
   constructor(props) {
     super(props);
-    this.props.setAll()
-    if (this.props.match.params.searchSkill) {
-      this.state = {
-        searchBar: '',
-        fromAdvancedSearch: true,
-        selectBar: 'all',
-      };
-    } else {
-      this.state = {
-        searchBar: '',
-        selectBar: 'all',
-      };
-    }
+    this.props.setAll();
+    this.state = {
+      searchBar: '',
+      selectBar: 'all',
+    };
 
     this.handleChange = this.handleChange.bind(this);
     this.toggleSearch = this.toggleSearch.bind(this);
@@ -51,7 +43,7 @@ class LearnerGallery extends Component {
     } else {
       this.props.setCurrent();
     }
-    this.setState({ selectBar: select })
+    this.setState({ selectBar: select });
   }
 
   filterByName () {
@@ -69,7 +61,7 @@ class LearnerGallery extends Component {
   }
 
   determineSubsetOfLearners(type) {
-    if (this.state.fromAdvancedSearch) {
+    if (this.props.match.params.searchSkill) {
       const searchSkills = this.props.match.params.searchSkill.replace(/search=/, '').split(',');
       return this.filterByMultipleSkills(searchSkills);
     } else {
