@@ -10,25 +10,23 @@ import './index.css';
 class LearnerGallery extends Component {
   constructor(props) {
     super(props);
+    this.props.setAll()
     if (this.props.match.params.searchSkill) {
       this.state = {
         searchBar: '',
         fromAdvancedSearch: true,
+        selectBar: 'all',
       };
     } else {
       this.state = {
         searchBar: '',
+        selectBar: 'all',
       };
     }
 
     this.handleChange = this.handleChange.bind(this);
     this.toggleSearch = this.toggleSearch.bind(this);
-  }
-
-  componentDidUpdate(prevProps) {
-    if (this.props.location !== prevProps.location) {
-      this.setState({ searchBar: '' });
-    }
+    this.handleSelect = this.handleSelect.bind(this);
   }
 
   toggleSearch(event) {
@@ -44,8 +42,20 @@ class LearnerGallery extends Component {
     this.setState({ searchBar: event.target.value });
   }
 
+  handleSelect(event) {
+    const select = event.target.value;
+    if (select === 'all') {
+      this.props.setAll();
+    } else if (select === 'alumni') {
+      this.props.setAlumni();
+    } else {
+      this.props.setCurrent();
+    }
+    this.setState({ selectBar: select })
+  }
+
   filterByName () {
-    const learnersToFilterThrough = this.determineSubsetOfLearners(this.props.type);
+    const learnersToFilterThrough = this.determineSubsetOfLearners(this.props.guild.typeOfLearners);
     if (!this.state.searchBar) {
       return learnersToFilterThrough;
     }
@@ -126,6 +136,14 @@ class LearnerGallery extends Component {
       <div className="learner-gallery-container" >
         <Blurb info={ { name: 'FIND YOUR TALENT', story: '' } } />
         <div className="search-form">
+          <select
+            value={this.state.selectBar}
+            onChange={this.handleSelect}
+          >
+            <option value='all'>all</option>
+            <option value='alumni'>alumni</option>
+            <option value='current'>current</option>
+          </select>
           <input
             type="text"
             placeholder="search..."

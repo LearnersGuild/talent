@@ -62,8 +62,8 @@ export default function(state = { loading: true, learners: [] }, action) {
         learners: state.learners,
         loading: state.loading,
         skills: state.skills,
-        skillSearch: !action.payload,
-        nameSearch: state.payload,
+        skillSearch: state.skillSearch,
+        nameSearch: state.nameSearch,
         typeOfLearners: action.payload,
       };
     case ALUMNI_LEARNERS:
@@ -71,8 +71,8 @@ export default function(state = { loading: true, learners: [] }, action) {
         learners: state.learners,
         loading: state.loading,
         skills: state.skills,
-        skillSearch: !action.payload,
-        nameSearch: state.payload,
+        skillSearch: state.skillSearch,
+        nameSearch: state.nameSearch,
         typeOfLearners: action.payload,
       };
     case CURRENT_LEARNERS:
@@ -80,8 +80,8 @@ export default function(state = { loading: true, learners: [] }, action) {
         learners: state.learners,
         loading: state.loading,
         skills: state.skills,
-        skillSearch: !action.payload,
-        nameSearch: state.payload,
+        skillSearch: state.skillSearch,
+        nameSearch: state.nameSearch,
         typeOfLearners: action.payload,
       };
   }
