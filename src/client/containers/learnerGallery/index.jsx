@@ -3,17 +3,24 @@ import { connect } from 'react-redux';
 import CollectionPage from '../collection';
 import Blurb from '../../components/blurb';
 import _ from 'lodash';
-import { bindActionCreators } from 'redux';
-import { searchBySkill, searchByName } from '../../actions';
+import { searchBySkill, searchByName, setAll, setAlumni, setCurrent } from '../../actions';
 import { withRouter } from 'react-router-dom';
 import './index.css';
 
 class LearnerGallery extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      searchBar: '',
-    };
+    if (this.props.match.params.searchSkill) {
+      this.state = {
+        searchBar: '',
+        fromAdvancedSearch: true,
+      };
+    } else {
+      this.state = {
+        searchBar: '',
+      };
+    }
+
     this.handleChange = this.handleChange.bind(this);
     this.toggleSearch = this.toggleSearch.bind(this);
   }
@@ -52,16 +59,16 @@ class LearnerGallery extends Component {
   }
 
   determineSubsetOfLearners(type) {
-    if (type) {
-      return this.filterByType(type);
-    } else {
+    if (this.state.fromAdvancedSearch) {
       const searchSkills = this.props.match.params.searchSkill.replace(/search=/, '').split(',');
       return this.filterByMultipleSkills(searchSkills);
+    } else {
+      return this.filterByType(type);
     }
   }
 
   filterByOneSkill(skillToSearchBy) {
-    return this.determineSubsetOfLearners(this.props.type).filter(learner => {
+    return this.determineSubsetOfLearners(this.props.guild.typeOfLearners).filter(learner => {
       const skillKeys = Object.values(learner.skills).map(object => object.skills);
       let lowerCaseSkillKeys = skillKeys.map(key => key.toLowerCase());
       for (let i = 0; i < lowerCaseSkillKeys.length; i++) {
@@ -172,8 +179,4 @@ function mapStateToProps({ guild }) {
   return { guild };
 }
 
-function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ searchBySkill, searchByName }, dispatch);
-}
-
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(LearnerGallery));
+export default withRouter(connect(mapStateToProps, { searchBySkill, searchByName, setAll, setAlumni, setCurrent })(LearnerGallery));
