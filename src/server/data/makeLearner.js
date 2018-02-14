@@ -2,8 +2,8 @@ const fs = require('fs');
 
 function makeLearner() {
   fs.readFile(`./public/Example Learner's Form.csv`, 'utf-8', (error, data) => {
-    let learnerData = data.replace(/\"/g, '');
-    learnerData = learnerData.split('\n');
+    let learnerData = data;
+    learnerData = learnerData.split('\"');
     learnerData = learnerData.splice(1);
     learnerData.pop();
     let count = 0;
@@ -13,88 +13,82 @@ function makeLearner() {
     let learnerExperience = [];
     let alumni = '';
     let learner = {};
+    while (learnerData[0] !== '\n') {
+      learnerData.shift();
+    }
+    for (let i = 0; i < learnerData.length; i++) {
+      if (learnerData[i] === ',') {
+        learnerData.splice(i, 1);
+      }
+    }
+    learnerData.pop();
     while (learnerData.length > 0) {
-      let currentData = learnerData[0].split(',');
-      currentData.shift();
+      learnerData.splice(0, 2);
       if (count >= 90) {
         break;
       }
-      if (currentData[0][1] === '2' && currentData[0][5] === '/') {
-        currentData.shift();
-      }
-      for (let i = 0; i < 5; i++) {
-        learnerProfile.push(currentData.shift());
-      }
-      let projectsNum = currentData[0];
-      currentData.shift();
-      for (let i = 0; i < 2 * (projectsNum); i++) {
-        if (currentData[0] === undefined) {
-          learnerData.shift();
-          currentData = learnerData[0].split(',');
+      learner['github_handle'] = learnerData.shift();
+      learner['linkedin_profile'] = learnerData.shift();
+      learner['twitter'] = learnerData.shift();
+      learner['name'] = learnerData.shift();
+      learner['story'] = learnerData.shift();
+      let projectsNum = learnerData.shift();
+      if (projectsNum > 0) {
+        learnerData.shift();
+        let projects = [];
+        let projectTitles = learnerData[0].split('\n');
+        learnerData.shift();
+        let projectLinks = learnerData[0].split('\n');
+        learnerData.shift();
+        for (let i = 0; i < projectsNum; i++) {
+          projects.push({});
+          projects[i]['title'] = projectTitles[i];
+          projects[i]['link'] = projectLinks[i];
         }
-        if (currentData[0].includes(';')) {
-          let tempData = currentData[0].split(';');
-          learnerProject.push(tempData);
-          i++;
-          currentData.shift();
-        } else {
-          learnerProject.push(currentData.shift());
-        }
-      }
-      learnerSkills = currentData[0].split(';');
-      currentData.shift();
-      let experienceNum = currentData[0];
-      currentData.shift();
-      for (let i = 0; i < experienceNum; i++) {
-        if (currentData[0] === undefined) {
-          learnerData.shift();
-          currentData = learnerData[0].split(',');
-        }
-        learnerExperience.push(currentData.shift());
-      }
-      alumni = currentData.shift();
-      if (alumni === 'No') {
-        alumni = false;
+        learner['projects'] = projects;
       } else {
-        alumni = true;
+        learnerData.shift();
+        learnerData.shift();
+        learnerData.shift();
+        learner['projects'] = [];
       }
-      learner['github_handle'] = learnerProfile[0];
-      learner['linkedin_profile'] = learnerProfile[1];
-      learner['twitter'] = learnerProfile[2];
-      learner['name'] = learnerProfile[3];
-      learner['story'] = learnerProfile[4];
-      let projects = [];
-      for (let i = 0; i < projectsNum; i++) {
-        projects.push({});
-        projects[i]['title'] = learnerProject[0][i];
-        projects[i]['link'] = learnerProject[i + 1];
-      }
-      learner['projects'] = projects;
       let skills = [];
+      let learnerSkills = learnerData[0].split(';');
+      learnerData.shift();
       for (let i = 0; i < learnerSkills.length; i++) {
         skills.push({});
         skills[i]['skills'] = learnerSkills[i];
       }
       learner['skills'] = skills;
-      let experiences = [];
-      for (let i = 0; i < experienceNum; i++) {
-        experiences.push({});
-        experiences[i]['projects'] = learnerExperience[i];
+      let experienceNum = learnerData.shift();
+      if (experienceNum > 0) {
+        let experiences = [];
+        let learnerExperience = learnerData[0].split('\n');
+        learnerData.shift();
+        for (let i = 0; i < experienceNum; i++) {
+          experiences.push({});
+          experiences[i]['projects'] = learnerExperience[i];
+        }
+        learner['experience'] = experiences;
+      } else {
+        learnerData.shift();
+        learner['experience'] = [];
       }
-      learner['experience'] = experiences;
-      let learnerName = learnerProfile[3].replace(' ', '') + '.json';
-      learner['alumni'] = alumni;
+      let learnerName = learner['name'].replace(' ', '') + '.json';
+      let alumni = learnerData.shift();
+      if (alumni === 'No') {
+        learner['alumni'] = false;
+      } else {
+        learner['alumni'] = true;
+      }
       learner = JSON.stringify(learner);
       fs.writeFile(`./src/server/data/learners/${learnerName}`, learner, function (err) {
         if (err) throw err;
       });
       count++;
-      learnerProfile = [];
-      learnerProject = [];
       learnerSkills = [];
       learnerExperience = [];
       learner = {};
-      learnerData.shift();
     }
   });
 }
