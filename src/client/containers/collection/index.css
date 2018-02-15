@@ -35,6 +35,10 @@
   width: 60rem;
 }
 
+.bottom-triangle-container {
+  display: flex;
+}
+
 .gallery-page-bottom-triangle {
   background-color: rgb(11, 119, 122);
   bottom: 43rem;

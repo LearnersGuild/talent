@@ -27,7 +27,9 @@ export default class CollectionPage extends Component {
               <Projects projects={this.props.projects.slice(slicePosition1, slicePosition2)} />
             </div>
           </div>
-          <div className="gallery-page-bottom-triangle" />
+          <div className="bottom-triangle-container">
+            <div className="gallery-page-bottom-triangle" />
+          </div>
         </div>
       </div>
     );
