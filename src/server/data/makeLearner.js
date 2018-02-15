@@ -42,7 +42,10 @@ function makeLearner() {
         learnerData.shift();
         for (let i = 0; i < projectsNum; i++) {
           projects.push({});
-          projects[i]['title'] = projectTitles[i];
+          let imageTitle = projectTitles[i].split('.')[0];
+          let imageExt = projectTitles[i].split('.')[1];
+          projects[i]['title'] = 'LearnerProjectImages/' + imageTitle + ' - ' + learner['name'] + '.' + imageExt;
+          console.log(projects[i]['title']);
           projects[i]['link'] = projectLinks[i];
         }
         learner['projects'] = projects;
