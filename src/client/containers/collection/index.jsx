@@ -6,7 +6,8 @@ import Projects from '../../components/projects';
 export default class CollectionPage extends Component {
   generateRandomNumber() {
     const maxNumber = this.props.projects.length - 4;
-    return Math.floor(Math.random() * maxNumber);
+    const randomNumber = Math.floor(Math.random() * maxNumber);
+    return randomNumber >= 0 ? randomNumber : 0;
   }
 
   render() {
