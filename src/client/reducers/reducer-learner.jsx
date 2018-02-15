@@ -13,77 +13,25 @@ import {
 export default function(state = { loading: true, learners: [] }, action) {
   switch (action.type) {
     case FETCH_LEARNERS_SUCCESS:
-      return {
-        learners: action.payload,
-        loading: state.loading,
-      };
+      return { ...state, learners: action.payload };
     case SET_SKILLS:
-      return {
-        learners: state.learners,
-        loading: state.loading,
-        skills: action.payload,
-        skillSearch: state.skillSearch,
-        nameSearch: state.nameSearch,
-        typeOfLearners: state.typeOfLearners,
-      };
+      return { ...state, skills: action.payload };
     case FETCH_LEARNERS_FAILURE:
       return {
         error: action.error,
       };
     case DONE_LOADING:
-      return {
-        learners: state.learners,
-        loading: action.loading,
-        skills: state.skills,
-        skillSearch: state.skillSearch,
-        nameSearch: state.nameSearch,
-        typeOfLearners: state.typeOfLearners,
-      };
+      return { ...state, loading: action.loading };
     case SEARCH_BY_SKILL:
-      return {
-        learners: state.learners,
-        loading: state.loading,
-        skills: state.skills,
-        skillSearch: action.payload,
-        nameSearch: !action.payload,
-        typeOfLearners: state.typeOfLearners,
-      };
+      return { ...state, skillSearch: action.payload, nameSearch: !action.payload };
     case SEARCH_BY_NAME:
-      return {
-        learners: state.learners,
-        loading: state.loading,
-        skills: state.skills,
-        skillSearch: !action.payload,
-        nameSearch: action.payload,
-        typeOfLearners: state.typeOfLearners,
-      };
+      return { ...state, skillSearch: !action.payload, nameSearch: action.payload };
     case ALL_LEARNERS:
-      return {
-        learners: state.learners,
-        loading: state.loading,
-        skills: state.skills,
-        skillSearch: state.skillSearch,
-        nameSearch: state.nameSearch,
-        typeOfLearners: action.payload,
-      };
+      return { ...state, typeOfLearners: action.payload };
     case ALUMNI_LEARNERS:
-      return {
-        learners: state.learners,
-        loading: state.loading,
-        skills: state.skills,
-        skillSearch: state.skillSearch,
-        nameSearch: state.nameSearch,
-        typeOfLearners: action.payload,
-      };
+      return { ...state, typeOfLearners: action.payload };
     case CURRENT_LEARNERS:
-      return {
-        learners: state.learners,
-        loading: state.loading,
-        skills: state.skills,
-        skillSearch: state.skillSearch,
-        nameSearch: state.nameSearch,
-        typeOfLearners: action.payload,
-      };
+      return { ...state, typeOfLearners: action.payload };
   }
   return state;
 }
