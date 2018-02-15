@@ -121,7 +121,7 @@ class LearnerGallery extends Component {
         <div className="search-form">
           <input
             type="text"
-            placeholder="search..."
+            placeholder="any"
             results="0"
             onChange={this.handleChange}
             className="searchbar"
