@@ -1,15 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import { setSkills } from '../../actions';
-import { Link } from 'react-router-dom';
-import LearnerGallery from '../../containers/learnerGallery';
+import { setSkills, advancedSkillSearch } from '../../actions';
 
 class SkillsSearch extends Component {
   constructor(props) {
     super(props);
 
     this.handleChange = this.handleChange.bind(this);
+    this.findLearners = this.findLearners.bind(this);
     this.resetSkills();
   }
 
@@ -55,7 +53,8 @@ class SkillsSearch extends Component {
     this.props.setSkills(newSkills);
   }
 
-  findLearners() {
+  findLearners(event) {
+    event.preventDefault();
     const listedState = this.props.guild.skills;
     const checkedSkills = [];
     for (let key in listedState) {
@@ -63,22 +62,19 @@ class SkillsSearch extends Component {
         checkedSkills.push(key);
       }
     }
-
-    return checkedSkills.join(',');
+    console.log(checkedSkills);
+    this.props.advancedSkillSearch(checkedSkills);
   }
 
   render() {
     return (
       <div>
-        <form>
+        <form onSubmit={this.findLearners}>
           <ul className="list-group">
             {this.renderExperienceList()}
           </ul>
-          <Link to={`/skillsresults/search=${this.findLearners()}`}>
-            <input ref="submitButton" type="submit" value="Submit"></input>
-          </Link>
+          <input ref="submitButton" type="submit" value="Submit"></input>
         </form>
-        <div className="footer-filler"></div>
       </div>
   );
   }
@@ -88,8 +84,4 @@ function mapStateToProps({ guild }) {
   return { guild };
 }
 
-function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ setSkills }, dispatch);
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(SkillsSearch);
+export default connect(mapStateToProps, { setSkills, advancedSkillSearch })(SkillsSearch);

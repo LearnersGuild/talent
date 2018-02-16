@@ -5,7 +5,11 @@ import {
   SET_SKILLS,
   ALL_LEARNERS,
   CURRENT_LEARNERS,
-  ALUMNI_LEARNERS
+  ALUMNI_LEARNERS,
+  SHOW_OPTIONS,
+  HIDE_OPTIONS,
+  ADVANCED_SKILL_SEARCH,
+  RESET_ADVANCED_SEARCH
 } from './types';
 
 export function fetchLearnersRequest(url) {
@@ -54,5 +58,33 @@ export function setAll() {
   return {
     type: ALL_LEARNERS,
     payload: 'all',
+  };
+}
+
+export function showOptions() {
+  return {
+    type: SHOW_OPTIONS,
+    payload: true,
+  };
+}
+
+export function hideOptions() {
+  return {
+    type: HIDE_OPTIONS,
+    payload: false,
+  };
+}
+
+export function advancedSkillSearch(advSkills) {
+  return {
+    type: ADVANCED_SKILL_SEARCH,
+    payload: advSkills,
+  };
+}
+
+export function resetAdvancedSearch() {
+  return {
+    type: RESET_ADVANCED_SEARCH,
+    payload: [],
   };
 }

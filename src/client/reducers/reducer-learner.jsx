@@ -7,10 +7,14 @@ import {
   FETCH_LEARNERS_FAILURE,
   ALUMNI_LEARNERS,
   ALL_LEARNERS,
-  CURRENT_LEARNERS
+  CURRENT_LEARNERS,
+  SHOW_OPTIONS,
+  HIDE_OPTIONS,
+  ADVANCED_SKILL_SEARCH,
+  RESET_ADVANCED_SEARCH
 } from '../actions/types';
 
-export default function(state = { loading: true, learners: [] }, action) {
+export default function(state = { loading: true, learners: [], advancedSkillSearch: [] }, action) {
   switch (action.type) {
     case FETCH_LEARNERS_SUCCESS:
       return { ...state, learners: action.payload };
@@ -32,6 +36,14 @@ export default function(state = { loading: true, learners: [] }, action) {
       return { ...state, typeOfLearners: action.payload };
     case CURRENT_LEARNERS:
       return { ...state, typeOfLearners: action.payload };
+    case SHOW_OPTIONS:
+      return { ...state, showAdvancedSearch: action.payload };
+    case HIDE_OPTIONS:
+      return { ...state, showAdvancedSearch: action.payload };
+    case ADVANCED_SKILL_SEARCH:
+      return { ...state, advancedSkillSearch: action.payload };
+    case RESET_ADVANCED_SEARCH:
+      return { ...state, advancedSkillSearch: action.payload };
   }
   return state;
 }
