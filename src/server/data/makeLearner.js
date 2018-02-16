@@ -27,6 +27,7 @@ function makeLearner() {
       if (count >= 90) {
         break;
       }
+      learner['specialty'] = learnerData.shift();
       learner['github_handle'] = learnerData.shift();
       learner['linkedin_profile'] = learnerData.shift();
       learner['twitter'] = learnerData.shift();
@@ -45,7 +46,6 @@ function makeLearner() {
           let imageTitle = projectTitles[i].split('.')[0];
           let imageExt = projectTitles[i].split('.')[1];
           projects[i]['title'] = 'LearnerProjectImages/' + imageTitle + ' - ' + learner['name'] + '.' + imageExt;
-          console.log(projects[i]['title']);
           projects[i]['link'] = projectLinks[i];
         }
         learner['projects'] = projects;
