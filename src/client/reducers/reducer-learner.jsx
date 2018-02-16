@@ -25,7 +25,7 @@ export default function(state = { loading: true, learners: [], advancedSkillSear
         error: action.error,
       };
     case DONE_LOADING:
-      return { ...state, loading: action.loading };
+      return { ...state, loading: action.payload };
     case SEARCH_BY_SKILL:
       return { ...state, skillSearch: action.payload, nameSearch: !action.payload };
     case SEARCH_BY_NAME:

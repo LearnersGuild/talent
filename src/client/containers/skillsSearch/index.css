@@ -1,0 +1,37 @@
+.advsearch-form-container {
+  display: flex;
+  justify-content: center;
+}
+
+.advsearch-form {
+  background-color: #0B777A;
+  border: solid 1px #0B777A;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+}
+
+.advsearch-form > input {
+  align-self: center;
+  background-color: white;
+  border: solid 1px white;
+  font-size: 2rem;
+}
+
+.advsearch-form-list {
+  color: white;
+  display: flex;
+  font-size: 2rem;
+  flex-flow: row wrap;
+  list-style: none;
+  justify-content: space-evenly;
+}
+
+.list-group-item-label:hover {
+  cursor: pointer;
+}
+
+.list-group-item-label > input:hover {
+  cursor: pointer;
+}

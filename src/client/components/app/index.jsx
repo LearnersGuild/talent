@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import TalentNavbar from '../talentNavbar';
 import NotFound from '../notFound';
-import SkillsSearch from '../../containers/skillsSearch';
 import ScrollToTop from '../scrollToTop';
 import ProfilePage from '../../containers/profile';
 import LearnerGallery from '../../containers/learnerGallery';
@@ -22,8 +21,6 @@ export default class App extends Component {
             <Switch>
               <Route exact path="/" component={SplashRNG} />
               <Route exact path="/learners" component={LearnerGallery} />
-              <Route exact path="/skillsresults/:searchSkill" component={LearnerGallery} />
-              <Route exact path="/skills" component={SkillsSearch} />
               <Route exact path="/learners/:githubHandle" component={ProfilePage} />
               <Route component={NotFound} />
             </Switch>

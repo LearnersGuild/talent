@@ -141,14 +141,6 @@ class LearnerGallery extends Component {
       <div className="learner-gallery-container" >
         <Blurb info={ { name: 'FIND YOUR TALENT', story: '' } } />
         <div className="search-form">
-          <input
-            type="text"
-            placeholder="search..."
-            results="0"
-            onChange={this.handleChange}
-            className="searchbar"
-            value={this.state.searchBar}
-          />
           <select
             value={this.state.learnerBar}
             onChange={this.handleSelectLearner}
@@ -158,6 +150,14 @@ class LearnerGallery extends Component {
             <option value='alumni'>alumni</option>
             <option value='current'>current</option>
           </select>
+          <input
+            type="text"
+            placeholder="search..."
+            results="0"
+            onChange={this.handleChange}
+            className="searchbar"
+            value={this.state.searchBar}
+          />
           <select
             value={this.state.skillBar}
             onChange={this.handleSelectSkill}
@@ -167,7 +167,11 @@ class LearnerGallery extends Component {
             <option value="name">name</option>
           </select>
         </div>
-        <button type="button" className="AdvSearch" onClick={this.changeOptions}>Advanced Search</button>
+        <div className="advsearch-container">
+          <span className="sizing-span" />
+          <span className="sizing-span" />
+          <button type="button" className="advsearch" onClick={this.changeOptions}>Advanced Search</button>
+        </div>
         <div>
           {
             this.props.guild.showAdvancedSearch

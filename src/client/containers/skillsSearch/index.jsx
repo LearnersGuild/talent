@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { setSkills, advancedSkillSearch } from '../../actions';
+import './index.css';
 
 class SkillsSearch extends Component {
   constructor(props) {
@@ -15,7 +16,7 @@ class SkillsSearch extends Component {
     return Object.keys(this.props.guild.skills).map((skill, index) => {
       return (
         <li className="list-group-item" key={index}>
-          <label> {skill}:
+          <label className="list-group-item-label" >{skill}:&nbsp;&nbsp;&nbsp;
             <input type="checkbox" name={skill} value={this.props.guild.skills[skill]} onChange={this.handleChange}></input>
           </label>
         </li>
@@ -31,7 +32,6 @@ class SkillsSearch extends Component {
     let newSkills = {};
     Object.keys(skills).map((skill, index) => {
       if (skill === name) {
-        console.log(event.target.name, event.target.value);
         if (skills[skill] === 'off') {
           newSkills[`${skill}`] = 'on';
         } else {
@@ -62,15 +62,15 @@ class SkillsSearch extends Component {
         checkedSkills.push(key);
       }
     }
-    console.log(checkedSkills);
+
     this.props.advancedSkillSearch(checkedSkills);
   }
 
   render() {
     return (
-      <div>
-        <form onSubmit={this.findLearners}>
-          <ul className="list-group">
+      <div className="advsearch-form-container">
+        <form className="advsearch-form" onSubmit={this.findLearners}>
+          <ul className="advsearch-form-list">
             {this.renderExperienceList()}
           </ul>
           <input ref="submitButton" type="submit" value="Submit"></input>
