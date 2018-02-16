@@ -13,12 +13,14 @@ class LearnerGallery extends Component {
     this.props.setAll();
     this.state = {
       searchBar: '',
-      selectBar: 'all',
+      learnerBar: 'all',
+      skillBar: 'skill',
     };
 
     this.handleChange = this.handleChange.bind(this);
     this.toggleSearch = this.toggleSearch.bind(this);
-    this.handleSelect = this.handleSelect.bind(this);
+    this.handleSelectLearner = this.handleSelectLearner.bind(this);
+    this.handleSelectSkill = this.handleSelectSkill.bind(this);
   }
 
   toggleSearch(event) {
@@ -34,7 +36,7 @@ class LearnerGallery extends Component {
     this.setState({ searchBar: event.target.value });
   }
 
-  handleSelect(event) {
+  handleSelectLearner(event) {
     const select = event.target.value;
     if (select === 'all') {
       this.props.setAll();
@@ -43,7 +45,18 @@ class LearnerGallery extends Component {
     } else {
       this.props.setCurrent();
     }
-    this.setState({ selectBar: select });
+
+    this.setState({ learnerBar: select });
+  }
+
+  handleSelectSkill(event) {
+    if (event.target.value === 'skill') {
+      this.props.searchBySkill();
+    } else {
+      this.props.searchByName();
+    }
+
+    this.setState({ skillBar: event.target.value });
   }
 
   filterByName () {
@@ -128,14 +141,6 @@ class LearnerGallery extends Component {
       <div className="learner-gallery-container" >
         <Blurb info={ { name: 'FIND YOUR TALENT', story: '' } } />
         <div className="search-form">
-          <select
-            value={this.state.selectBar}
-            onChange={this.handleSelect}
-          >
-            <option value='all'>all</option>
-            <option value='alumni'>alumni</option>
-            <option value='current'>current</option>
-          </select>
           <input
             type="text"
             placeholder="search..."
@@ -144,36 +149,23 @@ class LearnerGallery extends Component {
             className="searchbar"
             value={this.state.searchBar}
           />
-          <div>
-            <label className="search-by-container">
-              <input
-                type='radio'
-                name='searchBy'
-                onChange={this.toggleSearch}
-                checked={this.props.guild.nameSearch}
-                className="search-form-radio"
-              />
-              { this.props.guild.nameSearch ? (
-                <span className="checkbox-checked">Name</span>
-              ) : (
-                <span className="checkbox">Name</span>
-              ) }
-            </label>
-            <label className="search-by-container">
-              <input
-                type='radio'
-                name='searchBy'
-                onChange={this.toggleSearch}
-                checked={this.props.guild.skillSearch}
-                className="search-form-radio"
-              />
-              { this.props.guild.skillSearch ? (
-                <span className="checkbox-checked">Skill</span>
-              ) : (
-                <span className="checkbox">Skill</span>
-              ) }
-            </label>
-          </div>
+          <select
+            value={this.state.learnerBar}
+            onChange={this.handleSelectLearner}
+            className="selectbar"
+          >
+            <option value='all'>all</option>
+            <option value='alumni'>alumni</option>
+            <option value='current'>current</option>
+          </select>
+          <select
+            value={this.state.skillBar}
+            onChange={this.handleSelectSkill}
+            className="selectbar"
+          >
+            <option value="skill">skill</option>
+            <option value="name">name</option>
+          </select>
         </div>
 
         <CollectionPage
