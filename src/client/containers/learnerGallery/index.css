@@ -12,14 +12,10 @@
 }
 
 .searchbar {
-  background: transparent;
-  border: none;
-  border-bottom: 1px solid #538C01;
   color: #538C01;
   flex: 0.35;
   font-size: 2rem;
   outline: none;
-  text-align: center;
 }
 
 .searchbar::placeholder {
