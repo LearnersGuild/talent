@@ -23,6 +23,14 @@ class LearnerGallery extends Component {
     this.handleSelectSkill = this.handleSelectSkill.bind(this);
   }
 
+  shouldComponentUpdate(nextProps, nextState) {
+    if (nextState === this.state) {
+      return false;
+    } else {
+      return true;
+    }
+  }
+
   toggleSearch(event) {
     if (this.props.guild.nameSearch) {
       this.props.searchBySkill();
