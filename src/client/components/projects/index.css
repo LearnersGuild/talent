@@ -1,7 +1,7 @@
 .project-image {
   position: relative;
   width: 36rem;
-  height: 36rem;
+  height: auto;
   max-width: 25%;
 }
 
