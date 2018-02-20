@@ -48,3 +48,27 @@
   width: 80rem;
   z-index: -1;
 }
+
+@media only screen and (min-device-width: 375px) and (max-device-width: 667px) {
+  .gallery-page-bottom-half-container {
+    margin-bottom: -40rem;
+  }
+
+  .gallery-page-bottom-triangle {
+    bottom: 36rem;
+    height: 60rem;
+    width: 30rem;
+  }
+}
+
+@media only screen and (device-width: 667px) {
+  .gallery-page-bottom-triangle {
+    width: 50rem;
+  }
+}
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+  .gallery-page-bottom-half-container {
+    margin-bottom: -62rem;
+  }
+}
