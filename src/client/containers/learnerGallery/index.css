@@ -38,8 +38,13 @@
 }
 
 .advsearch {
+  border-radius: 1rem;
   flex:0.25;
   font-size: 2rem;
   margin-bottom: 2.5rem;
   outline: none;
+}
+
+.advsearch:hover {
+  cursor: pointer;
 }

@@ -6,7 +6,6 @@
   display: flex;
   justify-content: center;
   position: relative;
-  top: -5rem;
   height: 95rem;
   width: 100%;
   background-image: linear-gradient(rgba(212, 69, 65, 0.65), rgba(212, 69, 65, 0.65)), url('/Desktop.jpeg');

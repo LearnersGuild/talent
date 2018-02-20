@@ -1,9 +1,17 @@
+.talent-navbar-clip-path {
+  background-color: #DF9208;
+  clip-path: polygon(0 0, 100% 0%, 100% 15%, 0 29%);
+  height: 50rem;
+  margin-bottom: -40rem;
+  z-index: -1;
+}
+
 .talent-navbar {
   align-items: center;
-  background-color: rgb(248, 248, 248);
+  bottom: 8rem;
   display: flex;
-  height: 5rem;
   justify-content: space-between;
+  position: relative;
   z-index: 9999;
 }
 
@@ -11,72 +19,13 @@
   text-decoration: none;
 }
 
-#hamburger {
-  display: none;
-}
-
-input[type=checkbox] + label {
-  position: absolute;
-  top: 1rem;
-  left: 1rem;
-  font-size: 9rem;
-  padding: 0 0 0 0;
-}
-
-input[type=checkbox]:checked + label {
-  position: absolute;
-  top: 1rem;
-  left: 1rem;
-  font-size: 9rem;
-}
-
-.navbar-icon label {
-  font-size: 9rem;
-}
-
 .navbar-title {
   font-family: 'Fugaz One';
-  z-index: 5000;
   color: #777;
-  font-size: 8rem;
+  font-size: 4rem;
+  padding: 2rem;
 }
 
 .navbar-title:hover {
   color: #4c4c4c;
-}
-
-input[type=checkbox]:checked + label ~ .talent-list {
-  display: block;
-}
-
-@media only screen and (min-width: 768px) {
-  .navbar-icon {
-    display: none;
-  }
-}
-
-@media only screen and (min-device-width: 768px) {
-  .navbar-title {
-    font-size: 4rem;
-    top: -3rem;
-    left: 10rem;
-  }
-}
-
-@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
-  .navbar-title {
-    top: -1rem;
-  }
-}
-
-@media only screen and (width: 1024px) {
-  .navbar-title {
-    top: -1.75rem;
-  }
-}
-
-@media only screen and (min-device-width: 375px) and (max-device-width: 667px) {
-  .navbar-title {
-    display: none;
-  }
 }

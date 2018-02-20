@@ -73,7 +73,7 @@ class SkillsSearch extends Component {
           <ul className="advsearch-form-list">
             {this.renderExperienceList()}
           </ul>
-          <input ref="submitButton" type="submit" value="Submit"></input>
+          <input className="advsearch-submit-button" type="submit" value="Submit"></input>
         </form>
       </div>
   );
