@@ -22,6 +22,7 @@ function makeLearner() {
       }
     }
     learnerData.pop();
+    console.log(learnerData);
     while (learnerData.length > 0) {
       learnerData.splice(0, 2);
       if (count >= 90) {
