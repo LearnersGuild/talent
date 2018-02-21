@@ -1,3 +1,68 @@
+body {
+  font-size: 2rem;
+}
+
+.header-img {
+  clip-path: polygon(0 0, 100% 0, 100% 60%, 0 78%);
+}
+
+.projects-profile-title {
+  position: absolute;
+  right: 25rem;
+  color: rgb(223, 146, 8);
+  font-family: 'Fugaz One';
+  z-index: 2;
+  font-size: 5rem;
+  top: 76.5rem;
+}
+
+.profile-name {
+  position: absolute;
+  top: 15rem;
+  right: 40rem;
+  font-size: 5rem;
+  font-family: 'Open Sans';
+  color: white;
+}
+
+.profile-photo {
+  position: absolute;
+  top: 5rem;
+}
+
+.logo-list {
+  position: absolute;
+  top: 40rem;
+  right: 57.5rem;
+}
+
+.gallery-project-images {
+  background-color: white;
+  transform: skew(0deg, 10deg);
+  white-space: nowrap;
+  z-index: 1;
+}
+
+.profile-info {
+  display: flex;
+  justify-content: space-around;
+}
+
+.experiences {
+  position: relative;
+  left: 100rem;
+}
+
+.skills {
+  position: relative;
+  left: 20rem;
+  font-size: 4rem;
+}
+
+.skills li {
+  font-size: 2rem;
+}
+
 .hire-learner-button {
   text-transform: uppercase;
   border: solid;
