@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import Projects from '../projects';
 import UserBadge from '../../containers/collection/userBadge';
 import Blurb from '../blurb';
@@ -12,6 +13,7 @@ export default class LandingPage extends Component {
       <div className="landing-page">
         <div className="about">
           <h2 className="about-title">TALENT</h2>
+          <Link to="/learners"><button type="button" className="about-title-button">Find Stellar Engineers</button></Link>
         </div>
         <div className="about-container">
           <img src="/Page-Not-Found.jpg" className="about-image-container"></img>

@@ -1,5 +1,5 @@
 .talent-navbar-clip-path {
-  background-color: #DF9208;
+  background-image: linear-gradient(rgba(112, 166, 255, 0.65), rgba(112, 166, 255, 0.65)), url('/Desktop.jpeg');
   clip-path: polygon(0 0, 100% 0%, 100% 15%, 0 29%);
   height: 50rem;
   margin-bottom: -40rem;
@@ -21,11 +21,35 @@
 
 .navbar-title {
   font-family: 'Fugaz One';
-  color: #777;
+  color: #ffffff;
   font-size: 4rem;
   padding: 2rem;
 }
 
 .navbar-title:hover {
-  color: #4c4c4c;
+  color: #dbdbdb;
+}
+
+@media only screen and (min-device-width: 375px) and (max-device-width: 667px) {
+  .navbar-title {
+    font-size: 8rem;
+  }
+
+  .talent-navbar-clip-path {
+    height: 30rem;
+    margin-bottom: -20rem;
+  }
+}
+
+@media only screen and (device-width: 667px) {
+  .talent-navbar-clip-path {
+    height: 40rem;
+    margin-bottom: -30rem;
+  }
+}
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+  .navbar-title {
+    font-size: 8rem;
+  }
 }

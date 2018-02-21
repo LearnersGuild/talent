@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
-import TalentNavbar from '../talentNavbar';
 import NotFound from '../notFound';
 import ScrollToTop from '../scrollToTop';
 import ProfilePage from '../../containers/profile';
@@ -16,7 +15,6 @@ export default class App extends Component {
     return (
       <div>
         <ErrorBoundary>
-          <TalentNavbar />
           <Loading>
             <Switch>
               <Route exact path="/" component={SplashRNG} />

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import CollectionPage from '../collection';
 import Blurb from '../../components/blurb';
+import TalentNavbar from '../../components/talentNavbar';
 import _ from 'lodash';
 import { searchBySkill, searchByName, setAll, setAlumni, setCurrent, showOptions, hideOptions, resetAdvancedSearch } from '../../actions';
 import './index.css';
@@ -139,6 +140,7 @@ class LearnerGallery extends Component {
 
     return (
       <div className="learner-gallery-container" >
+        <TalentNavbar />
         <Blurb info={ { name: 'FIND YOUR TALENT', story: '' } } />
         <div className="search-form">
           <select

@@ -4,6 +4,7 @@ import { Redirect } from 'react-router-dom';
 import Profile from './profile';
 import Projects from '../../components/projects';
 import List from '../../components/list';
+import TalentNavbar from '../../components/talentNavbar';
 import './index.css';
 
 class ProfilePage extends Component {
@@ -23,6 +24,7 @@ class ProfilePage extends Component {
     return (
     selectedLearner ? (
     <div className="container">
+      <TalentNavbar />
       <Profile github_handle={selectedLearner.github_handle} linkedin_profile={selectedLearner.linkedin_profile} twitter={selectedLearner.twitter} info={selectedLearner} />
       <div className="">
         <div className="">
