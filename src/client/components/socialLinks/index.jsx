@@ -14,7 +14,7 @@ export default function(props) {
   const twitterLink = `https://twitter.com/${props.twitter}`
 
   return (
-    <div className='text-center'>
+    <div className='social-logos text-center'>
       <Link url={linkedinLink} type='linkedin'/>
       <Link url={githubLink} type='github'/>
       <Link url={twitterLink} type='twitter'/>
