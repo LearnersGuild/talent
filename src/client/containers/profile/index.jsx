@@ -23,7 +23,7 @@ class ProfilePage extends Component {
     return (
     selectedLearner ? (
     <div className="container">
-      <img className="header-img" src="https://picsum.photos/1440/900?image=918"></img>
+      <div className="header-img"></div>
       <div className="projects">
         <span className="projects-profile-title">PROJECTS</span>
         <div className="projects-image-container">
