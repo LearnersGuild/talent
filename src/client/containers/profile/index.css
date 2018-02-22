@@ -119,3 +119,13 @@ p {
   background-color: rgb(223, 146, 8);
   color: white;
 }
+
+@media only screen and (min-device-width: 375px) and (max-device-width: 667px) {
+  .profile-name {
+    font-size: 20rem;
+    position: absolute;
+    top: 25rem;
+    right: 15rem;
+    color: white;
+  }
+}
