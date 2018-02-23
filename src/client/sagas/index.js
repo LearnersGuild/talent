@@ -21,7 +21,7 @@ function* fetchLearnersSaga({ payload }) {
     yield put({ type: ALL_LEARNERS, payload: 'all' });
     yield put({ type: DONE_LOADING, payload: false });
   } catch (e) {
-    yield put({ type: FETCH_LEARNERS_FAILURE, error: e.message });
+    yield put({ type: FETCH_LEARNERS_FAILURE, payload: e.message });
   }
 }
 

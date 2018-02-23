@@ -4,7 +4,7 @@ import NotFound from '../notFound';
 import ScrollToTop from '../scrollToTop';
 import ProfilePage from '../../containers/profile';
 import LearnerGallery from '../../containers/learnerGallery';
-import ErrorBoundary from '../errorBoundary';
+import ErrorBoundary from '../../containers/errorBoundary';
 import SplashRNG from '../../containers/splashRNG';
 import Loading from '../../containers/loading';
 import Footer from '../footer';

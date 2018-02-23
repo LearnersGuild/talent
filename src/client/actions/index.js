@@ -9,7 +9,8 @@ import {
   SHOW_OPTIONS,
   HIDE_OPTIONS,
   ADVANCED_SKILL_SEARCH,
-  RESET_ADVANCED_SEARCH
+  RESET_ADVANCED_SEARCH,
+  ERROR_OCCURRED
 } from './types';
 
 export function fetchLearnersRequest(url) {
@@ -86,5 +87,12 @@ export function resetAdvancedSearch() {
   return {
     type: RESET_ADVANCED_SEARCH,
     payload: [],
+  };
+}
+
+export function errorOccurred(error) {
+  return {
+    type: ERROR_OCCURRED,
+    payload: error,
   };
 }
