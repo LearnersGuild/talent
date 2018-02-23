@@ -5,8 +5,8 @@
 
 .advsearch-form {
   animation: fadein 0.5s;
-  background-color: #0B777A;
-  border: solid 1px #0B777A;
+  background-color: rgb(124, 173, 255);
+  border: solid 1px rgb(124, 173, 255);
   border-radius: 10px;
   display: flex;
   flex-direction: column;
