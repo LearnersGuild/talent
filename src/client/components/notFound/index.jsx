@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
+import './index.css';
 
 export default class NotFound extends Component {
   render() {
     return (
-      <div>
-        <p> Page Not Found</p>
-        <img src="/Page-Not-Found.jpg"/>
+      <div className="page-not-found-container">
+        <img src="http://maxpixel.freegreatpicture.com/static/photo/2x/File-Not-Found-Not-Found-404-Error-2384304.jpg"/>
         <div className="footer-filler"></div>
       </div>
     );
