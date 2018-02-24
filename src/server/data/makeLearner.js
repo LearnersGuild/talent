@@ -1,100 +1,66 @@
+const csv = require('csv-parser');
 const fs = require('fs');
 
-function makeLearner() {
-  fs.readFile(`./public/Example Learner's Form.csv`, 'utf-8', (error, data) => {
-    let learnerData = data;
-    learnerData = learnerData.split('\"');
-    learnerData = learnerData.splice(1);
-    learnerData.pop();
-    let count = 0;
-    let learnerProfile = [];
-    let learnerProject = [];
-    let learnerSkills = [];
-    let learnerExperience = [];
-    let alumni = '';
-    let learner = {};
-    while (learnerData[0] !== '\n') {
-      learnerData.shift();
-    }
-    for (let i = 0; i < learnerData.length; i++) {
-      if (learnerData[i] === ',') {
-        learnerData.splice(i, 1);
-      }
-    }
-    learnerData.pop();
-    console.log(learnerData);
-    while (learnerData.length > 0) {
-      learnerData.splice(0, 2);
-      if (count >= 90) {
-        break;
-      }
-      learner['specialty'] = learnerData.shift();
-      learner['github_handle'] = learnerData.shift();
-      learner['linkedin_profile'] = learnerData.shift();
-      learner['twitter'] = learnerData.shift();
-      learner['name'] = learnerData.shift();
-      learner['story'] = learnerData.shift();
-      let projectsNum = learnerData.shift();
-      if (projectsNum > 0) {
-        learnerData.shift();
-        let projects = [];
-        let projectTitles = learnerData[0].split('\n');
-        learnerData.shift();
-        let projectLinks = learnerData[0].split('\n');
-        learnerData.shift();
-        for (let i = 0; i < projectsNum; i++) {
-          projects.push({});
-          let imageTitle = projectTitles[i].split('.')[0];
-          let imageExt = projectTitles[i].split('.')[1];
-          projects[i]['title'] = 'LearnerProjectImages/' + imageTitle + ' - ' + learner['name'] + '.' + imageExt;
-          projects[i]['link'] = projectLinks[i];
-        }
-        learner['projects'] = projects;
-      } else {
-        learnerData.shift();
-        learnerData.shift();
-        learnerData.shift();
-        learner['projects'] = [];
-      }
-      let skills = [];
-      let learnerSkills = learnerData[0].split(';');
-      learnerData.shift();
-      for (let i = 0; i < learnerSkills.length; i++) {
-        skills.push({});
-        skills[i]['skills'] = learnerSkills[i];
-      }
-      learner['skills'] = skills;
-      let experienceNum = learnerData.shift();
-      if (experienceNum > 0) {
-        let experiences = [];
-        let learnerExperience = learnerData[0].split('\n');
-        learnerData.shift();
-        for (let i = 0; i < experienceNum; i++) {
-          experiences.push({});
-          experiences[i]['projects'] = learnerExperience[i];
-        }
-        learner['experience'] = experiences;
-      } else {
-        learnerData.shift();
-        learner['experience'] = [];
-      }
-      let learnerName = learner['name'].replace(' ', '') + '.json';
-      let alumni = learnerData.shift();
-      if (alumni === 'No') {
-        learner['alumni'] = false;
-      } else {
-        learner['alumni'] = true;
-      }
-      learner = JSON.stringify(learner);
-      fs.writeFile(`./src/server/data/learners/${learnerName}`, learner, function (err) {
-        if (err) throw err;
-      });
-      count++;
-      learnerSkills = [];
-      learnerExperience = [];
-      learner = {};
-    }
+var stream = csv({
+  raw: false,
+  separator: ',',
+  quote: '"',
+  escape: '"',
+  newline: '\n',
+});
+
+fs.createReadStream(`./public/Example Learner's Form.csv`)
+.pipe(stream)
+.on('data', function (data) {
+  let learnerJSON = {};
+  learnerJSON.specialty = data['What do you consider your "Specialty" i.e. Front-End, Back-End?'];
+  learnerJSON.github_handle = data['What is your github handle? (We don\'t need the whole link just the /username)'];
+  learnerJSON.linkedin_profile = data['What is your linkedin profile? (We don\'t need the whole link just the /username)'];
+  learnerJSON.twitter = data['What is your twitter? (We don\'t need the whole link just the /username)'];
+  let name = data['What is your first and last name?'];
+  learnerJSON.name = name;
+  learnerJSON.story = data['Describe a little about yourself.'];
+  let projectsArr = [];
+  let experiencesArr = [];
+  projectsArr.push(data['How many Projects do you want to show off? (Just a Number)']);
+  projectsArr.push(data['Please put the names of the images(with file extensions) from above on separate lines i.e. Bookstore.png']);
+  projectsArr.push(data['Please put a link for each of your projects (Separate each project on a new line please)']);
+  learnerJSON.projects = makeProjects(projectsArr);
+  learnerJSON.skills = makeSkills(data['Which of these skills do you have? (If you want to add more skills than what is listed you can put your skills in the Other field like so Other: a Skill; another skill; and so on)']);
+  experiencesArr.push(data['If you have external experiences from a job or otherwise that could be applied to Software Development, how many would you want to put down.']);
+  experiencesArr.push(data['Could you please elaborate on the above experiences?']);
+  learnerJSON.experiences = makeExperiences(experiencesArr);
+  learnerJSON.alumni = data['Are you an alumni?'];
+  learnerJSON = JSON.stringify(learnerJSON);
+  fs.writeFile(`./src/server/data/learners/${name.replace(' ', '')}.json`, learnerJSON, function (err) {
+    if (err) throw err;
   });
+});
+
+function makeProjects(projectsArr) {
+  let projectsFormatted = [];
+  projectsArr[1] = projectsArr[1].split('\n');
+  projectsArr[2] = projectsArr[2].split('\n');
+  for (let i = 0; i < parseInt(projectsArr[0]); i++) {
+    let project = {};
+    project.title = projectsArr[1][i];
+    project.link = projectsArr[2][i];
+    projectsFormatted.push(project);
+  }
+  return projectsFormatted;
 }
 
-makeLearner();
+function makeSkills(skills) {
+  return skills.split(';');
+}
+
+function makeExperiences(experiencesArr) {
+  let experiencesFormatted = [];
+  experiencesArr[1] = experiencesArr[1].split('\n');
+  for (let i = 0; i < parseInt(experiencesArr[0]); i++) {
+    let experience = {};
+    experience.projects = experiencesArr[1][i];
+    experiencesFormatted.push(experience);
+  }
+  return experiencesFormatted;
+}
