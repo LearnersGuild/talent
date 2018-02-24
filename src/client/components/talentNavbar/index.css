@@ -3,7 +3,6 @@
   clip-path: polygon(0 0, 100% 0%, 100% 15%, 0 29%);
   height: 50rem;
   margin-bottom: -40rem;
-  z-index: -1;
 }
 
 .talent-navbar {

@@ -43,7 +43,9 @@
 }
 
 .advsearch-submit-button {
+  bottom: 1rem;
   outline: none;
+  position: relative;
 }
 
 .advsearch-submit-button:hover {

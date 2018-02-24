@@ -19,6 +19,7 @@
 }
 
 .selectbar {
+  cursor: pointer;
   flex: 0.25;
   font-size: 2rem;
   outline: none;
