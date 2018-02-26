@@ -1,0 +1,83 @@
+.contact-form-modal-shadow {
+  background: rgba(0, 0, 0, 0.6);
+  height: 100%;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 99999;
+}
+
+.contact-form-container {
+  background: white;
+  display: flex;
+  height: 60rem;
+  justify-content: center;
+  left: 50%;
+  max-height: 100%;
+  max-width: 100%;
+  position: fixed;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 80rem;
+  z-index: 999999;
+}
+
+.contact-form {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: inherit;
+  justify-content: space-evenly;
+  width: inherit;
+}
+
+.contact-form-span {
+  font-size: 2rem;
+  outline: none;
+}
+
+.contact-form-input {
+  font-size: 2rem;
+  outline: none;
+}
+
+.contact-form-text-area {
+  font-size: 2rem;
+  height: 30rem;
+  outline: none;
+  width: 60rem;
+}
+
+.contact-form-button {
+  background-color: #0B777A;
+  border-radius: 10rem;
+  border: 1px solid #0B777A;
+  color: #DF9208;
+  font-size: 2rem;
+}
+
+.contact-form-button:hover {
+  background-color: #026f72;
+  border-color: #026f72;
+  cursor: pointer;
+}
+
+.contact-form-button:hover {
+  cursor: pointer;
+}
+
+.contact-form-button-close {
+  align-self: flex-end;
+  border: 1px solid #D44541;
+  background-color: #D44541;
+  color: white;
+  position: relative;
+  right: 2rem;
+}
+
+.contact-form-button-close:hover {
+  background-color: #cc221c;
+  border-color: #cc221c;
+  cursor: pointer;
+}

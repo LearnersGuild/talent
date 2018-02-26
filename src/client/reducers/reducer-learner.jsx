@@ -12,10 +12,12 @@ import {
   HIDE_OPTIONS,
   ADVANCED_SKILL_SEARCH,
   RESET_ADVANCED_SEARCH,
-  ERROR_OCCURRED
+  ERROR_OCCURRED,
+  OPEN_CONTACT_FORM,
+  CLOSE_CONTACT_FORM,
 } from '../actions/types';
 
-export default function(state = { loading: true, learners: [], advancedSkillSearch: [] }, action) {
+export default function(state = { loading: true, learners: [], advancedSkillSearch: [], displayContactForm: false, }, action) {
   switch (action.type) {
     case FETCH_LEARNERS_SUCCESS:
       return { ...state, learners: action.payload };
@@ -45,6 +47,10 @@ export default function(state = { loading: true, learners: [], advancedSkillSear
       return { ...state, advancedSkillSearch: action.payload };
     case ERROR_OCCURRED:
       return { ...state, error: action.payload };
+    case OPEN_CONTACT_FORM:
+      return { ...state, displayContactForm: action.payload };
+    case CLOSE_CONTACT_FORM:
+      return { ...state, displayContactForm: action.payload };
   }
   return state;
 }

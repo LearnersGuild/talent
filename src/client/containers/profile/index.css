@@ -16,4 +16,5 @@
 .hire-learner-button:hover {
   background-color: rgb(223, 146, 8);
   color: white;
+  cursor: pointer;
 }

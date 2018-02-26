@@ -10,7 +10,9 @@ import {
   HIDE_OPTIONS,
   ADVANCED_SKILL_SEARCH,
   RESET_ADVANCED_SEARCH,
-  ERROR_OCCURRED
+  ERROR_OCCURRED,
+  OPEN_CONTACT_FORM,
+  CLOSE_CONTACT_FORM,
 } from './types';
 
 export function fetchLearnersRequest(url) {
@@ -94,5 +96,19 @@ export function errorOccurred(error) {
   return {
     type: ERROR_OCCURRED,
     payload: error,
+  };
+}
+
+export function openContactForm() {
+  return {
+    type: OPEN_CONTACT_FORM,
+    payload: true,
+  };
+}
+
+export function closeContactForm() {
+  return {
+    type: CLOSE_CONTACT_FORM,
+    payload: false,
   };
 }
