@@ -75,6 +75,7 @@
 }
 
 .contact-form-button {
+  align-self: flex-end;
   background-color: #0B777A;
   border-radius: 10rem;
   border: 1px solid #0B777A;
@@ -99,8 +100,6 @@
   border-radius: 100%;
   color: white;
   height: 3rem;
-  position: relative;
-  right: 2rem;
   width: 3rem;
 }
 
