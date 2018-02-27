@@ -42,8 +42,8 @@ class ContactForm extends Component {
           <form onSubmit={this.handleSubmit} className="contact-form">
             <button type="button" name="closeContactForm" className="contact-form-button-close" onClick={this.handleCloseClick}>X</button>
             <div className="contact-form-title">Contact Info</div>
-            <label className="contact-form-label"> From:&nbsp;&nbsp;&nbsp;&nbsp;
-              <input className="contact-form-input" type="text" name="emailFrom" value={this.state.emailFrom} onChange={this.handleChange} />
+            <label className="contact-form-label"> Email:&nbsp;&nbsp;&nbsp;
+              <input className="contact-form-input" type="email" name="emailFrom" value={this.state.emailFrom} onChange={this.handleChange} />
             </label>
             <label className="contact-form-label"> Subject:&nbsp;
               <input className="contact-form-input" type="text" name="emailSubject" value={this.state.emailSubject} onChange={this.handleChange} />
