@@ -36,7 +36,7 @@ class ContactForm extends Component {
 
   render() {
     return (
-      <div>
+      <div className="modal-container">
         <div className="contact-form-modal-shadow" onClick={this.handleCloseClick} />
         <div className="contact-form-container">
           <form onSubmit={this.handleSubmit} className="contact-form">
