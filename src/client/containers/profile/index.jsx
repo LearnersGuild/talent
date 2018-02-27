@@ -4,16 +4,23 @@ import { Redirect } from 'react-router-dom';
 import Profile from './profile';
 import Projects from '../../components/projects';
 import List from '../../components/list';
+import TalentNavbar from '../../components/talentNavbar';
+import ContactForm from '../contactForm';
+import { openContactForm } from '../../actions';
 import './index.css';
 
 class ProfilePage extends Component {
+  constructor(props) {
+    super(props);
+    this.handleHireLearners = this.handleHireLearners.bind(this);
+  }
 
   filterLearner (githubHandle) {
     return this.props.guild.learners.filter(learner => learner.github_handle === githubHandle);
   }
 
-  handleClickLearners() {
-    // TODO: handle 'hire' button click with mailto
+  handleHireLearners() {
+    this.props.openContactForm();
   }
 
   render() {
@@ -23,6 +30,12 @@ class ProfilePage extends Component {
     return (
     selectedLearner ? (
     <div className="container">
+      <TalentNavbar />
+      { this.props.guild.displayContactForm ? (
+        <ContactForm />
+      ) : (
+        null
+      )}
       <Profile github_handle={selectedLearner.github_handle} linkedin_profile={selectedLearner.linkedin_profile} twitter={selectedLearner.twitter} info={selectedLearner} />
       <div className="">
         <div className="">
@@ -33,7 +46,7 @@ class ProfilePage extends Component {
         </div>
       </div>
       <div className="row flex-center">
-        <button className="hire-learner-button" onClick={this.handleClickHire}>HIRE {selectedLearner.name.split(' ')[0]} TODAY</button>
+        <button className="hire-learner-button" onClick={this.handleHireLearners}>HIRE {selectedLearner.name.split(' ')[0]} TODAY</button>
       </div>
       <h2 className="text-center">Projects</h2>
       <Projects projects={selectedLearner.projects} />
@@ -47,4 +60,4 @@ function mapStateToProps({ guild }) {
   return { guild };
 }
 
-export default connect(mapStateToProps)(ProfilePage);
+export default connect(mapStateToProps, { openContactForm })(ProfilePage);

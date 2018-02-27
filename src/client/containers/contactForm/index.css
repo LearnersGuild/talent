@@ -1,0 +1,110 @@
+.modal-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.contact-form-modal-shadow {
+  background: rgba(0, 0, 0, 0.6);
+  height: 100%;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 99999;
+}
+
+.contact-form-container {
+  align-items: center;
+  background: white;
+  display: flex;
+  justify-content: center;
+  left: 50%;
+  max-height: 100%;
+  max-width: 100%;
+  position: fixed;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 999999;
+}
+
+.contact-form {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-around;
+  margin: 1rem;
+  width: 100%;
+}
+
+.contact-form-title {
+  color: #538C01;
+  font-family: 'Fugaz One';
+  font-size: 5rem;
+}
+
+.contact-form-label {
+  font-size: 2rem;
+  margin: 1rem;
+}
+
+.contact-form-label.message {
+  max-height: 100%;
+  max-width: 100%;
+}
+
+.contact-form-input {
+  font-size: 2rem;
+}
+
+.contact-form-input:focus {
+  outline-width: 5px;
+}
+
+.contact-form-text-area {
+  font-size: 2rem;
+  height: 30rem;
+  max-height: 100%;
+  max-width: 99%;
+  width: 60rem;
+}
+
+.contact-form-text-area:focus {
+  outline-width: 5px;
+}
+
+.contact-form-button {
+  align-self: flex-end;
+  background-color: #0B777A;
+  border-radius: 10rem;
+  border: 1px solid #0B777A;
+  color: #ffffff;
+  font-size: 2rem;
+}
+
+.contact-form-button:hover {
+  background-color: #026f72;
+  border-color: #026f72;
+  cursor: pointer;
+}
+
+.contact-form-button:hover {
+  cursor: pointer;
+}
+
+.contact-form-button-close {
+  align-self: flex-end;
+  background-color: #D44541;
+  border: 1px solid #D44541;
+  border-radius: 100%;
+  color: white;
+  height: 3rem;
+  width: 3rem;
+}
+
+.contact-form-button-close:hover {
+  background-color: #cc221c;
+  border-color: #cc221c;
+  cursor: pointer;
+}

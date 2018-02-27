@@ -4,52 +4,53 @@ import {
   SEARCH_BY_SKILL,
   SEARCH_BY_NAME,
   FETCH_LEARNERS_SUCCESS,
-  FETCH_LEARNERS_FAILURE
+  FETCH_LEARNERS_FAILURE,
+  ALUMNI_LEARNERS,
+  ALL_LEARNERS,
+  CURRENT_LEARNERS,
+  SHOW_OPTIONS,
+  HIDE_OPTIONS,
+  ADVANCED_SKILL_SEARCH,
+  RESET_ADVANCED_SEARCH,
+  ERROR_OCCURRED,
+  OPEN_CONTACT_FORM,
+  CLOSE_CONTACT_FORM,
 } from '../actions/types';
 
-export default function(state = { loading: true, learners: [] }, action) {
+export default function(state = { loading: true, learners: [], advancedSkillSearch: [], displayContactForm: false, }, action) {
   switch (action.type) {
     case FETCH_LEARNERS_SUCCESS:
-      return {
-        learners: action.payload,
-        loading: state.loading,
-      };
+      return { ...state, learners: action.payload };
     case SET_SKILLS:
-      return {
-        learners: state.learners,
-        loading: state.loading,
-        skills: action.payload,
-        skillSearch: state.skillSearch,
-        nameSearch: state.nameSearch,
-      };
+      return { ...state, skills: action.payload };
     case FETCH_LEARNERS_FAILURE:
-      return {
-        error: action.error,
-      };
+      return { ...state, error: action.payload };
     case DONE_LOADING:
-      return {
-        learners: state.learners,
-        loading: action.loading,
-        skills: state.skills,
-        skillSearch: state.skillSearch,
-        nameSearch: state.nameSearch,
-      };
+      return { ...state, loading: action.payload };
     case SEARCH_BY_SKILL:
-      return {
-        learners: state.learners,
-        loading: state.loading,
-        skills: state.skills,
-        skillSearch: action.payload,
-        nameSearch: !action.payload,
-      };
+      return { ...state, skillSearch: action.payload, nameSearch: !action.payload };
     case SEARCH_BY_NAME:
-      return {
-        learners: state.learners,
-        loading: state.loading,
-        skills: state.skills,
-        skillSearch: !action.payload,
-        nameSearch: action.payload,
-      };
+      return { ...state, skillSearch: !action.payload, nameSearch: action.payload };
+    case ALL_LEARNERS:
+      return { ...state, typeOfLearners: action.payload };
+    case ALUMNI_LEARNERS:
+      return { ...state, typeOfLearners: action.payload };
+    case CURRENT_LEARNERS:
+      return { ...state, typeOfLearners: action.payload };
+    case SHOW_OPTIONS:
+      return { ...state, showAdvancedSearch: action.payload };
+    case HIDE_OPTIONS:
+      return { ...state, showAdvancedSearch: action.payload };
+    case ADVANCED_SKILL_SEARCH:
+      return { ...state, advancedSkillSearch: action.payload };
+    case RESET_ADVANCED_SEARCH:
+      return { ...state, advancedSkillSearch: action.payload };
+    case ERROR_OCCURRED:
+      return { ...state, error: action.payload };
+    case OPEN_CONTACT_FORM:
+      return { ...state, displayContactForm: action.payload };
+    case CLOSE_CONTACT_FORM:
+      return { ...state, displayContactForm: action.payload };
   }
   return state;
 }

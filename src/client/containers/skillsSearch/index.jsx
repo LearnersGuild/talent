@@ -1,15 +1,14 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import { setSkills } from '../../actions';
-import { Link } from 'react-router-dom';
-import LearnerGallery from '../../containers/learnerGallery';
+import { setSkills, advancedSkillSearch } from '../../actions';
+import './index.css';
 
 class SkillsSearch extends Component {
   constructor(props) {
     super(props);
 
     this.handleChange = this.handleChange.bind(this);
+    this.findLearners = this.findLearners.bind(this);
     this.resetSkills();
   }
 
@@ -17,7 +16,7 @@ class SkillsSearch extends Component {
     return Object.keys(this.props.guild.skills).map((skill, index) => {
       return (
         <li className="list-group-item" key={index}>
-          <label> {skill}:
+          <label className="list-group-item-label" >{skill}:&nbsp;&nbsp;&nbsp;
             <input type="checkbox" name={skill} value={this.props.guild.skills[skill]} onChange={this.handleChange}></input>
           </label>
         </li>
@@ -33,7 +32,6 @@ class SkillsSearch extends Component {
     let newSkills = {};
     Object.keys(skills).map((skill, index) => {
       if (skill === name) {
-        console.log(event.target.name, event.target.value);
         if (skills[skill] === 'off') {
           newSkills[`${skill}`] = 'on';
         } else {
@@ -55,7 +53,8 @@ class SkillsSearch extends Component {
     this.props.setSkills(newSkills);
   }
 
-  findLearners() {
+  findLearners(event) {
+    event.preventDefault();
     const listedState = this.props.guild.skills;
     const checkedSkills = [];
     for (let key in listedState) {
@@ -64,21 +63,18 @@ class SkillsSearch extends Component {
       }
     }
 
-    return checkedSkills.join(',');
+    this.props.advancedSkillSearch(checkedSkills);
   }
 
   render() {
     return (
-      <div>
-        <form>
-          <ul className="list-group">
+      <div className="advsearch-form-container">
+        <form className="advsearch-form" onSubmit={this.findLearners}>
+          <ul className="advsearch-form-list">
             {this.renderExperienceList()}
           </ul>
-          <Link to={`/skillsresults/search=${this.findLearners()}`}>
-            <input ref="submitButton" type="submit" value="Submit"></input>
-          </Link>
+          <input className="advsearch-submit-button" type="submit" value="Submit"></input>
         </form>
-        <div className="footer-filler"></div>
       </div>
   );
   }
@@ -88,8 +84,4 @@ function mapStateToProps({ guild }) {
   return { guild };
 }
 
-function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ setSkills }, dispatch);
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(SkillsSearch);
+export default connect(mapStateToProps, { setSkills, advancedSkillSearch })(SkillsSearch);

@@ -8,6 +8,7 @@ import {
   SET_SKILLS,
   SEARCH_BY_SKILL,
   DONE_LOADING,
+  ALL_LEARNERS
 } from '../actions/types';
 
 function* fetchLearnersSaga({ payload }) {
@@ -17,9 +18,10 @@ function* fetchLearnersSaga({ payload }) {
     yield put({ type: FETCH_LEARNERS_SUCCESS, payload: learners });
     yield put({ type: SEARCH_BY_SKILL, payload: true });
     yield put({ type: SET_SKILLS, payload: allSkills });
-    yield put({ type: DONE_LOADING, loading: false });
+    yield put({ type: ALL_LEARNERS, payload: 'all' });
+    yield put({ type: DONE_LOADING, payload: false });
   } catch (e) {
-    yield put({ type: FETCH_LEARNERS_FAILURE, error: e.message });
+    yield put({ type: FETCH_LEARNERS_FAILURE, payload: e.message });
   }
 }
 

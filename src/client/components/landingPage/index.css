@@ -5,8 +5,9 @@
 .about {
   display: flex;
   justify-content: center;
+  align-items: center;
+  flex-direction: column;
   position: relative;
-  top: -5rem;
   height: 95rem;
   width: 100%;
   background-image: linear-gradient(rgba(212, 69, 65, 0.65), rgba(212, 69, 65, 0.65)), url('/Desktop.jpeg');
@@ -14,11 +15,27 @@
 }
 
 .about-title {
+  bottom: 25rem;
   position: relative;
-  top: 10rem;
   z-index: 5;
   font-size: 10rem;
   color: white;
+}
+
+.about-title-button {
+  background-color: #D44541;
+  border-color: #D44541;
+  bottom: 25rem;
+  color: #ffffff;
+  font-size: 2rem;
+  height: 5rem;
+  position: relative;
+  width: 30rem;
+}
+
+.about-title-button:hover {
+  background-color: #cc342e;
+  cursor: pointer;
 }
 
 .about-container {
@@ -143,6 +160,14 @@
 
   .about-container {
     top: -23rem;
+  }
+
+  .about-title {
+    bottom: 10rem;
+  }
+
+  .about-title-button {
+    bottom: 10rem;
   }
 
   .about-image-container {

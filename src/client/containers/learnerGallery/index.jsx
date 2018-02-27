@@ -2,34 +2,26 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import CollectionPage from '../collection';
 import Blurb from '../../components/blurb';
+import TalentNavbar from '../../components/talentNavbar';
 import _ from 'lodash';
-import { bindActionCreators } from 'redux';
-import { searchBySkill, searchByName } from '../../actions';
-import { withRouter } from 'react-router-dom';
+import { searchBySkill, searchByName, setAll, setAlumni, setCurrent, showOptions, hideOptions, resetAdvancedSearch } from '../../actions';
 import './index.css';
+import SkillsSearch from '../skillsSearch';
 
 class LearnerGallery extends Component {
   constructor(props) {
     super(props);
+    this.props.setAll();
     this.state = {
       searchBar: '',
+      learnerBar: 'all',
+      skillBar: 'skill',
     };
+
     this.handleChange = this.handleChange.bind(this);
-    this.toggleSearch = this.toggleSearch.bind(this);
-  }
-
-  componentDidUpdate(prevProps) {
-    if (this.props.location !== prevProps.location) {
-      this.setState({ searchBar: '' });
-    }
-  }
-
-  toggleSearch(event) {
-    if (this.props.guild.nameSearch) {
-      this.props.searchBySkill();
-    } else {
-      this.props.searchByName();
-    }
+    this.handleSelectLearner = this.handleSelectLearner.bind(this);
+    this.handleSelectSkill = this.handleSelectSkill.bind(this);
+    this.changeOptions = this.changeOptions.bind(this);
   }
 
   handleChange(event) {
@@ -37,8 +29,31 @@ class LearnerGallery extends Component {
     this.setState({ searchBar: event.target.value });
   }
 
+  handleSelectLearner(event) {
+    const select = event.target.value;
+    if (select === 'all') {
+      this.props.setAll();
+    } else if (select === 'alumni') {
+      this.props.setAlumni();
+    } else {
+      this.props.setCurrent();
+    }
+
+    this.setState({ learnerBar: select });
+  }
+
+  handleSelectSkill(event) {
+    if (event.target.value === 'skill') {
+      this.props.searchBySkill();
+    } else {
+      this.props.searchByName();
+    }
+
+    this.setState({ skillBar: event.target.value });
+  }
+
   filterByName () {
-    const learnersToFilterThrough = this.determineSubsetOfLearners(this.props.type);
+    const learnersToFilterThrough = this.determineSubsetOfLearners(this.props.guild.typeOfLearners);
     if (!this.state.searchBar) {
       return learnersToFilterThrough;
     }
@@ -52,16 +67,15 @@ class LearnerGallery extends Component {
   }
 
   determineSubsetOfLearners(type) {
-    if (type) {
-      return this.filterByType(type);
+    if (this.props.guild.advancedSkillSearch.length > 0) {
+      return this.filterByMultipleSkills(this.props.guild.advancedSkillSearch);
     } else {
-      const searchSkills = this.props.match.params.searchSkill.replace(/search=/, '').split(',');
-      return this.filterByMultipleSkills(searchSkills);
+      return this.filterByType(type);
     }
   }
 
   filterByOneSkill(skillToSearchBy) {
-    return this.determineSubsetOfLearners(this.props.type).filter(learner => {
+    return this.determineSubsetOfLearners(this.props.guild.typeOfLearners).filter(learner => {
       const skillKeys = Object.values(learner.skills).map(object => object.skills);
       let lowerCaseSkillKeys = skillKeys.map(key => key.toLowerCase());
       for (let i = 0; i < lowerCaseSkillKeys.length; i++) {
@@ -73,7 +87,7 @@ class LearnerGallery extends Component {
   }
 
   filterByMultipleSkills (searchArray) {
-    return this.props.guild.learners.filter(learner => {
+    return this.filterByType(this.props.guild.typeOfLearners).filter(learner => {
       const skillKeys = Object.values(learner.skills).map(object => object.skills);
       let lowerCaseSkillKeys = skillKeys.map(key => key.toLowerCase());
       for (let i = 0; i < searchArray.length; i++) {
@@ -102,6 +116,15 @@ class LearnerGallery extends Component {
     });
   }
 
+  changeOptions() {
+    if (this.props.guild.showAdvancedSearch) {
+      this.props.hideOptions();
+      this.props.resetAdvancedSearch();
+    } else {
+      this.props.showOptions();
+    }
+  }
+
   getProjects(learners) {
     const allProjects = learners.map(learner => learner.projects);
     return _.flatMapDeep(allProjects);
@@ -117,8 +140,18 @@ class LearnerGallery extends Component {
 
     return (
       <div className="learner-gallery-container" >
+        <TalentNavbar />
         <Blurb info={ { name: 'FIND YOUR TALENT', story: '' } } />
         <div className="search-form">
+          <select
+            value={this.state.learnerBar}
+            onChange={this.handleSelectLearner}
+            className="selectbar"
+          >
+            <option value='all'>all</option>
+            <option value='alumni'>alumni</option>
+            <option value='current'>current</option>
+          </select>
           <input
             type="text"
             placeholder="search..."
@@ -127,38 +160,27 @@ class LearnerGallery extends Component {
             className="searchbar"
             value={this.state.searchBar}
           />
-          <div>
-            <label className="search-by-container">
-              <input
-                type='radio'
-                name='searchBy'
-                onChange={this.toggleSearch}
-                checked={this.props.guild.nameSearch}
-                className="search-form-radio"
-              />
-              { this.props.guild.nameSearch ? (
-                <span className="checkbox-checked">Name</span>
-              ) : (
-                <span className="checkbox">Name</span>
-              ) }
-            </label>
-            <label className="search-by-container">
-              <input
-                type='radio'
-                name='searchBy'
-                onChange={this.toggleSearch}
-                checked={this.props.guild.skillSearch}
-                className="search-form-radio"
-              />
-              { this.props.guild.skillSearch ? (
-                <span className="checkbox-checked">Skill</span>
-              ) : (
-                <span className="checkbox">Skill</span>
-              ) }
-            </label>
-          </div>
+          <select
+            value={this.state.skillBar}
+            onChange={this.handleSelectSkill}
+            className="selectbar"
+          >
+            <option value="skill">skill</option>
+            <option value="name">name</option>
+          </select>
         </div>
-
+        <div className="advsearch-container">
+          <span className="sizing-span" />
+          <span className="sizing-span" />
+          <button type="button" className="advsearch" onClick={this.changeOptions}>Advanced Search</button>
+        </div>
+        <div>
+          {
+            this.props.guild.showAdvancedSearch
+              ? <SkillsSearch />
+              : null
+          }
+        </div>
         <CollectionPage
           data={names}
           projects={this.getProjects(names)}
@@ -172,8 +194,4 @@ function mapStateToProps({ guild }) {
   return { guild };
 }
 
-function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ searchBySkill, searchByName }, dispatch);
-}
-
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(LearnerGallery));
+export default connect(mapStateToProps, { searchBySkill, searchByName, setAll, setAlumni, setCurrent, showOptions, hideOptions, resetAdvancedSearch })(LearnerGallery);
