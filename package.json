@@ -14,6 +14,7 @@
   "description": "Learners Guild Talent",
   "main": "src/server/server.js",
   "scripts": {
+    "github-api-fetch": "node src/server/data/githubApiFetch.js",
     "heroku-postbuild": "rm -rf dist && BABEL_ENV=server babel ./src/server/server.js -d dist/ src/ && cp -a src/server/data/learners dist/server/data && webpack",
     "start": "NODE_ENV=production node dist/server/server.js",
     "start:dev": "nodemon dist/server/server.js",
