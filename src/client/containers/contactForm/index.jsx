@@ -31,7 +31,7 @@ class ContactForm extends Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    // TODO: Send form data from state to emailer
+    // TODO: Send form data from state to nodemailer or whatever we decide to use
   }
 
   render() {
@@ -41,12 +41,17 @@ class ContactForm extends Component {
         <div className="contact-form-container">
           <form onSubmit={this.handleSubmit} className="contact-form">
             <button type="button" name="closeContactForm" className="contact-form-button-close" onClick={this.handleCloseClick}>X</button>
-            <span className="contact-form-span">From: </span>
-            <input className="contact-form-input" type="text" name="emailFrom" value={this.state.emailFrom} onChange={this.handleChange} />
-            <span className="contact-form-span">Subject: </span>
-            <input className="contact-form-input" type="text" name="emailSubject" value={this.state.emailSubject} onChange={this.handleChange} />
-            <span className="contact-form-span">Body: </span>
-            <textarea className="contact-form-text-area" name="emailBody" value={this.state.emailBody} onChange={this.handleChange} />
+            <div className="contact-form-title">Contact Info</div>
+            <label className="contact-form-label"> From:&nbsp;&nbsp;&nbsp;&nbsp;
+              <input className="contact-form-input" type="text" name="emailFrom" value={this.state.emailFrom} onChange={this.handleChange} />
+            </label>
+            <label className="contact-form-label"> Subject:&nbsp;
+              <input className="contact-form-input" type="text" name="emailSubject" value={this.state.emailSubject} onChange={this.handleChange} />
+            </label>
+            <label className="contact-form-label message"> Message:&nbsp;
+              <br></br>
+              <textarea className="contact-form-text-area" name="emailBody" value={this.state.emailBody} onChange={this.handleChange} />
+            </label>
             <button type="submit" name="emailFormButton" className="contact-form-button">Submit</button>
           </form>
         </div>

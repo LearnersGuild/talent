@@ -9,6 +9,7 @@
 }
 
 .contact-form-container {
+  align-items: center;
   background: white;
   display: flex;
   height: 60rem;
@@ -27,14 +28,24 @@
   align-items: center;
   display: flex;
   flex-direction: column;
-  height: inherit;
-  justify-content: space-evenly;
-  width: inherit;
+  height: 100%;
+  justify-content: space-around;
+  width: 100%;
 }
 
-.contact-form-span {
+.contact-form-title {
+  color: #538C01;
+  font-family: 'Fugaz One';
+  font-size: 5rem;
+}
+
+.contact-form-label {
   font-size: 2rem;
-  outline: none;
+}
+
+.contact-form-label.message {
+  max-height: 100%;
+  max-width: 100%;
 }
 
 .contact-form-input {
@@ -45,6 +56,8 @@
 .contact-form-text-area {
   font-size: 2rem;
   height: 30rem;
+  max-height: 100%;
+  max-width: 99%;
   outline: none;
   width: 60rem;
 }
@@ -53,7 +66,7 @@
   background-color: #0B777A;
   border-radius: 10rem;
   border: 1px solid #0B777A;
-  color: #DF9208;
+  color: #ffffff;
   font-size: 2rem;
 }
 
@@ -69,11 +82,14 @@
 
 .contact-form-button-close {
   align-self: flex-end;
-  border: 1px solid #D44541;
   background-color: #D44541;
+  border: 1px solid #D44541;
+  border-radius: 100%;
   color: white;
+  height: 3rem;
   position: relative;
   right: 2rem;
+  width: 3rem;
 }
 
 .contact-form-button-close:hover {
