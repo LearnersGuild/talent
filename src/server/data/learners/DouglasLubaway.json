@@ -1,31 +1,35 @@
 {
-	"github_handle": "hhhhhaaaa",
-	"linkedin_profile": "dougell",
-	"twitter": "sqwrlboy",
-	"name": "Douglas Lubaway",
-	"story": "Adipisicing elit aliquip nulla officia. Tempor sint cillum veniam dolore consectetur duis ut aliqua id laborum. Eiusmod ex ex ad ea amet sit occaecat do consequat amet.",
-	"projects": [{
-			"title": "DouglasLubawayImages/PokeCrudMutably.png",
-			"link": "https://github.com/hhhhhaaaa/mutably-starter"
-		},
-		{
-			"title": "DouglasLubawayImages/TalentApp.png",
-			"link": "https://github.com/LearnersGuild/talent"
-		}
-	],
-	"skills": [{
-			"skills": "JS"
-		},
-		{
-			"skills": "CSS"
-		}
-	],
-	"experience": [{
-			"projects": "Pro1"
-		},
-		{
-			"projects": "Pro2"
-		}
-	],
-	"alumni": true
+  "github_handle": "hhhhhaaaa",
+  "linkedin_profile": "dougell",
+  "twitter": "sqwrlboy",
+  "name": "Douglas Lubaway",
+  "story": "Adipisicing elit aliquip nulla officia. Tempor sint cillum veniam dolore consectetur duis ut aliqua id laborum. Eiusmod ex ex ad ea amet sit occaecat do consequat amet.",
+  "projects": [
+    {
+      "title": "DouglasLubawayImages/PokeCrudMutably.png",
+      "link": "https://github.com/hhhhhaaaa/mutably-starter"
+    },
+    {
+      "title": "DouglasLubawayImages/TalentApp.png",
+      "link": "https://github.com/LearnersGuild/talent"
+    }
+  ],
+  "skills": [
+    {
+      "skills": "JS"
+    },
+    {
+      "skills": "CSS"
+    }
+  ],
+  "experience": [
+    {
+      "projects": "Pro1"
+    },
+    {
+      "projects": "Pro2"
+    }
+  ],
+  "alumni": true,
+  "avatar_url": "https://avatars0.githubusercontent.com/u/6027902?v=4"
 }
