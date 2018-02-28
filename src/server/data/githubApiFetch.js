@@ -4,10 +4,11 @@ const axios = require('axios');
 function learners() {
   fs.readdir('./src/server/data/learners', 'utf8', (error, files) => {
     if (error) {
-      console.log("🔥🔥error (╯°□°）╯︵ ┻━┻🔥🔥", error)
+      console.log('🔥🔥error (╯°□°）╯︵ ┻━┻🔥🔥', error);
     }
-    return githubApiFetch(files)
-  })
+
+    return githubApiFetch(files);
+  });
 }
 
 function githubApiFetch(learners) {
@@ -17,20 +18,19 @@ function githubApiFetch(learners) {
     return axios.get(url)
       .then((response) => {
         const avatarUrl = response.data.avatar_url;
-        console.log("🔥🔥avatarUrl (╯°□°）╯︵ ┻━┻🔥🔥", avatarUrl)
         learner.avatar_url = avatarUrl;
         const updatedLearner = JSON.stringify(learner, null, 2);
         try {
           fs.writeFile(`./src/server/data/learners/${learners[index]}`, updatedLearner);
-        } catch(error) {
-          console.log("🔥🔥ERROR!!! (╯°□°）╯︵ ┻━┻🔥🔥", error)
+        } catch (error) {
+          console.log('🔥🔥ERROR!!! (╯°□°）╯︵ ┻━┻🔥🔥', error);
         }
       })
       .catch((error) => {
         console.log('Error fetching and parsing data: ', error);
         throw error;
       });
-  })
+  });
 }
 
 learners();
