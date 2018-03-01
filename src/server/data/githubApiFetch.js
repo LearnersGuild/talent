@@ -21,7 +21,7 @@ function githubApiFetch(learners) {
         learner.avatar_url = avatarUrl;
         const updatedLearner = JSON.stringify(learner, null, 2);
         try {
-          fs.writeFile(`./src/server/data/learners/${learners[index]}`, updatedLearner);
+          fs.writeFileSync(`./src/server/data/learners/${learners[index]}`, updatedLearner);
         } catch (error) {
           console.log('🔥🔥ERROR!!! (╯°□°）╯︵ ┻━┻🔥🔥', error);
         }
