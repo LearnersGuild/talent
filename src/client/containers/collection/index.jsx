@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './index.css';
+import _ from 'lodash';
 import UserGallery from './userGallery';
 import Projects from '../../components/projects';
 
@@ -11,20 +12,18 @@ export default class CollectionPage extends Component {
   }
 
   render() {
-    const slicePosition1 = this.generateRandomNumber();
-    const slicePosition2 = slicePosition1 + 4;
     return (
       <div>
-      <div className="flex-column-search-page">
-        <UserGallery data={this.props.data}/>
-      </div>
+        <div className="flex-column-search-page">
+          <UserGallery data={this.props.data}/>
+        </div>
         <div className="gallery-page-bottom-half-container">
           <div className="top-triangle-container">
             <div className="gallery-page-top-triangle" />
           </div>
           <div className="gallery-page-project-container">
             <div className="gallery-project-images">
-              <Projects projects={this.props.projects.slice(slicePosition1, slicePosition2)} />
+              <Projects projects={_.shuffle(this.props.projects)} />
             </div>
           </div>
           <div className="bottom-triangle-container">
