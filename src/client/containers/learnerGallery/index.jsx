@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import CollectionPage from '../collection';
 import Blurb from '../../components/blurb';
 import _ from 'lodash';
-import { searchBySkill, searchByName, setAll, setAlumni, setCurrent } from '../../actions';
+import { searchBySkillOrName, setAll, setAlumni, setCurrent } from '../../actions';
 import { withRouter } from 'react-router-dom';
 import './index.css';
 
@@ -13,8 +13,6 @@ class LearnerGallery extends Component {
     this.props.setAll();
     this.state = {
       searchBar: '',
-      learnerBar: 'all',
-      skillBar: 'skill',
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -45,18 +43,10 @@ class LearnerGallery extends Component {
     } else {
       this.props.setCurrent();
     }
-
-    this.setState({ learnerBar: select });
   }
 
   handleSelectSkill(event) {
-    if (event.target.value === 'skill') {
-      this.props.searchBySkill();
-    } else {
-      this.props.searchByName();
-    }
-
-    this.setState({ skillBar: event.target.value });
+    this.props.searchBySkillOrName(event.target.value);
   }
 
   filterByName () {
@@ -131,7 +121,7 @@ class LearnerGallery extends Component {
 
   render() {
     let names;
-    if (this.props.guild.nameSearch) {
+    if (this.props.guild.searchBySkillOrName === 'name') {
       names = this.filterByName(this.state.searchBar);
     } else {
       names = this.filterByOneSkill(this.state.searchBar);
@@ -150,7 +140,7 @@ class LearnerGallery extends Component {
             value={this.state.searchBar}
           />
           <select
-            value={this.state.learnerBar}
+            value={this.props.guild.typeOfLearners}
             onChange={this.handleSelectLearner}
             className="selectbar"
           >
@@ -159,7 +149,7 @@ class LearnerGallery extends Component {
             <option value='current'>current</option>
           </select>
           <select
-            value={this.state.skillBar}
+            value={this.props.guild.searchBySkillOrName}
             onChange={this.handleSelectSkill}
             className="selectbar"
           >
@@ -181,4 +171,4 @@ function mapStateToProps({ guild }) {
   return { guild };
 }
 
-export default withRouter(connect(mapStateToProps, { searchBySkill, searchByName, setAll, setAlumni, setCurrent })(LearnerGallery));
+export default withRouter(connect(mapStateToProps, { searchBySkillOrName, setAll, setAlumni, setCurrent })(LearnerGallery));

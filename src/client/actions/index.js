@@ -1,11 +1,10 @@
 import {
   FETCH_LEARNERS_REQUEST,
-  SEARCH_BY_SKILL,
-  SEARCH_BY_NAME,
+  SET_FILTER_TO_SEARCH_BY_SKILL_OR_NAME,
   SET_SKILLS,
-  ALL_LEARNERS,
-  CURRENT_LEARNERS,
-  ALUMNI_LEARNERS
+  SET_FILTER_TO_ALL_LEARNERS,
+  SET_FILTER_TO_CURRENT_LEARNERS,
+  SET_FITLER_TO_ALUMNI_LEARNERS
 } from './types';
 
 export function fetchLearnersRequest(url) {
@@ -15,17 +14,10 @@ export function fetchLearnersRequest(url) {
   };
 }
 
-export function searchBySkill() {
+export function searchBySkillOrName(value) {
   return {
-    type: SEARCH_BY_SKILL,
-    payload: true,
-  };
-}
-
-export function searchByName() {
-  return {
-    type: SEARCH_BY_NAME,
-    payload: true,
+    type: SET_FILTER_TO_SEARCH_BY_SKILL_OR_NAME,
+    payload: value,
   };
 }
 
@@ -38,21 +30,21 @@ export function setSkills(skills) {
 
 export function setAlumni() {
   return {
-    type: ALUMNI_LEARNERS,
+    type: SET_FITLER_TO_ALUMNI_LEARNERS,
     payload: 'alumni',
   };
 }
 
 export function setCurrent() {
   return {
-    type: CURRENT_LEARNERS,
+    type: SET_FILTER_TO_CURRENT_LEARNERS,
     payload: 'current',
   };
 }
 
 export function setAll() {
   return {
-    type: ALL_LEARNERS,
+    type: SET_FILTER_TO_ALL_LEARNERS,
     payload: 'all',
   };
 }
