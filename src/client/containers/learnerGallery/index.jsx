@@ -121,7 +121,7 @@ class LearnerGallery extends Component {
         <div className="search-form">
           <input
             type="text"
-            placeholder="search..."
+            placeholder="any"
             results="0"
             onChange={this.handleChange}
             className="searchbar"
@@ -139,7 +139,7 @@ class LearnerGallery extends Component {
               { this.props.guild.nameSearch ? (
                 <span className="checkbox-checked">Name</span>
               ) : (
-                <span className="checkbox">Name</span>
+                <span className="checkbox-unchecked">Name</span>
               ) }
             </label>
             <label className="search-by-container">
@@ -151,9 +151,9 @@ class LearnerGallery extends Component {
                 className="search-form-radio"
               />
               { this.props.guild.skillSearch ? (
-                <span className="checkbox-checked">Skill</span>
+                <span className="checkbox-checked right">Skill</span>
               ) : (
-                <span className="checkbox">Skill</span>
+                <span className="checkbox-unchecked right">Skill</span>
               ) }
             </label>
           </div>

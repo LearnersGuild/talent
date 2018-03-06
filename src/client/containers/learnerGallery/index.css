@@ -12,9 +12,14 @@
 }
 
 .searchbar {
+  color: #538C01;
   flex: 0.35;
   font-size: 2rem;
   outline: none;
+}
+
+.searchbar::placeholder {
+  color: #538C01;
 }
 
 .search-by-container input {
@@ -24,28 +29,33 @@
   left: 3rem;
 }
 
-.checkbox {
-  background-color: #ffd800;
+.checkbox-unchecked {
+  background-color: grey;
   border-style: solid;
-  border-color: #ffd800;
+  border-color: grey;
   border-radius: 1px;
-  color: #538C01;
+  color: #b0b1b2;
   cursor: pointer;
   font-size: 2rem;
-  padding: 0.3rem;
   position: relative;
-  top: 0.3rem;
 }
 
 .checkbox-checked {
-  background-color: #ffc700;
+  background-color: #ffbb00;
   border-style: solid;
-  border-color: #ffc700;
+  border-color: #ffbb00;
   border-radius: 1px;
   color: #538C01;
   cursor: pointer;
   font-size: 2rem;
-  padding: 0.3rem;
   position: relative;
-  top: 0.3rem;
+  transition: all 0.2s ease 0s;
+}
+
+.checkbox-checked.right {
+  right: 1rem;
+}
+
+.checkbox-unchecked.right {
+  right: 1rem;
 }
