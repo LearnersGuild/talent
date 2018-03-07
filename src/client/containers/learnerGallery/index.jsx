@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import CollectionPage from '../collection';
 import Blurb from '../../components/blurb';
-import _ from 'lodash';
 import { bindActionCreators } from 'redux';
 import { searchBySkill, searchByName } from '../../actions';
 import { withRouter } from 'react-router-dom';
@@ -104,7 +103,10 @@ class LearnerGallery extends Component {
 
   getProjects(learners) {
     const allProjects = learners.map(learner => learner.projects);
-    return _.flatMapDeep(allProjects);
+    const flattenedProjects = allProjects.reduce((accumulator, projectArray) => {
+      return accumulator.concat(projectArray);
+    }, []);
+    return flattenedProjects;
   }
 
   render() {

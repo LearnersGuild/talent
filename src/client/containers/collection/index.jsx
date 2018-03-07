@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './index.css';
-import { shuffle } from 'lodash';
+import shuffle from 'lodash.shuffle';
 import UserGallery from './userGallery';
 import Projects from '../../components/projects';
 
