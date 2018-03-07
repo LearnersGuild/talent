@@ -1,16 +1,10 @@
 import React, { Component } from 'react';
 import './index.css';
-import _ from 'lodash';
+import { shuffle } from 'lodash';
 import UserGallery from './userGallery';
 import Projects from '../../components/projects';
 
 export default class CollectionPage extends Component {
-  generateRandomNumber() {
-    const maxNumber = this.props.projects.length - 4;
-    const randomNumber = Math.floor(Math.random() * maxNumber);
-    return randomNumber >= 0 ? randomNumber : 0;
-  }
-
   render() {
     return (
       <div>
@@ -23,7 +17,7 @@ export default class CollectionPage extends Component {
           </div>
           <div className="gallery-page-project-container">
             <div className="gallery-project-images">
-              <Projects projects={_.shuffle(this.props.projects)} />
+              <Projects projects={shuffle(this.props.projects).slice(0, 4)} />
             </div>
           </div>
           <div className="bottom-triangle-container">
