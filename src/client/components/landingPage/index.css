@@ -51,12 +51,15 @@
 }
 
 .about-image-container {
-  width: 30rem;
+  width: 60rem;
+  height: 60rem;
   background-color: white;
 }
 
 .about-text {
   width: 50rem;
+  height: 10rem;
+  line-height: 1.5;
 }
 
 .about-text h2 {

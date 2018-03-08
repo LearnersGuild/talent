@@ -1,3 +1,105 @@
+body {
+  font-size: 2rem;
+}
+
+h3 {
+  color: rgb(223, 146, 8);
+  font-family: 'Fugaz One';
+}
+
+.text-center {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+}
+
+p {
+  width: 75%;
+  margin-left: 12.5%;
+}
+
+.header-img {
+  background-image: url("https://picsum.photos/1440/900?image=918");
+  width: 100%;
+  height: 75rem;
+  clip-path: polygon(0 0, 100% 0, 100% 60%, 0 78%);
+}
+
+.projects-profile-title {
+  position: absolute;
+  right: 25rem;
+  color: rgb(223, 146, 8);
+  font-family: 'Fugaz One';
+  z-index: 2;
+  font-size: 5rem;
+  top: 76.5rem;
+}
+
+.profile-name {
+  position: absolute;
+  top: 10rem;
+  padding-left: 50rem;
+  font-size: 5rem;
+  font-family: 'Open Sans';
+  color: white;
+}
+
+.profile-photo {
+  position: absolute;
+  top: 5rem;
+  width: 30%;
+  height: auto;
+}
+
+.logo-list {
+  position: absolute;
+  top: 40rem;
+  right: 57.5rem;
+}
+
+.gallery-project-images {
+  background-color: white;
+  transform: skew(0deg, 10deg);
+  white-space: nowrap;
+  z-index: 1;
+}
+
+.profile-info {
+  display: flex;
+  justify-content: space-around;
+}
+
+.experiences {
+  position: relative;
+  left: 100rem;
+}
+
+.profile-experiences li {
+  list-style-type: none;
+  margin: 1rem;
+}
+
+.skills {
+  position: relative;
+  left: 20rem;
+  font-size: 4rem;
+}
+
+.profile-skills {
+  width: 30%;
+}
+
+.profile-skills li {
+  display: inline-block;
+  font-size: 2rem;
+  list-style-type: none;
+  background-color: rgb(223, 146, 8);
+  color: white;
+  font-family: 'Open Sans';
+  margin: 1rem;
+  padding: 1rem;
+}
+
 .hire-learner-button {
   text-transform: uppercase;
   border: solid;
@@ -16,4 +118,14 @@
 .hire-learner-button:hover {
   background-color: rgb(223, 146, 8);
   color: white;
+}
+
+@media only screen and (min-device-width: 375px) and (max-device-width: 667px) {
+  .profile-name {
+    font-size: 20rem;
+    position: absolute;
+    top: 25rem;
+    right: 15rem;
+    color: white;
+  }
 }

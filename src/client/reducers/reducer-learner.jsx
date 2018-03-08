@@ -1,13 +1,12 @@
 import {
   DONE_LOADING,
   SET_SKILLS,
-  SEARCH_BY_SKILL,
-  SEARCH_BY_NAME,
+  SET_FILTER_TO_SEARCH_BY_SKILL_OR_NAME,
   FETCH_LEARNERS_SUCCESS,
   FETCH_LEARNERS_FAILURE,
-  ALUMNI_LEARNERS,
-  ALL_LEARNERS,
-  CURRENT_LEARNERS,
+  SET_FITLER_TO_ALUMNI_LEARNERS,
+  SET_FILTER_TO_ALL_LEARNERS,
+  SET_FILTER_TO_CURRENT_LEARNERS,
   SHOW_OPTIONS,
   HIDE_OPTIONS,
   ADVANCED_SKILL_SEARCH,
@@ -24,16 +23,14 @@ export default function(state = { loading: true, learners: [], advancedSkillSear
     case FETCH_LEARNERS_FAILURE:
       return { ...state, error: action.payload };
     case DONE_LOADING:
-      return { ...state, loading: action.payload };
-    case SEARCH_BY_SKILL:
-      return { ...state, skillSearch: action.payload, nameSearch: !action.payload };
-    case SEARCH_BY_NAME:
-      return { ...state, skillSearch: !action.payload, nameSearch: action.payload };
-    case ALL_LEARNERS:
+      return { ...state, loading: action.loading };
+    case SET_FILTER_TO_SEARCH_BY_SKILL_OR_NAME:
+      return { ...state, searchBySkillOrName: action.payload };
+    case SET_FILTER_TO_ALL_LEARNERS:
       return { ...state, typeOfLearners: action.payload };
-    case ALUMNI_LEARNERS:
+    case SET_FITLER_TO_ALUMNI_LEARNERS:
       return { ...state, typeOfLearners: action.payload };
-    case CURRENT_LEARNERS:
+    case SET_FILTER_TO_CURRENT_LEARNERS:
       return { ...state, typeOfLearners: action.payload };
     case SHOW_OPTIONS:
       return { ...state, showAdvancedSearch: action.payload };

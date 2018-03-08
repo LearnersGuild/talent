@@ -26,20 +26,18 @@ class ProfilePage extends Component {
     <div className="container">
       <TalentNavbar />
       <Profile github_handle={selectedLearner.github_handle} linkedin_profile={selectedLearner.linkedin_profile} twitter={selectedLearner.twitter} info={selectedLearner} />
-      <div className="">
-        <div className="">
+      <div className="profile-info">
+        <div className="profile-experiences">
           <List type='projects' elements={selectedLearner.experience} />
         </div>
-        <div className="">
+        <div></div>
+        <div className="profile-skills">
           <List type='skills' elements={selectedLearner.skills} />
         </div>
       </div>
       <div className="row flex-center">
         <button className="hire-learner-button" onClick={this.handleClickHire}>HIRE {selectedLearner.name.split(' ')[0]} TODAY</button>
       </div>
-      <h2 className="text-center">Projects</h2>
-      <Projects projects={selectedLearner.projects} />
-      <div className="footer-filler"></div>
     </div>) : (<Redirect to="/PageNotFound" />)
   );
   }
