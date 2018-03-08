@@ -6,9 +6,9 @@ export default class Profile extends Component {
   render() {
     return (
       <div>
-        <h2>{this.props.info.name}</h2>
+        <h2 className="profile-name">{this.props.info.name}</h2>
         <div className="">
-          <img className="" src="/LearnerImage.png" />
+          <img className="profile-photo" src="/LearnerImage.png" />
           <Blurb className="" info={this.props.info} />
         </div>
         <ul className="logo-list">

@@ -17,16 +17,10 @@ export default class TalentNavbar extends Component {
                   <Link to="/">HOME</Link>
                 </li>
                 <li className="talent-item">
-                  <Link to="/current">CURRENT</Link>
+                  <Link to="/learners">All Learners</Link>
                 </li>
                 <li className="talent-item">
-                  <Link to="/alumni">ALUMNI</Link>
-                </li>
-                <li className="talent-item">
-                  <Link to="/learners">ALL LEARNERS</Link>
-                </li>
-                <li className="talent-item">
-                  <Link to="/skills">SEARCH BY SKILLS</Link>
+                  <Link to="/skills">Advanced Search</Link>
                 </li>
               </ul>
           </div>

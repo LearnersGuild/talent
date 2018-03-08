@@ -21,18 +21,10 @@ export default class App extends Component {
           <Loading>
             <Switch>
               <Route exact path="/" component={SplashRNG} />
-              <Route exact path="/current" render={props => (
-                <LearnerGallery type="current" />
-              )} />
-              <Route exact path="/learners" render={props => (
-                <LearnerGallery type="all" />
-              )} />
+              <Route exact path="/learners" component={LearnerGallery} />
               <Route exact path="/skillsresults/:searchSkill" component={LearnerGallery} />
               <Route exact path="/skills" component={SkillsSearch} />
               <Route exact path="/learners/:githubHandle" component={ProfilePage} />
-              <Route exact path="/alumni" render={props => (
-                <LearnerGallery type="alumni" />
-              )} />
               <Route component={NotFound} />
             </Switch>
           </Loading>
