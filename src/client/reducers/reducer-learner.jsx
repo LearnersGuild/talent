@@ -1,55 +1,34 @@
 import {
   DONE_LOADING,
   SET_SKILLS,
-  SEARCH_BY_SKILL,
-  SEARCH_BY_NAME,
+  SET_FILTER_TO_SEARCH_BY_SKILL_OR_NAME,
   FETCH_LEARNERS_SUCCESS,
-  FETCH_LEARNERS_FAILURE
+  FETCH_LEARNERS_FAILURE,
+  SET_FITLER_TO_ALUMNI_LEARNERS,
+  SET_FILTER_TO_ALL_LEARNERS,
+  SET_FILTER_TO_CURRENT_LEARNERS
 } from '../actions/types';
 
 export default function(state = { loading: true, learners: [] }, action) {
   switch (action.type) {
     case FETCH_LEARNERS_SUCCESS:
-      return {
-        learners: action.payload,
-        loading: state.loading,
-      };
+      return { ...state, learners: action.payload };
     case SET_SKILLS:
-      return {
-        learners: state.learners,
-        loading: state.loading,
-        skills: action.payload,
-        skillSearch: state.skillSearch,
-        nameSearch: state.nameSearch,
-      };
+      return { ...state, skills: action.payload };
     case FETCH_LEARNERS_FAILURE:
       return {
         error: action.error,
       };
     case DONE_LOADING:
-      return {
-        learners: state.learners,
-        loading: action.loading,
-        skills: state.skills,
-        skillSearch: state.skillSearch,
-        nameSearch: state.nameSearch,
-      };
-    case SEARCH_BY_SKILL:
-      return {
-        learners: state.learners,
-        loading: state.loading,
-        skills: state.skills,
-        skillSearch: action.payload,
-        nameSearch: !action.payload,
-      };
-    case SEARCH_BY_NAME:
-      return {
-        learners: state.learners,
-        loading: state.loading,
-        skills: state.skills,
-        skillSearch: !action.payload,
-        nameSearch: action.payload,
-      };
+      return { ...state, loading: action.loading };
+    case SET_FILTER_TO_SEARCH_BY_SKILL_OR_NAME:
+      return { ...state, searchBySkillOrName: action.payload };
+    case SET_FILTER_TO_ALL_LEARNERS:
+      return { ...state, typeOfLearners: action.payload };
+    case SET_FITLER_TO_ALUMNI_LEARNERS:
+      return { ...state, typeOfLearners: action.payload };
+    case SET_FILTER_TO_CURRENT_LEARNERS:
+      return { ...state, typeOfLearners: action.payload };
   }
   return state;
 }
