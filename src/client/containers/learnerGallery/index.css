@@ -4,58 +4,25 @@
 
 .search-form {
   display: flex;
-  justify-content: center;
-  border-style: solid;
-  border-color: #ffd800;
-  border-radius: 1px;
-  background-color: #ffd800;
+  justify-content: space-evenly;
 }
 
 .searchbar {
-  color: #538C01;
-  flex: 0.35;
+  flex: 0.25;
   font-size: 2rem;
   outline: none;
 }
 
-.searchbar::placeholder {
-  color: #538C01;
+.searchbar:focus {
+  border-color: #0B777A;
 }
 
-.search-by-container input {
-  position: relative;
-  opacity: 0;
-  transform: scale(3);
-  left: 3rem;
-}
-
-.checkbox-unchecked {
-  background-color: grey;
-  border-style: solid;
-  border-color: grey;
-  border-radius: 1px;
-  color: #b0b1b2;
-  cursor: pointer;
+.selectbar {
+  flex: 0.25;
   font-size: 2rem;
-  position: relative;
+  outline: none;
 }
 
-.checkbox-checked {
-  background-color: #ffbb00;
-  border-style: solid;
-  border-color: #ffbb00;
-  border-radius: 1px;
-  color: #538C01;
-  cursor: pointer;
-  font-size: 2rem;
-  position: relative;
-  transition: all 0.2s ease 0s;
-}
-
-.checkbox-checked.right {
-  right: 1rem;
-}
-
-.checkbox-unchecked.right {
-  right: 1rem;
+.selectbar:focus {
+  border-color: #0B777A;
 }

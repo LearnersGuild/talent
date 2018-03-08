@@ -2,25 +2,22 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import CollectionPage from '../collection';
 import Blurb from '../../components/blurb';
-import { bindActionCreators } from 'redux';
-import { searchBySkill, searchByName } from '../../actions';
+import { searchBySkillOrName, setAll, setAlumni, setCurrent } from '../../actions';
 import { withRouter } from 'react-router-dom';
 import './index.css';
 
 class LearnerGallery extends Component {
   constructor(props) {
     super(props);
+    this.props.setAll();
     this.state = {
       searchBar: '',
     };
+
     this.handleChange = this.handleChange.bind(this);
     this.toggleSearch = this.toggleSearch.bind(this);
-  }
-
-  componentDidUpdate(prevProps) {
-    if (this.props.location !== prevProps.location) {
-      this.setState({ searchBar: '' });
-    }
+    this.handleSelectLearner = this.handleSelectLearner.bind(this);
+    this.handleSelectSkill = this.handleSelectSkill.bind(this);
   }
 
   toggleSearch(event) {
@@ -36,8 +33,23 @@ class LearnerGallery extends Component {
     this.setState({ searchBar: event.target.value });
   }
 
+  handleSelectLearner(event) {
+    const select = event.target.value;
+    if (select === 'all') {
+      this.props.setAll();
+    } else if (select === 'alumni') {
+      this.props.setAlumni();
+    } else {
+      this.props.setCurrent();
+    }
+  }
+
+  handleSelectSkill(event) {
+    this.props.searchBySkillOrName(event.target.value);
+  }
+
   filterByName () {
-    const learnersToFilterThrough = this.determineSubsetOfLearners(this.props.type);
+    const learnersToFilterThrough = this.determineSubsetOfLearners(this.props.guild.typeOfLearners);
     if (!this.state.searchBar) {
       return learnersToFilterThrough;
     }
@@ -51,16 +63,16 @@ class LearnerGallery extends Component {
   }
 
   determineSubsetOfLearners(type) {
-    if (type) {
-      return this.filterByType(type);
-    } else {
+    if (this.props.match.params.searchSkill) {
       const searchSkills = this.props.match.params.searchSkill.replace(/search=/, '').split(',');
       return this.filterByMultipleSkills(searchSkills);
+    } else {
+      return this.filterByType(type);
     }
   }
 
   filterByOneSkill(skillToSearchBy) {
-    return this.determineSubsetOfLearners(this.props.type).filter(learner => {
+    return this.determineSubsetOfLearners(this.props.guild.typeOfLearners).filter(learner => {
       const skillKeys = Object.values(learner.skills).map(object => object.skills);
       let lowerCaseSkillKeys = skillKeys.map(key => key.toLowerCase());
       for (let i = 0; i < lowerCaseSkillKeys.length; i++) {
@@ -111,7 +123,7 @@ class LearnerGallery extends Component {
 
   render() {
     let names;
-    if (this.props.guild.nameSearch) {
+    if (this.props.guild.searchBySkillOrName === 'name') {
       names = this.filterByName(this.state.searchBar);
     } else {
       names = this.filterByOneSkill(this.state.searchBar);
@@ -129,36 +141,23 @@ class LearnerGallery extends Component {
             className="searchbar"
             value={this.state.searchBar}
           />
-          <div>
-            <label className="search-by-container">
-              <input
-                type='radio'
-                name='searchBy'
-                onChange={this.toggleSearch}
-                checked={this.props.guild.nameSearch}
-                className="search-form-radio"
-              />
-              { this.props.guild.nameSearch ? (
-                <span className="checkbox-checked">Name</span>
-              ) : (
-                <span className="checkbox-unchecked">Name</span>
-              ) }
-            </label>
-            <label className="search-by-container">
-              <input
-                type='radio'
-                name='searchBy'
-                onChange={this.toggleSearch}
-                checked={this.props.guild.skillSearch}
-                className="search-form-radio"
-              />
-              { this.props.guild.skillSearch ? (
-                <span className="checkbox-checked right">Skill</span>
-              ) : (
-                <span className="checkbox-unchecked right">Skill</span>
-              ) }
-            </label>
-          </div>
+          <select
+            value={this.props.guild.typeOfLearners}
+            onChange={this.handleSelectLearner}
+            className="selectbar"
+          >
+            <option value='all'>all</option>
+            <option value='alumni'>alumni</option>
+            <option value='current'>current</option>
+          </select>
+          <select
+            value={this.props.guild.searchBySkillOrName}
+            onChange={this.handleSelectSkill}
+            className="selectbar"
+          >
+            <option value="skill">skill</option>
+            <option value="name">name</option>
+          </select>
         </div>
 
         <CollectionPage
@@ -174,8 +173,4 @@ function mapStateToProps({ guild }) {
   return { guild };
 }
 
-function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ searchBySkill, searchByName }, dispatch);
-}
-
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(LearnerGallery));
+export default withRouter(connect(mapStateToProps, { searchBySkillOrName, setAll, setAlumni, setCurrent })(LearnerGallery));
