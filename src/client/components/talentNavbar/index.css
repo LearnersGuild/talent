@@ -33,6 +33,7 @@
 .talent-nav li a {
   display: -webkit-box;
   text-align: center;
+  line-height: 3rem;
   padding: 1rem;
   text-decoration: none;
   color: #777;
@@ -93,7 +94,7 @@ input[type=checkbox]:checked + label ~ .talent-list {
   .talent-nav {
     position: absolute;
     top: -1rem;
-    left: 80rem;
+    left: 69rem;
   }
 
   .talent-nav ul {
@@ -118,13 +119,12 @@ input[type=checkbox]:checked + label ~ .talent-list {
 
 @media only screen and (min-device-width: 768px) {
   .talent-nav {
-    width: 40%;
+    width: 45%;
   }
 
   .talent-nav ul {
     margin: 0;
     padding: 0;
-    left: 5rem;
     width: 0;
   }
 
@@ -141,7 +141,7 @@ input[type=checkbox]:checked + label ~ .talent-list {
   .navbar-title {
     font-size: 4rem;
     top: -3rem;
-    left: 10rem;
+    left: 15rem;
   }
 }
 

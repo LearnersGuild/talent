@@ -10,11 +10,11 @@ export default class TalentNavbar extends Component {
         <div className="talent-navbar">
           <input type="checkbox" name="hamburger" id="hamburger"></input>
           <label htmlFor="hamburger" className="navbar-icon">&#9776;</label>
-          <h2 className="navbar-title">TALENT</h2>
+          <Link to="/"><h2 className="navbar-title">TALENT</h2></Link>
           <div className="talent-list">
               <ul className="talent-nav">
                 <li className="talent-item">
-                  <Link to="/">Home</Link>
+                  <Link to="/">HOME</Link>
                 </li>
                 <li className="talent-item">
                   <Link to="/learners">All Learners</Link>
