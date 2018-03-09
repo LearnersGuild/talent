@@ -1,44 +1,9 @@
 .learner-span {
   max-width: 33%;
+  width: auto;
 }
 
 .learner-span > a > img {
   width: 100%;
   height: auto;
-}
-
-@media only screen and (min-device-width: 375px) and (max-device-width: 667px) {
-  .learner-span {
-    width: auto;
-  }
-}
-
-@media only screen and (min-device-width: 667px) and (max-device-width: 767px) {
-
-}
-
-@media only screen and (min-device-width: 768px) and (max-device-width: 1023px) {
-
-}
-
-@media only screen and (min-device-width: 1024px) and (max-device-width: 1440px) {
-
-}
-
-@media only screen and (width: 1920px) {
-  .learner-span {
-    width: auto;
-  }
-}
-
-@media only screen and (width: 2560px) {
-  .learner-span {
-    width: auto;
-  }
-}
-
-@media only screen and (width: 3840px) {
-  .learner-span {
-    width: auto;
-  }
 }

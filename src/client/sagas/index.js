@@ -6,8 +6,9 @@ import {
   FETCH_LEARNERS_SUCCESS,
   FETCH_LEARNERS_FAILURE,
   SET_SKILLS,
-  SEARCH_BY_SKILL,
+  SET_FILTER_TO_SEARCH_BY_SKILL_OR_NAME,
   DONE_LOADING,
+  SET_FILTER_TO_ALL_LEARNERS
 } from '../actions/types';
 
 function* fetchLearnersSaga({ payload }) {
@@ -15,11 +16,12 @@ function* fetchLearnersSaga({ payload }) {
     const learners = yield call(fetchLearners, payload);
     const allSkills = processSkills(learners);
     yield put({ type: FETCH_LEARNERS_SUCCESS, payload: learners });
-    yield put({ type: SEARCH_BY_SKILL, payload: true });
+    yield put({ type: SET_FILTER_TO_SEARCH_BY_SKILL_OR_NAME, payload: 'skill' });
     yield put({ type: SET_SKILLS, payload: allSkills });
-    yield put({ type: DONE_LOADING, loading: false });
+    yield put({ type: SET_FILTER_TO_ALL_LEARNERS, payload: 'all' });
+    yield put({ type: DONE_LOADING, payload: false });
   } catch (e) {
-    yield put({ type: FETCH_LEARNERS_FAILURE, error: e.message });
+    yield put({ type: FETCH_LEARNERS_FAILURE, payload: e.message });
   }
 }
 

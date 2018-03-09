@@ -4,6 +4,7 @@ import { Redirect } from 'react-router-dom';
 import Profile from './profile';
 import Projects from '../../components/projects';
 import List from '../../components/list';
+import TalentNavbar from '../../components/talentNavbar';
 import './index.css';
 
 class ProfilePage extends Component {
@@ -22,6 +23,7 @@ class ProfilePage extends Component {
 
     return (
     selectedLearner ? (
+    <TalentNavbar />
     <div className="container">
       <div className="header-img"></div>
       <div className="projects">
