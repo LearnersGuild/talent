@@ -10,7 +10,7 @@
 
 .gallery-page-project-container {
   max-width: 100%;
-  z-index: 1;
+  /* z-index: 1; */
 }
 
 .gallery-project-images {
@@ -18,7 +18,7 @@
   border: 1px solid red;
   transform: skew(0deg, 10deg);
   white-space: nowrap;
-  z-index: 1;
+  /* z-index: 1; */
 }
 
 .top-triangle-container {

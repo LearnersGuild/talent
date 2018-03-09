@@ -12,6 +12,8 @@
   flex: 0.25;
   font-size: 2rem;
   outline: none;
+  position: static;
+  z-index: 10;
 }
 
 .searchbar:focus {
@@ -23,6 +25,8 @@
   flex: 0.25;
   font-size: 2rem;
   outline: none;
+  position: static;
+  z-index: 10;
 }
 
 .selectbar:focus {
