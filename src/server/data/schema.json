@@ -2,6 +2,9 @@
   "title": "Learner",
   "type": "object",
   "properties": {
+    "specialty": {
+      "type": "string"
+    },
     "github_handle": {
       "type": "string"
     },
