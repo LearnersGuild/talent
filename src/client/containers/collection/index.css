@@ -2,3 +2,73 @@
   display: flex;
   flex-direction: column;
 }
+
+.gallery-page-bottom-half-container {
+  margin-top: -40rem;
+  margin-bottom: -59rem;
+}
+
+.gallery-page-project-container {
+  max-width: 100%;
+  z-index: 1;
+}
+
+.gallery-project-images {
+  background-color: white;
+  border: 1px solid red;
+  transform: skew(0deg, 10deg);
+  white-space: nowrap;
+  z-index: 1;
+}
+
+.top-triangle-container {
+  display: flex;
+  justify-content: flex-end;
+  position: relative;
+  top: 43rem;
+}
+
+.gallery-page-top-triangle {
+  background-color: rgb(11, 119, 122);
+  clip-path: polygon(10% 35%, 100% 50%, 100% 18%);
+  height: 60rem;
+  width: 60rem;
+}
+
+.bottom-triangle-container {
+  display: flex;
+}
+
+.gallery-page-bottom-triangle {
+  background-color: rgb(11, 119, 122);
+  bottom: 43rem;
+  clip-path: polygon(0 38%, 0 77%, 100% 63%);
+  height: 70rem;
+  position: relative;
+  width: 80rem;
+  z-index: -1;
+}
+
+@media only screen and (min-device-width: 375px) and (max-device-width: 667px) {
+  .gallery-page-bottom-half-container {
+    margin-bottom: -40rem;
+  }
+
+  .gallery-page-bottom-triangle {
+    bottom: 36rem;
+    height: 60rem;
+    width: 30rem;
+  }
+}
+
+@media only screen and (device-width: 667px) {
+  .gallery-page-bottom-triangle {
+    width: 50rem;
+  }
+}
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+  .gallery-page-bottom-half-container {
+    margin-bottom: -62rem;
+  }
+}

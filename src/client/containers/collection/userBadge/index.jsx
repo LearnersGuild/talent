@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import SocialLinks from '../../../components/socialLinks';
 import './index.css';
 
 export default class UserBadge extends Component {
