@@ -18,7 +18,14 @@ class SplashRNG extends Component {
   rngProjects() {
     let chosenProjects = [];
     let maxNumber = this.props.guild.learners.length;
-    for (let i = 0; i < 8; i++) {
+    let numberOfProjectsToChoose;
+    if (6 > maxNumber) {
+      numberOfProjectsToChoose = maxNumber;
+    } else {
+      numberOfProjectsToChoose = 6;
+    }
+
+    for (let i = 0; i < numberOfProjectsToChoose; i++) {
       let rng = Math.floor(Math.random() * maxNumber);
       if (chosenProjects.includes(this.props.guild.learners[rng].projects[0])) {
         i--;
@@ -34,14 +41,23 @@ class SplashRNG extends Component {
   rngLearners() {
     let chosenLearners = [];
     let maxNumber = this.props.guild.learners.length;
-    for (let i = 0; i < 6; i++) {
+    let numberOfLearnersToChoose;
+    if (6 > maxNumber) {
+      numberOfLearnersToChoose = maxNumber;
+    } else {
+      numberOfLearnersToChoose = 6;
+    }
+
+    for (let i = 0; i < numberOfLearnersToChoose; i++) {
       let rng = Math.floor(Math.random() * maxNumber);
       if (chosenLearners.includes(this.props.guild.learners[rng])) {
         i--;
         continue;
       }
+
       chosenLearners.push(this.props.guild.learners[rng]);
     }
+
     this.setState({ selectedLearners: chosenLearners });
   }
 

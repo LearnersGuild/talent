@@ -25,6 +25,7 @@ class ProfilePage extends Component {
     selectedLearner ? (
     <TalentNavbar />
     <div className="container">
+      <TalentNavbar />
       <div className="header-img"></div>
       <div className="projects">
         <span className="projects-profile-title">PROJECTS</span>
