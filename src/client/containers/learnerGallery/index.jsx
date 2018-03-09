@@ -2,9 +2,11 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import CollectionPage from '../collection';
 import Blurb from '../../components/blurb';
-import { searchBySkillOrName, setAll, setAlumni, setCurrent } from '../../actions';
-import { withRouter } from 'react-router-dom';
+import TalentNavbar from '../../components/talentNavbar';
+import _ from 'lodash';
+import { searchBySkill, searchByName, setAll, setAlumni, setCurrent, showOptions, hideOptions, resetAdvancedSearch } from '../../actions';
 import './index.css';
+import SkillsSearch from '../skillsSearch';
 
 class LearnerGallery extends Component {
   constructor(props) {
@@ -15,17 +17,9 @@ class LearnerGallery extends Component {
     };
 
     this.handleChange = this.handleChange.bind(this);
-    this.toggleSearch = this.toggleSearch.bind(this);
     this.handleSelectLearner = this.handleSelectLearner.bind(this);
     this.handleSelectSkill = this.handleSelectSkill.bind(this);
-  }
-
-  toggleSearch(event) {
-    if (this.props.guild.nameSearch) {
-      this.props.searchBySkill();
-    } else {
-      this.props.searchByName();
-    }
+    this.changeOptions = this.changeOptions.bind(this);
   }
 
   handleChange(event) {
@@ -63,9 +57,8 @@ class LearnerGallery extends Component {
   }
 
   determineSubsetOfLearners(type) {
-    if (this.props.match.params.searchSkill) {
-      const searchSkills = this.props.match.params.searchSkill.replace(/search=/, '').split(',');
-      return this.filterByMultipleSkills(searchSkills);
+    if (this.props.guild.advancedSkillSearch.length > 0) {
+      return this.filterByMultipleSkills(this.props.guild.advancedSkillSearch);
     } else {
       return this.filterByType(type);
     }
@@ -84,7 +77,7 @@ class LearnerGallery extends Component {
   }
 
   filterByMultipleSkills (searchArray) {
-    return this.props.guild.learners.filter(learner => {
+    return this.filterByType(this.props.guild.typeOfLearners).filter(learner => {
       const skillKeys = Object.values(learner.skills).map(object => object.skills);
       let lowerCaseSkillKeys = skillKeys.map(key => key.toLowerCase());
       for (let i = 0; i < searchArray.length; i++) {
@@ -113,6 +106,15 @@ class LearnerGallery extends Component {
     });
   }
 
+  changeOptions() {
+    if (this.props.guild.showAdvancedSearch) {
+      this.props.hideOptions();
+      this.props.resetAdvancedSearch();
+    } else {
+      this.props.showOptions();
+    }
+  }
+
   getProjects(learners) {
     const allProjects = learners.map(learner => learner.projects);
     const flattenedProjects = allProjects.reduce((accumulator, projectArray) => {
@@ -131,16 +133,9 @@ class LearnerGallery extends Component {
 
     return (
       <div className="learner-gallery-container" >
+        <TalentNavbar />
         <Blurb info={ { name: 'FIND YOUR TALENT', story: '' } } />
         <div className="search-form">
-          <input
-            type="text"
-            placeholder="any"
-            results="0"
-            onChange={this.handleChange}
-            className="searchbar"
-            value={this.state.searchBar}
-          />
           <select
             value={this.props.guild.typeOfLearners}
             onChange={this.handleSelectLearner}
@@ -150,6 +145,14 @@ class LearnerGallery extends Component {
             <option value='alumni'>alumni</option>
             <option value='current'>current</option>
           </select>
+          <input
+            type="text"
+            placeholder="search..."
+            results="0"
+            onChange={this.handleChange}
+            className="searchbar"
+            value={this.state.searchBar}
+          />
           <select
             value={this.props.guild.searchBySkillOrName}
             onChange={this.handleSelectSkill}
@@ -159,7 +162,18 @@ class LearnerGallery extends Component {
             <option value="name">name</option>
           </select>
         </div>
-
+        <div className="advsearch-container">
+          <span className="sizing-span" />
+          <span className="sizing-span" />
+          <button type="button" className="advsearch" onClick={this.changeOptions}>Advanced Search</button>
+        </div>
+        <div>
+          {
+            this.props.guild.showAdvancedSearch
+              ? <SkillsSearch />
+              : null
+          }
+        </div>
         <CollectionPage
           data={names}
           projects={this.getProjects(names)}
@@ -173,4 +187,5 @@ function mapStateToProps({ guild }) {
   return { guild };
 }
 
-export default withRouter(connect(mapStateToProps, { searchBySkillOrName, setAll, setAlumni, setCurrent })(LearnerGallery));
+export default connect(mapStateToProps, { searchBySkill, searchByName, setAll, setAlumni, setCurrent, showOptions, hideOptions, resetAdvancedSearch })(LearnerGallery);
+

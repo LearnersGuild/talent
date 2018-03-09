@@ -5,6 +5,7 @@
 .search-form {
   display: flex;
   justify-content: space-evenly;
+  margin-bottom: 2.5rem;
 }
 
 .searchbar {
@@ -18,6 +19,7 @@
 }
 
 .selectbar {
+  cursor: pointer;
   flex: 0.25;
   font-size: 2rem;
   outline: none;
@@ -25,4 +27,25 @@
 
 .selectbar:focus {
   border-color: #0B777A;
+}
+
+.advsearch-container {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.sizing-span {
+  flex: 0.25;
+}
+
+.advsearch {
+  border-radius: 1rem;
+  flex:0.25;
+  font-size: 2rem;
+  margin-bottom: 2.5rem;
+  outline: none;
+}
+
+.advsearch:hover {
+  cursor: pointer;
 }

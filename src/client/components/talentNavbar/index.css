@@ -1,180 +1,54 @@
-.talent-nav {
-  background-color: rgb(248, 248, 248);
-  width: 10%;
-  position: fixed;
-  top: 4rem;
+.talent-navbar-clip-path {
+  background-image: linear-gradient(rgba(112, 166, 255, 0.65), rgba(112, 166, 255, 0.65)), url('/Desktop.jpeg');
+  clip-path: polygon(0 0, 100% 0%, 100% 15%, 0 29%);
+  height: 50rem;
+  margin-bottom: -40rem;
 }
 
 .talent-navbar {
-  width: 100%;
-  background-color: rgb(248, 248, 248);
-  position: fixed;
-  height: 5rem;
-  top: 0;
+  align-items: center;
+  bottom: 8rem;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
   z-index: 9999;
 }
 
-.talent-nav ul {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  overflow: hidden;
-}
-
-.talent-nav li {
-  position: relative;
-  display: block;
-  background-color: rgb(248, 248, 248);
-  left: -5rem;
-  width: 20rem;
-  text-align: center;
-}
-
-.talent-nav li a {
-  display: -webkit-box;
-  text-align: center;
-  line-height: 3rem;
-  padding: 1rem;
+.talent-navbar > a {
   text-decoration: none;
-  color: #777;
-  font-size: 6rem;
-  font-family: 'Open Sans';
-}
-
-#hamburger {
-  display: none;
-}
-
-input[type=checkbox] + label {
-  position: absolute;
-  top: 1rem;
-  left: 1rem;
-  font-size: 9rem;
-  padding: 0 0 0 0;
-}
-
-input[type=checkbox]:checked + label {
-  position: absolute;
-  top: 1rem;
-  left: 1rem;
-  font-size: 9rem;
-}
-
-.navbar-icon label {
-  font-size: 9rem;
 }
 
 .navbar-title {
-  position: absolute;
   font-family: 'Fugaz One';
-  z-index: 5000;
-  color: #777;
-  font-size: 8rem;
-  top: -1.5rem;
-  left: 25.5rem;
+  color: #ffffff;
+  font-size: 4rem;
+  padding: 2rem;
 }
 
-.talent-list {
-  display: none;
-}
-
-input[type=checkbox]:checked + label ~ .talent-list {
-  display: block;
-}
-
-@media only screen and (min-width: 768px) {
-  .navbar-icon {
-    display: none;
-  }
-
-  .talent-list {
-    display: block;
-  }
-
-  .talent-nav {
-    position: absolute;
-    top: -1rem;
-    left: 69rem;
-  }
-
-  .talent-nav ul {
-    margin: 0;
-    padding: 0;
-  }
-
-  .talent-nav li {
-    float: left;
-  }
-
-  .talent-nav li a {
-    padding: 10px;
-  }
-
-  .talent-nav li a:hover {
-    background-color: lightgray;
-    color: #777;
-  }
-
-}
-
-@media only screen and (min-device-width: 768px) {
-  .talent-nav {
-    width: 45%;
-  }
-
-  .talent-nav ul {
-    margin: 0;
-    padding: 0;
-    width: 0;
-  }
-
-  .talent-nav li a {
-    font-size: 2rem;
-    height: 3rem;
-  }
-
-  .talent-nav li {
-    width: auto;
-    height: 3rem;
-  }
-
-  .navbar-title {
-    font-size: 4rem;
-    top: -3rem;
-    left: 15rem;
-  }
-}
-
-@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
-  .talent-nav {
-    width: 50%;
-  }
-
-  .talent-nav {
-    left: 37rem;
-  }
-
-  .navbar-title {
-    top: -1rem;
-  }
-}
-
-@media only screen and (width: 1024px) {
-  .talent-nav {
-    width: 50%;
-  }
-
-  .talent-nav {
-    left: 60rem;
-  }
-
-  .navbar-title {
-    top: -1.75rem;
-  }
+.navbar-title:hover {
+  color: #dbdbdb;
 }
 
 @media only screen and (min-device-width: 375px) and (max-device-width: 667px) {
   .navbar-title {
-    display: none;
+    font-size: 8rem;
+  }
+
+  .talent-navbar-clip-path {
+    height: 30rem;
+    margin-bottom: -20rem;
+  }
+}
+
+@media only screen and (device-width: 667px) {
+  .talent-navbar-clip-path {
+    height: 40rem;
+    margin-bottom: -30rem;
+  }
+}
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+  .navbar-title {
+    font-size: 8rem;
   }
 }
