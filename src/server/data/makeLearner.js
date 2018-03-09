@@ -53,7 +53,10 @@ function makeProjects(data) {
 }
 
 function makeSkills(skills) {
-  return skills.split(';');
+  skills = skills.split(';');
+  skills = skills.map(ele => ele = { skills: ele });
+  console.log(skills);
+  return skills;
 }
 
 function makeExperiences(data) {
