@@ -26,7 +26,7 @@ export default function(state = { loading: true, learners: [], advancedSkillSear
       return { ...state, loading: action.loading };
     case SET_FILTER_TO_SEARCH_BY_SKILL_OR_NAME:
       return { ...state, searchBySkillOrName: action.payload };
-    case SET_FILTER_TO_ALL_LEARNERS:=======
+    case SET_FILTER_TO_ALL_LEARNERS:
       return { ...state, typeOfLearners: action.payload };
     case SET_FITLER_TO_ALUMNI_LEARNERS:
       return { ...state, typeOfLearners: action.payload };

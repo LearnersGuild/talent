@@ -29,7 +29,7 @@ function makeLearners(data) {
   learnerJSON.story = data['Describe a little about yourself.'];
   learnerJSON.projects = makeProjects(data);
   learnerJSON.skills = makeSkills(data['Which of these skills do you have? (If you want to add more skills than what is listed you can put your skills in the Other field like so Other: a Skill; another skill; and so on)']);
-  learnerJSON.experiences = makeExperiences(data);
+  learnerJSON.experience = makeExperiences(data);
   learnerJSON.alumni = data['Are you an alumni?'];
   learnerJSON = JSON.stringify(learnerJSON);
   return learnerJSON;
