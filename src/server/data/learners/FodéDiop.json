@@ -1,0 +1,48 @@
+{
+  "specialty": "Front-End",
+  "github_handle": "diop",
+  "linkedin_profile": "fodé-diop-376a036",
+  "twitter": "diopfode",
+  "name": "Fodé Diop",
+  "story": "Smart Contract Engineer",
+  "projects": [
+    {
+      "link": "https://github.com/xamxam/wolof-bot-api",
+      "title": "LearnerProjectImages/GitHub-Mark-64px.png"
+    },
+    {
+      "link": "https://github.com/diop/avocado-crop-insurance",
+      "title": "LearnerProjectImages/GitHub-Mark-64px.png"
+    }
+  ],
+  "skills": [
+    {
+      "skills": "Javascript"
+    },
+    {
+      "skills": "node.js"
+    },
+    {
+      "skills": "React"
+    },
+    {
+      "skills": "Mocha"
+    },
+    {
+      "skills": "Chai"
+    },
+    {
+      "skills": "Blockchain"
+    },
+    {
+      "skills": "Solidity, Smart Contracts"
+    }
+  ],
+  "experience": [
+    {
+      "projects": "Full Stack Video Production"
+    },
+    {}
+  ],
+  "alumni": "Yes"
+}

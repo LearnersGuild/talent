@@ -1,0 +1,75 @@
+{
+  "specialty": "CC++ and JavaScript",
+  "github_handle": "metalcanine",
+  "linkedin_profile": "metalcanine",
+  "twitter": "metalcanine",
+  "name": "Jennifer Wilde",
+  "story": "Embedded and full stack web developer from the Gulf Coast specializing in object oriented and data oriented design",
+  "projects": [
+    {
+      "link": "https://github.com/mercurate-team/hiking-club-api",
+      "title": "LearnerProjectImages/hiking_club_journal - Jennifer Wilde.jpg"
+    },
+    {
+      "link": "https://github.com/jaszly/queers-quotes-and-questions",
+      "title": "LearnerProjectImages/quotes1 - Jennifer Wilde.png"
+    }
+  ],
+  "skills": [
+    {
+      "skills": "Javascript"
+    },
+    {
+      "skills": "HTML"
+    },
+    {
+      "skills": "CSS"
+    },
+    {
+      "skills": "SQL"
+    },
+    {
+      "skills": "node.js"
+    },
+    {
+      "skills": "React"
+    },
+    {
+      "skills": "Mocha"
+    },
+    {
+      "skills": "Chai"
+    },
+    {
+      "skills": "Sass"
+    },
+    {
+      "skills": "Passport"
+    },
+    {
+      "skills": "C"
+    },
+    {
+      "skills": " C++"
+    },
+    {
+      "skills": " DirectX"
+    },
+    {
+      "skills": " git"
+    },
+    {
+      "skills": " PostgreSQL"
+    },
+    {
+      "skills": ""
+    }
+  ],
+  "experience": [
+    {
+      "projects": "Unmanned Aerial Vehicle research, Information Technology Contracting"
+    },
+    {}
+  ],
+  "alumni": "No"
+}
