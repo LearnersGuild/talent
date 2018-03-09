@@ -23,8 +23,17 @@ class ProfilePage extends Component {
 
     return (
     selectedLearner ? (
+    <TalentNavbar />
     <div className="container">
-      <TalentNavbar />
+      <div className="header-img"></div>
+      <div className="projects">
+        <span className="projects-profile-title">PROJECTS</span>
+        <div className="projects-image-container">
+          <div className="gallery-project-images">
+            <Projects projects={selectedLearner.projects} />
+          </div>
+        </div>
+      </div>
       <Profile github_handle={selectedLearner.github_handle} linkedin_profile={selectedLearner.linkedin_profile} twitter={selectedLearner.twitter} info={selectedLearner} />
       <div className="profile-info">
         <div className="profile-experiences">
