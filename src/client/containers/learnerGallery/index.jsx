@@ -188,4 +188,3 @@ function mapStateToProps({ guild }) {
 }
 
 export default connect(mapStateToProps, { searchBySkill, searchByName, setAll, setAlumni, setCurrent, showOptions, hideOptions, resetAdvancedSearch })(LearnerGallery);
-
