@@ -6,8 +6,6 @@ import './index.css';
 export default class UserBadge extends Component {
   render() {
     return this.props.data.map(learner => {
-      console.log('learner ---> ', learner);
-      console.log('avatar_url ---> ', learner.avatar_url);
       return (
         <span key={learner.id} className="learner-span">
           <p className="text-center">{learner.name}</p>
