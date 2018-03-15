@@ -1,0 +1,43 @@
+{
+  "specialty": "",
+  "github_handle": "kelceywilson",
+  "linkedin_profile": "kelceywilson",
+  "twitter": "",
+  "name": "Kelcey Wilson",
+  "story": "",
+  "projects": [],
+  "skills": [
+    {
+      "skills": "Javascript"
+    },
+    {
+      "skills": "HTML"
+    },
+    {
+      "skills": "CSS"
+    },
+    {
+      "skills": "SQL"
+    },
+    {
+      "skills": "node.js"
+    },
+    {
+      "skills": "React"
+    },
+    {
+      "skills": "Redux"
+    },
+    {
+      "skills": "MongoDB"
+    },
+    {
+      "skills": "Mocha"
+    },
+    {
+      "skills": "Chai"
+    }
+  ],
+  "experience": [],
+  "alumni": "No"
+}

@@ -23,7 +23,6 @@ class ProfilePage extends Component {
 
     return (
     selectedLearner ? (
-    <TalentNavbar />
     <div className="container">
       <TalentNavbar />
       <div className="header-img"></div>

@@ -1,0 +1,82 @@
+{
+  "specialty": "When you say “i.e.”, you are limiting the answers to those two. Even full-stack isn’t an option. I guess I’d have to choose front-end in that case. But, if you meant “e.g.” instead, then I’d say “Web accessibility”.",
+  "github_handle": "jrpool",
+  "linkedin_profile": "jonathanpool",
+  "twitter": "JonathanRPool",
+  "name": "Jonathan Pool",
+  "story": "Developer of accessible web and database applications",
+  "projects": [
+    {
+      "link": "https://www.npmjs.com/package/jsonresume-theme-a11y",
+      "title": "LearnerProjectImages/project-1 - Jonathan Pool.png"
+    },
+    {
+      "link": "https://github.com/jrpool/calculator",
+      "title": "LearnerProjectImages/project-2 - Jonathan Pool.png"
+    },
+    {
+      "link": "https://github.com/jrpool/singlepropertysite",
+      "title": "LearnerProjectImages/project-3 - Jonathan Pool.png"
+    },
+    {
+      "link": "https://github.com/jrpool/geezer.pro-main",
+      "title": "LearnerProjectImages/project-4 - Jonathan Pool.png"
+    }
+  ],
+  "skills": [
+    {
+      "skills": "Javascript"
+    },
+    {
+      "skills": "HTML"
+    },
+    {
+      "skills": "CSS"
+    },
+    {
+      "skills": "SQL"
+    },
+    {
+      "skills": "node.js"
+    },
+    {
+      "skills": "MongoDB"
+    },
+    {
+      "skills": "Mocha"
+    },
+    {
+      "skills": "Chai"
+    },
+    {
+      "skills": "web accessibility"
+    },
+    {
+      "skills": " Unicode"
+    },
+    {
+      "skills": " Perl"
+    },
+    {
+      "skills": " Java"
+    },
+    {
+      "skills": " Express"
+    },
+    {
+      "skills": " Apache Solr"
+    },
+    {
+      "skills": " Cisco IOS"
+    }
+  ],
+  "experience": [
+    {
+      "projects": "(1) project management; (2) grant proposal development; (3) ADA compliance upgrades; (4) technical documentation"
+    },
+    {},
+    {},
+    {}
+  ],
+  "alumni": "Yes"
+}
