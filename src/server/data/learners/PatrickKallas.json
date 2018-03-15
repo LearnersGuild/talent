@@ -1,35 +1,51 @@
 {
   "specialty": "Front-End",
   "github_handle": "pkallas",
-  "linkedin_profile": "patrick-kallas-463452156/",
+  "linkedin_profile": "patrick-kallas-463452156",
   "twitter": "pkallas",
   "name": "Patrick Kallas",
   "story": "I am a full-stack software engineer specializing in front-end development and JavaScript. I love playing video games and solving challenges. To me, coding is a series of solving interesting challenges. Coding is incredible, because there is no one way to solve any challenge, and I love seeing and learning how different people solve different challenges.  ",
   "projects": [
     {
-      "title": "BookStore.png",
-      "link": "https://learners-guild-book-store.herokuapp.com/"
+      "link": "https://learners-guild-book-store.herokuapp.com/",
+      "title": "LearnerProjectImages/BookStore - Patrick Kallas.png"
     },
     {
-      "title": "PokemonCRUD.png",
-      "link": "https://pokemon-crud-mutably.herokuapp.com/"
+      "link": "https://pokemon-crud-mutably.herokuapp.com/",
+      "title": "LearnerProjectImages/PokemonCRUD - Patrick Kallas.png"
     },
     {
-      "title": "Talent.png",
-      "link": "https://learners-guild-talent-staging.herokuapp.com/"
+      "link": "https://learners-guild-talent-staging.herokuapp.com/",
+      "title": "LearnerProjectImages/TalentApp - Patrick Kallas.png"
     }
   ],
   "skills": [
-    "Javascript",
-    "HTML",
-    "CSS",
-    "SQL",
-    "node.js",
-    "React",
-    "Redux",
-    "React Native"
+    {
+      "skills": "Javascript"
+    },
+    {
+      "skills": "HTML"
+    },
+    {
+      "skills": "CSS"
+    },
+    {
+      "skills": "SQL"
+    },
+    {
+      "skills": "node.js"
+    },
+    {
+      "skills": "React"
+    },
+    {
+      "skills": "Redux"
+    },
+    {
+      "skills": "React Native"
+    }
   ],
-  "experiences": [
+  "experience": [
     {
       "projects": "I spent one year working at an after school program for middle and high school students. While there, I planned and implemented various recreational activities for students to participate in, and I provided tutoring services. I've learned that being able to teach others is an invaluable skill, and one that is crucial for a software engineer. A successful software engineer should be able to help teach others the skills they have obtained and worked hard at, as well as teach others about the code they have written."
     }

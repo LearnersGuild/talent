@@ -7,24 +7,38 @@
   "story": "Ima coool doood",
   "projects": [
     {
-      "title": "Talent.png",
-      "link": "bookstore-neojax.herokuapp.com"
+      "link": "bookstore-neojax.herokuapp.com",
+      "title": "LearnerProjectImages/Talent - Johnathon Lubaway.png"
     },
     {
-      "title": "Bookstore.png",
-      "link": "https://github.com/LearnersGuild/talent"
+      "link": "https://github.com/LearnersGuild/talent",
+      "title": "LearnerProjectImages/Bookstore - Johnathon Lubaway.png"
     }
   ],
   "skills": [
-    "Javascript",
-    "HTML",
-    "CSS",
-    "SQL",
-    "node.js",
-    "React",
-    "Redux"
+    {
+      "skills": "Javascript"
+    },
+    {
+      "skills": "HTML"
+    },
+    {
+      "skills": "CSS"
+    },
+    {
+      "skills": "SQL"
+    },
+    {
+      "skills": "node.js"
+    },
+    {
+      "skills": "React"
+    },
+    {
+      "skills": "Redux"
+    }
   ],
-  "experiences": [
+  "experience": [
     {
       "projects": "I worked with a group to make an encrypted messaging app in C# which required us to use Agile while doing so."
     },
