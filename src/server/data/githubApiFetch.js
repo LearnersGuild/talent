@@ -18,7 +18,12 @@ function githubApiFetch(learners) {
     return axios.get(url)
       .then((response) => {
         const avatarUrl = response.data.avatar_url;
-        learner.avatar_url = avatarUrl;
+        if (avatarUrl === undefined) {
+          learner.avatarUrl = '/LearnerImage.png';
+        } else {
+          learner.avatar_url = avatarUrl;
+        }
+
         const updatedLearner = JSON.stringify(learner, null, 2);
         try {
           fs.writeFileSync(`./src/server/data/learners/${learners[index]}`, updatedLearner);
