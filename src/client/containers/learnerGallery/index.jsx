@@ -4,7 +4,7 @@ import CollectionPage from '../collection';
 import Blurb from '../../components/blurb';
 import TalentNavbar from '../../components/talentNavbar';
 import _ from 'lodash';
-import { searchBySkill, searchByName, setAll, setAlumni, setCurrent, showOptions, hideOptions, resetAdvancedSearch } from '../../actions';
+import { searchBySkillOrName, setAll, setAlumni, setCurrent, showOptions, hideOptions, resetAdvancedSearch } from '../../actions';
 import './index.css';
 import SkillsSearch from '../skillsSearch';
 
@@ -187,4 +187,4 @@ function mapStateToProps({ guild }) {
   return { guild };
 }
 
-export default connect(mapStateToProps, { searchBySkill, searchByName, setAll, setAlumni, setCurrent, showOptions, hideOptions, resetAdvancedSearch })(LearnerGallery);
+export default connect(mapStateToProps, { searchBySkillOrName, setAll, setAlumni, setCurrent, showOptions, hideOptions, resetAdvancedSearch })(LearnerGallery);
