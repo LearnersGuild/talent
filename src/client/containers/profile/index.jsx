@@ -24,32 +24,33 @@ class ProfilePage extends Component {
     return (
       <div>
         <TalentNavbar />
-      selectedLearner ? (
-        <div className="container">
-          <div className="header-img" />
-          <div className="projects">
-            <span className="projects-profile-title">PROJECTS</span>
-            <div className="projects-image-container">
-              <div className="gallery-project-images">
-                <Projects projects={selectedLearner.projects} />
+        selectedLearner ? (
+          <div className="container">
+            <div className="header-img"></div>
+            <div className="projects">
+              <span className="projects-profile-title">PROJECTS</span>
+              <div className="projects-image-container">
+                <div className="gallery-project-images">
+                  <Projects projects={selectedLearner.projects} />
+                </div>
               </div>
             </div>
-          </div>
-          <Profile github_handle={selectedLearner.github_handle} linkedin_profile={selectedLearner.linkedin_profile} twitter={selectedLearner.twitter} info={selectedLearner} />
-          <div className="profile-info">
-            <div className="profile-experiences">
-              <List type="projects" elements={selectedLearner.experience} />
+            <Profile github_handle={selectedLearner.github_handle} linkedin_profile={selectedLearner.linkedin_profile} twitter={selectedLearner.twitter} info={selectedLearner} />
+            <div className="profile-info">
+              <div className="profile-experiences">
+                <List type='projects' elements={selectedLearner.experience} />
+              </div>
+              <div></div>
+              <div className="profile-skills">
+                <List type='skills' elements={selectedLearner.skills} />
+              </div>
             </div>
-            <div className="profile-skills">
-              <List type="skills" elements={selectedLearner.skills} />
+            <div className="row flex-center">
+              <button className="hire-learner-button" onClick={this.handleClickHire}>HIRE {selectedLearner.name.split(' ')[0]} TODAY</button>
             </div>
-          </div>
-          <div className="row flex-center">
-            <button className="hire-learner-button" onClick={this.handleClickHire}>HIRE {selectedLearner.name.split(' ')[0]} TODAY</button>
-          </div>
-        </div>) : (<Redirect to="/PageNotFound" />)
+          </div>) : (<Redirect to="/PageNotFound" />)
       </div>
-    );
+  );
   }
 }
 
