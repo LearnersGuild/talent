@@ -22,6 +22,7 @@ class ProfilePage extends Component {
     const selectedLearner = this.filterLearner(githubHandle)[0];
 
     return (
+<<<<<<< HEAD
       <div>
         <TalentNavbar />
       selectedLearner ? (
@@ -34,6 +35,17 @@ class ProfilePage extends Component {
                 <Projects projects={selectedLearner.projects} />
               </div>
             </div>
+=======
+    selectedLearner ? (
+    <div className="container">
+      <TalentNavbar />
+      <div className="header-img"></div>
+      <div className="projects">
+        <span className="projects-profile-title">PROJECTS</span>
+        <div className="projects-image-container">
+          <div className="gallery-project-images">
+            <Projects projects={selectedLearner.projects} />
+>>>>>>> master
           </div>
           <Profile github_handle={selectedLearner.github_handle} linkedin_profile={selectedLearner.linkedin_profile} twitter={selectedLearner.twitter} info={selectedLearner} />
           <div className="profile-info">
