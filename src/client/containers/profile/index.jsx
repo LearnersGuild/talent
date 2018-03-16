@@ -20,11 +20,12 @@ class ProfilePage extends Component {
   render() {
     const githubHandle = this.props.match.url.replace(/\/learners\//, '');
     const selectedLearner = this.filterLearner(githubHandle)[0];
+    console.log((selectedLearner) ? 'yes' : 'no');
 
     return (
       <div>
         <TalentNavbar />
-        selectedLearner ? (
+        {selectedLearner ? (
           <div className="container">
             <div className="header-img"></div>
             <div className="projects">
@@ -40,7 +41,6 @@ class ProfilePage extends Component {
               <div className="profile-experiences">
                 <List type='projects' elements={selectedLearner.experience} />
               </div>
-              <div></div>
               <div className="profile-skills">
                 <List type='skills' elements={selectedLearner.skills} />
               </div>
@@ -48,7 +48,7 @@ class ProfilePage extends Component {
             <div className="row flex-center">
               <button className="hire-learner-button" onClick={this.handleClickHire}>HIRE {selectedLearner.name.split(' ')[0]} TODAY</button>
             </div>
-          </div>) : (<Redirect to="/PageNotFound" />)
+          </div>) : (<Redirect to="/PageNotFound" />) }
       </div>
   );
   }

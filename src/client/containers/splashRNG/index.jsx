@@ -17,10 +17,16 @@ class SplashRNG extends Component {
 
   rngProjects() {
     let chosenProjects = [];
-    const selectedLearners = shuffle(this.props.guild.learners).slice(0, 9);
+    const shuffledLearners = shuffle(this.props.guild.learners);
+    const selectedLearners = shuffledLearners.slice(0, 8);
     selectedLearners.forEach(learner => {
-      chosenProjects.push(learner.projects[0]);
+      if (learner.projects[0]) {
+        chosenProjects.push(learner.projects[0]);
+      }
     });
+    if (chosenProjects.length < 8) {
+      chosenProjects.push(shuffledLearners[8].projects[0]);
+    }
     this.setState({ selectedProjects: chosenProjects });
   }
 
@@ -30,14 +36,14 @@ class SplashRNG extends Component {
 
   handleClickLearners() {
     this.setState({
-      selectedLearners: shuffle(this.props.guild.learners).slice(0, 7),
+      selectedLearners: shuffle(this.props.guild.learners).slice(0, 6),
     });
   }
 
   componentDidMount() {
     this.rngProjects();
     this.setState({
-      selectedLearners: shuffle(this.props.guild.learners).slice(0, 7),
+      selectedLearners: shuffle(this.props.guild.learners).slice(0, 6),
     });
   }
 

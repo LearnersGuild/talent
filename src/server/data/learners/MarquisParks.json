@@ -8,11 +8,7 @@
   "projects": [
     {
       "link": "http://hackcity.marquisparks.com/",
-<<<<<<< HEAD
-      "title": "LearnerProjectImages/hackcity.marquisparks.com s- Marquis Parks.png"
-=======
-      "title": "LearnerProjectImages/hackcity - Marquis Parks.marquisparks"
->>>>>>> master
+      "title": "LearnerProjectImages/hackcity.marquisparks.com - Marquis Parks.png"
     }
   ],
   "skills": [
@@ -58,9 +54,6 @@
       "projects": "While working for the company of CoroTech, I Routinely  Setup  desktop  systems  and  created internet  connection  for  users  at  large,  tech field  companies.Troubleshoot  Desktop  errors Troubleshoot  Network  errors"
     }
   ],
-  "alumni": "Yes"
-<<<<<<< HEAD
+  "alumni": "Yes",
+  "avatar_url": "https://avatars1.githubusercontent.com/u/20427895?v=4"
 }
-=======
-}
->>>>>>> master
