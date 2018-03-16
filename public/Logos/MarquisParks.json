@@ -1,0 +1,58 @@
+{
+  "specialty": "Full Stack",
+  "github_handle": "icodeyouso",
+  "linkedin_profile": "marquisparks",
+  "twitter": "webdevmparks",
+  "name": "Marquis Parks",
+  "story": "I am A creative, engaging, full stack developer with a passion for front-end development and UI Design. Specializes in customer satisfaction through teamwork and maintains a commitment to exceed expectations. Actively pursuing opportunities to provide programming skills, leadership ability, and enthusiasm to a fast-paced environment as a Full Stack developer.",
+  "projects": [
+    {
+      "link": "http://hackcity.marquisparks.com/",
+      "title": "LearnerProjectImages/hackcity - Marquis Parks.marquisparks"
+    }
+  ],
+  "skills": [
+    {
+      "skills": "Javascript"
+    },
+    {
+      "skills": "HTML"
+    },
+    {
+      "skills": "CSS"
+    },
+    {
+      "skills": "SQL"
+    },
+    {
+      "skills": "node.js"
+    },
+    {
+      "skills": "MongoDB"
+    },
+    {
+      "skills": "Mocha"
+    },
+    {
+      "skills": "Chai"
+    },
+    {
+      "skills": "Sass"
+    },
+    {
+      "skills": "Less"
+    },
+    {
+      "skills": "Oauth"
+    },
+    {
+      "skills": "Blockchain"
+    }
+  ],
+  "experience": [
+    {
+      "projects": "While working for the company of CoroTech, I Routinely  Setup  desktop  systems  and  created internet  connection  for  users  at  large,  tech field  companies.Troubleshoot  Desktop  errors Troubleshoot  Network  errors"
+    }
+  ],
+  "alumni": "Yes"
+}
