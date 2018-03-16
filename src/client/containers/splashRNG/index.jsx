@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import shuffle from 'lodash.shuffle';
 import LandingPage from '../../components/landingPage';
 
 class SplashRNG extends Component {
   constructor(props) {
     super(props);
-    this.rngProjects = this.rngProjects.bind(this);
     this.handleClickProjects = this.handleClickProjects.bind(this);
     this.handleClickLearners = this.handleClickLearners.bind(this);
     this.state = {
@@ -17,48 +17,11 @@ class SplashRNG extends Component {
 
   rngProjects() {
     let chosenProjects = [];
-    let maxNumber = this.props.guild.learners.length;
-    let numberOfProjectsToChoose;
-    if (6 > maxNumber) {
-      numberOfProjectsToChoose = maxNumber;
-    } else {
-      numberOfProjectsToChoose = 6;
-    }
-
-    for (let i = 0; i < numberOfProjectsToChoose; i++) {
-      let rng = Math.floor(Math.random() * maxNumber);
-      if (chosenProjects.includes(this.props.guild.learners[rng].projects[0])) {
-        i--;
-        continue;
-      }
-
-      chosenProjects.push(this.props.guild.learners[rng].projects[0]);
-    }
-
+    const selectedLearners = shuffle(this.props.guild.learners).slice(0, 9);
+    selectedLearners.forEach(learner => {
+      chosenProjects.push(learner.projects[0]);
+    });
     this.setState({ selectedProjects: chosenProjects });
-  }
-
-  rngLearners() {
-    let chosenLearners = [];
-    let maxNumber = this.props.guild.learners.length;
-    let numberOfLearnersToChoose;
-    if (6 > maxNumber) {
-      numberOfLearnersToChoose = maxNumber;
-    } else {
-      numberOfLearnersToChoose = 6;
-    }
-
-    for (let i = 0; i < numberOfLearnersToChoose; i++) {
-      let rng = Math.floor(Math.random() * maxNumber);
-      if (chosenLearners.includes(this.props.guild.learners[rng])) {
-        i--;
-        continue;
-      }
-
-      chosenLearners.push(this.props.guild.learners[rng]);
-    }
-
-    this.setState({ selectedLearners: chosenLearners });
   }
 
   handleClickProjects() {
@@ -66,12 +29,16 @@ class SplashRNG extends Component {
   }
 
   handleClickLearners() {
-    this.rngLearners();
+    this.setState({
+      selectedLearners: shuffle(this.props.guild.learners).slice(0, 7),
+    });
   }
 
   componentDidMount() {
     this.rngProjects();
-    this.rngLearners();
+    this.setState({
+      selectedLearners: shuffle(this.props.guild.learners).slice(0, 7),
+    });
   }
 
   render() {
