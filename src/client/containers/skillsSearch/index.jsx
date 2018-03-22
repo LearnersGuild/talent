@@ -16,8 +16,8 @@ class SkillsSearch extends Component {
     return Object.keys(this.props.guild.skills).map((skill, index) => {
       return (
         <li className="list-group-item" key={index}>
-          <label className="list-group-item-label" >{skill}:&nbsp;&nbsp;&nbsp;
-            <input type="checkbox" name={skill} value={this.props.guild.skills[skill]} onChange={this.handleChange}></input>
+          <label className="list-group-item-label" >{skill}:&nbsp;
+            <input type="checkbox" name={skill} value={this.props.guild.skills[skill]} onChange={this.handleChange}></input>&nbsp;&nbsp;
           </label>
         </li>
       );

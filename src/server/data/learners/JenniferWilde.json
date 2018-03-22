@@ -60,9 +60,6 @@
     },
     {
       "skills": " PostgreSQL"
-    },
-    {
-      "skills": ""
     }
   ],
   "experience": [
@@ -71,5 +68,6 @@
     },
     {}
   ],
-  "alumni": "No"
+  "alumni": "No",
+  "avatar_url": "https://avatars1.githubusercontent.com/u/2977066?v=4"
 }

@@ -46,9 +46,10 @@ p {
 
 .profile-photo {
   position: absolute;
-  top: 5rem;
+  top: 20rem;
   width: 30%;
   height: auto;
+  border-radius: 500rem;
 }
 
 .logo-list {

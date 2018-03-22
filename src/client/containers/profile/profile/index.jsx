@@ -8,7 +8,7 @@ export default class Profile extends Component {
       <div>
         <h2 className="profile-name">{this.props.info.name}</h2>
         <div className="">
-          <img src={this.props.info.avatar_url} alt="Profile picture" />
+          <img className="profile-photo" src={this.props.info.avatar_url} alt="Profile picture" />
           <Blurb className="" info={this.props.info} />
         </div>
         <ul className="logo-list">

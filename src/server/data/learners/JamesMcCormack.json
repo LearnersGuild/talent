@@ -1,0 +1,64 @@
+{
+  "specialty": "Full stack",
+  "github_handle": "Framinus",
+  "linkedin_profile": "james-mccormack-185b0a99",
+  "twitter": "jamesinbrevity",
+  "name": "James McCormack",
+  "story": "",
+  "projects": [
+    {
+      "link": "https://roam-travel-site@herokuapp.com",
+      "title": "LearnerProjectImages/roam-new-teaser - James McCormack.png"
+    },
+    {
+      "link": "https://simon-teaser-2.jpg",
+      "title": "LearnerProjectImages/simon-teaser-2 - James McCormack.jpg"
+    },
+    {
+      "link": "https://old-oakland-books.png",
+      "title": "LearnerProjectImages/old-oakland-books - James McCormack.png"
+    }
+  ],
+  "skills": [
+    {
+      "skills": "Javascript"
+    },
+    {
+      "skills": "HTML"
+    },
+    {
+      "skills": "CSS"
+    },
+    {
+      "skills": "SQL"
+    },
+    {
+      "skills": "node.js"
+    },
+    {
+      "skills": "React"
+    },
+    {
+      "skills": "Mocha"
+    },
+    {
+      "skills": "Chai"
+    },
+    {
+      "skills": "Jest"
+    }
+  ],
+  "experience": [
+    {
+      "projects": "Technical Writing"
+    },
+    {
+      "projects": "Project Management"
+    },
+    {
+      "projects": "Design"
+    }
+  ],
+  "alumni": "No",
+  "avatar_url": "https://avatars0.githubusercontent.com/u/24632499?v=4"
+}

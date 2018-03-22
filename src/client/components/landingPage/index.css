@@ -23,8 +23,8 @@
 }
 
 .about-title-button {
-  background-color: #D44541;
-  border-color: #D44541;
+  background-color: rgb(12, 81, 94);
+  border-color: rgb(12, 81, 94);
   bottom: 25rem;
   color: #ffffff;
   font-size: 2rem;
@@ -112,9 +112,9 @@
 }
 
 .more-projects-button {
-  position: relative;
+  position: absolute;
   left: 70%;
-  top: -161rem;
+  top: 222rem;
   z-index: 1;
   background-color: rgb(11, 119, 122);
   border: solid;
@@ -147,7 +147,8 @@
   width: 50rem;
   font-size: 2rem;
   font-family: 'Open Sans';
-  left: -13.5%;
+  top: 3rem;
+  left: 47.25rem;
   transition: all 0.3s ease 0s;
 }
 

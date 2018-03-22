@@ -4,6 +4,7 @@
 }
 
 .learner-span > a > img {
-  width: 100%;
-  height: auto;
+  height: 40rem;
+  width: 40rem;
+  margin: 0 1rem;
 }
