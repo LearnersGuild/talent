@@ -119,6 +119,7 @@ p {
 .hire-learner-button:hover {
   background-color: rgb(223, 146, 8);
   color: white;
+  cursor: pointer;
 }
 
 @media only screen and (min-device-width: 375px) and (max-device-width: 667px) {

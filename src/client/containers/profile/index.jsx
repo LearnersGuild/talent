@@ -13,19 +13,13 @@ class ProfilePage extends Component {
     return this.props.guild.learners.filter(learner => learner.github_handle === githubHandle);
   }
 
-  handleClickLearners() {
-    // TODO: handle 'hire' button click with mailto
-  }
-
   render() {
     const githubHandle = this.props.match.url.replace(/\/learners\//, '');
     const selectedLearner = this.filterLearner(githubHandle)[0];
-    console.log((selectedLearner) ? 'yes' : 'no');
-
     return (
       <div>
         <TalentNavbar />
-        {selectedLearner ? (
+        { selectedLearner ? (
           <div className="container">
             <div className="header-img"></div>
             <div className="projects">
@@ -36,7 +30,11 @@ class ProfilePage extends Component {
                 </div>
               </div>
             </div>
-            <Profile github_handle={selectedLearner.github_handle} linkedin_profile={selectedLearner.linkedin_profile} twitter={selectedLearner.twitter} info={selectedLearner} />
+            <Profile
+              github_handle={selectedLearner.github_handle}
+              linkedin_profile={selectedLearner.linkedin_profile}
+              twitter={selectedLearner.twitter}
+              info={selectedLearner} />
             <div className="profile-info">
               <div className="profile-experiences">
                 <List type='projects' elements={selectedLearner.experience} />
@@ -46,7 +44,11 @@ class ProfilePage extends Component {
               </div>
             </div>
             <div className="row flex-center">
-              <button className="hire-learner-button" onClick={this.handleClickHire}>HIRE {selectedLearner.name.split(' ')[0]} TODAY</button>
+              <a href={`http://www.linkedin.com/in/${selectedLearner.linkedin_profile}`} target="__blank" >
+                <button className="hire-learner-button">
+                  HIRE {selectedLearner.name.split(' ')[0]} TODAY
+                </button>
+              </a>
             </div>
           </div>) : (<Redirect to="/PageNotFound" />) }
       </div>
