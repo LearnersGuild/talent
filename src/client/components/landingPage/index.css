@@ -104,7 +104,7 @@
 .teal-triangle2 {
   position: relative;
   top: -115rem;
-  left: 40.9rem;
+  left: 44rem;
   width: 100rem;
   height: 60rem;
   clip-path: polygon(100% 0, 100% 71%, 0 28%);
@@ -131,6 +131,7 @@
 .more-projects-button:hover {
   background-color: rgb(223, 146, 8);
   color: rgb(11, 119, 122);
+  cursor: pointer;
 }
 
 .landing-page-learners {
