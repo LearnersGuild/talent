@@ -156,6 +156,7 @@
 .more-learners-button:hover {
   background-color: rgb(83, 140, 1);
   color: white;
+  cursor: pointer;
 }
 
 @media only screen and (min-device-width: 375px) and (max-device-width: 667px) {

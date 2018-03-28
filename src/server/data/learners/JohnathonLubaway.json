@@ -7,11 +7,11 @@
   "story": "Ima coool doood",
   "projects": [
     {
-      "link": "bookstore-neojax.herokuapp.com",
+      "link": "https://learners-guild-book-store.herokuapp.com/",
       "title": "LearnerProjectImages/Talent - Johnathon Lubaway.png"
     },
     {
-      "link": "https://github.com/LearnersGuild/talent",
+      "link": "https://bookstore-neojax.herokuapp.com",
       "title": "LearnerProjectImages/Bookstore - Johnathon Lubaway.png"
     }
   ],
